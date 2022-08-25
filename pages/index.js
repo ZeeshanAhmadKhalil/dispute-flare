@@ -1,6 +1,12 @@
+import Dashboard from "@Screens/Dashboard/Dashboard"
+import MainLayout from "@Screens/Layouts/MainLayout/MainLayout"
 
-export default function Home() {
+function DashboardPage() {
   return (
-    <></>
+    <MainLayout>
+      <Dashboard />
+    </MainLayout>
   )
 }
+
+export default DashboardPage
