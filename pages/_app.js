@@ -15,6 +15,7 @@ function MyApp(props) {
 
   let theme = createTheme({
     palette: {
+      mode: 'dark',
       primary: {
         main: '#B2E323',
         contrastText: "#fff"

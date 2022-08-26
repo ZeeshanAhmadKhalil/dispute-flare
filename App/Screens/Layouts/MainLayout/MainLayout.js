@@ -4,6 +4,7 @@ import Header from './Components/Header/Header';
 import styles from './MainLayout.module.scss'
 import Box from '@mui/material/Box';
 import cls from 'classnames';
+import Sidebar from './Components/Sidebar/Sidebar';
 
 
 function MainLayout(props) {
@@ -23,17 +24,20 @@ function MainLayout(props) {
 
     return (
         <Box
+            sx={{ display: 'flex' }}
             className={cls(
                 styles.mainLayoutContainer,
                 `h-screen`,
-                `border-0 `,
-                `border-red-600`,
+                `border-red-700`, `border-0 `,
                 `bg-[url('/Assets/Images/background.png')]`,
                 `bg-cover`,
             )}
         >
             <Header />
-            {children}
+            <Sidebar />
+            <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+                {children}
+            </Box>
         </Box>
     )
 }

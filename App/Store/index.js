@@ -5,10 +5,12 @@ import storage from 'redux-persist/lib/storage'
 import { authApi } from '@Screens/Auth/Services/authApi'
 import auth from '@Screens/Auth/Store/authSlice'
 import shared from '@Screens/Shared/Store/sharedSlice'
+import layout from '@Screens/Layouts/Store/layoutSlice'
 
 const reducers = combineReducers({
-    shared,
     auth,
+    layout,
+    shared,
     [authApi.reducerPath]: authApi.reducer,
 });
 

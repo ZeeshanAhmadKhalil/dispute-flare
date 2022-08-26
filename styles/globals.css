@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.css-12i7wg6-MuiPaper-root-MuiDrawer-paper,
+.css-15b8vjn-MuiPaper-root-MuiDrawer-paper {
+    background: #ffffff11 !important;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
