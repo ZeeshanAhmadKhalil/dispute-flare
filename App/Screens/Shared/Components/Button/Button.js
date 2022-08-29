@@ -1,8 +1,7 @@
-import DeleteIcon from '@mui/icons-material/Delete';
 import { Button as MuiButton } from '@mui/material';
 import Stack from '@mui/material/Stack';
 import cls from 'classnames';
-import styles from './Buttom.module.scss'
+import styles from './Buttom.module.scss';
 
 function Button(props) {
 

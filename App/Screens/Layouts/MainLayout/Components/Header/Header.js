@@ -18,15 +18,16 @@ const drawerClosedWidth = 65;
 const AppBar = styled(MuiAppBar, {
     shouldForwardProp: (prop) => prop !== 'open',
 })(({ theme, open }) => ({
+    marginRight: drawerClosedWidth,
     zIndex: theme.zIndex.drawer + 1,
     transition: theme.transitions.create(['width', 'margin'], {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
     }),
-    width: `calc(100% - ${drawerClosedWidth}px)`,
+    width: `calc(100% - ${2 * drawerClosedWidth}px)`,
     ...(open && {
-        marginLeft: drawerWidth,
-        width: `calc(100% - ${drawerWidth}px)`,
+        marginLeft: drawerClosedWidth + drawerWidth,
+        width: `calc(100% - ${drawerClosedWidth + drawerWidth}px)`,
         transition: theme.transitions.create(['width', 'margin'], {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.enteringScreen,
@@ -45,20 +46,21 @@ export default function Header() {
     } = useSelector(state => state.auth)
     const {
         sidebar,
+        hoverSidebar,
     } = useSelector(state => state.layout)
 
     return (
         <AppBar
             className={cls(
                 styles.customAppBar,
-                `border-red-600`, 'border-0',
+                `border-red-600`, 'border-2',
             )}
             position="fixed"
-            open={sidebar}
+            open={sidebar || hoverSidebar}
         >
             <Toolbar>
                 <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-                    {!sidebar &&
+                    {(!sidebar && !hoverSidebar) &&
                         <Image
                             width={75}
                             height={45}
@@ -69,7 +71,6 @@ export default function Header() {
                 <Box className='border-0' sx={{ flexGrow: 1 }} />
                 <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
                     <Button
-                        round={true}
                         color={"text"}
                         variant="text"
                         startIcon={
@@ -89,7 +90,6 @@ export default function Header() {
                         {name}
                     </Button>
                     <Button
-                        round={true}
                         color={"warning"}
                         startIcon={
                             <Image
@@ -106,7 +106,6 @@ export default function Header() {
                         Upgrade Package
                     </Button>
                     <Button
-                        round={true}
                         color={"secondary"}
                         icon={null}
                         style={{

@@ -5,6 +5,8 @@ import styles from './MainLayout.module.scss'
 import Box from '@mui/material/Box';
 import cls from 'classnames';
 import Sidebar from './Components/Sidebar/Sidebar';
+import HoverSidebar from './Components/Sidebar/HoverSidebar';
+import RightBar from './Components/RightBar/RightBar';
 
 
 function MainLayout(props) {
@@ -35,6 +37,8 @@ function MainLayout(props) {
         >
             <Header />
             <Sidebar />
+            <HoverSidebar />
+            <RightBar />
             <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
                 {children}
             </Box>
