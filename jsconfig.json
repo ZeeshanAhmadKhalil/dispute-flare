@@ -26,14 +26,14 @@
             "@Config/*": [
                 "App/Config/*",
             ],
-            "@Screens/*": [
-                "App/Screens/*",
+            "@Components/*": [
+                "App/Screens/Shared/Components/*",
             ],
             "@Layouts/*": [
                 "App/Screens/Layouts/*",
             ],
-            "@Components/*": [
-                "App/Screens/Shared/Components/*",
+            "@Screens/*": [
+                "App/Screens/*",
             ],
             "@Store/*": [
                 "App/Store/*",

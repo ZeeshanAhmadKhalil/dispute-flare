@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import cls from 'classnames';
+import TitleHeader from '@Components/TitleHeader/TitleHeader';
 
 function Clients(props) {
 
@@ -14,17 +15,7 @@ function Clients(props) {
     }, [])
 
     return (
-        <div
-            className={cls(
-                `flex`,
-                `h-full`,
-                `border-blue-700`, `border-0`,
-                `justify-center`,
-                `items-center`
-            )}
-        >
-            <span style={{ color: '#000', fontSize: 50, fontWeight: 'bold' }}>Clients</span>
-        </div>
+        <TitleHeader />
     )
 }
 

@@ -30,7 +30,8 @@ const WrapperBox = styled(MuiBox)(() => ({
 
 const BottomBtnsBox = styled(MuiBox)(() => ({
     position: 'fixed',
-    bottom: 20
+    bottom: 20,
+    width: 62,
 }));
 
 function RenderListItems() {

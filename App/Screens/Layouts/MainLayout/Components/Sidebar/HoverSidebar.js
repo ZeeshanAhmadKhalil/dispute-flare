@@ -14,11 +14,12 @@ import { setHoverSideBar, setSideBar } from '@Screens/Layouts/Store/layoutSlice'
 import cls from 'classnames';
 import Image from 'next/image';
 import logo from 'public/Assets/Images/logo.png';
-import downArrow from 'public/Assets/Svgs/down-arrow.svg';
-import yummyBurger from 'public/Assets/Svgs/yummy-burger.svg';
+import DownArrow from 'public/Assets/Svgs/down-arrow.svg';
+import YummyBurger from 'public/Assets/Svgs/yummy-burger.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import AffilateButtom from './AffilateButtom';
 import styles from './Sidebar.module.scss';
+import SidebarItem from './SidebarItem';
 
 // let closeHoverSidebarTimeout = null
 
@@ -45,51 +46,20 @@ function HoverSidebar() {
                 type,
                 displayName,
                 icon,
-                collapsable
+                collapsable,
+                path,
             } = item || {}
 
             return (
                 <div key={key}>
                     {type == "menu-item" &&
-                        <ListItem disablePadding sx={{ display: 'block' }}>
-                            <ListItemButton
-                                sx={{
-                                    minHeight: 48,
-                                    justifyContent: hoverSidebar ? 'initial' : 'center',
-                                    px: 2.5,
-                                }}
-                            >
-                                <ListItemIcon
-                                    sx={{
-                                        minWidth: 0,
-                                        mr: hoverSidebar ? 3 : 'auto',
-                                        justifyContent: 'center',
-                                    }}
-                                >
-                                    <Image
-                                        width={20}
-                                        height={20}
-                                        src={icon}
-                                    />
-                                </ListItemIcon>
-                                <ListItemText primary={displayName} sx={{ opacity: hoverSidebar ? 1 : 0 }} />
-                                {(hoverSidebar && collapsable) &&
-                                    <ListItemIcon
-                                        sx={{
-                                            minWidth: 0,
-                                            mr: hoverSidebar ? 3 : 'auto',
-                                            justifyContent: 'center',
-                                        }}
-                                    >
-                                        <Image
-                                            width={10}
-                                            height={10}
-                                            src={downArrow}
-                                        />
-                                    </ListItemIcon>
-                                }
-                            </ListItemButton>
-                        </ListItem>
+                        <SidebarItem
+                            hoverSidebarItem
+                            path={path}
+                            icon={icon}
+                            displayName={displayName}
+                            collapsable={collapsable}
+                        />
                     }
                 </div>
             )
@@ -154,10 +124,9 @@ function HoverSidebar() {
                                     dispatch(setSideBar(true))
                                 }}
                             >
-                                <Image
+                                <YummyBurger
                                     width={20}
                                     height={20}
-                                    src={yummyBurger}
                                 />
                             </IconButton>
                             {hoverSidebar &&

@@ -27,11 +27,7 @@ function RightBarItem(props) {
                         justifyContent: 'center',
                     }}
                 >
-                    <Image
-                        width={35}
-                        height={35}
-                        src={icon}
-                    />
+                    {icon}
                 </ListItemIcon>
             </ListItemButton>
         </ListItem>

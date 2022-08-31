@@ -17,13 +17,20 @@ function Button(props) {
     return (
         <Stack direction="row" spacing={2}>
             <MuiButton
-                className={cls(styles.customButton)}
+                className={cls(
+                    ...styles.customButton,
+                )}
                 color={color}
                 variant={variant}
                 startIcon={startIcon}
                 endIcon={endIcon}
-                style={{ ...style }}
-                disableRipple
+                style={{ ...style, }}
+                sx={{
+                    "&:hover": {
+                        backgroundColor: `${color}.hovered`,
+                    },
+                    textTransform: `none`
+                }}
             >
                 {children}
             </MuiButton>

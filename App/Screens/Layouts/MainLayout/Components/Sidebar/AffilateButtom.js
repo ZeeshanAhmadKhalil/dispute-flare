@@ -1,9 +1,8 @@
+import Button from '@Components/Button/Button';
 import { drawerClosedWidth, drawerWidth } from '@Config/constants';
 import { Box } from '@mui/material';
-import Button from '@Screens/Shared/Components/Button/Button';
 import cls from 'classnames';
-import Image from 'next/image';
-import becomeAnAffilate from 'public/Assets/Svgs/become-an-affilate.svg';
+import BecomeAnAffilate from 'public/Assets/Svgs/become-an-affilate.svg';
 import { useSelector } from 'react-redux';
 import styles from './AffilateButton.module.scss';
 
@@ -33,12 +32,11 @@ function AffilateButtom(props) {
         >
             {(sidebar || isHoverSidebar) ?
                 <Button
-                    color={"infoLight"}
+                    color={"lightPink"}
                     startIcon={
-                        <Image
+                        <BecomeAnAffilate
                             width={20}
                             height={20}
-                            src={becomeAnAffilate}
                         />
                     }
                     style={{
@@ -49,10 +47,9 @@ function AffilateButtom(props) {
                     {"Become an Affilate"}
                 </Button>
                 :
-                <Image
-                    width={35}
-                    height={35}
-                    src={becomeAnAffilate}
+                <BecomeAnAffilate
+                    width={33}
+                    height={33}
                 />
             }
         </Box>

@@ -62,6 +62,7 @@ function MainLayout(props) {
                 sx={{ flexGrow: 1, }}
                 className={cls(
                     `border-red-700`, `border-0`,
+                    `px-4`,
                 )}
             >
                 {children}

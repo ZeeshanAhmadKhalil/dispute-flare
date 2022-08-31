@@ -1,49 +1,74 @@
-import calendar from 'public/Assets/Svgs/calendar.svg'
-import clients from 'public/Assets/Svgs/clients.svg'
-import creditor from 'public/Assets/Svgs/creditor.svg'
-import dashboard from 'public/Assets/Svgs/dashboard.svg'
-import letterLibrary from 'public/Assets/Svgs/letter-library.svg'
-import others from 'public/Assets/Svgs/others.svg'
-import bell from 'public/Assets/Svgs/bell.svg'
-import calendarDone from 'public/Assets/Svgs/calendar-done.svg'
-import cards from 'public/Assets/Svgs/cards.svg'
-import chat from 'public/Assets/Svgs/chat.svg'
-import doubleChat from 'public/Assets/Svgs/double-chat.svg'
-import graph from 'public/Assets/Svgs/graph.svg'
-import helpLine from 'public/Assets/Svgs/help-line.svg'
-import playOnTv from 'public/Assets/Svgs/play-on-tv.svg'
-import stack from 'public/Assets/Svgs/stack.svg'
-import question from 'public/Assets/Svgs/question.svg'
+import Calendar from 'public/Assets/Svgs/calendar.svg'
+import Clients from 'public/Assets/Svgs/clients.svg'
+import Creditor from 'public/Assets/Svgs/creditor.svg'
+import Dashboard from 'public/Assets/Svgs/dashboard.svg'
+import LetterLibrary from 'public/Assets/Svgs/letter-library.svg'
+import Others from 'public/Assets/Svgs/others.svg'
+import Bell from 'public/Assets/Svgs/bell.svg'
+import CalendarDone from 'public/Assets/Svgs/calendar-done.svg'
+import Cards from 'public/Assets/Svgs/cards.svg'
+import Chat from 'public/Assets/Svgs/chat.svg'
+import DoubleChat from 'public/Assets/Svgs/double-chat.svg'
+import Graph from 'public/Assets/Svgs/graph.svg'
+import HelpLine from 'public/Assets/Svgs/help-line.svg'
+import PlayOnTv from 'public/Assets/Svgs/play-on-tv.svg'
+import Stack from 'public/Assets/Svgs/stack.svg'
+import Question from 'public/Assets/Svgs/question.svg'
 
 const sidebarRoutes = [
     {
         type: "menu-item",
         displayName: "Dashboard",
-        icon: dashboard,
+        icon: (
+            <Dashboard
+                width={22}
+                height={22}
+            />
+        ),
         path: '/'
     },
     {
         type: "menu-item",
         displayName: "Clients",
-        icon: clients,
+        icon: (
+            <Clients
+                width={22}
+                height={22}
+            />
+        ),
         path: '/clients'
     },
     {
         type: "menu-item",
         displayName: "Letter Library",
-        icon: letterLibrary,
+        icon: (
+            <LetterLibrary
+                width={22}
+                height={22}
+            />
+        ),
         path: '/letter-library'
     },
     {
         type: "menu-item",
         displayName: "Calender",
-        icon: calendar,
+        icon: (
+            <Calendar
+                width={22}
+                height={22}
+            />
+        ),
         path: '/calender'
     },
     {
         type: "menu-item",
         displayName: "Creditor",
-        icon: creditor,
+        icon: (
+            <Creditor
+                width={22}
+                height={22}
+            />
+        ),
         path: '/creditor'
     },
     {
@@ -52,7 +77,12 @@ const sidebarRoutes = [
     {
         type: "menu-item",
         displayName: "Others",
-        icon: others,
+        icon: (
+            <Others
+                width={25}
+                height={25}
+            />
+        ),
         collapsable: true,
         path: '/others'
     },
@@ -61,43 +91,93 @@ const sidebarRoutes = [
 const rightbarRoutes = [
     {
         type: "button",
-        icon: question,
+        icon: (
+            <Question
+                width={35}
+                height={35}
+            />
+        ),
     },
     {
         type: "button",
-        icon: playOnTv,
+        icon: (
+            <PlayOnTv
+                width={35}
+                height={35}
+            />
+        ),
     },
     {
         type: "button",
-        icon: bell,
+        icon: (
+            <Bell
+                width={35}
+                height={35}
+            />
+        ),
     },
     {
         type: "button",
-        icon: chat,
+        icon: (
+            <Chat
+                width={35}
+                height={35}
+            />
+        ),
     },
     {
         type: "button",
-        icon: calendarDone,
+        icon: (
+            <CalendarDone
+                width={35}
+                height={35}
+            />
+        ),
     },
     {
         type: "wrapped-button",
-        icon: stack,
+        icon: (
+            <Stack
+                width={35}
+                height={35}
+            />
+        ),
     },
     {
         type: "wrapped-button",
-        icon: cards,
+        icon: (
+            <Cards
+                width={35}
+                height={35}
+            />
+        ),
     },
     {
         type: "wrapped-button",
-        icon: graph,
+        icon: (
+            <Graph
+                width={35}
+                height={35}
+            />
+        ),
     },
     {
         type: "bottom-button",
-        icon: helpLine,
+        icon: (
+            <HelpLine
+                width={35}
+                height={35}
+            />
+        ),
     },
     {
         type: "bottom-button",
-        icon: doubleChat,
+        icon: (
+            <DoubleChat
+                width={35}
+                height={35}
+            />
+        ),
     },
 ]
 

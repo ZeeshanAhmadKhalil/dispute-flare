@@ -14,32 +14,47 @@ function MyApp(props) {
 
 
   let theme = createTheme({
+    typography: {
+      fontFamily: 'Segoe UI Emoji'
+    },
     palette: {
       mode: 'dark',
       primary: {
         main: '#B2E323',
-        contrastText: "#fff"
+        contrastText: "#fff",
+        hovered: "#7C9E18"
       },
       secondary: {
         main: '#00428E',
-        contrastText: "#fff"
+        contrastText: "#fff",
+        hovered: "#002E63",
       },
       warning: {
         main: '#EBA51C',
-        contrastText: "#fff"
+        contrastText: "#fff",
+        hovered: "#A47313",
       },
-      info: {
+      pink: {
         main: '#D14CC3',
-        contrastText: "#fff"
+        contrastText: "#fff",
+        hovered: '#b229a2',
       },
-      infoLight: {
+      lightPink: {
         main: '#A182D6',
-        contrastText: "#fff"
+        contrastText: "#fff",
+        hovered: '#8d6ac9',
       },
       text: {
         main: '#fff',
-        contrastText: "#000"
+        contrastText: "#000",
+        hovered: '#fff1',
       },
+      transWhite: {
+        main: "#ffffff4c",
+      },
+      borders: {
+        main: "#9EB6D3"
+      }
     },
   });
 

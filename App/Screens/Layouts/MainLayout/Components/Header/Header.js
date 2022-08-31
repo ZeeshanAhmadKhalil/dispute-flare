@@ -9,7 +9,7 @@ import Toolbar from '@mui/material/Toolbar';
 import cls from 'classnames';
 import Image from 'next/image';
 import logo from 'public/Assets/Images/logo.png';
-import upgrade from 'public/Assets/Svgs/upgrade.svg';
+import Upgrade from 'public/Assets/Svgs/upgrade.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './Header.module.scss';
 
@@ -17,6 +17,7 @@ import styles from './Header.module.scss';
 const AppBar = styled(MuiAppBar, {
     shouldForwardProp: (prop) => prop !== 'open',
 })(({ theme, open }) => ({
+    paddingRight: 0,
     marginRight: drawerClosedWidth,
     zIndex: theme.zIndex.drawer + 1,
     transition: theme.transitions.create(['width', 'margin'], {
@@ -26,7 +27,7 @@ const AppBar = styled(MuiAppBar, {
     width: `calc(100% - ${2 * drawerClosedWidth}px)`,
     ...(open && {
         marginLeft: drawerClosedWidth + drawerWidth,
-        width: `calc(100% - ${drawerClosedWidth + drawerWidth}px)`, 
+        width: `calc(100% - ${drawerClosedWidth + drawerWidth}px)`,
         transition: theme.transitions.create(['width', 'margin'], {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.enteringScreen,
@@ -53,6 +54,7 @@ export default function Header() {
             className={cls(
                 styles.customAppBar,
                 `border-red-600`, 'border-0',
+                `pr-0`
             )}
             position="fixed"
             open={sidebar || hoverSidebar}
@@ -91,8 +93,7 @@ export default function Header() {
                     <Button
                         color={"warning"}
                         startIcon={
-                            <Image
-                                src={upgrade}
+                            <Upgrade
                                 height={25}
                                 width={25}
                             />

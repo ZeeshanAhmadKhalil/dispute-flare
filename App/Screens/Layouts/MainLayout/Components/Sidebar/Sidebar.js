@@ -4,22 +4,17 @@ import Divider from '@mui/material/Divider';
 import MuiDrawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
 import { styled } from '@mui/material/styles';
 import MuiBox from '@mui/system/Box';
 import { setHoverSideBar, setSideBar } from '@Screens/Layouts/Store/layoutSlice';
 import cls from 'classnames';
 import Image from 'next/image';
-import Link from 'next/link';
 import logo from 'public/Assets/Images/logo.png';
-import downArrow from 'public/Assets/Svgs/down-arrow.svg';
-import yummyBurger from 'public/Assets/Svgs/yummy-burger.svg';
+import YummyBurger from 'public/Assets/Svgs/yummy-burger.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import AffilateButtom from './AffilateButtom';
 import styles from './HoverSidebar.module.scss';
+import SidebarItem from './SidebarItem';
 
 let openHoverSidebarTimeout = null
 
@@ -121,47 +116,12 @@ function Sidebar() {
             return (
                 <div key={key}>
                     {type == "menu-item" &&
-                        <Link href={path}>
-                            <ListItem disablePadding sx={{ display: 'block' }}>
-                                <ListItemButton
-                                    sx={{
-                                        minHeight: 48,
-                                        justifyContent: sidebar ? 'initial' : 'center',
-                                        px: 2.5,
-                                    }}
-                                >
-                                    <ListItemIcon
-                                        sx={{
-                                            minWidth: 0,
-                                            mr: sidebar ? 3 : 'auto',
-                                            justifyContent: 'center',
-                                        }}
-                                    >
-                                        <Image
-                                            width={20}
-                                            height={20}
-                                            src={icon}
-                                        />
-                                    </ListItemIcon>
-                                    <ListItemText primary={displayName} sx={{ opacity: sidebar ? 1 : 0 }} />
-                                    {(sidebar && collapsable) &&
-                                        <ListItemIcon
-                                            sx={{
-                                                minWidth: 0,
-                                                mr: sidebar ? 3 : 'auto',
-                                                justifyContent: 'center',
-                                            }}
-                                        >
-                                            <Image
-                                                width={10}
-                                                height={10}
-                                                src={downArrow}
-                                            />
-                                        </ListItemIcon>
-                                    }
-                                </ListItemButton>
-                            </ListItem>
-                        </Link>
+                        <SidebarItem
+                            path={path}
+                            icon={icon}
+                            displayName={displayName}
+                            collapsable={collapsable}
+                        />
                     }
                 </div>
             )
@@ -214,10 +174,9 @@ function Sidebar() {
                                 dispatch(setSideBar(!sidebar))
                             }}
                         >
-                            <Image
+                            <YummyBurger
                                 width={20}
                                 height={20}
-                                src={}
                             />
                         </IconButton>
                         {sidebar &&
