@@ -1,4 +1,5 @@
-import routes from '@Config/routes';
+import { drawerWidth } from '@Config/constants';
+import { sidebarRoutes } from '@Config/routes';
 import { IconButton } from '@mui/material';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
@@ -19,7 +20,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import AffilateButtom from './AffilateButtom';
 import styles from './Sidebar.module.scss';
 
-const drawerWidth = 240;
 // let closeHoverSidebarTimeout = null
 
 const DrawerHeader = styled('div')(({ theme }) => ({
@@ -39,7 +39,7 @@ function HoverSidebar() {
     } = useSelector(state => state.layout)
 
     function RenderListItems() {
-        return routes.map((item, key) => {
+        return sidebarRoutes.map((item, key) => {
 
             const {
                 type,

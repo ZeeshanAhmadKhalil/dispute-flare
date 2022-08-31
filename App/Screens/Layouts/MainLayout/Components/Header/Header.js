@@ -1,5 +1,6 @@
 import Avatar from '@Components/Avatar/Avatar';
 import Button from '@Components/Button/Button';
+import { drawerClosedWidth, drawerWidth } from '@Config/constants';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import MuiAppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -12,8 +13,6 @@ import upgrade from 'public/Assets/Svgs/upgrade.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './Header.module.scss';
 
-const drawerWidth = 240;
-const drawerClosedWidth = 65;
 
 const AppBar = styled(MuiAppBar, {
     shouldForwardProp: (prop) => prop !== 'open',
@@ -27,7 +26,7 @@ const AppBar = styled(MuiAppBar, {
     width: `calc(100% - ${2 * drawerClosedWidth}px)`,
     ...(open && {
         marginLeft: drawerClosedWidth + drawerWidth,
-        width: `calc(100% - ${drawerClosedWidth + drawerWidth}px)`,
+        width: `calc(100% - ${drawerClosedWidth + drawerWidth}px)`, 
         transition: theme.transitions.create(['width', 'margin'], {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.enteringScreen,
@@ -53,7 +52,7 @@ export default function Header() {
         <AppBar
             className={cls(
                 styles.customAppBar,
-                `border-red-600`, 'border-2',
+                `border-red-600`, 'border-0',
             )}
             position="fixed"
             open={sidebar || hoverSidebar}

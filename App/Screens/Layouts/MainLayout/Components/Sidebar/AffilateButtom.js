@@ -1,3 +1,4 @@
+import { drawerClosedWidth, drawerWidth } from '@Config/constants';
 import { Box } from '@mui/material';
 import Button from '@Screens/Shared/Components/Button/Button';
 import cls from 'classnames';
@@ -7,9 +8,6 @@ import { useSelector } from 'react-redux';
 import styles from './AffilateButton.module.scss';
 
 function AffilateButtom(props) {
-
-    const drawerWidth = 240;
-    const drawerClosedWidth = 65;
 
     const {
         isHoverSidebar,

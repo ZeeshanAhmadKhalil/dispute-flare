@@ -1,4 +1,5 @@
-import routes from '@Config/routes';
+import { drawerWidth } from '@Config/constants';
+import { sidebarRoutes } from '@Config/routes';
 import Divider from '@mui/material/Divider';
 import MuiDrawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
@@ -12,6 +13,7 @@ import MuiBox from '@mui/system/Box';
 import { setHoverSideBar, setSideBar } from '@Screens/Layouts/Store/layoutSlice';
 import cls from 'classnames';
 import Image from 'next/image';
+import Link from 'next/link';
 import logo from 'public/Assets/Images/logo.png';
 import downArrow from 'public/Assets/Svgs/down-arrow.svg';
 import yummyBurger from 'public/Assets/Svgs/yummy-burger.svg';
@@ -19,7 +21,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import AffilateButtom from './AffilateButtom';
 import styles from './HoverSidebar.module.scss';
 
-const drawerWidth = 240;
 let openHoverSidebarTimeout = null
 
 const openedMixin = (theme) => ({
@@ -107,41 +108,28 @@ function Sidebar() {
     } = useSelector(state => state.layout)
 
     function RenderListItems() {
-        return routes.map((item, key) => {
+        return sidebarRoutes.map((item, key) => {
 
             const {
                 type,
                 displayName,
                 icon,
-                collapsable
+                collapsable,
+                path,
             } = item || {}
 
             return (
                 <div key={key}>
                     {type == "menu-item" &&
-                        <ListItem disablePadding sx={{ display: 'block' }}>
-                            <ListItemButton
-                                sx={{
-                                    minHeight: 48,
-                                    justifyContent: sidebar ? 'initial' : 'center',
-                                    px: 2.5,
-                                }}
-                            >
-                                <ListItemIcon
+                        <Link href={path}>
+                            <ListItem disablePadding sx={{ display: 'block' }}>
+                                <ListItemButton
                                     sx={{
-                                        minWidth: 0,
-                                        mr: sidebar ? 3 : 'auto',
-                                        justifyContent: 'center',
+                                        minHeight: 48,
+                                        justifyContent: sidebar ? 'initial' : 'center',
+                                        px: 2.5,
                                     }}
                                 >
-                                    <Image
-                                        width={20}
-                                        height={20}
-                                        src={icon}
-                                    />
-                                </ListItemIcon>
-                                <ListItemText primary={displayName} sx={{ opacity: sidebar ? 1 : 0 }} />
-                                {(sidebar && collapsable) &&
                                     <ListItemIcon
                                         sx={{
                                             minWidth: 0,
@@ -150,14 +138,30 @@ function Sidebar() {
                                         }}
                                     >
                                         <Image
-                                            width={10}
-                                            height={10}
-                                            src={downArrow}
+                                            width={20}
+                                            height={20}
+                                            src={icon}
                                         />
                                     </ListItemIcon>
-                                }
-                            </ListItemButton>
-                        </ListItem>
+                                    <ListItemText primary={displayName} sx={{ opacity: sidebar ? 1 : 0 }} />
+                                    {(sidebar && collapsable) &&
+                                        <ListItemIcon
+                                            sx={{
+                                                minWidth: 0,
+                                                mr: sidebar ? 3 : 'auto',
+                                                justifyContent: 'center',
+                                            }}
+                                        >
+                                            <Image
+                                                width={10}
+                                                height={10}
+                                                src={downArrow}
+                                            />
+                                        </ListItemIcon>
+                                    }
+                                </ListItemButton>
+                            </ListItem>
+                        </Link>
                     }
                 </div>
             )
@@ -213,7 +217,7 @@ function Sidebar() {
                             <Image
                                 width={20}
                                 height={20}
-                                src={yummyBurger}
+                                src={}
                             />
                         </IconButton>
                         {sidebar &&

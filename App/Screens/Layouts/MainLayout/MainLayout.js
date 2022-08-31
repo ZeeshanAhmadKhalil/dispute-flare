@@ -1,13 +1,31 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import Header from './Components/Header/Header';
-import styles from './MainLayout.module.scss'
-import Box from '@mui/material/Box';
+import {
+    drawerClosedWidth,
+    drawerWidth,
+    headerHeight
+} from '@Config/constants';
+import styled from '@emotion/styled';
+import { CssBaseline } from '@mui/material';
+import MuiBox from '@mui/material/Box';
 import cls from 'classnames';
-import Sidebar from './Components/Sidebar/Sidebar';
-import HoverSidebar from './Components/Sidebar/HoverSidebar';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import Header from './Components/Header/Header';
 import RightBar from './Components/RightBar/RightBar';
+import HoverSidebar from './Components/Sidebar/HoverSidebar';
+import Sidebar from './Components/Sidebar/Sidebar';
+import styles from './MainLayout.module.scss';
 
+let ContentBox = styled(MuiBox, {
+    shouldForwardProp: (prop) => prop !== 'open',
+})(({ theme, open }) => ({
+    marginTop: headerHeight,
+    marginRight: drawerClosedWidth,
+    transition: theme.transitions.create('margin', {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.enteringScreen,
+    }),
+    marginLeft: open ? drawerWidth : drawerClosedWidth,
+}))
 
 function MainLayout(props) {
 
@@ -15,17 +33,15 @@ function MainLayout(props) {
         children
     } = props
 
-    const dispatch = useDispatch()
-
-    const { } = useSelector(state => state.shared)
-
-    const [state, setState] = useState(null)
+    const {
+        sidebar,
+    } = useSelector(state => state.layout)
 
     useEffect(() => {
     }, [])
 
     return (
-        <Box
+        <MuiBox
             sx={{ display: 'flex' }}
             className={cls(
                 styles.mainLayoutContainer,
@@ -35,14 +51,22 @@ function MainLayout(props) {
                 `bg-cover`,
             )}
         >
+            <CssBaseline />
             <Header />
             <Sidebar />
             <HoverSidebar />
             <RightBar />
-            <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+            <ContentBox
+                open={sidebar}
+                component="main"
+                sx={{ flexGrow: 1, }}
+                className={cls(
+                    `border-red-700`, `border-0`,
+                )}
+            >
                 {children}
-            </Box>
-        </Box>
+            </ContentBox>
+        </MuiBox>
     )
 }
 
