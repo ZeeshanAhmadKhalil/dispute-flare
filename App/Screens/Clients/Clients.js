@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import cls from 'classnames';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
+import Table from '@Components/Table/Table';
 
 function Clients(props) {
 
@@ -15,7 +16,10 @@ function Clients(props) {
     }, [])
 
     return (
-        <TitleHeader />
+        <>
+            <TitleHeader />
+            <Table />
+        </>
     )
 }
 

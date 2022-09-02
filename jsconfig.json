@@ -26,6 +26,9 @@
             "@Config/*": [
                 "App/Config/*",
             ],
+            "@Hooks/*": [
+                "App/Hooks/*",
+            ],
             "@Components/*": [
                 "App/Screens/Shared/Components/*",
             ],

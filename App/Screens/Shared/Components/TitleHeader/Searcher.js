@@ -8,6 +8,7 @@ import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
 import MuiBox from '@mui/material/Box';
 import { useState } from 'react';
+import useWidth from 'App/Hooks/useWidth';
 
 const Box = styled(MuiBox, {
     shouldForwardProp: (prop) => prop !== 'query',
@@ -24,6 +25,8 @@ const Box = styled(MuiBox, {
 
 function Searcher() {
 
+    const matched = useWidth('xl <')
+
     const [query, setQuery] = useState('')
 
     return (
@@ -33,7 +36,7 @@ function Searcher() {
                 p: '2px 4px',
                 display: 'flex',
                 alignItems: 'center',
-                width: 400,
+                width: matched ? 230 : 400,
                 backgroundColor: 'transWhite.main',
                 height: 40,
                 mr: 1,

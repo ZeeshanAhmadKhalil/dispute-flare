@@ -8,16 +8,13 @@ function Avatar(props) {
     } = props
 
     const {
-        user: {
-            name = "",
-            pfp = null,
-        }
-    } = useSelector(state => state.auth)
+        user
+    } = useSelector(state => state.auth) || {}
 
     return (
         <MuiAvatar
-            alt={name}
-            src={pfp}
+            alt={user?.name}
+            src={user?.pfp}
             sx={{ ...styles }}
         />
     );

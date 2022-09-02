@@ -40,10 +40,8 @@ export default function Header() {
     const dispatch = useDispatch()
 
     const {
-        user: {
-            name = "",
-        }
-    } = useSelector(state => state.auth)
+        user
+    } = useSelector(state => state.auth) || {}
     const {
         sidebar,
         hoverSidebar,
@@ -88,7 +86,7 @@ export default function Header() {
                             marginRight: 40,
                         }}
                     >
-                        {name}
+                        {user?.name}
                     </Button>
                     <Button
                         color={"warning"}

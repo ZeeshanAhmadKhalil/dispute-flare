@@ -7,6 +7,11 @@ import styles from './TitleHeader.module.scss';
 import Button from '@Components/Button/Button';
 import Gear from 'public/Assets/Svgs/gear.svg';
 import Searcher from './Searcher';
+import DeleteIcon from '@mui/icons-material/Delete';
+import FileUploadIcon from '@mui/icons-material/FileUpload';
+import AddIcon from '@mui/icons-material/Add';
+import Thunder from 'public/Assets/Svgs/thunder.svg'
+
 
 function TitleHeader(props) {
 
@@ -68,6 +73,7 @@ function TitleHeader(props) {
                     )}
                 >
                     <Button
+                        iconOnSmall={<FileUploadIcon />}
                         color={"primary"}
                         startIcon={null}
                         style={{
@@ -78,6 +84,7 @@ function TitleHeader(props) {
                         IMPORT CLIENTS
                     </Button>
                     <Button
+                        iconOnSmall={<AddIcon />}
                         color={"lightPink"}
                         startIcon={null}
                         style={{
@@ -88,6 +95,12 @@ function TitleHeader(props) {
                         NEW CLIENT
                     </Button>
                     <Button
+                        iconOnSmall={(
+                            <Thunder
+                                width={22}
+                                height={22}
+                            />
+                        )}
                         color={"pink"}
                         startIcon={null}
                         style={{
@@ -98,6 +111,7 @@ function TitleHeader(props) {
                         DISPUTE
                     </Button>
                     <Button
+                        iconOnSmall={<DeleteIcon />}
                         color={"warning"}
                         startIcon={null}
                         style={{
