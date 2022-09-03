@@ -3,11 +3,13 @@ import { combineReducers } from "redux"
 import { persistReducer } from 'redux-persist'
 import { authApi } from '@Screens/Auth/Services/authApi'
 import auth from '@Screens/Auth/Store/authSlice'
+import clients from '@Screens/Clients/Store/clientsSlice'
 import shared from '@Screens/Shared/Store/sharedSlice'
 import layout from '@Screens/Layouts/Store/layoutSlice'
 import storage from '@Store/storage'
 
 const reducers = combineReducers({
+    clients,
     auth,
     layout,
     shared,

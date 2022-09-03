@@ -44,12 +44,16 @@ let theme = createTheme({
             main: '#fff',
             contrastText: "#000",
             hovered: '#fff1',
+            grey: "#5F6163",
         },
         transWhite: {
             main: "#ffffff4c",
         },
         borders: {
             main: "#9EB6D3"
+        },
+        tableBody: {
+            main: "#ffffffcc"
         }
     },
 });
