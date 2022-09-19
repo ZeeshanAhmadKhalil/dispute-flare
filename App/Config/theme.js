@@ -15,6 +15,15 @@ let theme = createTheme({
     },
     palette: {
         mode: 'dark',
+        icon: {
+            active: "#000",
+            inactive: "#707070",
+            lightActive: "#ACADAF",
+        },
+        checkbox: {
+            checked: "#37D667",
+            unchecked: "#A4A7AB",
+        },
         primary: {
             main: '#B2E323',
             contrastText: "#fff",
@@ -50,11 +59,17 @@ let theme = createTheme({
             main: "#ffffff4c",
         },
         borders: {
-            main: "#9EB6D3"
+            main: "#9EB6D3",
+        },
+        tableHeader: {
+            main: "#F5F8FA"
+        },
+        tableSeparator: {
+            main: "#D1D6DC"
         },
         tableBody: {
             main: "#ffffffcc"
-        }
+        },
     },
 });
 

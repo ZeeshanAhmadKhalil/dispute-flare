@@ -1,26 +1,24 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import cls from 'classnames';
-import TitleHeader from '@Components/TitleHeader/TitleHeader';
 import Table from '@Components/Table/Table';
+import TitleHeader from '@Components/TitleHeader/TitleHeader';
+import { useEffect } from 'react';
 
 function Clients(props) {
 
     const columns = [
         { field: 'id', headerName: 'ID', width: 200, hide: true },
-        { field: 'clientName', headerName: 'Client Name', width: 200, headerClassName: 'custom-header', },
-        { field: 'email', headerName: 'Email', width: 200, headerClassName: 'custom-header', },
-        { field: 'mobile', headerName: 'Mobile', width: 200, headerClassName: 'custom-header', },
-        { field: 'assignedTo', headerName: 'Assigned To', width: 200, headerClassName: 'custom-header', },
-        { field: 'followUp', headerName: 'Follow Up', width: 200, headerClassName: 'custom-header', },
-        { field: 'lastLogin', headerName: 'Last Login', width: 200, headerClassName: 'custom-header', },
-        { field: 'status', headerName: 'Status', width: 200, headerClassName: 'custom-header', },
+        { field: 'clientName', headerName: 'Client Name', width: 200, headerClassName: 'separator-header', },
+        { field: 'email', headerName: 'Email', width: 200, headerClassName: 'separator-header', },
+        { field: 'mobile', headerName: 'Mobile', width: 200, headerClassName: 'separator-header', },
+        { field: 'assignedTo', headerName: 'Assigned To', width: 200, headerClassName: 'separator-header', },
+        { field: 'followUp', headerName: 'Follow Up', width: 200, headerClassName: 'separator-header', },
+        { field: 'lastLogin', headerName: 'Last Login', width: 200, headerClassName: 'separator-header', },
+        { field: 'status', headerName: 'Status', width: 200, },
     ];
 
     const clients = [
         {
             id: 1,
-            clientName: 'John H. Doe',
+            clientName: 'Zeeshan H. Doe',
             email: 'John@gmail.com',
             mobile: '(000) 000 - 0000',
             assignedTo: 'J Williasaom',
@@ -30,7 +28,7 @@ function Clients(props) {
         },
         {
             id: 2,
-            clientName: 'John H. Doe',
+            clientName: 'Hamza H. Doe',
             email: 'John@gmail.com',
             mobile: '(000) 000 - 0000',
             assignedTo: 'J Williasaom',
@@ -40,17 +38,7 @@ function Clients(props) {
         },
         {
             id: 3,
-            clientName: 'John H. Doe',
-            email: 'John@gmail.com',
-            mobile: '(000) 000 - 0000',
-            assignedTo: 'J Williasaom',
-            followUp: '12/02/2022',
-            lastLogin: 'June 22, 12:20 PM',
-            status: 'Active',
-        },
-        {
-            id: 4,
-            clientName: 'John H. Doe',
+            clientName: 'Khan H. Doe',
             email: 'John@gmail.com',
             mobile: '(000) 000 - 0000',
             assignedTo: 'J Williasaom',
