@@ -5,6 +5,7 @@ let theme = createTheme({
         values: {
             xs: 0,
             sm: 600,
+            xmd: 800,
             md: 900,
             lg: 1250,
             xl: 1400,
@@ -23,6 +24,7 @@ let theme = createTheme({
         checkbox: {
             checked: "#37D667",
             unchecked: "#A4A7AB",
+            checkBg: "#A3E2F9",
         },
         primary: {
             main: '#B2E323',
@@ -70,6 +72,9 @@ let theme = createTheme({
         tableBody: {
             main: "#ffffffcc"
         },
+        dialog: {
+            main: "#fff",
+        }
     },
 });
 

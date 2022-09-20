@@ -1,35 +1,39 @@
 import MuiCheckbox from '@mui/material/Checkbox';
 import { useTheme } from '@mui/material/styles';
+import { useState } from 'react';
 
 export default function CheckBox({
     props,
-    styles = {}
+    styles = {},
+    action,
 }) {
+
+    // console.log("props===>", props)
 
     const {
         checked: value,
-    } = props
+    } = props || {}
+
 
     const {
         palette: {
-            checkbox: {
-                checked,
-                unchecked,
-            }
+            checkbox,
         }
     } = useTheme()
 
     return (
         <MuiCheckbox
+            onChange={(event) => {
+                if (action)
+                    action(event.target.checked)
+            }}
+            checked={value}
             {...props}
             style={{
                 color: value ?
-                    checked
+                    checkbox.checked
                     :
-                    unchecked,
-            }}
-            sx={{
-                border: '1px splid red'
+                    checkbox.unchecked,
             }}
         />
     );

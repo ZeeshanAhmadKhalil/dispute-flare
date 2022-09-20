@@ -16,12 +16,16 @@ function Button(props) {
         variant = "contained",
         children,
         iconOnSmall,
+        disableElevation,
+        onClick,
     } = props || {}
 
     return (
         <Stack direction="row" spacing={2}>
             {(iconOnSmall && matches) ?
                 <IconButton
+                    onClick={onClick}
+                    disableElevation={disableElevation}
                     className={cls(
                         ...styles.customButton,
                     )}
@@ -42,6 +46,8 @@ function Button(props) {
                 </IconButton>
                 :
                 <MuiButton
+                    onClick={onClick}
+                    disableElevation={disableElevation}
                     className={cls(
                         ...styles.customButton,
                     )}

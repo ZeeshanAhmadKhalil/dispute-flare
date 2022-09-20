@@ -4,8 +4,12 @@ import { styled } from '@mui/material/styles';
 import {
     DataGrid as MuiDataGrid
 } from '@mui/x-data-grid';
-import Toolbar from '@Components/Table/Components/Toolbar/Toolbar'
+import { setDefaultColumnsVisibility } from '@Screens/Clients/Store/clientsSlice';
+import { setToolbar } from '@Screens/Shared/Store/sharedSlice';
 import HeaderSeparator from 'public/Assets/Svgs/HeaderSeparator.svg';
+import { useRef } from 'react';
+import { useDispatch } from 'react-redux';
+import Toolbar from './Components/Toolbar/Toolbar';
 
 const DataGrid = styled(MuiDataGrid)(({ theme }) => {
 
@@ -28,18 +32,25 @@ const DataGrid = styled(MuiDataGrid)(({ theme }) => {
             marginRight: 10,
             display: 'flex'
         },
+        '& .settings-header': {
+            cursor: 'pointer',
+        },
         '& .MuiDataGrid-columnHeaderTitle': {
             fontWeight: 600,
             fontSize: 14,
         },
         '& .MuiDataGrid-cell': {
-            borderBottomColor: tableSeparator?.main
+            borderBottomColor: tableSeparator?.main,
         },
         '& .MuiDataGrid-cell:focus,\
         .MuiDataGrid-cell:focus-within,\
         .MuiDataGrid-columnHeader:focus,\
         .MuiDataGrid-columnHeader:focus-within': {
             outline: 'none',
+        },
+        '& .MuiDataGrid-footerContainer': {
+            borderTopWidth: 0,
+            backgroundColor: tableHeader?.main,
         },
         '& .MuiDataGrid-footerContainer p,\
         .MuiDataGrid-footerContainer button,\
@@ -52,39 +63,41 @@ const DataGrid = styled(MuiDataGrid)(({ theme }) => {
         '& .MuiTablePagination-selectIcon': {
             fill: text.grey,
         },
-        '& .MuiDataGrid-columnHeaderCheckbox,\
-        .MuiDataGrid-cellCheckbox': {
-            minWidth: '70px !important',
-        },
-        // '& .MuiDataGrid-columnHeaderCheckbox \
-        // .MuiDataGrid-columnHeaderTitleContainer': {
-        //     justifyContent: 'flex-start',
-        //     marginLeft: 4,
-        // },
     }
 })
 
 function Table(props) {
 
     const {
+        title,
         columns,
         rows,
+        setColumnVisibility,
+        setAllColumnsVisibility,
     } = props || {}
+
+    const dispatch = useDispatch()
 
     return (
         <div style={{ height: 400, width: '100%' }}>
             <DataGrid
+                loading={false}
                 rows={rows}
                 columns={columns}
                 rowsPerPageOptions={[5, 25, 50, 100]}
                 disableSelectionOnClick
+                disableColumnMenu
+                checkboxSelection
                 sx={{
                     mt: 2,
                     backgroundColor: 'tableBody.main',
                     borderColor: 'transparent',
                     color: 'text.grey',
                 }}
-                checkboxSelection
+                onColumnHeaderClick={({ field }) => {
+                    if (field == 'settings')
+                        dispatch(setToolbar(true))
+                }}
                 components={{
                     ColumnResizeIcon: () => (
                         <HeaderSeparator
@@ -105,8 +118,14 @@ function Table(props) {
                         <SortIcons des />,
                     ColumnUnsortedIcon: () =>
                         <SortIcons />,
-                    Toolbar,
                 }}
+            />
+            <Toolbar
+                title={title}
+                columns={columns}
+                setColumnVisibility={setColumnVisibility}
+                setAllColumnsVisibility={setAllColumnsVisibility}
+                setDefaultColumnsVisibility={setDefaultColumnsVisibility}
             />
         </div>
     );

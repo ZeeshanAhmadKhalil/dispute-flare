@@ -1,19 +1,14 @@
 import Table from '@Components/Table/Table';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
 import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { setAllColumnsVisibility, setColumnVisibility } from './Store/clientsSlice';
 
 function Clients(props) {
 
-    const columns = [
-        { field: 'id', headerName: 'ID', width: 200, hide: true },
-        { field: 'clientName', headerName: 'Client Name', width: 200, headerClassName: 'separator-header', },
-        { field: 'email', headerName: 'Email', width: 200, headerClassName: 'separator-header', },
-        { field: 'mobile', headerName: 'Mobile', width: 200, headerClassName: 'separator-header', },
-        { field: 'assignedTo', headerName: 'Assigned To', width: 200, headerClassName: 'separator-header', },
-        { field: 'followUp', headerName: 'Follow Up', width: 200, headerClassName: 'separator-header', },
-        { field: 'lastLogin', headerName: 'Last Login', width: 200, headerClassName: 'separator-header', },
-        { field: 'status', headerName: 'Status', width: 200, },
-    ];
+    const {
+        columns,
+    } = useSelector(state => state.clients)
 
     const clients = [
         {
@@ -125,8 +120,11 @@ function Clients(props) {
         <>
             <TitleHeader />
             <Table
+                title="Clients"
                 columns={columns}
                 rows={clients}
+                setColumnVisibility={setColumnVisibility}
+                setAllColumnsVisibility={setAllColumnsVisibility}
             />
         </>
     )

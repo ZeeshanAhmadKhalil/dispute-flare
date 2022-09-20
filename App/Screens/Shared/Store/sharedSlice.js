@@ -4,18 +4,23 @@ const sharedSlice = createSlice({
     name: 'shared',
     initialState: {
         loader: false,
+        toolbar: false,
     },
     reducers: {
-        ChangeLoader: (state, action) => {
+        setToolbar: (state, action) => {
+            state.toolbar = action.payload
+        },
+        setLoader: (state, action) => {
             state.loader = action.payload
-        }
+        },
     },
     extraReducers: {
     },
 });
 
 export const {
-    ChangeLoader,
+    setLoader,
+    setToolbar,
 } = sharedSlice.actions;
 
 export default sharedSlice.reducer;
