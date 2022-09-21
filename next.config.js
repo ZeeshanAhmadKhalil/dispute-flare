@@ -18,6 +18,10 @@ const nextConfig = {
     return config;
   },
   reactStrictMode: true,
+  images: {
+    loader: 'imgix',
+    path: '/',
+  },
   swcMinify: true,
 }
 

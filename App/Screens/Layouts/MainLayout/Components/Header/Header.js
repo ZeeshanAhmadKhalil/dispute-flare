@@ -57,7 +57,11 @@ export default function Header() {
             position="fixed"
             open={sidebar || hoverSidebar}
         >
-            <Toolbar>
+            <Toolbar
+            className={cls(
+                'header-toolbar'
+            )}
+            >
                 <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
                     {(!sidebar && !hoverSidebar) &&
                         <Image

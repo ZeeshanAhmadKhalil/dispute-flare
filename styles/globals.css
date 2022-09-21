@@ -2,19 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-.css-12i7wg6-MuiPaper-root-MuiDrawer-paper,
-.css-15b8vjn-MuiPaper-root-MuiDrawer-paper {
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-elevation0 {
     background: #ffffff11 !important;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 }
 
-.css-iur3w5-MuiPaper-root-MuiDrawer-paper {
-    background: #686868e5 !important;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
-
-.css-hyum1k-MuiToolbar-root {
+.header-toolbar {
     padding-right: 1em !important;
 }
