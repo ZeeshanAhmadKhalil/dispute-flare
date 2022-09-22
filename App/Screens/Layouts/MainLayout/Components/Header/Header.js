@@ -58,9 +58,9 @@ export default function Header() {
             open={sidebar || hoverSidebar}
         >
             <Toolbar
-            className={cls(
-                'header-toolbar'
-            )}
+                className={cls(
+                    'header-toolbar'
+                )}
             >
                 <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
                     {(!sidebar && !hoverSidebar) &&

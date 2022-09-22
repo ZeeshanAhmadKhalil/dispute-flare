@@ -16,6 +16,18 @@ let theme = createTheme({
     },
     palette: {
         mode: 'dark',
+        active: {
+            main: "#29D652"
+        },
+        inactive: {
+            main: "#EBA51C"
+        },
+        lead: {
+            main: "#00428E"
+        },
+        cancelled: {
+            main: "#D33C41"
+        },
         icon: {
             active: "#000",
             inactive: "#707070",
@@ -24,7 +36,7 @@ let theme = createTheme({
         checkbox: {
             checked: "#37D667",
             unchecked: "#A4A7AB",
-            checkBg: "#A3E2F9",
+            checkBg: "#d2edf7",
         },
         primary: {
             main: '#B2E323',

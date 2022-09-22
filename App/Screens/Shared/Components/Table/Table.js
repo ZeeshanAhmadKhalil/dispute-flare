@@ -16,6 +16,7 @@ const DataGrid = styled(MuiDataGrid)(({ theme }) => {
     const {
         tableHeader,
         tableSeparator,
+        tableBody,
         text,
     } = theme.palette || {}
 
@@ -63,6 +64,12 @@ const DataGrid = styled(MuiDataGrid)(({ theme }) => {
         '& .MuiTablePagination-selectIcon': {
             fill: text.grey,
         },
+        '& .MuiDataGrid-cell--editing.MuiDataGrid-cell.MuiDataGrid-cell--textLeft.MuiDataGrid-cell--editable': {
+            backgroundColor: tableBody.main,
+        },
+        '& .MuiSvgIcon-root.MuiSelect-icon': {
+            color: text.grey,
+        },
     }
 })
 
@@ -79,8 +86,9 @@ function Table(props) {
     const dispatch = useDispatch()
 
     return (
-        <div style={{ height: 400, width: '100%' }}>
+        <div style={{ height: '70%', width: '100%' }}>
             <DataGrid
+                // autoHeight
                 loading={false}
                 rows={rows}
                 columns={columns}

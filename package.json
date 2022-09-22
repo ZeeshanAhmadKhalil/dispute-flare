@@ -1,12 +1,13 @@
 {
-  "homepage": "http://disputeflare.esquall.com",
   "name": "dispute-flare",
+  "homepage": "https://disputeflare.esquall.com",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
     "start": "next start",
+    "server": "node server.js",
+    "build": "next build && next export",
     "lint": "next lint"
   },
   "dependencies": {
