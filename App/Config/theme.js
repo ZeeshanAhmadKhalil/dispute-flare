@@ -5,6 +5,7 @@ let theme = createTheme({
         values: {
             xs: 0,
             sm: 600,
+            xmd: 800,
             md: 900,
             lg: 1250,
             xl: 1400,
@@ -15,6 +16,28 @@ let theme = createTheme({
     },
     palette: {
         mode: 'dark',
+        active: {
+            main: "#29D652"
+        },
+        inactive: {
+            main: "#EBA51C"
+        },
+        lead: {
+            main: "#00428E"
+        },
+        cancelled: {
+            main: "#D33C41"
+        },
+        icon: {
+            active: "#000",
+            inactive: "#707070",
+            lightActive: "#ACADAF",
+        },
+        checkbox: {
+            checked: "#37D667",
+            unchecked: "#A4A7AB",
+            checkBg: "#d2edf7",
+        },
         primary: {
             main: '#B2E323',
             contrastText: "#fff",
@@ -50,10 +73,19 @@ let theme = createTheme({
             main: "#ffffff4c",
         },
         borders: {
-            main: "#9EB6D3"
+            main: "#9EB6D3",
+        },
+        tableHeader: {
+            main: "#F5F8FA"
+        },
+        tableSeparator: {
+            main: "#D1D6DC"
         },
         tableBody: {
             main: "#ffffffcc"
+        },
+        dialog: {
+            main: "#fff",
         }
     },
 });

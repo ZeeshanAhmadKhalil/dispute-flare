@@ -18,7 +18,10 @@ const nextConfig = {
     return config;
   },
   reactStrictMode: true,
-  swcMinify: true,
+  images: {
+    loader: 'akamai',
+    path: '/',
+  },
 }
 
 module.exports = nextConfig
