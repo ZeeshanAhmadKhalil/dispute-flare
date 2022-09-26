@@ -7,7 +7,6 @@ import {
 import { setDefaultColumnsVisibility } from '@Screens/Clients/Store/clientsSlice';
 import { setToolbar } from '@Screens/Shared/Store/sharedSlice';
 import HeaderSeparator from 'public/Assets/Svgs/HeaderSeparator.svg';
-import { useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import Toolbar from './Components/Toolbar/Toolbar';
 
@@ -81,6 +80,7 @@ function Table(props) {
         rows,
         setColumnVisibility,
         setAllColumnsVisibility,
+        onSelectionModelChange,
     } = props || {}
 
     const dispatch = useDispatch()
@@ -88,7 +88,7 @@ function Table(props) {
     return (
         <div style={{ height: '70%', width: '100%' }}>
             <DataGrid
-                // autoHeight
+                onSelectionModelChange={onSelectionModelChange}
                 loading={false}
                 rows={rows}
                 columns={columns}

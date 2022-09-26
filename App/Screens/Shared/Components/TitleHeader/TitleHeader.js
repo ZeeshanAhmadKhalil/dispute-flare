@@ -15,11 +15,9 @@ import Thunder from 'public/Assets/Svgs/thunder.svg'
 
 function TitleHeader(props) {
 
-    const dispatch = useDispatch()
-
-    const { } = useSelector(state => state.shared)
-
-    const [state, setState] = useState(null)
+    const {
+        selectedClients
+    } = props || {}
 
     useEffect(() => {
     }, [])
@@ -94,33 +92,37 @@ function TitleHeader(props) {
                     >
                         NEW CLIENT
                     </Button>
-                    <Button
-                        iconOnSmall={(
-                            <Thunder
-                                width={22}
-                                height={22}
-                            />
-                        )}
-                        color={"pink"}
-                        startIcon={null}
-                        style={{
-                            borderRadius: 3,
-                            marginRight: 10
-                        }}
-                    >
-                        DISPUTE
-                    </Button>
-                    <Button
-                        iconOnSmall={<DeleteIcon />}
-                        color={"warning"}
-                        startIcon={null}
-                        style={{
-                            borderRadius: 3,
-                            marginRight: 10
-                        }}
-                    >
-                        DELETE
-                    </Button>
+                    {selectedClients?.length > 0 &&
+                        <>
+                            <Button
+                                iconOnSmall={(
+                                    <Thunder
+                                        width={22}
+                                        height={22}
+                                    />
+                                )}
+                                color={"pink"}
+                                startIcon={null}
+                                style={{
+                                    borderRadius: 3,
+                                    marginRight: 10
+                                }}
+                            >
+                                DISPUTE
+                            </Button>
+                            <Button
+                                iconOnSmall={<DeleteIcon />}
+                                color={"warning"}
+                                startIcon={null}
+                                style={{
+                                    borderRadius: 3,
+                                    marginRight: 10
+                                }}
+                            >
+                                DELETE
+                            </Button>
+                        </>
+                    }
                     <Searcher />
                     <Box
                         sx={{

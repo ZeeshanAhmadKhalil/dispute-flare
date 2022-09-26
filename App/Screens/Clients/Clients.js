@@ -1,6 +1,6 @@
 import Table from '@Components/Table/Table';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { setAllColumnsVisibility, setColumnVisibility } from './Store/clientsSlice';
 
@@ -11,14 +11,21 @@ function Clients(props) {
         clients,
     } = useSelector(state => state.clients)
 
+    const [selectedClients, setSelectedClients] = useState([])
+
     useEffect(() => {
     }, [])
 
     return (
         <>
-            <TitleHeader />
+            <TitleHeader
+                selectedClients={selectedClients}
+            />
             <Table
                 title="Clients"
+                onSelectionModelChange={(selected) =>
+                    setSelectedClients(selected)
+                }
                 columns={columns}
                 rows={clients}
                 setColumnVisibility={setColumnVisibility}
