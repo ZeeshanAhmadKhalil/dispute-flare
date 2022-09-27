@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import Gear from 'public/Assets/Svgs/gear.svg';
 import AssignedTo from '../Components/AssignedTo';
 import ClientName from '../Components/ClientName';
+import Status from './Components/Status';
 
 const clientsSlice = createSlice({
     name: 'clients',
@@ -85,7 +86,8 @@ const clientsSlice = createSlice({
                 hidable: true,
                 editable: true,
                 type: 'singleSelect',
-                valueOptions: ['Lead', 'Active', 'Inactive', 'Cancelled']
+                valueOptions: ['Lead', 'Active', 'Inactive', 'Cancelled'],
+                renderCell: Status,
             },
         ],
         clients: [
