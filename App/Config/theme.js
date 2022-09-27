@@ -16,6 +16,9 @@ let theme = createTheme({
     },
     palette: {
         mode: 'dark',
+        shadow: {
+            main: "#00000088"
+        },
         active: {
             main: "#29D652"
         },
@@ -67,13 +70,23 @@ let theme = createTheme({
             main: '#fff',
             contrastText: "#000",
             hovered: '#fff1',
+            xGrey: "#858585",
             grey: "#5F6163",
+            lighter: "#A1A1A1",
+            link: "#0E2FFFCC"
+        },
+        textOff: {
+            main: '#7A7A7A',
+        },
+        link: {
+            main: '#0E2FFFCC',
         },
         transWhite: {
             main: "#ffffff4c",
         },
         borders: {
             main: "#9EB6D3",
+            secondary: "#10178288"
         },
         tableHeader: {
             main: "#F5F8FA"
@@ -86,6 +99,9 @@ let theme = createTheme({
         },
         dialog: {
             main: "#fff",
+            off: "#EEEEEE",
+            xOff: "#F7F7F7",
+            xxOff: "#DEDDE6",
         }
     },
 });

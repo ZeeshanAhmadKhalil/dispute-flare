@@ -39,7 +39,7 @@ function Button(props) {
                             backgroundColor: `${color}.hovered`,
                         },
                         backgroundColor: `${color}.main`,
-                        textTransform: `none`
+                        textTransform: `none`,
                     }}
                 >
                     {(iconOnSmall && matches) ? iconOnSmall : children}
@@ -63,7 +63,11 @@ function Button(props) {
                         textTransform: `none`
                     }}
                 >
-                    {(iconOnSmall && matches) ? iconOnSmall : children}
+                    {(iconOnSmall && matches) ?
+                        iconOnSmall
+                        :
+                        children
+                    }
                 </MuiButton>
             }
         </Stack>
