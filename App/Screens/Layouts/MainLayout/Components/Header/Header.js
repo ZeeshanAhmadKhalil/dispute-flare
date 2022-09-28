@@ -13,6 +13,7 @@ import logo from 'public/Assets/Images/logo.png';
 import Upgrade from 'public/Assets/Svgs/upgrade.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import ProfileDialog from './Components/ProfileDialog';
+import ThemesDialog from './Components/ThemesDialog';
 import styles from './Header.module.scss';
 
 
@@ -124,6 +125,7 @@ export default function Header() {
                 </Toolbar>
             </AppBar>
             <ProfileDialog />
+            <ThemesDialog />
         </>
     );
 }

@@ -23,9 +23,11 @@
     "perfect-scrollbar": "^1.5.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-draggable": "^4.4.5",
     "react-redux": "^8.0.2",
     "redux": "^4.2.0",
     "redux-persist": "^6.0.0",
+    "redux-undo": "^1.0.1",
     "sass": "^1.54.5",
     "styled-components": "^5.3.5"
   },

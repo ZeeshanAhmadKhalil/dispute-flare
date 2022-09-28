@@ -75,6 +75,12 @@ let theme = createTheme({
             lighter: "#A1A1A1",
             link: "#0E2FFFCC"
         },
+        background: {
+            xTrans: '#00000044'
+        },
+        xTrans: {
+            main: "#00000044"
+        },
         textOff: {
             main: '#7A7A7A',
         },
@@ -102,7 +108,8 @@ let theme = createTheme({
             off: "#EEEEEE",
             xOff: "#F7F7F7",
             xxOff: "#DEDDE6",
-        }
+            xxxOff: "#cccccc",
+        },
     },
 });
 

@@ -1,5 +1,6 @@
 import Avatar from '@Components/Avatar/Avatar';
 import Button from '@Components/Button/Button';
+import { setThemesDialog } from '@Layouts/Store/layoutSlice';
 import {
     DialogContent,
     styled,
@@ -92,6 +93,16 @@ function ProfileDialog(props) {
     const {
         profileDialog
     } = useSelector(state => state.shared)
+    const {
+        themes,
+        sidebar,
+        selectedTheme,
+    } = useSelector(state => state.layout)
+
+    let selectedImagePath
+        = themes
+            .find(obj => obj.id == selectedTheme)
+            ?.imagePath
 
     return (
         <Dialog
@@ -224,9 +235,10 @@ function ProfileDialog(props) {
                         sx={{
                             flex: 1,
                             mr: 1,
+                            background: `url('${selectedImagePath}')`,
+                            backgroundSize: 'cover',
                         }}
                         className={cls(
-                            `bg-[url('/Assets/Images/background.png')]`,
                             `bg-cover`,
                             `items-center`,
                             `flex`,
@@ -260,6 +272,10 @@ function ProfileDialog(props) {
                             </Typography>
                         </Box>
                         <Button
+                            onClick={() => {
+                                dispatch(setThemesDialog(true))
+                                dispatch(setProfileDialog(false))
+                            }}
                             color={"textOff"}
                             variant="text"
                             style={{
@@ -370,12 +386,14 @@ function ProfileDialog(props) {
                         </Typography>
                         <Box
                             className={cls(
-                                `bg-[${xxOff}]`,
                                 'mt-2',
                                 'mx-2',
                                 'p-2',
                                 'rounded-md',
                             )}
+                            sx={{
+                                bgcolor: xxOff
+                            }}
                         >
                             <div
                                 className={cls(
@@ -383,7 +401,6 @@ function ProfileDialog(props) {
                                     `h-[65px]`,
                                     `w-[65px]`,
                                     `rounded-full`,
-                                    `bg-[${mainDialog}]`,
                                     `border-red-700`,
                                     `border-0`,
                                     'm-auto',
@@ -393,6 +410,9 @@ function ProfileDialog(props) {
                                     'items-center',
                                     'cursor-pointer',
                                 )}
+                                style={{
+                                    backgroundColor: mainDialog,
+                                }}
                             >
                                 <Loader
                                     height={65}
@@ -484,6 +504,7 @@ function ProfileDialog(props) {
                                 backgroundColor: "dialog.main",
                             }}
                             className={cls(
+                                'cursor-pointer',
                                 `flex`,
                                 `flex-1`,
                                 `border-red-700`,
@@ -562,6 +583,7 @@ function ProfileDialog(props) {
                                 backgroundColor: "dialog.main",
                             }}
                             className={cls(
+                                'cursor-pointer',
                                 `flex`,
                                 `flex-1`,
                                 `border-red-700`,
@@ -638,6 +660,9 @@ function ProfileDialog(props) {
                     </Box>
                 </Box>
                 <StyledBox
+                    className={cls(
+                        'cursor-pointer',
+                    )}
                     sx={{
                         display: 'flex',
                         backgroundColor: "dialog.xOff",
@@ -666,6 +691,9 @@ function ProfileDialog(props) {
                     </Box>
                 </StyledBox>
                 <StyledBox
+                    className={cls(
+                        'cursor-pointer',
+                    )}
                     sx={{
                         display: 'flex',
                         backgroundColor: "dialog.xOff",
@@ -693,8 +721,8 @@ function ProfileDialog(props) {
                         </Typography>
                     </Box>
                 </StyledBox>
-            </DialogContent>
-        </Dialog>
+            </DialogContent >
+        </Dialog >
     );
 }
 

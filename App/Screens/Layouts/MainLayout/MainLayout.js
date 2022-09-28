@@ -34,21 +34,30 @@ function MainLayout(props) {
     } = props
 
     const {
+        themes,
         sidebar,
+        selectedTheme,
     } = useSelector(state => state.layout)
+
+    let selectedImagePath
+        = themes
+            .find(obj => obj.id == selectedTheme)
+            ?.imagePath
 
     useEffect(() => {
     }, [])
 
     return (
         <MuiBox
-            sx={{ display: 'flex' }}
+            sx={{
+                display: 'flex',
+                background: `url('${selectedImagePath}')`,
+                backgroundSize: 'cover',
+            }}
             className={cls(
                 styles.mainLayoutContainer,
                 `h-screen`,
                 `border-red-700`, `border-0 `,
-                `bg-[url('/Assets/Images/background.png')]`,
-                `bg-cover`,
             )}
         >
             <CssBaseline />
