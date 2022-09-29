@@ -2,11 +2,12 @@ import { createSlice } from '@reduxjs/toolkit';
 import Gear from 'public/Assets/Svgs/gear.svg';
 import AssignedTo from '../Components/AssignedTo';
 import ClientName from '../Components/ClientName';
-import Status from './Components/Status';
+import Status from '../Components/Status';
 
 const clientsSlice = createSlice({
     name: 'clients',
     initialState: {
+        addClientDialog: true,
         columns: [
             {
                 field: 'settings',
@@ -214,6 +215,9 @@ const clientsSlice = createSlice({
         ]
     },
     reducers: {
+        setAddClientDialog: (state, action) => {
+            state.addClientDialog = action.payload
+        },
         setColumnVisibility: (state, action) => {
 
             const { field, hide } = action.payload || {}
@@ -265,6 +269,7 @@ const clientsSlice = createSlice({
 });
 
 export const {
+    setAddClientDialog,
     setColumnVisibility,
     setAllColumnsVisibility,
     setDefaultColumnsVisibility,

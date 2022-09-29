@@ -1,10 +1,18 @@
 import Table from '@Components/Table/Table';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { setAllColumnsVisibility, setColumnVisibility } from './Store/clientsSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import AddClientDialog from './Components/AddClient/AddClientDialog';
+import ClientActions from './Components/ClientActions';
+import {
+    setAddClientDialog,
+    setAllColumnsVisibility,
+    setColumnVisibility
+} from './Store/clientsSlice';
 
 function Clients(props) {
+
+    const dispatch = useDispatch()
 
     const {
         columns,
@@ -19,7 +27,11 @@ function Clients(props) {
     return (
         <>
             <TitleHeader
-                selectedClients={selectedClients}
+                actionButtons={
+                    <ClientActions
+                        selectedClients={selectedClients}
+                    />
+                }
             />
             <Table
                 title="Clients"
@@ -31,6 +43,7 @@ function Clients(props) {
                 setColumnVisibility={setColumnVisibility}
                 setAllColumnsVisibility={setAllColumnsVisibility}
             />
+            <AddClientDialog />
         </>
     )
 }

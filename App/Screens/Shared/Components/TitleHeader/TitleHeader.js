@@ -4,19 +4,14 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Star from 'public/Assets/Svgs/star.svg';
 import styles from './TitleHeader.module.scss';
-import Button from '@Components/Button/Button';
 import Gear from 'public/Assets/Svgs/gear.svg';
 import Searcher from './Searcher';
-import DeleteIcon from '@mui/icons-material/Delete';
-import FileUploadIcon from '@mui/icons-material/FileUpload';
-import AddIcon from '@mui/icons-material/Add';
-import Thunder from 'public/Assets/Svgs/thunder.svg'
 
 
 function TitleHeader(props) {
 
     const {
-        selectedClients
+        actionButtons
     } = props || {}
 
     useEffect(() => {
@@ -70,59 +65,7 @@ function TitleHeader(props) {
                         `items-center`
                     )}
                 >
-                    <Button
-                        iconOnSmall={<FileUploadIcon />}
-                        color={"primary"}
-                        startIcon={null}
-                        style={{
-                            borderRadius: 3,
-                            marginRight: 10
-                        }}
-                    >
-                        IMPORT CLIENTS
-                    </Button>
-                    <Button
-                        iconOnSmall={<AddIcon />}
-                        color={"lightPink"}
-                        startIcon={null}
-                        style={{
-                            borderRadius: 3,
-                            marginRight: 10
-                        }}
-                    >
-                        NEW CLIENT
-                    </Button>
-                    {selectedClients?.length > 0 &&
-                        <>
-                            <Button
-                                iconOnSmall={(
-                                    <Thunder
-                                        width={22}
-                                        height={22}
-                                    />
-                                )}
-                                color={"pink"}
-                                startIcon={null}
-                                style={{
-                                    borderRadius: 3,
-                                    marginRight: 10
-                                }}
-                            >
-                                DISPUTE
-                            </Button>
-                            <Button
-                                iconOnSmall={<DeleteIcon />}
-                                color={"warning"}
-                                startIcon={null}
-                                style={{
-                                    borderRadius: 3,
-                                    marginRight: 10
-                                }}
-                            >
-                                DELETE
-                            </Button>
-                        </>
-                    }
+                    {actionButtons}
                     <Searcher />
                     <Box
                         sx={{

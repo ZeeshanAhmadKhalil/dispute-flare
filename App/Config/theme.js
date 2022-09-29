@@ -51,6 +51,11 @@ let theme = createTheme({
             contrastText: "#fff",
             hovered: "#002E63",
         },
+        info: {
+            main: '#02AEEE',
+            contrastText: "#fff",
+            hovered: "#299cc6"
+        },
         warning: {
             main: '#EBA51C',
             contrastText: "#fff",
@@ -109,6 +114,7 @@ let theme = createTheme({
             xOff: "#F7F7F7",
             xxOff: "#DEDDE6",
             xxxOff: "#cccccc",
+            xxxxOff: "#EEF2F4",
         },
     },
 });
