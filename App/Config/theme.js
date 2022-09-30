@@ -76,6 +76,8 @@ let theme = createTheme({
             contrastText: "#000",
             hovered: '#fff1',
             xGrey: "#858585",
+            xxGrey: "#888888",
+            xxxGrey: "#707070",
             grey: "#5F6163",
             lighter: "#A1A1A1",
             link: "#0E2FFFCC"
@@ -103,7 +105,10 @@ let theme = createTheme({
             main: "#F5F8FA"
         },
         tableSeparator: {
-            main: "#D1D6DC"
+            dark: "#D4D4D4",
+            main: "#D1D6DC",
+            light: "#DFDFDF",
+
         },
         tableBody: {
             main: "#ffffffcc"

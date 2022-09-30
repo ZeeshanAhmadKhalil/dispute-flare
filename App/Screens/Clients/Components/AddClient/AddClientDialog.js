@@ -1,58 +1,44 @@
 import RightDialogLayout from '@Layouts/RightDialogLayout/RightDialogLayout';
 import {
+    Box,
     DialogContent,
-    DialogTitle,
-    Divider,
-    IconButton,
+    DialogTitle, Divider, styled,
+    Typography,
     useTheme
 } from '@mui/material';
-import CloseIcon from '@mui/icons-material/Close';
-import Slide from '@mui/material/Slide';
 import { setAddClientDialog } from '@Screens/Clients/Store/clientsSlice';
-import { forwardRef } from 'react';
 import {
     useDispatch,
     useSelector
 } from 'react-redux';
+import cls from 'classnames'
+import styles from './AddClientDialog.module.scss'
+import ClientInformation from './CollapsableForms/ClientInformation';
+import { useForm } from 'react-hook-form';
 
-const Transition = forwardRef(function Transition(props, ref) {
-    return <Slide direction="left" ref={ref} {...props} />;
-});
-
-const Title = (props) => {
-    const { children,
-        onClose,
-        ...other
-    } = props;
+const Container = styled(Box)(({ theme }) => {
 
     const {
-        palette: { text }
-    } = useTheme()
+        dialog: {
+            main
+        }
+    } = theme.palette || {}
 
-    return (
-        <DialogTitle
-            sx={{
-                m: 0,
-                p: 2,
-                fontSize: 20,
-                fontWeight: '500',
-                color: text.grey,
-            }}
-            {...other}
-        >
-            {children}
-        </DialogTitle>
-    );
-};
+    return {
+        backgroundColor: main,
+        padding: 20,
+    }
+})
 
 function AddClientDialog(props) {
+
+    const defaultValues = {
+    }
 
     const dispatch = useDispatch()
     const {
         palette: {
-            tableSeparator,
-            text,
-            checkbox,
+            tableSeparator
         }
     } = useTheme()
 
@@ -62,24 +48,39 @@ function AddClientDialog(props) {
         addClientDialog
     } = useSelector(state => state.clients)
 
+    const { register, handleSubmit, reset, formState: { errors } } = useForm({
+        mode: 'onChange',
+        defaultValues,
+    });
+
     return (
         <RightDialogLayout
             onClose={() => dispatch(setAddClientDialog(false))}
             open={addClientDialog}
             closeBtnText="CLIENT"
+            title={"Add Client"}
         >
-            <Title
-                id="customized-dialog-title"
-                onClose={null}
-            >
-                {`Add Client`}
-            </Title>
-            <DialogContent
-                sx={{
-                }}
-            >
 
-            </DialogContent >
+            <Container>
+                <Typography
+                    color="text.xxGrey"
+                    variant='subtitle2'
+                    className={cls(
+                        styles.formDesc
+                    )}
+                >
+                    {"You can add a minimum of just the client's name and their email address when adding them. Clients can provide the other information themselves when completing their onboarding process."}
+                </Typography>
+                <Divider
+                    sx={{
+                        backgroundColor: tableSeparator?.light
+                    }}
+                />
+                <ClientInformation
+                    register={register}
+                    errors={errors}
+                />
+            </Container>
         </RightDialogLayout >
     );
 }

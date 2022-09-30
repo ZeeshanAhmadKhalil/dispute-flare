@@ -1,7 +1,10 @@
 import Button from '@Components/Button/Button';
 import CloseIcon from '@mui/icons-material/Close';
 import {
-    styled
+    DialogContent,
+    DialogTitle,
+    styled,
+    useTheme
 } from '@mui/material';
 import MuiDialog from '@mui/material/Dialog';
 import Slide from '@mui/material/Slide';
@@ -39,6 +42,32 @@ const Dialog = styled(MuiDialog)(({ theme }) => {
     }
 })
 
+const Title = (props) => {
+    const { children,
+        onClose,
+        ...other
+    } = props;
+
+    const {
+        palette: { text }
+    } = useTheme()
+
+    return (
+        <DialogTitle
+            sx={{
+                m: 0,
+                p: 2,
+                fontSize: 20,
+                fontWeight: '500',
+                color: text.grey,
+            }}
+            {...other}
+        >
+            {children}
+        </DialogTitle>
+    );
+};
+
 function RightDialogLayout(props) {
 
     const {
@@ -46,6 +75,7 @@ function RightDialogLayout(props) {
         onClose,
         open,
         closeBtnText,
+        title
     } = props || {}
 
     return (
@@ -58,7 +88,18 @@ function RightDialogLayout(props) {
             open={open}
             fullScreen={true}
         >
-            {children}
+            <Title
+                id="customized-dialog-title"
+                onClose={null}
+            >
+                {title}
+            </Title>
+            <DialogContent
+                sx={{
+                }}
+            >
+                {children}
+            </DialogContent >
             <Button
                 onClick={onClose}
                 color={"info"}
