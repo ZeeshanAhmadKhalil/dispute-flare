@@ -2,10 +2,12 @@ import { createSlice } from '@reduxjs/toolkit';
 import Gear from 'public/Assets/Svgs/gear.svg';
 import AssignedTo from '../Components/AssignedTo';
 import ClientName from '../Components/ClientName';
+import Status from '../Components/Status';
 
 const clientsSlice = createSlice({
     name: 'clients',
     initialState: {
+        addClientDialog: true,
         columns: [
             {
                 field: 'settings',
@@ -85,7 +87,8 @@ const clientsSlice = createSlice({
                 hidable: true,
                 editable: true,
                 type: 'singleSelect',
-                valueOptions: ['Lead', 'Active', 'Inactive', 'Cancelled']
+                valueOptions: ['Lead', 'Active', 'Inactive', 'Cancelled'],
+                renderCell: Status,
             },
         ],
         clients: [
@@ -94,8 +97,8 @@ const clientsSlice = createSlice({
                 clientName: 'Zeeshan Ahmad',
                 email: 'zak@gmail.com',
                 mobile: '(000) 000 - 0000',
-                assignedToPfp: '/Assets/Images/boa-hancock.jpg',
-                assignedTo: 'boa hancock',
+                assignedToPfp: '/Assets/Images/d-ace.jpg',
+                assignedTo: 'd ace',
                 followUp: '12/02/2022',
                 lastLogin: 'June 22, 12:20 PM',
                 status: 'Lead',
@@ -212,6 +215,9 @@ const clientsSlice = createSlice({
         ]
     },
     reducers: {
+        setAddClientDialog: (state, action) => {
+            state.addClientDialog = action.payload
+        },
         setColumnVisibility: (state, action) => {
 
             const { field, hide } = action.payload || {}
@@ -263,6 +269,7 @@ const clientsSlice = createSlice({
 });
 
 export const {
+    setAddClientDialog,
     setColumnVisibility,
     setAllColumnsVisibility,
     setDefaultColumnsVisibility,

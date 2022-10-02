@@ -16,6 +16,9 @@ let theme = createTheme({
     },
     palette: {
         mode: 'dark',
+        shadow: {
+            main: "#00000088"
+        },
         active: {
             main: "#29D652"
         },
@@ -48,6 +51,11 @@ let theme = createTheme({
             contrastText: "#fff",
             hovered: "#002E63",
         },
+        info: {
+            main: '#02AEEE',
+            contrastText: "#fff",
+            hovered: "#299cc6"
+        },
         warning: {
             main: '#EBA51C',
             contrastText: "#fff",
@@ -67,26 +75,52 @@ let theme = createTheme({
             main: '#fff',
             contrastText: "#000",
             hovered: '#fff1',
+            xGrey: "#858585",
+            xxGrey: "#888888",
+            xxxGrey: "#707070",
             grey: "#5F6163",
+            lighter: "#A1A1A1",
+            link: "#0E2FFFCC"
+        },
+        background: {
+            xTrans: '#00000044'
+        },
+        xTrans: {
+            main: "#00000044"
+        },
+        textOff: {
+            main: '#7A7A7A',
+        },
+        link: {
+            main: '#0E2FFFCC',
         },
         transWhite: {
             main: "#ffffff4c",
         },
         borders: {
             main: "#9EB6D3",
+            secondary: "#10178288"
         },
         tableHeader: {
             main: "#F5F8FA"
         },
         tableSeparator: {
-            main: "#D1D6DC"
+            dark: "#D4D4D4",
+            main: "#D1D6DC",
+            light: "#DFDFDF",
+
         },
         tableBody: {
             main: "#ffffffcc"
         },
         dialog: {
             main: "#fff",
-        }
+            off: "#EEEEEE",
+            xOff: "#F7F7F7",
+            xxOff: "#DEDDE6",
+            xxxOff: "#cccccc",
+            xxxxOff: "#EEF2F4",
+        },
     },
 });
 

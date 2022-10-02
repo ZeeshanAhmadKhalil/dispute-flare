@@ -7,8 +7,8 @@ import styled from '@emotion/styled';
 import { CssBaseline } from '@mui/material';
 import MuiBox from '@mui/material/Box';
 import cls from 'classnames';
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import Header from './Components/Header/Header';
 import RightBar from './Components/RightBar/RightBar';
 import HoverSidebar from './Components/Sidebar/HoverSidebar';
@@ -34,21 +34,30 @@ function MainLayout(props) {
     } = props
 
     const {
+        themes,
         sidebar,
+        selectedTheme,
     } = useSelector(state => state.layout)
+
+    let selectedImagePath
+        = themes
+            .find(obj => obj.id == selectedTheme)
+            ?.imagePath
 
     useEffect(() => {
     }, [])
 
     return (
         <MuiBox
-            sx={{ display: 'flex' }}
+            sx={{
+                display: 'flex',
+                background: `url('${selectedImagePath}')`,
+                backgroundSize: 'cover',
+            }}
             className={cls(
                 styles.mainLayoutContainer,
                 `h-screen`,
                 `border-red-700`, `border-0 `,
-                `bg-[url('/Assets/Images/background.png')]`,
-                `bg-cover`,
             )}
         >
             <CssBaseline />

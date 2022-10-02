@@ -5,8 +5,12 @@ const sharedSlice = createSlice({
     initialState: {
         loader: false,
         toolbar: false,
+        profileDialog: false,
     },
     reducers: {
+        setProfileDialog: (state, action) => {
+            state.profileDialog = action.payload
+        },
         setToolbar: (state, action) => {
             state.toolbar = action.payload
         },
@@ -21,6 +25,7 @@ const sharedSlice = createSlice({
 export const {
     setLoader,
     setToolbar,
+    setProfileDialog,
 } = sharedSlice.actions;
 
 export default sharedSlice.reducer;
