@@ -11,7 +11,8 @@ import Searcher from './Searcher';
 function TitleHeader(props) {
 
     const {
-        actionButtons
+        actionButtons,
+        title,
     } = props || {}
 
     useEffect(() => {
@@ -31,32 +32,39 @@ function TitleHeader(props) {
                 <Box
                     className={cls(
                         `border-red-700`, `border-0`,
-                        `flex`,
-                        `items-center`
+                        `items-center`,
+                        `flex`
                     )}
                 >
-                    <Typography
-                        variant="h4"
-                        className={cls(
-                            `border-red-700`, `border-0`,
-                            `pr-3`,
-                            `text-[#F1F4F8]`,
-                            styles.heading,
-                        )}
+                    <Box
+                        sx={{
+                            display: { md: 'flex', xs: 'none' },
+                            alignItems: 'center',
+                        }}
                     >
-                        Clients
-                    </Typography>
-                    <div
-                        className={cls(
-                            `cursor-pointer`,
-                        )}
-                    >
-                        <Star
-                            fill='#EBA51C'
-                            height={20}
-                            width={20}
-                        />
-                    </div>
+                        <Typography
+                            variant="h4"
+                            className={cls(
+                                `border-red-700`, `border-0`,
+                                `pr-3`,
+                                `text-[#F1F4F8]`,
+                                styles.heading,
+                            )}
+                        >
+                            {title}
+                        </Typography>
+                        <div
+                            className={cls(
+                                `cursor-pointer`,
+                            )}
+                        >
+                            <Star
+                                fill='#EBA51C'
+                                height={20}
+                                width={20}
+                            />
+                        </div>
+                    </Box>
                 </Box>
                 <Box
                     className={cls(
@@ -66,22 +74,26 @@ function TitleHeader(props) {
                     )}
                 >
                     {actionButtons}
-                    <Searcher />
                     <Box
-                        sx={{
-                            borderWidth: 1,
-                        }}
-                        className={cls(
-                            `border-[#BACDE4]`,
-                            `px-2.5 py-2.5`,
-                            `cursor-pointer`,
-                            `rounded`
-                        )}
+                        sx={{ display: { sm1: 'flex', xs: 'none' } }}
                     >
-                        <Gear
-                            height={15}
-                            width={15}
-                        />
+                        <Searcher />
+                        <Box
+                            sx={{
+                                borderWidth: 1,
+                            }}
+                            className={cls(
+                                `border-[#BACDE4]`,
+                                `px-2.5 py-2.5`,
+                                `cursor-pointer`,
+                                `rounded`
+                            )}
+                        >
+                            <Gear
+                                height={15}
+                                width={15}
+                            />
+                        </Box>
                     </Box>
                 </Box>
             </Box>

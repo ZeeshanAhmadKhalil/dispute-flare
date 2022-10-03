@@ -39,86 +39,76 @@ function ClientInformation(props) {
         <CollapsableForm
             title="Client Information"
         >
-            <Typography
-                variant="subtitle2"
-                className={cls(
-                    styles.groupTitle
-                )}
-            >
-                Personal Information
-            </Typography>
             <Grid
                 container
+                rowSpacing={2}
                 className={cls(
                     'border-red-700',
                     'border-0',
                     'flex',
                     'items-center',
-                    'mt-[15px]',
                 )}
             >
-                <Grid xs="2">
+                <Grid item xs="12">
+                    <Typography
+                        variant="subtitle2"
+                        className={cls(
+                            styles.groupTitle
+                        )}
+                    >
+                        Personal Information
+                    </Typography>
+                </Grid>
+                <Grid item xl="2" md="6" xs="12">
                     <Label
                         variant="subtitle1"
                     >
                         First Name
                     </Label>
                 </Grid>
-                <Grid xs="4">
+                <Grid item xl="4" md="6" xs="12">
                     <TextInput
                         register={register("firstName")}
                         name="firstName"
                         error={errors.firstName}
                     />
                 </Grid>
-                <Grid xs="2">
+                <Grid item xl="2" md="6" xs="12">
                     <Label
                         variant="subtitle1"
                     >
                         Last Name
                     </Label>
                 </Grid>
-                <Grid xs="4">
+                <Grid item xl="4" md="6" xs="12">
                     <TextInput
                         register={register("lastName")}
                         name="lastName"
                         error={errors.lastName}
                     />
                 </Grid>
-            </Grid>
-            <Grid
-                container
-                className={cls(
-                    'border-red-700',
-                    'border-0',
-                    'flex',
-                    'items-center',
-                    'mt-[15px]',
-                    'mb-[25px]',
-                )}
-            >
-                <Grid xs="2">
+                <Grid item xl="2" md="6" xs="12">
                     <Label
                         variant="subtitle1"
                     >
                         Date of Birth
                     </Label>
                 </Grid>
-                <Grid xs="4">
+                <Grid item xl="4" md="6" xs="12">
                     <TextInput
                         register={register("dateOfBirth")}
                         name="dateOfBirth"
                         error={errors.dateOfBirth}
                     />
                 </Grid>
-                <Grid xs="2">
+                <Grid item xl="2" md="6" xs="12">
                     <Label
                         variant="subtitle1"
                     >
                         SSN Number
                     </Label>
                 </Grid>
-                <Grid xs="4">
+                <Grid item xl="4" md="6" xs="12">
                     <TextInput
                         register={register("ssnNumber")}
                         name="ssnNumber"
@@ -126,39 +116,31 @@ function ClientInformation(props) {
                         placeholder="000-000-0000"
                     />
                 </Grid>
-            </Grid>
-            <Divider
-                sx={{
-                    backgroundColor: light
-                }}
-            />
-            <Typography
-                variant="subtitle2"
-                className={cls(
-                    styles.groupTitle,
-                    styles.groupTitleMargin,
-                )}
-            >
-                Contact Information
-            </Typography>
-            <Grid
-                container
-                className={cls(
-                    'border-red-700',
-                    'border-0',
-                    'flex',
-                    'items-center',
-                    'mt-[15px]',
-                )}
-            >
-                <Grid xs="2">
+                <Grid item xs="12">
+                    <Divider
+                        sx={{
+                            backgroundColor: light
+                        }}
+                    />
+                </Grid>
+                <Grid item xs="12">
+                    <Typography
+                        variant="subtitle2"
+                        className={cls(
+                            styles.groupTitle,
+                        )}
+                    >
+                        Contact Information
+                    </Typography>
+                </Grid>
+                <Grid item xl="2" md="6" xs="12">
                     <Label
                         variant="subtitle1"
                     >
                         Email ID
                     </Label>
                 </Grid>
-                <Grid xs="4">
+                <Grid item xl="4" md="6" xs="12">
                     <TextInput
                         register={register("emailId")}
                         name="emailId"
@@ -166,14 +148,14 @@ function ClientInformation(props) {
                         placeholder="luffy@onepiece.com"
                     />
                 </Grid>
-                <Grid xs="2">
+                <Grid item xl="2" md="6" xs="12">
                     <Label
                         variant="subtitle1"
                     >
                         Mobile No.
                     </Label>
                 </Grid>
-                <Grid xs="4">
+                <Grid item xl="4" md="6" xs="12">
                     <TextInput
                         register={register("mobileNo")}
                         name="mobileNo"
@@ -181,26 +163,14 @@ function ClientInformation(props) {
                         placeholder="(000) 000-0000"
                     />
                 </Grid>
-            </Grid>
-            <Grid
-                container
-                className={cls(
-                    'border-red-700',
-                    'border-0',
-                    'flex',
-                    'items-center',
-                    'mt-[15px]',
-                    'mb-[25px]',
-                )}
-            >
-                <Grid xs="2">
+                <Grid item xl="2" md="6" xs="12">
                     <Label
                         variant="subtitle1"
                     >
                         Phone No.
                     </Label>
                 </Grid>
-                <Grid xs="4">
+                <Grid item xl="4" md="6" xs="12">
                     <TextInput
                         register={register("phoneNo")}
                         name="phoneNo"
@@ -208,14 +178,14 @@ function ClientInformation(props) {
                         placeholder="(000) 000-0000"
                     />
                 </Grid>
-                <Grid xs="2">
+                <Grid item xl="2" md="6" xs="12">
                     <Label
                         variant="subtitle1"
                     >
                         Website
                     </Label>
                 </Grid>
-                <Grid xs="4">
+                <Grid item xl="4" md="6" xs="12">
                     <TextInput
                         register={register("website")}
                         name="website"
@@ -223,13 +193,184 @@ function ClientInformation(props) {
                         placeholder="https://"
                     />
                 </Grid>
+                <Grid item xs="12">
+                    <Divider
+                        sx={{
+                            backgroundColor: light
+                        }}
+                    />
+                </Grid>
+                <Grid item xs="12">
+                    <Typography
+                        variant="subtitle2"
+                        className={cls(
+                            styles.groupTitle,
+                        )}
+                    >
+                        Address Information
+                    </Typography>
+                </Grid>
+                <Grid item xl="2" md="6" xs="12">
+                    <Label
+                        variant="subtitle1"
+                    >
+                        Address
+                    </Label>
+                </Grid>
+                <Grid item xl="4" md="6" xs="12">
+                    <TextInput
+                        register={register("address")}
+                        name="address"
+                        error={errors.address}
+                    />
+                </Grid>
+                <Grid item xl="2" md="6" xs="12">
+                    <Label
+                        variant="subtitle1"
+                    >
+                        City
+                    </Label>
+                </Grid>
+                <Grid item xl="4" md="6" xs="12">
+                    <TextInput
+                        register={register("city")}
+                        name="city"
+                        error={errors.city}
+                    />
+                </Grid>
+                <Grid item xl="2" md="6" xs="12">
+                    <Label
+                        variant="subtitle1"
+                    >
+                        State
+                    </Label>
+                </Grid>
+                <Grid item xl="4" md="6" xs="12">
+                    <TextInput
+                        register={register("state")}
+                        name="state"
+                        error={errors.state}
+                    />
+                </Grid>
+                <Grid item xl="2" md="6" xs="12">
+                    <Label
+                        variant="subtitle1"
+                    >
+                        Country
+                    </Label>
+                </Grid>
+                <Grid item xl="4" md="6" xs="12">
+                    <TextInput
+                        register={register("country")}
+                        name="country"
+                        error={errors.country}
+                    />
+                </Grid>
+                <Grid item xl="2" md="6" xs="12">
+                    <Label
+                        variant="subtitle1"
+                    >
+                        Zip code
+                    </Label>
+                </Grid>
+                <Grid item xl="4" md="6" xs="12">
+                    <TextInput
+                        register={register("zipCode")}
+                        name="zipCode"
+                        error={errors.zipCode}
+                        placeholder="00000"
+                    />
+                </Grid>
+                <Grid item xs="12">
+                    <Divider
+                        sx={{
+                            backgroundColor: light
+                        }}
+                    />
+                </Grid>
+                <Grid item xs="12">
+                    <Typography
+                        variant="subtitle2"
+                        className={cls(
+                            styles.groupTitle,
+                        )}
+                    >
+                        Previous Address
+                    </Typography>
+                </Grid>
+                <Grid item xl="2" md="6" xs="12">
+                    <Label
+                        variant="subtitle1"
+                    >
+                        Address
+                    </Label>
+                </Grid>
+                <Grid item xl="4" md="6" xs="12">
+                    <TextInput
+                        register={register("previousAddress")}
+                        name="previousAddress"
+                        error={errors.previousAddress}
+                    />
+                </Grid>
+                <Grid item xl="2" md="6" xs="12">
+                    <Label
+                        variant="subtitle1"
+                    >
+                        City
+                    </Label>
+                </Grid>
+                <Grid item xl="4" md="6" xs="12">
+                    <TextInput
+                        register={register("previousCity")}
+                        name="previousCity"
+                        error={errors.previousCity}
+                    />
+                </Grid>
+                <Grid item xl="2" md="6" xs="12">
+                    <Label
+                        variant="subtitle1"
+                    >
+                        State
+                    </Label>
+                </Grid>
+                <Grid item xl="4" md="6" xs="12">
+                    <TextInput
+                        register={register("previousState")}
+                        name="previousState"
+                        error={errors.previousState}
+                    />
+                </Grid>
+                <Grid item xl="2" md="6" xs="12">
+                    <Label
+                        variant="subtitle1"
+                    >
+                        Country
+                    </Label>
+                </Grid>
+                <Grid item xl="4" md="6" xs="12">
+                    <TextInput
+                        register={register("previousCountry")}
+                        name="previousCountry"
+                        error={errors.previousCountry}
+                    />
+                </Grid>
+                <Grid item xl="2" md="6" xs="12">
+                    <Label
+                        variant="subtitle1"
+                    >
+                        Zip code
+                    </Label>
+                </Grid>
+                <Grid item xl="4" md="6" xs="12">
+                    <TextInput
+                        register={register("previousZipCode")}
+                        name="previousZipCode"
+                        error={errors.previousZipCode}
+                        placeholder="00000"
+                    />
+                </Grid>
             </Grid>
-            <Divider
-                sx={{
-                    backgroundColor: light
-                }}
-            />
-        </CollapsableForm>
+        </CollapsableForm >
     )
 }
 

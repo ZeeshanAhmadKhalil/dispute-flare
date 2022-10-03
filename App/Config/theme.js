@@ -4,11 +4,15 @@ let theme = createTheme({
     breakpoints: {
         values: {
             xs: 0,
+            xs1: 250,
             sm: 600,
+            sm1: 650,
             xmd: 800,
             md: 900,
+            md1: 1065,
             lg: 1250,
-            xl: 1400,
+            xl: 1300,
+            xl1: 1400,
         }
     },
     typography: {

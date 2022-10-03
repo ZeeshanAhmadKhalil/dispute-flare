@@ -27,6 +27,7 @@ function Clients(props) {
     return (
         <>
             <TitleHeader
+                title="Clients"
                 actionButtons={
                     <ClientActions
                         selectedClients={selectedClients}
