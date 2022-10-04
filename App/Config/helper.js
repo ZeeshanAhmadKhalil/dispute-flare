@@ -3,7 +3,7 @@ function randomIntFromInterval(min, max) { // min and max included
 }
 
 function camelToBreadcrumbs(str) {
-    return str.replace(/[A-Z]/g, letter => `-${letter.toLowerCase()}`);
+    return str?.replace?.(/[A-Z]/g, letter => `-${letter.toLowerCase()}`);
 }
 
 function camelToTitle(str) {

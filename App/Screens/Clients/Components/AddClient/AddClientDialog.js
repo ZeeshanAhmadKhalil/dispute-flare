@@ -48,7 +48,13 @@ function AddClientDialog(props) {
         addClientDialog
     } = useSelector(state => state.clients)
 
-    const { register, handleSubmit, reset, formState: { errors } } = useForm({
+    const {
+        register,
+        control,
+        handleSubmit,
+        reset,
+        formState: { errors },
+    } = useForm({
         mode: 'onChange',
         defaultValues,
     });
@@ -78,6 +84,7 @@ function AddClientDialog(props) {
                 />
                 <ClientInformation
                     register={register}
+                    control={control}
                     errors={errors}
                 />
             </Container>

@@ -1,3 +1,5 @@
+import DatePicker from '@Components/DatePicker/DatePicker';
+import DropDown from '@Components/DropDown/DropDown';
 import TextInput from '@Components/TextInput/TextInput';
 import {
     Divider,
@@ -26,6 +28,7 @@ function ClientInformation(props) {
 
     const {
         register,
+        control,
         errors,
     } = props
 
@@ -95,8 +98,8 @@ function ClientInformation(props) {
                     </Label>
                 </Grid>
                 <Grid item xl="4" md="6" xs="12">
-                    <TextInput
-                        register={register("dateOfBirth")}
+                    <DatePicker
+                        control={control}
                         name="dateOfBirth"
                         error={errors.dateOfBirth}
                     />
@@ -232,7 +235,7 @@ function ClientInformation(props) {
                     </Label>
                 </Grid>
                 <Grid item xl="4" md="6" xs="12">
-                    <TextInput
+                    <DropDown
                         register={register("city")}
                         name="city"
                         error={errors.city}

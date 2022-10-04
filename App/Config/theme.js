@@ -1,6 +1,6 @@
 import { createTheme } from "@mui/material";
 
-let theme = createTheme({
+const themeObj = {
     breakpoints: {
         values: {
             xs: 0,
@@ -39,6 +39,7 @@ let theme = createTheme({
             active: "#000",
             inactive: "#707070",
             lightActive: "#ACADAF",
+            input: "#ACADAF",
         },
         checkbox: {
             checked: "#37D667",
@@ -126,6 +127,12 @@ let theme = createTheme({
             xxxxOff: "#EEF2F4",
         },
     },
-});
+}
+
+let theme = createTheme(themeObj);
+
+export {
+    themeObj,
+}
 
 export default theme
