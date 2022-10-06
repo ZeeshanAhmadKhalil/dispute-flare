@@ -91,7 +91,7 @@ function CollapsableForm(props) {
         title,
     } = props || {}
 
-    const [open, setOpen] = useState(true)
+    const [open, setOpen] = useState(false)
 
     return (
         <Container>

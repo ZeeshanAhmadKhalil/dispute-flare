@@ -129,10 +129,16 @@ const themeObj = {
     },
 }
 
-let theme = createTheme(themeObj);
+let darkTheme = createTheme(themeObj);
+let lightTheme = createTheme({ //todo: we need opposite theme in some controlls
+    ...themeObj,
+    palette: {
+        ...themeObj.palette,
+        mode: 'light',
+    }
+});
 
 export {
-    themeObj,
+    lightTheme,
+    darkTheme,
 }
-
-export default theme

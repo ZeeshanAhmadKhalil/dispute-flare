@@ -2,9 +2,9 @@ import {
     camelToBreadcrumbs,
     camelToTitle
 } from '@Config/helper';
+import { lightTheme } from '@Config/theme';
 import {
     alpha,
-    createTheme,
     InputBase,
     styled,
     ThemeProvider,
@@ -14,18 +14,9 @@ import Box from '@mui/material/Box';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker as MuiDatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import cls from 'classnames';
+import Calendar from 'public/Assets/Svgs/calendar.svg';
 import { Controller } from 'react-hook-form';
-import Calendar from 'public/Assets/Svgs/calendar.svg'
-import cls from 'classnames'
-import { themeObj } from '@Config/theme';
-
-let datePickerTheme = createTheme({
-    ...themeObj,
-    palette: {
-        ...themeObj.palette,
-        mode: 'light',
-    }
-})
 
 const TextField = styled(InputBase)(({ theme }) => ({
     'label + &': {
@@ -74,10 +65,10 @@ function DatePicker(props) {
     } = useTheme()
 
     return (
-        <ThemeProvider theme={datePickerTheme}>
+        <ThemeProvider theme={lightTheme}>
             <Controller
                 control={control}
-                name='date-input'
+                name={name}
                 render={({ field: { value, onChange } }) => (
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                         <MuiDatePicker

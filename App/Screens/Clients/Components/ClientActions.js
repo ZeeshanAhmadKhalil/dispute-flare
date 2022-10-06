@@ -3,7 +3,7 @@ import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
 import FileUploadIcon from '@mui/icons-material/FileUpload';
 import Thunder from 'public/Assets/Svgs/thunder.svg';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setAddClientDialog } from '../Store/clientsSlice';
 
@@ -14,11 +14,6 @@ function ClientActions(props) {
     const {
         selectedClients
     } = props || {}
-
-    const [state, setState] = useState(null)
-
-    useEffect(() => {
-    }, [])
 
     return (
         <>

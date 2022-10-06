@@ -1,15 +1,10 @@
 import MuiCheckbox from '@mui/material/Checkbox';
 import { useTheme } from '@mui/material/styles';
-import { useState } from 'react';
 
 export default function CheckBox({
     props,
-    styles = {},
     action,
 }) {
-
-    // console.log("props===>", props)
-
     const {
         checked: value,
     } = props || {}

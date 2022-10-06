@@ -1,5 +1,6 @@
 import DatePicker from '@Components/DatePicker/DatePicker';
 import DropDown from '@Components/DropDown/DropDown';
+import RadioBtns from '@Components/RadioBtns/RadioBtns';
 import TextInput from '@Components/TextInput/TextInput';
 import {
     Divider,
@@ -9,6 +10,7 @@ import {
     useTheme
 } from '@mui/material';
 import cls from 'classnames';
+import { useSelector } from 'react-redux';
 import styles from './ClientInformation.module.scss';
 import CollapsableForm from './CollapsableForm';
 
@@ -38,13 +40,19 @@ function ClientInformation(props) {
         }
     } = useTheme()
 
+    const {
+        cities,
+        states,
+        countries,
+    } = useSelector(state => state.clients)
+
     return (
         <CollapsableForm
             title="Client Information"
         >
             <Grid
                 container
-                rowSpacing={2}
+                rowSpacing={3}
                 className={cls(
                     'border-red-700',
                     'border-0',
@@ -71,7 +79,9 @@ function ClientInformation(props) {
                 </Grid>
                 <Grid item xl="4" md="6" xs="12">
                     <TextInput
-                        register={register("firstName")}
+                        register={register("firstName", {
+                            required: true,
+                        })}
                         name="firstName"
                         error={errors.firstName}
                     />
@@ -85,7 +95,9 @@ function ClientInformation(props) {
                 </Grid>
                 <Grid item xl="4" md="6" xs="12">
                     <TextInput
-                        register={register("lastName")}
+                        register={register("lastName", {
+                            required: true,
+                        })}
                         name="lastName"
                         error={errors.lastName}
                     />
@@ -145,7 +157,9 @@ function ClientInformation(props) {
                 </Grid>
                 <Grid item xl="4" md="6" xs="12">
                     <TextInput
-                        register={register("emailId")}
+                        register={register("emailId", {
+                            required: true,
+                        })}
                         name="emailId"
                         error={errors.emailId}
                         placeholder="luffy@onepiece.com"
@@ -237,6 +251,7 @@ function ClientInformation(props) {
                 <Grid item xl="4" md="6" xs="12">
                     <DropDown
                         register={register("city")}
+                        list={cities}
                         name="city"
                         error={errors.city}
                     />
@@ -249,8 +264,9 @@ function ClientInformation(props) {
                     </Label>
                 </Grid>
                 <Grid item xl="4" md="6" xs="12">
-                    <TextInput
+                    <DropDown
                         register={register("state")}
+                        list={states}
                         name="state"
                         error={errors.state}
                     />
@@ -263,8 +279,9 @@ function ClientInformation(props) {
                     </Label>
                 </Grid>
                 <Grid item xl="4" md="6" xs="12">
-                    <TextInput
+                    <DropDown
                         register={register("country")}
+                        list={countries}
                         name="country"
                         error={errors.country}
                     />
@@ -283,6 +300,36 @@ function ClientInformation(props) {
                         error={errors.zipCode}
                         placeholder="00000"
                     />
+                </Grid>
+                <Grid item xs="12">
+                    <Grid
+                        container
+                        rowSpacing={2}
+                        className={cls(
+                            'border-red-700',
+                            'border-0',
+                            'flex',
+                            'items-center',
+                        )}>
+                        <Grid item xl="2" md="6" xs="12">
+                            <Label
+                                variant="subtitle1"
+                            >
+                                Previous Address
+                            </Label>
+                        </Grid>
+                        <Grid item xl="4" md="6" xs="12">
+                            <RadioBtns
+                                register={register("hasPreviousAddress")}
+                                name="hasPreviousAddress"
+                                error={errors.hasPreviousAddress}
+                                list={[
+                                    { label: "Yes", value: 1 },
+                                    { label: "No", value: 0 },
+                                ]}
+                            />
+                        </Grid>
+                    </Grid>
                 </Grid>
                 <Grid item xs="12">
                     <Divider
@@ -323,8 +370,9 @@ function ClientInformation(props) {
                     </Label>
                 </Grid>
                 <Grid item xl="4" md="6" xs="12">
-                    <TextInput
+                    <DropDown
                         register={register("previousCity")}
+                        list={cities}
                         name="previousCity"
                         error={errors.previousCity}
                     />
@@ -337,8 +385,9 @@ function ClientInformation(props) {
                     </Label>
                 </Grid>
                 <Grid item xl="4" md="6" xs="12">
-                    <TextInput
+                    <DropDown
                         register={register("previousState")}
+                        list={states}
                         name="previousState"
                         error={errors.previousState}
                     />
@@ -351,8 +400,9 @@ function ClientInformation(props) {
                     </Label>
                 </Grid>
                 <Grid item xl="4" md="6" xs="12">
-                    <TextInput
+                    <DropDown
                         register={register("previousCountry")}
+                        list={countries}
                         name="previousCountry"
                         error={errors.previousCountry}
                     />

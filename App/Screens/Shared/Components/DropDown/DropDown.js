@@ -1,8 +1,10 @@
-import { camelToTitle } from '@Config/helper';
-import { themeObj } from '@Config/theme';
+import {
+    camelToBreadcrumbs,
+    camelToTitle
+} from '@Config/helper';
+import { lightTheme } from '@Config/theme';
 import {
     alpha,
-    createTheme,
     InputBase,
     styled,
     ThemeProvider
@@ -10,15 +12,7 @@ import {
 import FormControl from '@mui/material/FormControl';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
-import { useState } from 'react';
-
-let dropDownTheme = createTheme({
-    ...themeObj,
-    palette: {
-        ...themeObj.palette,
-        mode: 'light',
-    }
-})
+import { useEffect, useState } from 'react';
 
 const TextField = styled(InputBase)(({ theme }) => ({
     'label + &': {
@@ -55,32 +49,57 @@ function DropDown(props) {
     const {
         register,
         name,
-        error
+        error,
+        list
     } = props || {}
 
-    const [age, setAge] = useState(null);
+    const [open, setOpen] = useState(false)
+    const [showMenuItems, setShowMenuItems] = useState(false)
 
-    const handleChange = (event) => {
-        setAge(event.target.value);
-    };
+    function RenderList() {
+        return list?.map?.((item, key) => {
+
+            const { label, value } = item || {}
+
+            return (
+                <MenuItem
+                    key={key}
+                    value={value}
+                >
+                    {label}
+                </MenuItem>
+            )
+        })
+    }
+
+    useEffect(() => {
+        setShowMenuItems(false)
+        const delayDebounceFn = setTimeout(() => {
+            console.info(`${name} dropdown  "${open ? "opened" : "closed"}"`)
+            setShowMenuItems(open)
+        }, 1000)
+
+        return () => clearTimeout(delayDebounceFn)
+    }, [open])
 
     return (
-        <ThemeProvider theme={dropDownTheme}>
+        <ThemeProvider theme={lightTheme}>
             <FormControl sx={{}} size="small">
                 <Select
-                    labelId="demo-select-small"
-                    id="demo-select-small"
-                    value={age}
-                    onChange={handleChange}
-                    placeholder={`Enter ${camelToTitle(name)}`}
+                    {...register}
+                    open={open}
+                    onClose={() => setOpen(false)}
+                    onOpen={() => setOpen(true)}
+                    labelId={camelToBreadcrumbs(name)}
+                    id={camelToBreadcrumbs(name)}
                     input={<TextField />}
                 >
-                    <MenuItem value={null}>
-                        <em>None</em>
+                    <MenuItem disabled value={""}>
+                        <em>
+                            {`Select ${camelToTitle(name)}`}
+                        </em>
                     </MenuItem>
-                    <MenuItem value={10}>Ten</MenuItem>
-                    <MenuItem value={20}>Twenty</MenuItem>
-                    <MenuItem value={30}>Thirty</MenuItem>
+                    {RenderList()}
                 </Select>
             </FormControl>
         </ThemeProvider>
