@@ -122,21 +122,25 @@ function AddClientDialog(props) {
                     }}
                 />
                 <ClientInformation
+                    watch={watch}
                     register={register}
                     control={control}
                     errors={errors}
                 />
                 <CreditMonitoringInformation
+                    watch={watch}
                     register={register}
                     control={control}
                     errors={errors}
                 />
                 <PortalSetting
+                    watch={watch}
                     register={register}
                     control={control}
                     errors={errors}
                 />
                 <Other
+                    watch={watch}
                     register={register}
                     control={control}
                     errors={errors}

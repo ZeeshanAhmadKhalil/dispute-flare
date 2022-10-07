@@ -24,10 +24,10 @@ const Label = styled(Typography)(({ theme }) => {
 function Other(props) {
 
     const {
-        control,
+        watch,
         register,
         errors,
-    } = props
+    } = props || {}
 
     const {
         palette: { }
@@ -51,11 +51,10 @@ function Other(props) {
         { label: "Showkat", value: 5 },
     ]
     let statusList = [
-        { label: 'Nami', value: 1 },
-        { label: 'Chopper', value: 2 },
-        { label: 'Zoro', value: 3 },
-        { label: 'Buggy', value: 4 },
-        { label: 'Nico Robin', value: 5 },
+        { label: 'Lead', value: 1 },
+        { label: 'Active', value: 2 },
+        { label: 'Inactive', value: 3 },
+        { label: 'Cancelled', value: 4 },
     ]
 
     return (
@@ -81,6 +80,7 @@ function Other(props) {
                 </Grid>
                 <Grid item xl="4" md="6" xs="12">
                     <DropDown
+                        watch={watch}
                         register={register("assignedTo")}
                         list={assignedToList}
                         name="assignedTo"
@@ -96,6 +96,7 @@ function Other(props) {
                 </Grid>
                 <Grid item xl="4" md="6" xs="12">
                     <DropDown
+                        watch={watch}
                         register={register("refferedBy")}
                         list={refferedByList}
                         name="refferedBy"
@@ -112,6 +113,7 @@ function Other(props) {
                 </Grid>
                 <Grid item xl="4" md="6" xs="12">
                     <DropDown
+                        watch={watch}
                         register={register("status")}
                         list={statusList}
                         name="status"

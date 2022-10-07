@@ -5,9 +5,12 @@ import {
 import { lightTheme } from '@Config/theme';
 import {
     alpha,
+    Box,
     InputBase,
+    InputLabel,
     styled,
-    ThemeProvider
+    ThemeProvider,
+    Typography
 } from '@mui/material';
 import FormControl from '@mui/material/FormControl';
 import MenuItem from '@mui/material/MenuItem';
@@ -44,17 +47,36 @@ const TextField = styled(InputBase)(({ theme }) => ({
     },
 }));
 
+const Placeholder = styled(Box)(({ theme }) => {
+
+    const {
+        palette: {
+            text: {
+                xGrey1
+            }
+        }
+    } = theme
+
+    return {
+        position: 'absolute',
+        top: 5,
+        left: 10,
+        color: xGrey1,
+        cursor: 'pointer',
+    }
+})
+
 function DropDown(props) {
 
     const {
         register,
         name,
         error,
-        list
+        list,
+        watch,
     } = props || {}
 
     const [open, setOpen] = useState(false)
-    const [showMenuItems, setShowMenuItems] = useState(false)
 
     function RenderList() {
         return list?.map?.((item, key) => {
@@ -72,28 +94,19 @@ function DropDown(props) {
         })
     }
 
-    useEffect(() => {
-        setShowMenuItems(false)
-        const delayDebounceFn = setTimeout(() => {
-            console.info(`${name} dropdown  "${open ? "opened" : "closed"}"`)
-            setShowMenuItems(open)
-        }, 1000)
-
-        return () => clearTimeout(delayDebounceFn)
-    }, [open])
-
     return (
-        // <ThemeProvider theme={lightTheme}>
+        <ThemeProvider theme={lightTheme}>
             <FormControl sx={{}} size="small">
                 <Select
                     {...register}
-                    placeholder="sdf"
                     open={open}
                     onClose={() => setOpen(false)}
                     onOpen={() => setOpen(true)}
                     labelId={camelToBreadcrumbs(name)}
                     id={camelToBreadcrumbs(name)}
-                    input={<TextField />}
+                    input={
+                        <TextField />
+                    }
                 >
                     <MenuItem disabled value={""}>
                         <em>
@@ -102,8 +115,19 @@ function DropDown(props) {
                     </MenuItem>
                     {RenderList()}
                 </Select>
+                {!watch(name) &&
+                    <Placeholder
+                        onClick={() => setOpen(true)}
+                    >
+                        <Typography
+                            variant='body2'
+                        >
+                            {`Select ${camelToTitle(name)}`}
+                        </Typography>
+                    </Placeholder>
+                }
             </FormControl>
-        // </ThemeProvider>
+        </ThemeProvider >
     );
 }
 

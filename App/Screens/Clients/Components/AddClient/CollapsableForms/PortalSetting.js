@@ -30,7 +30,8 @@ function PortalSetting(props) {
         control,
         register,
         errors,
-    } = props
+        watch,
+    } = props || {}
 
     const {
         palette: { }
@@ -87,7 +88,7 @@ function PortalSetting(props) {
                         </Grid>
                         <Grid item md="10" xs="12">
                             <RadioBtns
-                                register={register("hasAttachmentAgreement")}
+                                control={control}
                                 name="hasAttachmentAgreement"
                                 error={errors.hasAttachmentAgreement}
                                 list={[
@@ -98,28 +99,31 @@ function PortalSetting(props) {
                         </Grid>
                     </Grid>
                 </Grid>
-                <Grid item xs="12">
-                    <Grid
-                        container
-                        rowSpacing={2}
-                        className={cls(
-                            'border-red-700',
-                            'border-0',
-                            'flex',
-                            'items-center',
-                        )}>
-                        <Grid item md="2" xs="12">
-                        </Grid>
-                        <Grid item md="10" xs="12">
-                            <DropDown
-                                register={register("attachmentAgreement")}
-                                list={attachmentAgreements}
-                                name="attachmentAgreement"
-                                error={errors.attachmentAgreement}
-                            />
+                {watch("hasAttachmentAgreement") == 1 &&
+                    <Grid item xs="12">
+                        <Grid
+                            container
+                            rowSpacing={2}
+                            className={cls(
+                                'border-red-700',
+                                'border-0',
+                                'flex',
+                                'items-center',
+                            )}>
+                            <Grid item md="2" xs="12">
+                            </Grid>
+                            <Grid item md="10" xs="12">
+                                <DropDown
+                                    watch={watch}
+                                    register={register("attachmentAgreement")}
+                                    list={attachmentAgreements}
+                                    name="attachmentAgreement"
+                                    error={errors.attachmentAgreement}
+                                />
+                            </Grid>
                         </Grid>
                     </Grid>
-                </Grid>
+                }
                 <Grid item xs="12">
                     <Grid
                         container
@@ -147,27 +151,29 @@ function PortalSetting(props) {
                         </Grid>
                     </Grid>
                 </Grid>
-                <Grid item xs="12">
-                    <Grid
-                        container
-                        rowSpacing={2}
-                        className={cls(
-                            'border-red-700',
-                            'border-0',
-                            'flex',
-                            'items-center',
-                        )}>
-                        <Grid item md="2" xs="12">
-                        </Grid>
-                        <Grid item md="10" xs="12">
-                            <TextInput
-                                register={register("otherRequiredDocument")}
-                                name="otherRequiredDocument"
-                                error={errors.otherRequiredDocument}
-                            />
+                {watch("requiredDocuments").includes(5) &&
+                    <Grid item xs="12">
+                        <Grid
+                            container
+                            rowSpacing={2}
+                            className={cls(
+                                'border-red-700',
+                                'border-0',
+                                'flex',
+                                'items-center',
+                            )}>
+                            <Grid item md="2" xs="12">
+                            </Grid>
+                            <Grid item md="10" xs="12">
+                                <TextInput
+                                    register={register("otherRequiredDocument")}
+                                    name="otherRequiredDocument"
+                                    error={errors.otherRequiredDocument}
+                                />
+                            </Grid>
                         </Grid>
                     </Grid>
-                </Grid>
+                }
             </Grid>
         </CollapsableForm >
     )

@@ -81,11 +81,13 @@ const themeObj = {
             contrastText: "#000",
             hovered: '#fff1',
             xGrey: "#858585",
+            xGrey1: "#898989",
             xxGrey: "#888888",
             xxxGrey: "#707070",
             grey: "#5F6163",
             lighter: "#A1A1A1",
-            link: "#0E2FFFCC"
+            link: "#0E2FFFCC",
+            secondarish: "#2D4766"
         },
         background: {
             xTrans: '#00000044'

@@ -139,6 +139,7 @@ function RightDialogLayout(props) {
                     borderRadius: 30,
                     borderTopRightRadius: 0,
                     borderBottomRightRadius: 0,
+                    width: 100,
                 }}
             >
                 {closeBtnText}

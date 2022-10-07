@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import AddClientDialog from './Components/AddClient/AddClientDialog';
 import ClientActions from './Components/ClientActions';
+import ImportClientsDialog from './Components/ImportClients/ImportClientsDialog';
 import {
     setAddClientDialog,
     setAllColumnsVisibility,
@@ -45,6 +46,7 @@ function Clients(props) {
                 setAllColumnsVisibility={setAllColumnsVisibility}
             />
             <AddClientDialog />
+            <ImportClientsDialog />
         </>
     )
 }

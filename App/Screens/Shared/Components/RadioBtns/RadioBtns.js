@@ -4,11 +4,12 @@ import FormControl from '@mui/material/FormControl';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
+import { Controller } from 'react-hook-form';
 
 function RadioBtns(props) {
 
     const {
-        register,
+        control,
         name,
         error,
         list,
@@ -32,16 +33,21 @@ function RadioBtns(props) {
 
     return (
         <ThemeProvider theme={lightTheme}>
-            <FormControl>
-                <RadioGroup
-                    {...register}
-                    row
-                    aria-labelledby="demo-row-radio-buttons-group-label"
-                    name="row-radio-buttons-group"
-                >
-                    {RenderList()}
-                </RadioGroup>
-            </FormControl>
+            <Controller
+                control={control}
+                name={name}
+                render={({ field: { value, onChange } }) => (
+                    <RadioGroup
+                        onChange={(event) => onChange(event.target.value)}
+                        value={value}
+                        row
+                        aria-labelledby="demo-row-radio-buttons-group-label"
+                        name="row-radio-buttons-group"
+                    >
+                        {RenderList()}
+                    </RadioGroup>
+                )}
+            />
         </ThemeProvider>
     );
 }

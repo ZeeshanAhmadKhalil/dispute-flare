@@ -7,7 +7,8 @@ import Status from '../Components/Status';
 const clientsSlice = createSlice({
     name: 'clients',
     initialState: {
-        addClientDialog: true,
+        addClientDialog: false,
+        importClientsDialog: true,
         columns: [
             {
                 field: 'settings',
@@ -984,6 +985,9 @@ const clientsSlice = createSlice({
 
     },
     reducers: {
+        setImportClientsDialog: (state, action) => {
+            state.importClientsDialog = action.payload
+        },
         setAddClientDialog: (state, action) => {
             state.addClientDialog = action.payload
         },
@@ -1038,6 +1042,7 @@ const clientsSlice = createSlice({
 });
 
 export const {
+    setImportClientsDialog,
     setAddClientDialog,
     setColumnVisibility,
     setAllColumnsVisibility,

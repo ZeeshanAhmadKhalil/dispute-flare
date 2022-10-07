@@ -27,7 +27,8 @@ function CreditMonitoringInformation(props) {
     const {
         register,
         errors,
-    } = props
+        watch,
+    } = props||{}
 
     const {
         palette: {
@@ -69,6 +70,7 @@ function CreditMonitoringInformation(props) {
                 </Grid>
                 <Grid item xl="4" md="6" xs="12">
                     <DropDown
+                        watch={watch}
                         register={register("provider")}
                         list={providers}
                         name="provider"

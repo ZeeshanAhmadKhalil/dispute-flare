@@ -32,7 +32,8 @@ function ClientInformation(props) {
         register,
         control,
         errors,
-    } = props
+        watch,
+    } = props || {}
 
     const {
         palette: {
@@ -250,6 +251,7 @@ function ClientInformation(props) {
                 </Grid>
                 <Grid item xl="4" md="6" xs="12">
                     <DropDown
+                        watch={watch}
                         register={register("city")}
                         list={cities}
                         name="city"
@@ -265,6 +267,7 @@ function ClientInformation(props) {
                 </Grid>
                 <Grid item xl="4" md="6" xs="12">
                     <DropDown
+                        watch={watch}
                         register={register("state")}
                         list={states}
                         name="state"
@@ -280,6 +283,7 @@ function ClientInformation(props) {
                 </Grid>
                 <Grid item xl="4" md="6" xs="12">
                     <DropDown
+                        watch={watch}
                         register={register("country")}
                         list={countries}
                         name="country"
@@ -320,7 +324,7 @@ function ClientInformation(props) {
                         </Grid>
                         <Grid item xl="4" md="6" xs="12">
                             <RadioBtns
-                                register={register("hasPreviousAddress")}
+                                control={control}
                                 name="hasPreviousAddress"
                                 error={errors.hasPreviousAddress}
                                 list={[
@@ -331,97 +335,104 @@ function ClientInformation(props) {
                         </Grid>
                     </Grid>
                 </Grid>
-                <Grid item xs="12">
-                    <Divider
-                        sx={{
-                            backgroundColor: light
-                        }}
-                    />
-                </Grid>
-                <Grid item xs="12">
-                    <Typography
-                        variant="subtitle2"
-                        className={cls(
-                            styles.groupTitle,
-                        )}
-                    >
-                        Previous Address
-                    </Typography>
-                </Grid>
-                <Grid item xl="2" md="6" xs="12">
-                    <Label
-                        variant="subtitle1"
-                    >
-                        Address
-                    </Label>
-                </Grid>
-                <Grid item xl="4" md="6" xs="12">
-                    <TextInput
-                        register={register("previousAddress")}
-                        name="previousAddress"
-                        error={errors.previousAddress}
-                    />
-                </Grid>
-                <Grid item xl="2" md="6" xs="12">
-                    <Label
-                        variant="subtitle1"
-                    >
-                        City
-                    </Label>
-                </Grid>
-                <Grid item xl="4" md="6" xs="12">
-                    <DropDown
-                        register={register("previousCity")}
-                        list={cities}
-                        name="previousCity"
-                        error={errors.previousCity}
-                    />
-                </Grid>
-                <Grid item xl="2" md="6" xs="12">
-                    <Label
-                        variant="subtitle1"
-                    >
-                        State
-                    </Label>
-                </Grid>
-                <Grid item xl="4" md="6" xs="12">
-                    <DropDown
-                        register={register("previousState")}
-                        list={states}
-                        name="previousState"
-                        error={errors.previousState}
-                    />
-                </Grid>
-                <Grid item xl="2" md="6" xs="12">
-                    <Label
-                        variant="subtitle1"
-                    >
-                        Country
-                    </Label>
-                </Grid>
-                <Grid item xl="4" md="6" xs="12">
-                    <DropDown
-                        register={register("previousCountry")}
-                        list={countries}
-                        name="previousCountry"
-                        error={errors.previousCountry}
-                    />
-                </Grid>
-                <Grid item xl="2" md="6" xs="12">
-                    <Label
-                        variant="subtitle1"
-                    >
-                        Zip code
-                    </Label>
-                </Grid>
-                <Grid item xl="4" md="6" xs="12">
-                    <TextInput
-                        register={register("previousZipCode")}
-                        name="previousZipCode"
-                        error={errors.previousZipCode}
-                        placeholder="00000"
-                    />
-                </Grid>
+                {watch("hasPreviousAddress") == 1 &&
+                    <>
+                        <Grid item xs="12">
+                            <Divider
+                                sx={{
+                                    backgroundColor: light
+                                }}
+                            />
+                        </Grid>
+                        <Grid item xs="12">
+                            <Typography
+                                variant="subtitle2"
+                                className={cls(
+                                    styles.groupTitle,
+                                )}
+                            >
+                                Previous Address
+                            </Typography>
+                        </Grid>
+                        <Grid item xl="2" md="6" xs="12">
+                            <Label
+                                variant="subtitle1"
+                            >
+                                Address
+                            </Label>
+                        </Grid>
+                        <Grid item xl="4" md="6" xs="12">
+                            <TextInput
+                                register={register("previousAddress")}
+                                name="previousAddress"
+                                error={errors.previousAddress}
+                            />
+                        </Grid>
+                        <Grid item xl="2" md="6" xs="12">
+                            <Label
+                                variant="subtitle1"
+                            >
+                                City
+                            </Label>
+                        </Grid>
+                        <Grid item xl="4" md="6" xs="12">
+                            <DropDown
+                                watch={watch}
+                                register={register("previousCity")}
+                                list={cities}
+                                name="previousCity"
+                                error={errors.previousCity}
+                            />
+                        </Grid>
+                        <Grid item xl="2" md="6" xs="12">
+                            <Label
+                                variant="subtitle1"
+                            >
+                                State
+                            </Label>
+                        </Grid>
+                        <Grid item xl="4" md="6" xs="12">
+                            <DropDown
+                                watch={watch}
+                                register={register("previousState")}
+                                list={states}
+                                name="previousState"
+                                error={errors.previousState}
+                            />
+                        </Grid>
+                        <Grid item xl="2" md="6" xs="12">
+                            <Label
+                                variant="subtitle1"
+                            >
+                                Country
+                            </Label>
+                        </Grid>
+                        <Grid item xl="4" md="6" xs="12">
+                            <DropDown
+                                watch={watch}
+                                register={register("previousCountry")}
+                                list={countries}
+                                name="previousCountry"
+                                error={errors.previousCountry}
+                            />
+                        </Grid>
+                        <Grid item xl="2" md="6" xs="12">
+                            <Label
+                                variant="subtitle1"
+                            >
+                                Zip code
+                            </Label>
+                        </Grid>
+                        <Grid item xl="4" md="6" xs="12">
+                            <TextInput
+                                register={register("previousZipCode")}
+                                name="previousZipCode"
+                                error={errors.previousZipCode}
+                                placeholder="00000"
+                            />
+                        </Grid>
+                    </>
+                }
             </Grid>
         </CollapsableForm >
     )
