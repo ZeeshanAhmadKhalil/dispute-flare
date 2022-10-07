@@ -18,6 +18,7 @@ import { useForm } from 'react-hook-form';
 import AddClientActions from './AddClientActions';
 import CreditMonitoringInformation from './CollapsableForms/CreditMonitoringInformation';
 import PortalSetting from './CollapsableForms/PortalSetting';
+import Other from './CollapsableForms/Other';
 
 const Container = styled(Box)(({ theme }) => {
 
@@ -90,9 +91,6 @@ function AddClientDialog(props) {
         defaultValues,
     });
 
-    let watchRequiredDocuments = watch('requiredDocuments')
-    console.log("watchRequiredDocuments===>", watchRequiredDocuments)
-
     return (
         <RightDialogLayout
             onClose={() => dispatch(setAddClientDialog(false))}
@@ -134,6 +132,11 @@ function AddClientDialog(props) {
                     errors={errors}
                 />
                 <PortalSetting
+                    register={register}
+                    control={control}
+                    errors={errors}
+                />
+                <Other
                     register={register}
                     control={control}
                     errors={errors}

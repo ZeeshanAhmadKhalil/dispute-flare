@@ -33,7 +33,7 @@ function CheckBoxes(props) {
                             onChange={() => {
 
                                 if (value?.includes?.(itemValue))
-                                    onChange(value.filter(item => item == itemValue))
+                                    onChange(value.filter(item => item != itemValue))
                                 else
                                     onChange([
                                         ...value,

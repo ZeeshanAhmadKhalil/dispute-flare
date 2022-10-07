@@ -83,10 +83,11 @@ function DropDown(props) {
     }, [open])
 
     return (
-        <ThemeProvider theme={lightTheme}>
+        // <ThemeProvider theme={lightTheme}>
             <FormControl sx={{}} size="small">
                 <Select
                     {...register}
+                    placeholder="sdf"
                     open={open}
                     onClose={() => setOpen(false)}
                     onOpen={() => setOpen(true)}
@@ -102,7 +103,7 @@ function DropDown(props) {
                     {RenderList()}
                 </Select>
             </FormControl>
-        </ThemeProvider>
+        // </ThemeProvider>
     );
 }
 
