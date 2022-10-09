@@ -1,31 +1,50 @@
 import { Box, styled, Typography } from '@mui/material';
-import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import cls from 'classnames';
 import CollapseDown from 'public/Assets/Svgs/collapse-down.svg';
-import cls from 'classnames'
+import { useState } from 'react';
 
 const Container = styled(Box)(({ theme }) => {
     return {
-
     }
 })
 
-const ArrowIcon = styled(Box)(({ theme }) => {
+const ArrowIcon = styled(Box, {
+    shouldForwardProp: (prop) => prop !== 'open',
+})(({ theme, open }) => {
     return {
-
+        borderTopLeftRadius: 10,
+        transition: theme.transitions.create(['transform'], {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen,
+        }),
+        ...(open && {
+            transform: "rotate(180deg)",
+        })
     }
 })
 
-const Collapse = styled(Box)(({ theme }) => {
+const Collapse = styled(Box, {
+    shouldForwardProp: (prop) => prop !== 'open',
+})(({ theme, open }) => {
 
     const {
         dialog: { xxxxOff }
     } = theme.palette
 
     return {
-        padding: 20,
         backgroundColor: xxxxOff,
         borderRadius: 2,
+        overflow: 'hidden',
+        transition: theme.transitions.create(['max-height'], {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen,
+        }),
+        ...(!open && {
+            maxHeight: 1,
+        }),
+        ...(open && {
+            maxHeight: 1000,
+        })
     }
 })
 
@@ -45,6 +64,7 @@ const Title = (props) => {
                 'items-center',
                 'border-red-700',
                 'border-0',
+                'cursor-pointer',
                 'h-[50px]',
                 'px-[15px]',
             )}
@@ -71,7 +91,7 @@ function CollapsableForm(props) {
         title,
     } = props || {}
 
-    const [open, setOpen] = useState(true)
+    const [open, setOpen] = useState(false)
 
     return (
         <Container>
@@ -84,7 +104,13 @@ function CollapsableForm(props) {
             <Collapse
                 open={open}
             >
-                {children}
+                <div
+                    className={cls(
+                        'p-[20px]'
+                    )}
+                >
+                    {children}
+                </div>
             </Collapse>
         </Container>
     )

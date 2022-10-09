@@ -1,6 +1,7 @@
 import Button from '@Components/Button/Button';
 import CloseIcon from '@mui/icons-material/Close';
 import {
+    DialogActions,
     DialogContent,
     DialogTitle,
     styled,
@@ -20,6 +21,7 @@ const Dialog = styled(MuiDialog)(({ theme }) => {
     const {
         text,
         dialog,
+        shadow,
     } = theme.palette
 
     return {
@@ -39,6 +41,12 @@ const Dialog = styled(MuiDialog)(({ theme }) => {
             justifyContent: "flex-end",
             alignItems: "flex-start",
         },
+        '& .MuiDialogActions-root': {
+            backgroundColor: dialog.main,
+            justifyContent: 'flex-start',
+            boxShadow: `0px 2px 7px -3px ${shadow.main}`,
+            zIndex: 99,
+        },
     }
 })
 
@@ -49,17 +57,23 @@ const Title = (props) => {
     } = props;
 
     const {
-        palette: { text }
+        palette: {
+            text,
+            shadow,
+        }
     } = useTheme()
 
     return (
         <DialogTitle
             sx={{
                 m: 0,
-                p: 2,
+                py: 1,
+                px: 2,
                 fontSize: 20,
                 fontWeight: '500',
                 color: text.grey,
+                boxShadow: `0px 2px 7px -5px ${shadow.main}`,
+                zIndex: 99,
             }}
             {...other}
         >
@@ -75,8 +89,15 @@ function RightDialogLayout(props) {
         onClose,
         open,
         closeBtnText,
-        title
+        title,
+        actionButtons,
     } = props || {}
+
+    const {
+        palette: {
+            text: { grey }
+        }
+    } = useTheme()
 
     return (
         <Dialog
@@ -94,12 +115,17 @@ function RightDialogLayout(props) {
             >
                 {title}
             </Title>
-            <DialogContent
-                sx={{
-                }}
-            >
+            <DialogContent>
                 {children}
             </DialogContent >
+            <DialogActions
+                sx={{
+                    px: 2,
+                    py: 1.5,
+                }}
+            >
+                {actionButtons}
+            </DialogActions>
             <Button
                 onClick={onClose}
                 color={"info"}
@@ -113,6 +139,7 @@ function RightDialogLayout(props) {
                     borderRadius: 30,
                     borderTopRightRadius: 0,
                     borderBottomRightRadius: 0,
+                    width: 100,
                 }}
             >
                 {closeBtnText}

@@ -1,14 +1,18 @@
 import { createTheme } from "@mui/material";
 
-let theme = createTheme({
+const themeObj = {
     breakpoints: {
         values: {
             xs: 0,
+            xs1: 250,
             sm: 600,
+            sm1: 650,
             xmd: 800,
             md: 900,
+            md1: 1065,
             lg: 1250,
-            xl: 1400,
+            xl: 1300,
+            xl1: 1400,
         }
     },
     typography: {
@@ -35,6 +39,7 @@ let theme = createTheme({
             active: "#000",
             inactive: "#707070",
             lightActive: "#ACADAF",
+            input: "#ACADAF",
         },
         checkbox: {
             checked: "#37D667",
@@ -76,11 +81,13 @@ let theme = createTheme({
             contrastText: "#000",
             hovered: '#fff1',
             xGrey: "#858585",
+            xGrey1: "#898989",
             xxGrey: "#888888",
             xxxGrey: "#707070",
             grey: "#5F6163",
             lighter: "#A1A1A1",
-            link: "#0E2FFFCC"
+            link: "#0E2FFFCC",
+            secondarish: "#2D4766"
         },
         background: {
             xTrans: '#00000044'
@@ -122,6 +129,18 @@ let theme = createTheme({
             xxxxOff: "#EEF2F4",
         },
     },
+}
+
+let darkTheme = createTheme(themeObj);
+let lightTheme = createTheme({ //todo: we need opposite theme in some controlls
+    ...themeObj,
+    palette: {
+        ...themeObj.palette,
+        mode: 'light',
+    }
 });
 
-export default theme
+export {
+    lightTheme,
+    darkTheme,
+}

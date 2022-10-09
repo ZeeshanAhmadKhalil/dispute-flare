@@ -25,7 +25,7 @@ const Box = styled(MuiBox, {
 
 function Searcher() {
 
-    const matched = useWidth('xl <')
+    const matched = useWidth('xl1 <')
 
     const [query, setQuery] = useState('')
 

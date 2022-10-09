@@ -6,7 +6,6 @@ import styles from './Buttom.module.scss';
 
 function Button(props) {
 
-    const matches = useWidth(`lg <`)
 
     const {
         startIcon,
@@ -18,7 +17,10 @@ function Button(props) {
         iconOnSmall,
         disableElevation,
         onClick,
+        match = "md1",
     } = props || {}
+
+    const matches = useWidth(`${match} <`)
 
     return (
         <Stack direction="row" spacing={2}>

@@ -15,6 +15,10 @@ import cls from 'classnames'
 import styles from './AddClientDialog.module.scss'
 import ClientInformation from './CollapsableForms/ClientInformation';
 import { useForm } from 'react-hook-form';
+import AddClientActions from './AddClientActions';
+import CreditMonitoringInformation from './CollapsableForms/CreditMonitoringInformation';
+import PortalSetting from './CollapsableForms/PortalSetting';
+import Other from './CollapsableForms/Other';
 
 const Container = styled(Box)(({ theme }) => {
 
@@ -27,12 +31,39 @@ const Container = styled(Box)(({ theme }) => {
     return {
         backgroundColor: main,
         padding: 20,
+        marginTop: 10,
     }
 })
 
 function AddClientDialog(props) {
 
     const defaultValues = {
+        firstName: null,
+        lastName: null,
+        ssnNumber: null,
+        emailId: null,
+        mobileNo: null,
+        phoneNo: null,
+        website: null,
+        address: null,
+        city: null,
+        state: null,
+        country: null,
+        zipCode: null,
+        hasPreviousAddress: null,
+        previousAddress: null,
+        previousCity: null,
+        previousState: null,
+        previousCountry: null,
+        previousZipCode: null,
+        provider: null,
+        username: null,
+        password: null,
+        ssn: null,
+        hasAttachmentAgreement: null,
+        attachmentAgreement: null,
+        requiredDocuments: [],
+        otherRequiredDocument: null
     }
 
     const dispatch = useDispatch()
@@ -48,7 +79,14 @@ function AddClientDialog(props) {
         addClientDialog
     } = useSelector(state => state.clients)
 
-    const { register, handleSubmit, reset, formState: { errors } } = useForm({
+    const {
+        register,
+        control,
+        handleSubmit,
+        reset,
+        watch,
+        formState: { errors },
+    } = useForm({
         mode: 'onChange',
         defaultValues,
     });
@@ -56,11 +94,18 @@ function AddClientDialog(props) {
     return (
         <RightDialogLayout
             onClose={() => dispatch(setAddClientDialog(false))}
+            actionButtons={
+                <AddClientActions
+                    handleSubmit={handleSubmit}
+                    onClose={() =>
+                        dispatch(setAddClientDialog(false))
+                    }
+                />
+            }
             open={addClientDialog}
             closeBtnText="CLIENT"
             title={"Add Client"}
         >
-
             <Container>
                 <Typography
                     color="text.xxGrey"
@@ -77,7 +122,27 @@ function AddClientDialog(props) {
                     }}
                 />
                 <ClientInformation
+                    watch={watch}
                     register={register}
+                    control={control}
+                    errors={errors}
+                />
+                <CreditMonitoringInformation
+                    watch={watch}
+                    register={register}
+                    control={control}
+                    errors={errors}
+                />
+                <PortalSetting
+                    watch={watch}
+                    register={register}
+                    control={control}
+                    errors={errors}
+                />
+                <Other
+                    watch={watch}
+                    register={register}
+                    control={control}
                     errors={errors}
                 />
             </Container>

@@ -1,4 +1,4 @@
-import myTheme from '@Config/theme';
+import { darkTheme } from '@Config/theme';
 import { ThemeProvider } from '@mui/material/styles';
 import store from '@Store/index';
 import { Provider } from 'react-redux';
@@ -17,7 +17,7 @@ function MyApp(props) {
   let persistor = persistStore(store);
 
   return (
-    <ThemeProvider theme={myTheme}>
+    <ThemeProvider theme={darkTheme}>
       <Provider {...{ store }}>
         <PersistGate loading={null} persistor={persistor}>
           <Component {...pageProps} />

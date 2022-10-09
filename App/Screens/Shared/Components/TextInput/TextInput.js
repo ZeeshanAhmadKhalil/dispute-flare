@@ -5,9 +5,10 @@ import {
 import {
     alpha,
     InputBase,
-    styled
+    styled,
+    Typography,
+    useTheme
 } from '@mui/material';
-import { useEffect } from 'react';
 
 const TextField = styled(InputBase)(({ theme }) => ({
     'label + &': {
@@ -43,21 +44,52 @@ function TextInput(props) {
         placeholder,
     } = props || {}
 
-    useEffect(() => {
-    }, [])
+    const {
+        palette: {
+            cancelled,
+        }
+    } = useTheme()
 
     return (
-        <TextField
-            {...register}
-            id={camelToBreadcrumbs(name)}
-            variant="outlined"
-            placeholder={
-                placeholder ?
-                    placeholder
-                    :
-                    `Enter ${camelToTitle(name)}`
+        <div
+            style={{
+                position: 'relative',
+            }}
+        >
+            <TextField
+                {...register}
+                autoComplete={false}
+                type={name}
+                id={camelToBreadcrumbs(name)}
+                variant="outlined"
+                placeholder={
+                    placeholder ?
+                        placeholder
+                        :
+                        `Enter ${camelToTitle(name)}`
+                }
+            />
+            {error &&
+                <div
+                    style={{
+                        height: 15,
+                        display: 'flex',
+                        alignItems: 'center',
+                        position: 'absolute',
+                        bottom: -15,
+                    }}
+                >
+                    <Typography
+                        color={cancelled.main}
+                        lineHeight={0}
+                        variant="caption"
+                        component="div"
+                    >
+                        {`${camelToTitle(name)} is required`}
+                    </Typography>
+                </div>
             }
-        />
+        </div>
     )
 }
 

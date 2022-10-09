@@ -11,10 +11,12 @@ import cls from 'classnames';
 import Image from 'next/image';
 import logo from 'public/Assets/Images/logo.png';
 import Upgrade from 'public/Assets/Svgs/upgrade.svg';
+import UpgradeLine from 'public/Assets/Svgs/upgrade-line.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import ProfileDialog from './Components/ProfileDialog';
 import ThemesDialog from './Components/ThemesDialog';
 import styles from './Header.module.scss';
+import StorefrontIcon from '@mui/icons-material/Storefront';
 
 
 const AppBar = styled(MuiAppBar, {
@@ -66,7 +68,7 @@ export default function Header() {
                         'header-toolbar'
                     )}
                 >
-                    <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+                    <Box sx={{ display: { md: 'flex', xs: 'none' } }}>
                         {(!sidebar && !hoverSidebar) &&
                             <Image
                                 width={75}
@@ -76,7 +78,7 @@ export default function Header() {
                         }
                     </Box>
                     <Box className='border-0' sx={{ flexGrow: 1 }} />
-                    <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+                    <Box sx={{ display: 'flex' }}>
                         <Button
                             onClick={() => dispatch(setProfileDialog(true))}
                             color={"text"}
@@ -98,6 +100,13 @@ export default function Header() {
                             {user?.name}
                         </Button>
                         <Button
+                            match="sm1"
+                            iconOnSmall={
+                                <UpgradeLine
+                                    height={25}
+                                    width={25}
+                                />
+                            }
                             color={"warning"}
                             startIcon={
                                 <Upgrade
@@ -113,6 +122,13 @@ export default function Header() {
                             Upgrade Package
                         </Button>
                         <Button
+                            match="sm1"
+                            iconOnSmall={
+                                <StorefrontIcon
+                                    height={25}
+                                    width={25}
+                                />
+                            }
                             color={"secondary"}
                             icon={null}
                             style={{
