@@ -8,7 +8,7 @@ const clientsSlice = createSlice({
     name: 'clients',
     initialState: {
         addClientDialog: false,
-        importClientsDialog: true,
+        importClientsDialog: false,
         columns: [
             {
                 field: 'settings',
