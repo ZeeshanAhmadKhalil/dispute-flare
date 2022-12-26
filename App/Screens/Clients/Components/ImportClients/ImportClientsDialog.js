@@ -6,6 +6,7 @@ import {
 import { setImportClientsDialog } from '@Screens/Clients/Store/clientsSlice';
 import cls from 'classnames';
 import SampleCsv from 'public/Assets/Svgs/sample-csv.svg';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import {
     useDispatch,
@@ -39,12 +40,14 @@ function ImportClientsDialog(props) {
         }
     } = useTheme()
 
+
     const {
     } = useSelector(state => state.shared)
     const {
         importClientsDialog
     } = useSelector(state => state.clients)
 
+    const [files, setFiles] = useState([])
     const {
         register,
         control,
@@ -57,6 +60,18 @@ function ImportClientsDialog(props) {
         defaultValues,
     });
 
+    const renderFiles = () => {
+
+
+        return files.map(item =>
+            <Box>
+                {/* <FontAwesomeIcon icon="fa-light fa-file-csv" /> */}
+                {item[0].name}
+
+            </Box>
+        )
+
+    }
     return (
         <RightDialogLayout
             onClose={() => dispatch(setImportClientsDialog(false))}
@@ -134,8 +149,17 @@ function ImportClientsDialog(props) {
                         item
                         xs="12"
                     >
-                        <FileDropPicker />
+                        <FileDropPicker setFiles={setFiles} />
+
+                        {console.log("files are ", files)}
+
+                        <Box>
+                            {renderFiles()}
+                        </Box>
+
                     </Grid>
+
+
                 </Grid>
             </Container>
         </RightDialogLayout >

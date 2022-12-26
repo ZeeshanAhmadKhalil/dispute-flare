@@ -38,7 +38,7 @@ function FileDropPicker(props) {
         isFocused,
         isDragAccept,
         isDragReject
-    } = useDropzone({ accept: { 'image/*': [] } });
+    } = useDropzone({ accept: { 'image/*': [] }, onDrop: (acceptedFiles) => props.setFiles((prev) => [...prev, acceptedFiles]) });
 
     const style = useMemo(() => ({
         ...baseStyle,
