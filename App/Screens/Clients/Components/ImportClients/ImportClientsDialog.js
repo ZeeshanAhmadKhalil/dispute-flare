@@ -3,15 +3,24 @@ import RightDialogLayout from '@Layouts/RightDialogLayout/RightDialogLayout';
 import {
     Box, Grid, styled, Typography, useTheme
 } from '@mui/material';
+
+import CircularProgress, {
+    circularProgressClasses,
+    CircularProgressProps,
+} from '@mui/material/CircularProgress';
 import { setImportClientsDialog } from '@Screens/Clients/Store/clientsSlice';
 import cls from 'classnames';
 import SampleCsv from 'public/Assets/Svgs/sample-csv.svg';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheck, faFileCsv, faFileExcel } from '@fortawesome/free-solid-svg-icons'
 import {
     useDispatch,
     useSelector
 } from 'react-redux';
+
+import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
 
 const Container = styled(Box)(({ theme }) => {
 
@@ -27,6 +36,19 @@ const Container = styled(Box)(({ theme }) => {
         marginTop: 10,
     }
 })
+
+const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
+    height: 10,
+    borderRadius: 5,
+    [`&.${linearProgressClasses.colorPrimary}`]: {
+        backgroundColor: theme.palette.grey[theme.palette.mode === 'light' ? 200 : 800],
+    },
+    [`& .${linearProgressClasses.bar}`]: {
+        borderRadius: 5,
+        backgroundColor: theme.palette.mode === 'light' ? '#1a90ff' : '#308fe8',
+    },
+}));
+
 
 function ImportClientsDialog(props) {
 
@@ -64,10 +86,18 @@ function ImportClientsDialog(props) {
 
 
         return files.map(item =>
-            <Box>
-                {/* <FontAwesomeIcon icon="fa-light fa-file-csv" /> */}
-                {item[0].name}
+            <Box sx={{ display: "flex", flexDirection: "row", alignItems: "center", paddingX: "1rem", justifyContent: "space-between", }}>
+                <Box sx={{ display: "flex", flexDirection: "row", alignItems: "center", paddingY: "1rem" }}>
+                    <FontAwesomeIcon icon={faFileExcel} size="4x" color='green' />
+                    <Typography color="text.xxxGrey" sx={{ paddingLeft: "2rem" }}
+                        variant='h6' fontSize={"30px"}> {item[0].name}</Typography>
 
+                </Box>
+                <Box>
+
+                    <FontAwesomeIcon icon={faCheck} size="2x" color='#79de7b' />
+
+                </Box>
             </Box>
         )
 
@@ -153,8 +183,10 @@ function ImportClientsDialog(props) {
 
                         {console.log("files are ", files)}
 
-                        <Box>
+                        <Box sx={{ marginTop: "1rem" }}>
                             {renderFiles()}
+
+                            <BorderLinearProgress variant="determinate" value={50} sx={{ marginX: "1rem" }} />
                         </Box>
 
                     </Grid>
