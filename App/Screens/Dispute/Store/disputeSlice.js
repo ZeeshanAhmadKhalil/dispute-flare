@@ -4,8 +4,6 @@ import Gear from 'public/Assets/Svgs/gear.svg';
 import Account from '../Components/Account';
 import Creditor from '../Components/Creditor';
 import DateCreated from '../Components/DateCreated';
-// import ClientName from '../Components/ClientName';
-// import Status from '../Components/Status';
 
 const clientsSlice = createSlice({
     name: 'clients',
@@ -229,6 +227,58 @@ const clientsSlice = createSlice({
                 template: "United Account",
                 status: "Repaired",
                 round: "Round 9",
+            },
+            {
+                id: 10,
+                dateCreated: new Date(2022, 1, 9),
+                creditor: "Rosaria",
+                creditorPfp: '/Assets/Images/rosaria.png',
+                account: "5456748746789753",
+                bureau: "Experian",
+                dispute: "dispute 9",
+                reason: "United Account",
+                template: "United Account",
+                status: "Repaired",
+                round: "Round 9",
+            },
+            {
+                id: 11,
+                dateCreated: new Date(2022, 1, 10),
+                creditor: "Mona",
+                creditorPfp: '/Assets/Images/mona.png',
+                account: "5456748746789753",
+                bureau: "Experian",
+                dispute: "dispute 10",
+                reason: "United Account",
+                template: "United Account",
+                status: "Repaired",
+                round: "Round 10",
+            },
+            {
+                id: 12,
+                dateCreated: new Date(2022, 1, 11),
+                creditor: "Eula",
+                creditorPfp: '/Assets/Images/eula.png',
+                account: "5456748746789753",
+                bureau: "Experian",
+                dispute: "dispute 11",
+                reason: "United Account",
+                template: "United Account",
+                status: "Repaired",
+                round: "Round 11",
+            },
+            {
+                id: 13,
+                dateCreated: new Date(2022, 1, 12),
+                creditor: "Bennett",
+                creditorPfp: '/Assets/Images/bennett.png',
+                account: "5456748746789753",
+                bureau: "Experian",
+                dispute: "dispute 12",
+                reason: "United Account",
+                template: "United Account",
+                status: "Repaired",
+                round: "Round 12",
             },
         ],
         defaultColumns: [

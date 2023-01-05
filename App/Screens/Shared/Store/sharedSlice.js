@@ -7,6 +7,7 @@ const sharedSlice = createSlice({
         toolbar: false,
         profileDialog: false,
         selectedClientTab: "client-dashboard",
+        selectedClientId: 0,
     },
     reducers: {
         setProfileDialog: (state, action) => {
@@ -18,6 +19,12 @@ const sharedSlice = createSlice({
         setLoader: (state, action) => {
             state.loader = action.payload
         },
+        setSelectedClientId: (state, action) => {
+
+            console.log("action.payload===>", action.payload)
+
+            state.selectedClientId = action.payload
+        },
 
     },
     extraReducers: {
@@ -28,6 +35,7 @@ export const {
     setLoader,
     setToolbar,
     setProfileDialog,
+    setSelectedClientId,
 } = sharedSlice.actions;
 
 export default sharedSlice.reducer;

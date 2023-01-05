@@ -17,6 +17,9 @@ function Dispute(props) {
         columns,
         disputes,
     } = useSelector(state => state.dispute)
+    const {
+        selectedClientId
+    } = useSelector(state => state.shared)
 
     const [selectedClients, setSelectedClients] = useState([])
 
@@ -39,8 +42,17 @@ function Dispute(props) {
                 onSelectionModelChange={(selected) =>
                     setSelectedClients(selected)
                 }
+                hasCreditMonitoringInfo={
+                    selectedClientId == 1 ||
+                    selectedClientId == 2
+                }
                 columns={columns}
-                rows={disputes}
+                rows={
+                    selectedClientId == 1 ?
+                        disputes
+                        :
+                        []
+                }
                 setColumnVisibility={setColumnVisibility}
                 setAllColumnsVisibility={setAllColumnsVisibility}
                 setDefaultColumnsVisibility={setDefaultColumnsVisibility}
