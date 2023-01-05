@@ -2,11 +2,13 @@ import RightDialogLayout from '@Layouts/RightDialogLayout/RightDialogLayout';
 import {
     Box,
     DialogContent,
-    DialogTitle, Divider, styled,
+    DialogTitle,
+    Divider,
+    styled,
     Typography,
     useTheme
 } from '@mui/material';
-import { setAddClientDialog } from '@Screens/Clients/Store/clientsSlice';
+import { setAddClientDialog } from '@Screens/Client/Store/clientsSlice';
 import {
     useDispatch,
     useSelector

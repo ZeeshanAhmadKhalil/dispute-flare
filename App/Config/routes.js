@@ -36,7 +36,7 @@ const sidebarRoutes = [
                 height={22}
             />
         ),
-        path: '/clients'
+        path: '/client'
     },
     {
         type: "menu-item",

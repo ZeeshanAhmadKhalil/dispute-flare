@@ -1,5 +1,6 @@
 import { Badge, Box } from '@mui/material';
-import { useEffect } from 'react';
+import cls from 'classnames'
+import { useRouter } from 'next/router';
 
 function ClientName(props) {
 
@@ -7,6 +8,8 @@ function ClientName(props) {
         clientName,
         status,
     } = props.row || {}
+
+    const router = useRouter()
 
     return (
         <Box
@@ -22,7 +25,15 @@ function ClientName(props) {
                     mr: 1,
                 }}
             />
-            <span>{clientName}</span>
+            <span
+                onClick={() => router.push('client-dashboard')}
+                className={cls(
+                    'hover:underline',
+                    'cursor-pointer',
+                )}
+            >
+                {clientName}
+            </span>
         </Box>
     )
 }

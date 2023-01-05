@@ -4,7 +4,7 @@ import { styled } from '@mui/material/styles';
 import {
     DataGrid as MuiDataGrid
 } from '@mui/x-data-grid';
-import { setDefaultColumnsVisibility } from '@Screens/Clients/Store/clientsSlice';
+import { setDefaultColumnsVisibility } from '@Screens/Client/Store/clientsSlice';
 import { setToolbar } from '@Screens/Shared/Store/sharedSlice';
 import HeaderSeparator from 'public/Assets/Svgs/HeaderSeparator.svg';
 import { useDispatch } from 'react-redux';

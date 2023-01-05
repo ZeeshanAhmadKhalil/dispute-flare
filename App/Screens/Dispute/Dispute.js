@@ -1,24 +1,22 @@
+import ClientTopTabs from '@Components/ClientTopTabs/ClientTopTabs';
 import Table from '@Components/Table/Table';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import AddClientDialog from './Components/AddClient/AddClientDialog';
-import ClientActions from './Components/ClientActions';
-import ImportClientsDialog from './Components/ImportClients/ImportClientsDialog';
 import {
-    setAddClientDialog,
     setAllColumnsVisibility,
-    setColumnVisibility
-} from './Store/clientsSlice';
+    setColumnVisibility,
+    setDefaultColumnsVisibility
+} from './Store/disputeSlice';
 
-function Clients(props) {
+function Dispute(props) {
 
     const dispatch = useDispatch()
 
     const {
         columns,
-        clients,
-    } = useSelector(state => state.clients)
+        disputes,
+    } = useSelector(state => state.dispute)
 
     const [selectedClients, setSelectedClients] = useState([])
 
@@ -27,28 +25,28 @@ function Clients(props) {
 
     return (
         <>
+            <ClientTopTabs />
             <TitleHeader
-                title="Clients"
-                actionButtons={
-                    <ClientActions
-                        selectedClients={selectedClients}
-                    />
-                }
+                title="Dispute"
+            // actionButtons={
+            //     <ClientActions
+            //         selectedClients={selectedClients}
+            //     />
+            // }
             />
             <Table
-                title="Clients"
+                title="Disputes"
                 onSelectionModelChange={(selected) =>
                     setSelectedClients(selected)
                 }
                 columns={columns}
-                rows={clients}
+                rows={disputes}
                 setColumnVisibility={setColumnVisibility}
                 setAllColumnsVisibility={setAllColumnsVisibility}
+                setDefaultColumnsVisibility={setDefaultColumnsVisibility}
             />
-            <AddClientDialog />
-            <ImportClientsDialog />
         </>
     )
 }
 
-export default Clients
+export default Dispute

@@ -15,7 +15,7 @@ import LinearProgress, {
 } from '@mui/material/LinearProgress'
 import {
     setImportClientsDialog
-} from '@Screens/Clients/Store/clientsSlice'
+} from '@Screens/Client/Store/clientsSlice'
 import cls from 'classnames'
 import Csv from 'public/Assets/Svgs/csv.svg'
 import SampleCsv from 'public/Assets/Svgs/sample-csv.svg'

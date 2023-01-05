@@ -6,6 +6,7 @@ const sharedSlice = createSlice({
         loader: false,
         toolbar: false,
         profileDialog: false,
+        selectedClientTab: "client-dashboard",
     },
     reducers: {
         setProfileDialog: (state, action) => {
@@ -17,6 +18,7 @@ const sharedSlice = createSlice({
         setLoader: (state, action) => {
             state.loader = action.payload
         },
+
     },
     extraReducers: {
     },

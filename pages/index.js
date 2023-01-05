@@ -1,7 +1,7 @@
 import Dashboard from "@Screens/Dashboard/Dashboard"
 import MainLayout from "@Screens/Layouts/MainLayout/MainLayout"
 
-function DashboardPage() {
+function IndexPage() {
   return (
     <MainLayout>
       <Dashboard />
@@ -9,4 +9,4 @@ function DashboardPage() {
   )
 }
 
-export default DashboardPage
+export default IndexPage

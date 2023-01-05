@@ -1,0 +1,302 @@
+import { createSlice } from '@reduxjs/toolkit';
+import Status from '@Screens/Client/Components/Status';
+import Gear from 'public/Assets/Svgs/gear.svg';
+import Account from '../Components/Account';
+import Creditor from '../Components/Creditor';
+import DateCreated from '../Components/DateCreated';
+// import ClientName from '../Components/ClientName';
+// import Status from '../Components/Status';
+
+const clientsSlice = createSlice({
+    name: 'clients',
+    initialState: {
+        addClientDialog: false,
+        importClientsDialog: false,
+        columns: [
+            {
+                field: 'settings',
+                headerName: (
+                    <Gear
+                        color={"#ACADAF"}
+                        height={15}
+                        width={15}
+                    />
+                ),
+                width: 50,
+                headerClassName: 'settings-header',
+                sortable: false,
+            },
+            {
+                field: 'id',
+                headerName: 'Id',
+                width: 50,
+                hide: true,
+                hidable: true,
+            },
+            {
+                field: 'dateCreated',
+                headerName: 'Date Created',
+                width: 180,
+                headerClassName: 'separator-header',
+                hidable: true,
+                hide: false,
+                renderCell: DateCreated,
+            },
+            {
+                field: 'creditor',
+                headerName: 'Creditor',
+                width: 200,
+                headerClassName: 'separator-header',
+                hidable: true,
+                hide: false,
+                renderCell: Creditor,
+            },
+            {
+                field: 'account',
+                headerName: 'account',
+                width: 120,
+                headerClassName: 'separator-header',
+                hidable: true,
+                hide: false,
+                renderCell: Account,
+            },
+            {
+                field: 'bureau',
+                headerName: 'Bureau',
+                width: 150,
+                headerClassName: 'separator-header',
+                hidable: true,
+                hide: false,
+            },
+            {
+                field: 'dispute',
+                headerName: 'Dispute',
+                width: 150,
+                headerClassName: 'separator-header',
+                hidable: true,
+                hide: false,
+            },
+            {
+                field: 'reason',
+                headerName: 'Reason',
+                width: 180,
+                headerClassName: 'separator-header',
+                hidable: true,
+                hide: false,
+            },
+            {
+                field: 'template',
+                headerName: 'Template',
+                width: 150,
+                headerClassName: 'separator-header',
+                hidable: true,
+                hide: false,
+            },
+            {
+                field: 'status',
+                headerName: 'Status',
+                width: 150,
+                hidable: true,
+                editable: true,
+                type: 'singleSelect',
+                valueOptions: ['Repaired', 'Verified', 'Negative', 'Delete'],
+                renderCell: Status,
+            },
+            {
+                field: 'round',
+                headerName: 'Round',
+                width: 200,
+                headerClassName: 'separator-header',
+                hidable: true,
+                hide: false,
+            },
+
+        ],
+        disputes: [
+            {
+                id: 1,
+                dateCreated: new Date(2022, 1, 1),
+                creditor: "Razor",
+                creditorPfp: '/Assets/Images/razor.png',
+                account: "5456748746789753",
+                bureau: "Experian",
+                dispute: "dispute 1",
+                reason: "United Account",
+                template: "United Account",
+                status: "Repaired",
+                round: "Round 1",
+            },
+            {
+                id: 2,
+                dateCreated: new Date(2022, 1, 2),
+                creditor: "Lisa",
+                creditorPfp: '/Assets/Images/lisa.png',
+                account: "5456748746789753",
+                bureau: "Experian",
+                dispute: "dispute 2",
+                reason: "United Account",
+                template: "United Account",
+                status: "Repaired",
+                round: "Round 2",
+            },
+            {
+                id: 3,
+                dateCreated: new Date(2022, 1, 3),
+                creditor: "Klee",
+                creditorPfp: '/Assets/Images/klee.png',
+                account: "5456748746789753",
+                bureau: "Experian",
+                dispute: "dispute 3",
+                reason: "United Account",
+                template: "United Account",
+                status: "Repaired",
+                round: "Round 3",
+            },
+            {
+                id: 4,
+                dateCreated: new Date(2022, 1, 4),
+                creditor: "Kaeya",
+                creditorPfp: '/Assets/Images/kaeya.png',
+                account: "5456748746789753",
+                bureau: "Experian",
+                dispute: "dispute 4",
+                reason: "United Account",
+                template: "United Account",
+                status: "Repaired",
+                round: "Round 4",
+            },
+            {
+                id: 5,
+                dateCreated: new Date(2022, 1, 5),
+                creditor: "Jean",
+                creditorPfp: '/Assets/Images/jean.png',
+                account: "5456748746789753",
+                bureau: "Experian",
+                dispute: "dispute 5",
+                reason: "United Account",
+                template: "United Account",
+                status: "Repaired",
+                round: "Round 5",
+            },
+            {
+                id: 6,
+                dateCreated: new Date(2022, 1, 6),
+                creditor: "Barbara",
+                creditorPfp: '/Assets/Images/barbara.png',
+                account: "5456748746789753",
+                bureau: "Experian",
+                dispute: "dispute 6",
+                reason: "United Account",
+                template: "United Account",
+                status: "Repaired",
+                round: "Round 6",
+            },
+            {
+                id: 7,
+                dateCreated: new Date(2022, 1, 7),
+                creditor: "Amber",
+                creditorPfp: '/Assets/Images/amber.png',
+                account: "5456748746789753",
+                bureau: "Experian",
+                dispute: "dispute 7",
+                reason: "United Account",
+                template: "United Account",
+                status: "Repaired",
+                round: "Round 7",
+            },
+            {
+                id: 8,
+                dateCreated: new Date(2022, 1, 8),
+                creditor: "Aloy",
+                creditorPfp: '/Assets/Images/aloy.png',
+                account: "5456748746789753",
+                bureau: "Experian",
+                dispute: "dispute 8",
+                reason: "United Account",
+                template: "United Account",
+                status: "Repaired",
+                round: "Round 8",
+            },
+            {
+                id: 9,
+                dateCreated: new Date(2022, 1, 9),
+                creditor: "Jean",
+                creditorPfp: '/Assets/Images/jean.png',
+                account: "5456748746789753",
+                bureau: "Experian",
+                dispute: "dispute 9",
+                reason: "United Account",
+                template: "United Account",
+                status: "Repaired",
+                round: "Round 9",
+            },
+        ],
+        defaultColumns: [
+            "settings",
+            "dateCreated",
+            "creditor",
+            "account",
+            "bureau",
+            "dispute",
+            "reason",
+            "template",
+            "status",
+            "round",
+        ],
+    },
+    reducers: {
+        setColumnVisibility: (state, action) => {
+
+            const { field, hide } = action.payload || {}
+
+            let columns = [...state.columns]
+            let index = columns.findIndex(obj => obj.field == field)
+            columns[index] = {
+                ...columns[index],
+                hide: !hide,
+            }
+
+            state.columns = columns
+        },
+        setAllColumnsVisibility: (state, action) => {
+
+            const { hide } = action.payload || {}
+
+            state.columns
+                = state
+                    .columns
+                    .map(obj => ({
+                        ...obj,
+                        hide:
+                            obj.hidable ?
+                                hide
+                                :
+                                obj.hide,
+                    }))
+
+        },
+        setDefaultColumnsVisibility: (state, action) => {
+            state.columns
+                = state
+                    .columns
+                    .map(obj => ({
+                        ...obj,
+                        hide:
+                            state.defaultColumns.includes(obj.field) ?
+                                false
+                                :
+                                true,
+                    }))
+        }
+    },
+    extraReducers: {
+    },
+});
+
+export const {
+    setColumnVisibility,
+    setAllColumnsVisibility,
+    setDefaultColumnsVisibility,
+} = clientsSlice.actions;
+
+export default clientsSlice.reducer;

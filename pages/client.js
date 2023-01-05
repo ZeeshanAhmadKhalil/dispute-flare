@@ -1,12 +1,12 @@
-import Clients from "@Screens/Clients/Clients"
+import Client from "@Screens/Client/Client"
 import MainLayout from "@Screens/Layouts/MainLayout/MainLayout"
 
-function DashboardPage() {
+function ClientPage() {
     return (
         <MainLayout>
-            <Clients />
+            <Client />
         </MainLayout>
     )
 }
 
-export default DashboardPage
+export default ClientPage
