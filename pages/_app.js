@@ -5,9 +5,10 @@ import { Provider } from 'react-redux';
 import { persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
 import '../styles/custom.css';
-import '../styles/globals.css'; import { config } from '@fortawesome/fontawesome-svg-core'
-import '@fortawesome/fontawesome-svg-core/styles.css'
-config.autoAddCss = false
+import '../styles/globals.css';
+import {
+  Toaster
+} from 'react-hot-toast';
 
 function MyApp(props) {
 
@@ -25,6 +26,10 @@ function MyApp(props) {
           <Component {...pageProps} />
         </PersistGate>
       </Provider>
+      <Toaster
+        position="top-right"
+        reverseOrder={false}
+      />
     </ThemeProvider>
   )
 }

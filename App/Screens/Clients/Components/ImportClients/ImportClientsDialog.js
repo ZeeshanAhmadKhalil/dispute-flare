@@ -1,26 +1,32 @@
-import FileDropPicker from '@Components/FIleDropPicker/FIleDropPicker';
-import RightDialogLayout from '@Layouts/RightDialogLayout/RightDialogLayout';
+import FileDropPicker from '@Components/FileDropPicker/FileDropPicker'
 import {
-    Box, Grid, styled, Typography, useTheme
-} from '@mui/material';
-
-import CircularProgress, {
-    circularProgressClasses,
-    CircularProgressProps,
-} from '@mui/material/CircularProgress';
-import { setImportClientsDialog } from '@Screens/Clients/Store/clientsSlice';
-import cls from 'classnames';
-import SampleCsv from 'public/Assets/Svgs/sample-csv.svg';
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCheck, faFileCsv, faFileExcel } from '@fortawesome/free-solid-svg-icons'
+    importClientDesc
+} from '@Config/constants'
+import RightDialogLayout from '@Layouts/RightDialogLayout/RightDialogLayout'
+import {
+    Box,
+    Grid,
+    styled,
+    Typography,
+    useTheme
+} from '@mui/material'
+import LinearProgress, {
+    linearProgressClasses
+} from '@mui/material/LinearProgress'
+import {
+    setImportClientsDialog
+} from '@Screens/Clients/Store/clientsSlice'
+import cls from 'classnames'
+import Csv from 'public/Assets/Svgs/csv.svg'
+import SampleCsv from 'public/Assets/Svgs/sample-csv.svg'
+import Tick from 'public/Assets/Svgs/tick.svg'
+import { useState } from 'react'
+import { useForm } from 'react-hook-form'
 import {
     useDispatch,
     useSelector
-} from 'react-redux';
-
-import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
+} from 'react-redux'
+import ImportClientActions from './ImportClientActions'
 
 const Container = styled(Box)(({ theme }) => {
 
@@ -47,12 +53,13 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
         borderRadius: 5,
         backgroundColor: theme.palette.mode === 'light' ? '#1a90ff' : '#308fe8',
     },
-}));
+}))
 
 
 function ImportClientsDialog(props) {
 
     const defaultValues = {
+        files: []
     }
 
     const dispatch = useDispatch()
@@ -69,7 +76,6 @@ function ImportClientsDialog(props) {
         importClientsDialog
     } = useSelector(state => state.clients)
 
-    const [files, setFiles] = useState([])
     const {
         register,
         control,
@@ -77,26 +83,56 @@ function ImportClientsDialog(props) {
         reset,
         watch,
         formState: { errors },
+        setValue,
+        getValues,
     } = useForm({
         mode: 'onChange',
         defaultValues,
-    });
+    })
+
+    const watchFiles = watch('files')
 
     const renderFiles = () => {
 
-
-        return files.map(item =>
-            <Box sx={{ display: "flex", flexDirection: "row", alignItems: "center", paddingX: "1rem", justifyContent: "space-between", }}>
-                <Box sx={{ display: "flex", flexDirection: "row", alignItems: "center", paddingY: "1rem" }}>
-                    <FontAwesomeIcon icon={faFileExcel} size="4x" color='green' />
-                    <Typography color="text.xxxGrey" sx={{ paddingLeft: "2rem" }}
-                        variant='h6' fontSize={"30px"}> {item[0].name}</Typography>
-
+        return watchFiles.map(item =>
+            <Box
+                sx={{
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "center",
+                    paddingX: "1rem",
+                    justifyContent: "space-between",
+                }
+                }
+            >
+                <Box
+                    sx={{
+                        display: "flex",
+                        flexDirection: "row",
+                        alignItems: "center",
+                        paddingY: "1rem"
+                    }}
+                >
+                    <Csv
+                        height={50}
+                        width={50}
+                    />
+                    <Typography
+                        color="text.xxxGrey"
+                        sx={{
+                            paddingLeft: 3,
+                            fontWeight: 'bold'
+                        }}
+                        variant='h6'
+                    >
+                        {item?.name}
+                    </Typography>
                 </Box>
                 <Box>
-
-                    <FontAwesomeIcon icon={faCheck} size="2x" color='#79de7b' />
-
+                    <Tick
+                        height={15}
+                        width={15}
+                    />
                 </Box>
             </Box>
         )
@@ -105,7 +141,14 @@ function ImportClientsDialog(props) {
     return (
         <RightDialogLayout
             onClose={() => dispatch(setImportClientsDialog(false))}
-            actionButtons={null}
+            actionButtons={
+                <ImportClientActions
+                    handleSubmit={handleSubmit}
+                    onClose={() =>
+                        dispatch(setImportClientsDialog(false))
+                    }
+                />
+            }
             open={importClientsDialog}
             closeBtnText="IMPORT"
             title={"Import Clients via CSV"}
@@ -140,7 +183,7 @@ function ImportClientsDialog(props) {
                             variant='body2'
                             component="div"
                         >
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi condimentum est commodo neque dapibus dignissim. Ut et justo dapibus mauris facilisis eleifend in molestie ipsum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam erat volutpat. Donec vehicula tortor eget mi interdum tempus. Proin a tempus dolor, luctus rutrum sem. Ut viverra dapibus sodales. Vivamus vel nulla at turpis sodales rhoncus. In porta nisi vitae finibus venenatis. Suspendisse pretium, ipsum non tincidunt tincidunt, mi urna semper tellus, non feugiat tellus sem quis sem. Nam viverra vitae ligula sit amet blandit.  Sed ullamcorper porttitor quam in ultrices. Nullam vehicula magna nisl.
+                            {importClientDesc}
                         </Typography>
                     </Grid>
                     <Grid
@@ -179,14 +222,17 @@ function ImportClientsDialog(props) {
                         item
                         xs="12"
                     >
-                        <FileDropPicker setFiles={setFiles} />
-
-                        {console.log("files are ", files)}
-
+                        <FileDropPicker
+                            setValue={setValue}
+                            getValues={getValues}
+                        />
                         <Box sx={{ marginTop: "1rem" }}>
                             {renderFiles()}
-
-                            <BorderLinearProgress variant="determinate" value={50} sx={{ marginX: "1rem" }} />
+                            <BorderLinearProgress
+                                variant="determinate"
+                                value={50}
+                                sx={{ marginX: "1rem" }}
+                            />
                         </Box>
 
                     </Grid>
@@ -195,7 +241,7 @@ function ImportClientsDialog(props) {
                 </Grid>
             </Container>
         </RightDialogLayout >
-    );
+    )
 }
 
 export default ImportClientsDialog

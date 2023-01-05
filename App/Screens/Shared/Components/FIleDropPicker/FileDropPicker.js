@@ -1,8 +1,14 @@
 import { Typography } from '@mui/material';
 import React, { useMemo } from 'react';
 import { useDropzone } from 'react-dropzone';
+import toast from 'react-hot-toast'
 
 function FileDropPicker(props) {
+
+    const {
+        setValue,
+        getValues,
+    } = props || {}
 
     const baseStyle = {
         flex: 1,
@@ -38,7 +44,21 @@ function FileDropPicker(props) {
         isFocused,
         isDragAccept,
         isDragReject
-    } = useDropzone({ accept: { 'image/*': [] }, onDrop: (acceptedFiles) => props.setFiles((prev) => [...prev, acceptedFiles]) });
+    } = useDropzone({
+        accept: {
+            '.csv': []
+        },
+        onDrop: (acceptedFiles) => {
+
+            if (acceptedFiles.length == 0)
+                toast.error("Please select .csv files")
+
+            setValue(
+                'files',
+                getValues('files').concat(acceptedFiles)
+            )
+        }
+    });
 
     const style = useMemo(() => ({
         ...baseStyle,
@@ -57,7 +77,10 @@ function FileDropPicker(props) {
                 {...getRootProps({ style })}
                 style={style}
             >
-                <input {...getInputProps()} />
+                <input
+                    {...getInputProps()}
+                    accept=".csv"
+                />
                 <Typography>
                     {"Drag and drop file here or"}
                 </Typography>
