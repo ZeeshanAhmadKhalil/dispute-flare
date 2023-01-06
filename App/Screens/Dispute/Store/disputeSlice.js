@@ -9,6 +9,7 @@ const clientsSlice = createSlice({
     name: 'clients',
     initialState: {
         addCreditMonitoringInfoDialog: false,
+        addDisputeDialog: true,
         columns: [
             {
                 field: 'settings',
@@ -355,12 +356,16 @@ const clientsSlice = createSlice({
         setAddCreditMonitoringInfoDialog: (state, action) => {
             state.addCreditMonitoringInfoDialog = action.payload
         },
+        setDisputeDialog: (state, action) => {
+            state.addDisputeDialog = action.payload
+        }
     },
     extraReducers: {
     },
 });
 
 export const {
+    setDisputeDialog,
     setColumnVisibility,
     setAllColumnsVisibility,
     setDefaultColumnsVisibility,

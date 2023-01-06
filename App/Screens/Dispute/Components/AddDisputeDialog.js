@@ -8,9 +8,10 @@ import {
     useDispatch,
     useSelector
 } from 'react-redux';
-import { setAddCreditMonitoringInfoDialog } from '../Store/disputeSlice';
+import { setDisputeDialog } from '../Store/disputeSlice';
 import AddCreditMonitoringInfoActions from './AddCreditMonitoringInfoActions';
 import CreditMonitoringInformation from './CollapsableForm/CreditMonitoringInformation';
+import SelectAnAccount from './CollapsableForm/SelectAnAccount';
 
 const Container = styled(Box)(({ theme }) => {
 
@@ -27,7 +28,7 @@ const Container = styled(Box)(({ theme }) => {
     }
 })
 
-function AddCreditMonitoringInfoDialog(props) {
+function AddDisputeDialog(props) {
 
     const defaultValues = {
         provider: null,
@@ -46,7 +47,7 @@ function AddCreditMonitoringInfoDialog(props) {
     const {
     } = useSelector(state => state.shared)
     const {
-        addCreditMonitoringInfoDialog
+        addDisputeDialog
     } = useSelector(state => state.dispute)
 
     const {
@@ -64,19 +65,12 @@ function AddCreditMonitoringInfoDialog(props) {
     return (
         <RightDialogLayout
             onClose={() =>
-                dispatch(setAddCreditMonitoringInfoDialog(false))
+                dispatch(setDisputeDialog(false))
             }
-            actionButtons={
-                <AddCreditMonitoringInfoActions
-                    handleSubmit={handleSubmit}
-                    onClose={() =>
-                        dispatch(setAddCreditMonitoringInfoDialog(false))
-                    }
-                />
-            }
-            open={addCreditMonitoringInfoDialog}
-            closeBtnText="CREDIT"
-            title={"Add Credit Monitoring Information"}
+            actionButtons={null}
+            open={addDisputeDialog}
+            closeBtnText="DISPUTE"
+            title={"Add Dispute"}
         >
             <Container>
                 <Divider
@@ -84,15 +78,10 @@ function AddCreditMonitoringInfoDialog(props) {
                         backgroundColor: tableSeparator?.light
                     }}
                 />
-                <CreditMonitoringInformation
-                    watch={watch}
-                    register={register}
-                    control={control}
-                    errors={errors}
-                />
+                <SelectAnAccount />
             </Container>
         </RightDialogLayout >
     );
 }
 
-export default AddCreditMonitoringInfoDialog
+export default AddDisputeDialog

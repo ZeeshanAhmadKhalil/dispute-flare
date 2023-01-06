@@ -25,14 +25,21 @@ const ArrowIcon = styled(Box, {
 
 const Collapse = styled(Box, {
     shouldForwardProp: (prop) => prop !== 'open',
-})(({ theme, open }) => {
+})(({
+    theme,
+    open,
+    collapseBgColor,
+}) => {
 
     const {
         dialog: { xxxxOff }
     } = theme.palette
 
     return {
-        backgroundColor: xxxxOff,
+        backgroundColor: collapseBgColor ?
+            collapseBgColor
+            :
+            xxxxOff,
         borderRadius: 2,
         overflow: 'hidden',
         transition: theme.transitions.create(['max-height'], {
@@ -90,9 +97,8 @@ function CollapsableForm(props) {
         children,
         title,
         defaultOpen = false,
+        collapseBgColor,
     } = props || {}
-
-    console.log("defaultOpen===>", defaultOpen)
 
     const [open, setOpen] = useState(defaultOpen)
 
@@ -106,6 +112,7 @@ function CollapsableForm(props) {
             </Title>
             <Collapse
                 open={open}
+                collapseBgColor={collapseBgColor}
             >
                 <div
                     className={cls(

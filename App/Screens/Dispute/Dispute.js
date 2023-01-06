@@ -10,6 +10,7 @@ import {
     useSelector
 } from 'react-redux';
 import AddCreditMonitoringInfoDialog from './Components/AddCreditMonitoringInfoDialog';
+import AddDisputeDialog from './Components/AddDisputeDialog';
 import {
     setAllColumnsVisibility,
     setColumnVisibility,
@@ -65,6 +66,7 @@ function Dispute(props) {
                 setDefaultColumnsVisibility={setDefaultColumnsVisibility}
             />
             <AddCreditMonitoringInfoDialog />
+            <AddDisputeDialog />
         </>
     )
 }
