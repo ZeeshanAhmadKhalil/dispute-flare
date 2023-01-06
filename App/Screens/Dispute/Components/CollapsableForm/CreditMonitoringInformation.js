@@ -9,6 +9,7 @@ import {
 } from '@mui/material';
 import cls from 'classnames';
 import { useSelector } from 'react-redux';
+import styles from './CreditMonitoringInformation.module.scss';
 
 const Label = styled(Typography)(({ theme }) => {
 
@@ -26,6 +27,7 @@ function CreditMonitoringInformation(props) {
 
     const {
         register,
+        control,
         errors,
         watch,
     } = props || {}
@@ -37,19 +39,13 @@ function CreditMonitoringInformation(props) {
     } = useTheme()
 
     const {
-    } = useSelector(state => state.clients)
-
-    let providers = [
-        { label: 'Zeeshan Ahmad', value: 1 },
-        { label: 'Rafay', value: 2 },
-        { label: 'Ali', value: 3 },
-        { label: 'Usman', value: 4 },
-        { label: 'Mudasir', value: 5 },
-    ]
+        providers,
+    } = useSelector(state => state.dispute)
 
     return (
         <CollapsableForm
             title="Credit Monitoring Information"
+            defaultOpen={true}
         >
             <Grid
                 container
@@ -61,6 +57,16 @@ function CreditMonitoringInformation(props) {
                     'items-center',
                 )}
             >
+                <Grid item xs="12">
+                    <Typography
+                        variant="subtitle2"
+                        className={cls(
+                            styles.groupTitle
+                        )}
+                    >
+                        Credit Monitoring Information
+                    </Typography>
+                </Grid>
                 <Grid item xl="2" md="6" xs="12">
                     <Label
                         variant="subtitle1"
@@ -71,7 +77,9 @@ function CreditMonitoringInformation(props) {
                 <Grid item xl="4" md="6" xs="12">
                     <DropDown
                         watch={watch}
-                        register={register("provider")}
+                        register={register("provider", {
+                            required: true,
+                        })}
                         list={providers}
                         name="provider"
                         error={errors.provider}
@@ -86,7 +94,9 @@ function CreditMonitoringInformation(props) {
                 </Grid>
                 <Grid item xl="4" md="6" xs="12">
                     <TextInput
-                        register={register("username")}
+                        register={register("username", {
+                            required: true,
+                        })}
                         name="username"
                         error={errors.username}
                     />
@@ -100,7 +110,9 @@ function CreditMonitoringInformation(props) {
                 </Grid>
                 <Grid item xl="4" md="6" xs="12">
                     <TextInput
-                        register={register("password")}
+                        register={register("password", {
+                            required: true,
+                        })}
                         name="password"
                         error={errors.password}
                         placeholder="****"
@@ -110,15 +122,17 @@ function CreditMonitoringInformation(props) {
                     <Label
                         variant="subtitle1"
                     >
-                        SSN
+                        SSN (last 4 digits)
                     </Label>
                 </Grid>
                 <Grid item xl="4" md="6" xs="12">
                     <TextInput
-                        register={register("ssn")}
+                        register={register("ssn", {
+                            required: true,
+                        })}
                         name="ssn"
                         error={errors.ssn}
-                        placeholder="last 4 digits of ssn"
+                        placeholder="0000"
                     />
                 </Grid>
             </Grid>
