@@ -3,6 +3,7 @@ import Table from '@Components/Table/Table';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import UploadedDocuments from './Components/UploadedDocuments';
 import {
     setAllColumnsVisibility,
     setColumnVisibility,
@@ -37,7 +38,7 @@ function Documents(props) {
             //     />
             // }
             />
-
+            <UploadedDocuments />
             <Table
                 title="Documents"
                 onSelectionModelChange={(selected) =>
