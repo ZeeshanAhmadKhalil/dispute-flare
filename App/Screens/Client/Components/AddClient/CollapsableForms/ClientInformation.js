@@ -1,3 +1,4 @@
+import CollapsableForm from '@Components/CollapsableForm/CollapsableForm';
 import DatePicker from '@Components/DatePicker/DatePicker';
 import DropDown from '@Components/DropDown/DropDown';
 import RadioBtns from '@Components/RadioBtns/RadioBtns';
@@ -12,7 +13,6 @@ import {
 import cls from 'classnames';
 import { useSelector } from 'react-redux';
 import styles from './ClientInformation.module.scss';
-import CollapsableForm from './CollapsableForm';
 
 const Label = styled(Typography)(({ theme }) => {
 

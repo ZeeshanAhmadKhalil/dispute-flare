@@ -89,9 +89,12 @@ function CollapsableForm(props) {
     const {
         children,
         title,
+        defaultOpen = false,
     } = props || {}
 
-    const [open, setOpen] = useState(false)
+    console.log("defaultOpen===>", defaultOpen)
+
+    const [open, setOpen] = useState(defaultOpen)
 
     return (
         <Container>

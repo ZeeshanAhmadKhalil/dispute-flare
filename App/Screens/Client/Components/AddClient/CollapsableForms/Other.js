@@ -1,3 +1,4 @@
+import CollapsableForm from '@Components/CollapsableForm/CollapsableForm';
 import DropDown from '@Components/DropDown/DropDown';
 import {
     Grid,
@@ -7,7 +8,6 @@ import {
 } from '@mui/material';
 import cls from 'classnames';
 import { useSelector } from 'react-redux';
-import CollapsableForm from './CollapsableForm';
 
 const Label = styled(Typography)(({ theme }) => {
 

@@ -8,8 +8,7 @@ import DateCreated from '../Components/DateCreated';
 const clientsSlice = createSlice({
     name: 'clients',
     initialState: {
-        addClientDialog: false,
-        importClientsDialog: false,
+        addCreditMonitoringInfoDialog: false,
         columns: [
             {
                 field: 'settings',
@@ -51,7 +50,7 @@ const clientsSlice = createSlice({
             },
             {
                 field: 'account',
-                headerName: 'account',
+                headerName: 'Account',
                 width: 120,
                 headerClassName: 'separator-header',
                 hidable: true,
@@ -293,6 +292,21 @@ const clientsSlice = createSlice({
             "status",
             "round",
         ],
+        providers: [
+            { label: "Razor", value: 1 },
+            { label: "Lisa", value: 2 },
+            { label: "Klee", value: 3 },
+            { label: "Kaeya", value: 4 },
+            { label: "Jean", value: 5 },
+            { label: "Barbara", value: 6 },
+            { label: "Amber", value: 7 },
+            { label: "Aloy", value: 8 },
+            { label: "Jean", value: 9 },
+            { label: "Rosaria", value: 10 },
+            { label: "Mona", value: 11 },
+            { label: "Eula", value: 12 },
+            { label: "Bennett", value: 13 },
+        ],
     },
     reducers: {
         setColumnVisibility: (state, action) => {
@@ -337,7 +351,10 @@ const clientsSlice = createSlice({
                                 :
                                 true,
                     }))
-        }
+        },
+        setAddCreditMonitoringInfoDialog: (state, action) => {
+            state.addCreditMonitoringInfoDialog = action.payload
+        },
     },
     extraReducers: {
     },
@@ -347,6 +364,7 @@ export const {
     setColumnVisibility,
     setAllColumnsVisibility,
     setDefaultColumnsVisibility,
+    setAddCreditMonitoringInfoDialog,
 } = clientsSlice.actions;
 
 export default clientsSlice.reducer;
