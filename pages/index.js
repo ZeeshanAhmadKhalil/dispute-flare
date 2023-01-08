@@ -7,6 +7,6 @@ function IndexPage() {
       <Dashboard />
     </MainLayout>
   )
-} 
+}
 
 export default IndexPage 
