@@ -7,6 +7,7 @@ import clients from '@Screens/Client/Store/clientsSlice'
 import shared from '@Screens/Shared/Store/sharedSlice'
 import layout from '@Screens/Layouts/Store/layoutSlice'
 import dispute from '@Screens/Dispute/Store/disputeSlice'
+import documents from '@Screens/Documents/Store/documentsSlice'
 import storage from '@Store/storage'
 
 const reducers = combineReducers({
@@ -15,6 +16,7 @@ const reducers = combineReducers({
     layout,
     shared,
     dispute,
+    documents,
     [authApi.reducerPath]: authApi.reducer,
 });
 

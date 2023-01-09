@@ -43,6 +43,18 @@ const themeObj = {
             input: "#ACADAF",
             blue: "#1b4d87",
         },
+        iconblue: {
+            active: "#327ab1",
+            inactive: "#707070",
+            lightActive: "#327ab1",
+            input: "#ACADAF",
+        },
+        icongreen: {
+            active: "#37B555",
+            inactive: "#707070",
+            lightActive: "#37B555",
+            input: "#ACADAF",
+        },
         checkbox: {
             checked: "#37D667",
             unchecked: "#A4A7AB",
