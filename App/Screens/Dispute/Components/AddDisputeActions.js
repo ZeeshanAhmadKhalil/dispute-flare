@@ -26,7 +26,7 @@ function AddDisputeActions(props) {
     const handleNext = () => {
 
         setCurrentStep(prev => {
-            if (prev == totalSteps - 1)
+            if (prev == totalSteps)
                 return prev
             return prev + 1
         })
@@ -44,19 +44,35 @@ function AddDisputeActions(props) {
 
     return (
         <>
-            <Button
-                onClick={handleNext}
-                color={"primary"}
-                style={{
-                    borderRadius: 3,
-                    paddingLeft: 20,
-                    paddingRight: 20,
-                    color: grey,
-                    fontWeight: 'bold',
-                }}
-            >
-                NEXT
-            </Button>
+            {currentStep == totalSteps ?
+                <Button
+                    onClick={handleAddClient}
+                    color={"primary"}
+                    style={{
+                        borderRadius: 3,
+                        paddingLeft: 20,
+                        paddingRight: 20,
+                        color: grey,
+                        fontWeight: 'bold',
+                    }}
+                >
+                    CREATE DISPUTE
+                </Button>
+                :
+                <Button
+                    onClick={handleNext}
+                    color={"primary"}
+                    style={{
+                        borderRadius: 3,
+                        paddingLeft: 20,
+                        paddingRight: 20,
+                        color: grey,
+                        fontWeight: 'bold',
+                    }}
+                >
+                    NEXT
+                </Button>
+            }
             {currentStep == 0 ?
                 <Button
                     color={"text"}

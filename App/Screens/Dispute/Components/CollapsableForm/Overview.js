@@ -1,22 +1,15 @@
-import Stepper from '@Components/Stepper/Stepper';
-import CheckBoxesCell from '@Components/Table/Components/CheckBoxesCell/CheckBoxesCell';
-import DropDownCell from '@Components/Table/Components/DropDownCell/DropDownCell';
+import CollapsableForm from '@Components/CollapsableForm/CollapsableForm';
 import Table from '@Components/Table/Table';
 import {
     useTheme
 } from '@mui/material';
-import { Box } from '@mui/system';
+import _ from 'lodash'
 
-function SelectAnAccount(props) {
+function Overview(props) {
 
     const {
-        watch,
-        steps,
-        errors,
-        control,
-        register,
+        watchSteps, // watch ur steps -_-
         bureauList,
-        currentStep,
     } = props || {}
 
     let columns = [
@@ -59,11 +52,8 @@ function SelectAnAccount(props) {
             field: 'reason',
             headerName: 'Reason',
             width: 180,
+            headerClassName: 'separator-header',
             hidable: true,
-            editable: true,
-            type: 'singleSelect',
-            valueOptions: ['Unverified account', 'Verified account'],
-            renderCell: ({ value }) => <DropDownCell value={value} />,
         },
         {
             field: 'instruction',
@@ -75,22 +65,9 @@ function SelectAnAccount(props) {
         {
             field: 'bureaus',
             headerName: 'Bureaus',
-            width: 250,
+            width: 180,
             headerClassName: 'separator-header',
             hidable: true,
-            renderCell: (props) => {
-
-                let index
-                    = props.api.getRowIndex(props.row.id)
-
-                return <CheckBoxesCell
-                    name={`steps[${currentStep}].creditors[${index}].bureaus`}
-                    errors={errors}
-                    control={control}
-                    watch={watch}
-                    list={bureauList}
-                />
-            }
         },
     ]
     let rows = [
@@ -102,7 +79,7 @@ function SelectAnAccount(props) {
             dispute: "Lorem ipsum",
             reason: "Unverified account",
             instruction: "Lorem ipsum is a",
-            bureaus: "bureaus",
+            bureaus: null,
         },
         {
             id: 2,
@@ -112,7 +89,7 @@ function SelectAnAccount(props) {
             dispute: "Lorem ipsum",
             reason: "Unverified account",
             instruction: "Lorem ipsum is a",
-            bureaus: "bureaus",
+            bureaus: null,
         },
         {
             id: 3,
@@ -122,7 +99,7 @@ function SelectAnAccount(props) {
             dispute: "Lorem ipsum",
             reason: "Unverified account",
             instruction: "Lorem ipsum is a",
-            bureaus: "bureaus",
+            bureaus: null,
         },
         {
             id: 4,
@@ -132,7 +109,7 @@ function SelectAnAccount(props) {
             dispute: "Lorem ipsum",
             reason: "Unverified account",
             instruction: "Lorem ipsum is a",
-            bureaus: "bureaus",
+            bureaus: null,
         },
     ]
 
@@ -142,30 +119,68 @@ function SelectAnAccount(props) {
         }
     } = useTheme()
 
-    return (
+    const renderCollapses =
+        watchSteps.map(
+            (item, key) => {
 
-        <Box
-            sx={{
-                mt: 3,
-            }}
-        >
-            <Stepper
-                currentStep={currentStep}
-                steps={steps}
-            />
-            <Table
-                title="Creditors"
-                checkboxSelection={false}
-                columns={columns}
-                rows={rows}
-                setColumnVisibility={true}
-                setAllColumnsVisibility={true}
-                height={280}
-                borderColor={borders?.gray}
-                hidePagination={true}
-            />
-        </Box>
+                const {
+                    name,
+                    creditors,
+                } = item
+
+                rows = creditors.map((subItem, key) => {
+
+                    const {
+                        name,
+                        reason,
+                        bureaus,
+                    } = subItem
+
+                    let bureausString = []
+
+                    bureauList.map(obj => {
+
+                        if (bureaus.includes(obj.value))
+                            bureausString.push(obj.label)
+                    })
+
+                    bureausString = bureausString.join(", ")
+
+                    return {
+                        ...rows[key],
+                        bureaus: bureausString
+                    }
+                })
+
+                console.log("rows===>", rows)
+
+                return (
+                    <CollapsableForm
+                        title={name}
+                        defaultOpen={!key}
+                    >
+                        <Table
+                            title="Creditors"
+                            checkboxSelection={false}
+                            columns={columns}
+                            rows={rows}
+                            setColumnVisibility={true}
+                            setAllColumnsVisibility={true}
+                            height={280}
+                            borderColor={borders?.gray}
+                            hidePagination={true}
+                        />
+                    </CollapsableForm >
+                )
+
+            })
+
+
+    return (
+        <>
+            {renderCollapses}
+        </>
     )
 }
 
-export default SelectAnAccount
+export default Overview

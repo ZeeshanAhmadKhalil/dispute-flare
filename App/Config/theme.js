@@ -124,7 +124,8 @@ const themeObj = {
         },
         borders: {
             main: "#9EB6D3",
-            secondary: "#10178288"
+            secondary: "#10178288",
+            gray: "#E8E9EA",
         },
         tableHeader: {
             main: "#F5F8FA"

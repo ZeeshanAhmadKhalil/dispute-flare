@@ -157,12 +157,15 @@ function Table(props) {
         rows,
         title,
         columns,
+        borderColor,
         height = 650,
         noRowsAction,
+        hidePagination,
         setColumnVisibility,
         onSelectionModelChange,
         hasCreditMonitoringInfo,
         setAllColumnsVisibility,
+        checkboxSelection = true,
     } = props || {}
 
     const dispatch = useDispatch()
@@ -197,6 +200,7 @@ function Table(props) {
 
             >
                 <DataGrid
+                    hideFooter={hidePagination}
                     localeText={{
                         noRowsLabel:
                             hasCreditMonitoringInfo ?
@@ -216,13 +220,13 @@ function Table(props) {
                     rowsPerPageOptions={[5, 25, 50, 100]}
                     disableSelectionOnClick
                     disableColumnMenu
-                    checkboxSelection
+                    checkboxSelection={checkboxSelection}
                     sx={{
                         mt: 2,
                         backgroundColor: 'tableBody.main',
                         borderColor: 'transparent',
                         color: 'text.grey',
-                        border: '1px solid red',
+                        border: `1px solid ${borderColor}`,
                         height,
                     }}
                     onColumnHeaderClick={({ field }) => {

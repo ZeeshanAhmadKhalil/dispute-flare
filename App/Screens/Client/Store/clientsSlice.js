@@ -1,8 +1,8 @@
+import DropDownCell from '@Components/Table/Components/DropDownCell/DropDownCell';
 import { createSlice } from '@reduxjs/toolkit';
 import Gear from 'public/Assets/Svgs/gear.svg';
 import AssignedTo from '../Components/AssignedTo';
 import ClientName from '../Components/ClientName';
-import Status from '../Components/Status';
 
 const clientsSlice = createSlice({
     name: 'clients',
@@ -89,7 +89,7 @@ const clientsSlice = createSlice({
                 editable: true,
                 type: 'singleSelect',
                 valueOptions: ['Lead', 'Active', 'Inactive', 'Cancelled'],
-                renderCell: Status,
+                renderCell: ({ value }) => <DropDownCell value={value} />,
             },
         ],
         clients: [

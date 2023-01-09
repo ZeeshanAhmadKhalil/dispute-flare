@@ -1,19 +1,19 @@
 import { Tooltip } from '@mui/material';
 
-function Status(params) {
+function DropDownCell(props) {
 
     const {
-        status
-    } = params.row || {}
+        value
+    } = props || {}
 
     return (
         <Tooltip
             title={"Double click to change"}
             placement="right"
         >
-            <span className="table-cell-trucate">{status}</span>
+            <span className="table-cell-trucate">{value}</span>
         </Tooltip>
     )
 }
 
-export default Status
+export default DropDownCell
