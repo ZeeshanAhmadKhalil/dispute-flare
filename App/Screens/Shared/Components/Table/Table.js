@@ -154,13 +154,18 @@ const NoRows = ({
 function Table(props) {
 
     const {
+        rows,
         title,
         columns,
-        rows,
+        borderColor,
+        height = 650,
+        noRowsAction,
+        hidePagination,
         setColumnVisibility,
-        setAllColumnsVisibility,
         onSelectionModelChange,
         hasCreditMonitoringInfo,
+        setAllColumnsVisibility,
+        checkboxSelection = true,
     } = props || {}
 
     const dispatch = useDispatch()
@@ -177,7 +182,7 @@ function Table(props) {
                 setAddCreditMonitoringInfoDialog(true)
             )
         else if (rows?.length == 0)
-            null
+            noRowsAction()
     }
 
     return (
@@ -195,6 +200,7 @@ function Table(props) {
 
             >
                 <DataGrid
+                    hideFooter={hidePagination}
                     localeText={{
                         noRowsLabel:
                             hasCreditMonitoringInfo ?
@@ -214,12 +220,14 @@ function Table(props) {
                     rowsPerPageOptions={[5, 25, 50, 100]}
                     disableSelectionOnClick
                     disableColumnMenu
-                    checkboxSelection
+                    checkboxSelection={checkboxSelection}
                     sx={{
                         mt: 2,
                         backgroundColor: 'tableBody.main',
                         borderColor: 'transparent',
                         color: 'text.grey',
+                        border: `1px solid ${borderColor}`,
+                        height,
                     }}
                     onColumnHeaderClick={({ field }) => {
                         if (field == 'settings')

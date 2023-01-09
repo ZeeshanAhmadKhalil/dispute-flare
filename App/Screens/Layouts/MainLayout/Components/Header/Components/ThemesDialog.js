@@ -1,4 +1,5 @@
 import Button from '@Components/Button/Button';
+import { setSelectedTheme, setThemesDialog } from '@Layouts/Store/layoutSlice';
 import CloseIcon from '@mui/icons-material/Close';
 import {
     Box,
@@ -12,14 +13,11 @@ import MuiDialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
-import Image from 'next/image';
+import cls from 'classnames';
 import Default from 'public/Assets/Svgs/default.svg';
 import Draggable from 'react-draggable';
 import { useDispatch, useSelector } from 'react-redux';
-import cls from 'classnames'
-import { useState } from 'react';
 import Theme from './Theme';
-import { setSelectedTheme, setThemesDialog } from '@Layouts/Store/layoutSlice';
 
 const Dialog = styled(MuiDialog)(({ theme }) => {
 
