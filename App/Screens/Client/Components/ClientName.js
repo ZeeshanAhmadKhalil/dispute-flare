@@ -17,8 +17,6 @@ function ClientName(props) {
 
     const handleClick = () => {
 
-        console.log("id===>", id)
-
         dispatch(setSelectedClientId(id))
         router.push('client-dashboard')
     }

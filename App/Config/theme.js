@@ -95,6 +95,7 @@ const themeObj = {
             xGrey: "#858585",
             xGrey1: "#898989",
             xGrey2: "#898989",
+            xGrey3: "#A7A8AA",
             xxGrey: "#888888",
             xxxGrey: "#707070",
             xxxGrey1: "#7D7D7D",

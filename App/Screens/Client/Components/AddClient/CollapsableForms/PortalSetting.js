@@ -1,4 +1,5 @@
 import CheckBoxes from '@Components/CheckBoxes/CheckBoxes';
+import CollapsableForm from '@Components/CollapsableForm/CollapsableForm';
 import DropDown from '@Components/DropDown/DropDown';
 import RadioBtns from '@Components/RadioBtns/RadioBtns';
 import TextInput from '@Components/TextInput/TextInput';
@@ -10,7 +11,6 @@ import {
 } from '@mui/material';
 import cls from 'classnames';
 import { useSelector } from 'react-redux';
-import CollapsableForm from './CollapsableForm';
 
 const Label = styled(Typography)(({ theme }) => {
 

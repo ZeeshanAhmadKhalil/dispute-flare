@@ -78,7 +78,7 @@ function FileDropPicker(props) {
                 style={style}
             >
                 <input
-                    {...getInputProps()}
+                    {...getInputProps()} 
                     accept=".csv"
                 />
                 <Typography>

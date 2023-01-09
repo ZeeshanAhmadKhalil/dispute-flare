@@ -1,8 +1,16 @@
 import ClientTopTabs from '@Components/ClientTopTabs/ClientTopTabs';
 import Table from '@Components/Table/Table';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import {
+    useEffect,
+    useState
+} from 'react';
+import {
+    useDispatch,
+    useSelector
+} from 'react-redux';
+import AddCreditMonitoringInfoDialog from './Components/AddCreditMonitoringInfoDialog';
+import AddDisputeDialog from './Components/AddDisputeDialog';
 import {
     setAllColumnsVisibility,
     setColumnVisibility,
@@ -38,7 +46,7 @@ function Dispute(props) {
             // }
             />
             <Table
-                title="Disputes"
+                title="Dispute"
                 onSelectionModelChange={(selected) =>
                     setSelectedClients(selected)
                 }
@@ -57,6 +65,8 @@ function Dispute(props) {
                 setAllColumnsVisibility={setAllColumnsVisibility}
                 setDefaultColumnsVisibility={setDefaultColumnsVisibility}
             />
+            <AddCreditMonitoringInfoDialog />
+            <AddDisputeDialog />
         </>
     )
 }
