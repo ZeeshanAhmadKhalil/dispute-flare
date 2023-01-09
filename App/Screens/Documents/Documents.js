@@ -1,9 +1,14 @@
 import ClientTopTabs from '@Components/ClientTopTabs/ClientTopTabs';
 import Table from '@Components/Table/Table';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
+import { Divider } from '@mui/material';
+import { Box } from '@mui/system';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import UploadedDocuments from './Components/UploadedDocuments';
+import UploadingDocuments from './Components/UploadingFiles';
+import DocumentsActions from "./Components/DocumentsActions";
+
 import {
     setAllColumnsVisibility,
     setColumnVisibility,
@@ -22,7 +27,7 @@ function Documents(props) {
         selectedClientId
     } = useSelector(state => state.shared)
 
-    const [selectedClients, setSelectedClients] = useState([])
+    const [selectedDocuments, setSelectedDocuments] = useState([])
 
     useEffect(() => {
     }, [])
@@ -32,17 +37,26 @@ function Documents(props) {
             <ClientTopTabs />
             <TitleHeader
                 title="Documents"
-            // actionButtons={
-            //     <ClientActions
-            //         selectedClients={selectedClients}
-            //     />
-            // }
+                actionButtons={
+                    <DocumentsActions
+                        selectedDocuments={selectedDocuments}
+                    />
+                }
             />
-            <UploadedDocuments />
+            <Box sx={{ display: "flex", padding: "1rem" }}>
+                <UploadedDocuments />
+                <UploadingDocuments />
+            </Box>
+            <Divider
+                sx={{
+                    borderWidth: 0.5,
+                    borderColor: 'borders.main',
+                    backgroundColor: 'borders.main',
+                }} />
             <Table
                 title="Documents"
                 onSelectionModelChange={(selected) =>
-                    setSelectedClients(selected)
+                    setSelectedDocuments(selected)
                 }
                 hasCreditMonitoringInfo={
                     selectedClientId == 1 ||
@@ -52,7 +66,6 @@ function Documents(props) {
                 rows={documents}
                 setColumnVisibility={setColumnVisibility}
                 setAllColumnsVisibility={setAllColumnsVisibility}
-                setDefaultColumnsVisibility={setDefaultColumnsVisibility}
             />
         </>
     )
