@@ -14,7 +14,8 @@ import AddDisputeDialog from './Components/AddDisputeDialog';
 import {
     setAllColumnsVisibility,
     setColumnVisibility,
-    setDefaultColumnsVisibility
+    setDefaultColumnsVisibility,
+    setDisputeDialog
 } from './Store/disputeSlice';
 
 function Dispute(props) {
@@ -54,6 +55,9 @@ function Dispute(props) {
                     selectedClientId == 1 ||
                     selectedClientId == 2
                 }
+                noRowsAction={() => {
+                    dispatch(setDisputeDialog(true))
+                }}
                 columns={columns}
                 rows={
                     selectedClientId == 1 ?

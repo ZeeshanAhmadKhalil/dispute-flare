@@ -154,13 +154,15 @@ const NoRows = ({
 function Table(props) {
 
     const {
+        rows,
         title,
         columns,
-        rows,
+        height = 650,
+        noRowsAction,
         setColumnVisibility,
-        setAllColumnsVisibility,
         onSelectionModelChange,
         hasCreditMonitoringInfo,
+        setAllColumnsVisibility,
     } = props || {}
 
     const dispatch = useDispatch()
@@ -177,7 +179,7 @@ function Table(props) {
                 setAddCreditMonitoringInfoDialog(true)
             )
         else if (rows?.length == 0)
-            null
+            noRowsAction()
     }
 
     return (
@@ -220,6 +222,8 @@ function Table(props) {
                         backgroundColor: 'tableBody.main',
                         borderColor: 'transparent',
                         color: 'text.grey',
+                        border: '1px solid red',
+                        height,
                     }}
                     onColumnHeaderClick={({ field }) => {
                         if (field == 'settings')
