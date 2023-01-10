@@ -156,6 +156,7 @@ function Table(props) {
     const {
         title,
         columns,
+        autoHeight,
         rows,
         setColumnVisibility,
         setAllColumnsVisibility,
@@ -210,6 +211,7 @@ function Table(props) {
                     onSelectionModelChange={onSelectionModelChange}
                     loading={false}
                     rows={rows}
+                    autoHeight={autoHeight}
                     columns={columns}
                     rowsPerPageOptions={[5, 25, 50, 100]}
                     disableSelectionOnClick
