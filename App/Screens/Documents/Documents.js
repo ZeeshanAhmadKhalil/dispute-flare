@@ -67,6 +67,7 @@ function Documents(props) {
                 setColumnVisibility={setColumnVisibility}
                 setAllColumnsVisibility={setAllColumnsVisibility}
             />
+            <UploadingDocuments />
         </>
     )
 }
