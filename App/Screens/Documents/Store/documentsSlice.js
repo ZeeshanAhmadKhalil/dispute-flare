@@ -1,7 +1,9 @@
 import DropDownCell from '@Components/Table/Components/DropDownCell/DropDownCell';
 import { createSlice } from '@reduxjs/toolkit';
 import DateAdded from '../Components/DateAdded';
+import useWindowDimensions from '@Hooks/useWindowDimensions';
 import Title from '../Components/Title';
+
 
 const documentsSlice = createSlice({
     name: 'documents',
@@ -12,7 +14,7 @@ const documentsSlice = createSlice({
             {
                 field: 'id',
                 headerName: 'Id',
-                width: 50,
+                width: 150,
                 hide: true,
                 hidable: true,
             },
@@ -58,6 +60,76 @@ const documentsSlice = createSlice({
         ],
         documents: [
             {
+                id: 1,
+                dateAdded: new Date(2022, 1, 1),
+                title: "Razor",
+                expirationDate: new Date(2022, 1, 1),
+                status: "Repaired",
+
+            }, {
+                id: 1,
+                dateAdded: new Date(2022, 1, 1),
+                title: "Razor",
+                expirationDate: new Date(2022, 1, 1),
+                status: "Repaired",
+
+            }, {
+                id: 1,
+                dateAdded: new Date(2022, 1, 1),
+                title: "Razor",
+                expirationDate: new Date(2022, 1, 1),
+                status: "Repaired",
+
+            }, {
+                id: 1,
+                dateAdded: new Date(2022, 1, 1),
+                title: "Razor",
+                expirationDate: new Date(2022, 1, 1),
+                status: "Repaired",
+
+            }, {
+                id: 1,
+                dateAdded: new Date(2022, 1, 1),
+                title: "Razor",
+                expirationDate: new Date(2022, 1, 1),
+                status: "Repaired",
+
+            }, {
+                id: 1,
+                dateAdded: new Date(2022, 1, 1),
+                title: "Razor",
+                expirationDate: new Date(2022, 1, 1),
+                status: "Repaired",
+
+            }, {
+                id: 1,
+                dateAdded: new Date(2022, 1, 1),
+                title: "Razor",
+                expirationDate: new Date(2022, 1, 1),
+                status: "Repaired",
+
+            }, {
+                id: 1,
+                dateAdded: new Date(2022, 1, 1),
+                title: "Razor",
+                expirationDate: new Date(2022, 1, 1),
+                status: "Repaired",
+
+            }, {
+                id: 1,
+                dateAdded: new Date(2022, 1, 1),
+                title: "Razor",
+                expirationDate: new Date(2022, 1, 1),
+                status: "Repaired",
+
+            }, {
+                id: 1,
+                dateAdded: new Date(2022, 1, 1),
+                title: "Razor",
+                expirationDate: new Date(2022, 1, 1),
+                status: "Repaired",
+
+            }, {
                 id: 1,
                 dateAdded: new Date(2022, 1, 1),
                 title: "Razor",

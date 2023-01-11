@@ -157,8 +157,9 @@ function Table(props) {
         rows,
         title,
         columns,
+        autoHeight,
         borderColor,
-        height = 650,
+        height = 650,kk
         noRowsAction,
         hidePagination,
         setColumnVisibility,
@@ -216,6 +217,7 @@ function Table(props) {
                     onSelectionModelChange={onSelectionModelChange}
                     loading={false}
                     rows={rows}
+                    autoHeight={autoHeight}
                     columns={columns}
                     rowsPerPageOptions={[5, 25, 50, 100]}
                     disableSelectionOnClick
