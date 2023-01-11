@@ -38,8 +38,10 @@ const themeObj = {
         icon: {
             active: "#000",
             inactive: "#707070",
+            inactive1: "#BBC9DC",
             lightActive: "#ACADAF",
             input: "#ACADAF",
+            blue: "#1b4d87",
         },
         iconblue: {
             active: "#327ab1",
@@ -102,7 +104,8 @@ const themeObj = {
             grey: "#5F6163",
             lighter: "#A1A1A1",
             link: "#0E2FFFCC",
-            secondarish: "#2D4766"
+            secondarish: "#2D4766",
+            secondarish1: "#173657",
         },
         background: {
             xTrans: '#00000044'
@@ -121,7 +124,8 @@ const themeObj = {
         },
         borders: {
             main: "#9EB6D3",
-            secondary: "#10178288"
+            secondary: "#10178288",
+            gray: "#E8E9EA",
         },
         tableHeader: {
             main: "#F5F8FA"

@@ -1,5 +1,5 @@
+import DropDownCell from '@Components/Table/Components/DropDownCell/DropDownCell';
 import { createSlice } from '@reduxjs/toolkit';
-import Status from '@Screens/Client/Components/Status';
 import Gear from 'public/Assets/Svgs/gear.svg';
 import Account from '../Components/Account';
 import Creditor from '../Components/Creditor';
@@ -9,7 +9,7 @@ const clientsSlice = createSlice({
     name: 'clients',
     initialState: {
         addCreditMonitoringInfoDialog: false,
-        addDisputeDialog: true,
+        addDisputeDialog: false,
         columns: [
             {
                 field: 'settings',
@@ -98,7 +98,7 @@ const clientsSlice = createSlice({
                 editable: true,
                 type: 'singleSelect',
                 valueOptions: ['Repaired', 'Verified', 'Negative', 'Delete'],
-                renderCell: Status,
+                renderCell: ({ value }) => <DropDownCell value={value} />,
             },
             {
                 field: 'round',

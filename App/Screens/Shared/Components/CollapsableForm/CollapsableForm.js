@@ -116,7 +116,7 @@ function CollapsableForm(props) {
             >
                 <div
                     className={cls(
-                        'p-[20px]'
+                        'p-[20px]',
                     )}
                 >
                     {children}

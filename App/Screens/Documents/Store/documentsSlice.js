@@ -1,9 +1,8 @@
+import DropDownCell from '@Components/Table/Components/DropDownCell/DropDownCell';
 import { createSlice } from '@reduxjs/toolkit';
-import Status from '@Screens/Client/Components/Status';
-import Title from '../Components/Title';
 import DateAdded from '../Components/DateAdded';
 import useWindowDimensions from '@Hooks/useWindowDimensions';
-
+import Title from '../Components/Title';
 
 
 const documentsSlice = createSlice({
@@ -54,7 +53,7 @@ const documentsSlice = createSlice({
                 editable: true,
                 type: 'singleSelect',
                 valueOptions: ['Repaired', 'Verified', 'Negative', 'Delete'],
-                renderCell: Status,
+                renderCell: ({ value }) => <DropDownCell value={value} />,
             },
 
 
