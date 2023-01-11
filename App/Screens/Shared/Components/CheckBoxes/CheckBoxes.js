@@ -10,14 +10,19 @@ import { Controller } from 'react-hook-form';
 function CheckBoxes(props) {
 
     const {
-        control,
+        list,
         name,
         error,
-        list,
+        watch,
+        control,
+        labelFontSize,
+        iconFontSize,
     } = props || {}
 
-    function RenderList(value, onChange) {
+    function renderList(onChange) {
         return list?.map?.((item, key) => {
+
+            let value = watch(name)
 
             const {
                 label,
@@ -29,6 +34,7 @@ function CheckBoxes(props) {
                     key={key}
                     control={
                         <Checkbox
+                            name={camelToBreadcrumbs(label)}
                             checked={value?.includes?.(itemValue)}
                             onChange={() => {
 
@@ -40,9 +46,16 @@ function CheckBoxes(props) {
                                         itemValue,
                                     ])
                             }}
-                            name={camelToBreadcrumbs(label)}
                         />
                     }
+                    sx={{
+                        '& .MuiSvgIcon-root': {
+                            fontSize: iconFontSize
+                        },
+                        '& .MuiTypography-root': {
+                            fontSize: labelFontSize
+                        },
+                    }}
                     label={camelToTitle(label)}
                 />
             )
@@ -54,7 +67,7 @@ function CheckBoxes(props) {
             <Controller
                 control={control}
                 name={name}
-                render={({ field: { value, onChange } }) => (
+                render={({ field: { onChange } }) => (
                     <FormControl
                         component="fieldset"
                         variant="standard"
@@ -65,7 +78,7 @@ function CheckBoxes(props) {
                                 flexDirection: 'row'
                             }}
                         >
-                            {RenderList(value, onChange)}
+                            {renderList(onChange)}
                         </FormGroup>
                     </FormControl>
                 )}

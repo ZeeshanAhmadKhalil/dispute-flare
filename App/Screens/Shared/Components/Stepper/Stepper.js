@@ -1,34 +1,96 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
 import {
-    Stepper as StepperMui
+    Box,
+    Divider,
+    Step as StepMui,
+    StepLabel as StepLabelMui,
+    Stepper as StepperMui,
+    useTheme
 } from '@mui/material';
-import Step from '@mui/material/Step';
-import StepLabel from '@mui/material/StepLabel';
+import { styled } from '@mui/system';
+import cls from 'classnames';
+import Circle from 'public/Assets/Svgs/circle.svg';
+import styles from './Stepper.module.scss';
+
+const StepLabel = styled(StepLabelMui)(({ theme }) => {
+
+    const {
+        text: {
+            secondarish1
+        }
+    } = theme.palette || {}
+
+    return {
+        '& .MuiStepLabel-label': {
+            color: `${secondarish1} !important`,
+            fontWeight: 'bold !important',
+            marginTop: '5px !important',
+        },
+    }
+})
 
 function Stepper({
-    steps
+    steps,
+    currentStep,
 }) {
 
+    const {
+        palette: {
+            tableSeparator,
+            icon
+        }
+    } = useTheme()
+
     const renderSteps
-        = steps.map((label) => (
-            <Step key={label}>
-                {console.log("label===>", label)}
-                <StepLabel>
+        = steps.map((label, key) => (
+            <StepMui
+                className={cls(
+                    styles.customSetp
+                )}
+                key={key}
+            >
+                <StepLabel
+                    icon={
+                        <Circle
+                            color={
+                                currentStep >= key ?
+                                    icon?.blue
+                                    :
+                                    icon?.inactive1
+                            }
+                            height={25}
+                            width={25}
+                        />
+                    }
+                >
                     {label}
                 </StepLabel>
-            </Step>
+            </StepMui>
         ))
 
     return (
         <Box
             sx={{
                 width: '100%',
-                border: '1px solid red'
+                border: '0px solid red',
+                position: 'relative',
+                overflow: 'hidden',
+                p: 0,
             }}
         >
+            <Divider
+                className={cls(
+                    styles.divider
+                )}
+                sx={{
+                    backgroundColor: tableSeparator?.light,
+                }}
+            />
             <StepperMui
-                activeStep={1}
+                className={cls(
+                    styles.customStepper
+                )}
+                connector={null}
+                activeStep={currentStep}
                 alternativeLabel
             >
                 {renderSteps}
