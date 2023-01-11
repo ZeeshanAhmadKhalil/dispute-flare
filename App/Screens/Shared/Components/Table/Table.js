@@ -159,7 +159,7 @@ function Table(props) {
         columns,
         autoHeight,
         borderColor,
-        height = 650,kk
+        height = 650,
         noRowsAction,
         hidePagination,
         setColumnVisibility,

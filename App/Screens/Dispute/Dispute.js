@@ -20,6 +20,13 @@ import {
 
 function Dispute(props) {
 
+    const tabs = [
+        { label: "Dashboard", value: "client-dashboard" },
+        { label: "Dispute", value: "dispute" },
+        { label: "Documents", value: "documents" },
+        { label: "Tasks Manager", value: "taskmanager" },
+        { label: "Internal Notes", value: "internal-notes" },
+    ]
     const dispatch = useDispatch()
 
     const {
@@ -37,7 +44,7 @@ function Dispute(props) {
 
     return (
         <>
-            <ClientTopTabs />
+            <ClientTopTabs tabs={tabs} />
             <TitleHeader
                 title="Dispute"
             // actionButtons={
