@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-function Report(props) {
+function CreditScoreReport(props) {
 
     const dispatch = useDispatch()
 
@@ -13,10 +13,10 @@ function Report(props) {
     }, [])
 
     return (
-        <div style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <span style={{ color: '#000', fontSize: 25, fontWeight: 'bold' }}>Report</span>
-        </div>
+        <Box >
+            
+        </Box>
     )
 }
 
-export default Report
+export default CreditScoreReport

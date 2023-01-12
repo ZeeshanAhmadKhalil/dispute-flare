@@ -1,14 +1,9 @@
 import ClientTopTabs from '@Components/ClientTopTabs/ClientTopTabs';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
 import {
-    useEffect,
-    useState
+    useEffect
 } from 'react';
-import {
-    useDispatch,
-    useSelector
-} from 'react-redux';
-import Report from './Components/Report';
+import CreditScoreReport from './Components/CreditScoreReport';
 
 function InternalNotes(props) {
 
@@ -21,7 +16,7 @@ function InternalNotes(props) {
             <TitleHeader
                 title="REPORT"
             />
-            <Report />
+            <CreditScoreReport />
         </>
     )
 }
