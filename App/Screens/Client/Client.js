@@ -1,7 +1,15 @@
 import Table from '@Components/Table/Table';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { setSelectedClientId } from '@Screens/Shared/Store/sharedSlice';
+import { useRouter } from 'next/router';
+import {
+    useEffect,
+    useState
+} from 'react';
+import {
+    useDispatch,
+    useSelector
+} from 'react-redux';
 import AddClientDialog from './Components/AddClient/AddClientDialog';
 import ClientActions from './Components/ClientActions';
 import ImportClientsDialog from './Components/ImportClients/ImportClientsDialog';
@@ -12,12 +20,22 @@ import {
 
 function Client(props) {
 
+    const router = useRouter()
+    const dispatch = useDispatch()
+
     const {
         columns,
         clients,
     } = useSelector(state => state.clients)
 
     const [selectedClients, setSelectedClients] = useState([])
+
+    const onRowClick = ({
+        id
+    }) => {
+        dispatch(setSelectedClientId(id))
+        router.push('client-dashboard')
+    }
 
     useEffect(() => {
     }, [])
@@ -37,6 +55,7 @@ function Client(props) {
                 onSelectionModelChange={(selected) =>
                     setSelectedClients(selected)
                 }
+                onRowClick={onRowClick}
                 columns={columns}
                 rows={clients}
                 setColumnVisibility={setColumnVisibility}

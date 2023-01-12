@@ -49,13 +49,13 @@ function Button(props) {
                 </IconButton>
                 :
                 <MuiButton
+                    variant={variant}
                     onClick={onClick}
                     disableElevation={disableElevation}
                     className={cls(
                         ...styles.customButton,
                     )}
                     color={color}
-                    variant={variant}
                     startIcon={startIcon}
                     endIcon={endIcon}
                     style={{ ...style, }}

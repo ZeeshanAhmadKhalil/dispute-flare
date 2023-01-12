@@ -11,6 +11,8 @@ import {
 } from 'react-redux';
 import AddCreditMonitoringInfoDialog from './Components/AddCreditMonitoringInfoDialog';
 import AddDisputeDialog from './Components/AddDisputeDialog';
+import DisputeActions from './Components/DisputeActions';
+import FollowUpDialog from './Components/FollowUpDialog';
 import {
     setAllColumnsVisibility,
     setColumnVisibility,
@@ -40,11 +42,11 @@ function Dispute(props) {
             <ClientTopTabs />
             <TitleHeader
                 title="Dispute"
-            // actionButtons={
-            //     <ClientActions
-            //         selectedClients={selectedClients}
-            //     />
-            // }
+                actionButtons={
+                    <DisputeActions
+                        selectedClients={selectedClients}
+                    />
+                }
             />
             <Table
                 title="Dispute"
@@ -71,6 +73,7 @@ function Dispute(props) {
             />
             <AddCreditMonitoringInfoDialog />
             <AddDisputeDialog />
+            <FollowUpDialog />
         </>
     )
 }
