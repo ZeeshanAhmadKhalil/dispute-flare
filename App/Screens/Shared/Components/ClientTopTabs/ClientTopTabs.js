@@ -31,6 +31,28 @@ const AntTabs = styled(Tabs)(({ theme }) => {
         '& .MuiTab-textColorSecondary.Mui-selected': {
             color: main,
         },
+
+
+    }
+});
+const AntTab = styled(Tab)(({ theme, i }) => {
+
+    const {
+        text: {
+            xxxGrey1,
+            xGrey2,
+        },
+        secondary: {
+            main
+        }
+    } = theme.palette || {}
+
+    return {
+
+        borderLeft: i == 1 ? `1px solid ${xGrey2}` : null,
+        marginRight: i == 0 ? "1rem" : "",
+
+
     }
 });
 
@@ -73,11 +95,10 @@ function ClientTopTabs(props) {
                     onChange={handleTabChange}
                     textColor='secondary'
                     indicatorColor='secondary'
-
                 >
                     {tabs && tabs.map((item, i) => {
 
-                        return <Tab label={item.label} value={item.value} />
+                        return <AntTab label={item.label} value={item.value} i={i} />
                     })
                     }
 
