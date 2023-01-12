@@ -1,9 +1,11 @@
-import { Box } from '@mui/material';
+import { Avatar, Badge, Box } from '@mui/material';
+import { useEffect } from 'react';
 
-function Account(props) {
+function Title(props) {
 
     const {
-        account,
+        title,
+        creditorPfp,
     } = props.row || {}
 
     return (
@@ -13,11 +15,10 @@ function Account(props) {
                 alignItems: 'center',
             }}
         >
-            <span>
-                {account.slice(0, 5) + "***"}
-            </span>
+
+            <span>{title}</span>
         </Box>
     )
 }
 
-export default Account
+export default Title

@@ -24,16 +24,39 @@ const AntTabs = styled(Tabs)(({ theme }) => {
 
     return {
         borderBottom: '1px solid #e8e8e8',
+
         '& .MuiTab-textColorSecondary': {
             color: xxxGrey1,
         },
         '& .MuiTab-textColorSecondary.Mui-selected': {
             color: main,
         },
+
+
+    }
+});
+const AntTab = styled(Tab)(({ theme, i }) => {
+
+    const {
+        text: {
+            xxxGrey1,
+            xGrey2,
+        },
+        secondary: {
+            main
+        }
+    } = theme.palette || {}
+
+    return {
+
+        borderLeft: i == 1 ? `1px solid ${xGrey2}` : null,
+        marginRight: i == 0 ? "1rem" : "",
+
+
     }
 });
 
-function ClientTopTabs() {
+function ClientTopTabs(props) {
 
     const {
         palette: {
@@ -43,6 +66,8 @@ function ClientTopTabs() {
         }
     } = useTheme()
 
+
+    const tabs = props.tabs || [];
     const router = useRouter()
 
     const handleTabChange = (event, newValue) => {
@@ -71,19 +96,12 @@ function ClientTopTabs() {
                     textColor='secondary'
                     indicatorColor='secondary'
                 >
-                    <Tab label="Dashboard" value="client-dashboard" />
-                    <Divider
-                        orientation='vertical'
-                        sx={{
-                            background: xGrey2,
-                            mx: 3,
-                        }}
-                        flexItem
-                    />
-                    <Tab label="Dispute" value="dispute" />
-                    <Tab label="Documents" value="documents" />
-                    <Tab label="Tasks Manager" value="task-manager" />
-                    <Tab label="Internal Notes" value="internal-notes" />
+                    {tabs && tabs.map((item, i) => {
+
+                        return <AntTab label={item.label} value={item.value} i={i} />
+                    })
+                    }
+
                 </AntTabs>
             </Box>
         </Box>

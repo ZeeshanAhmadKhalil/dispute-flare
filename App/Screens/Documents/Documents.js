@@ -20,17 +20,19 @@ import {
     setColumnVisibility,
 } from './Store/documentsSlice';
 import TilesView from './Components/TilesView';
-
 function Documents(props) {
 
-
+    const tabs = [
+        { label: "Dashboard", value: "client-dashboard" },
+        { label: "Dispute", value: "dispute" },
+        { label: "Documents", value: "documents" },
+        { label: "Tasks Manager", value: "taskmanager" },
+        { label: "Internal Notes", value: "internal-notes" },
+    ]
     const {
         palette
     } = useTheme()
-
-
     const dispatch = useDispatch()
-
     const {
         columns,
         documents,
@@ -49,7 +51,6 @@ function Documents(props) {
             'aria-controls': `simple-tabpanel-${index}`,
         };
     }
-
 
     function TabPanel(props) {
         const { children, value, index, ...other } = props;
@@ -76,7 +77,7 @@ function Documents(props) {
 
     return (
         <>
-            <ClientTopTabs />
+            <ClientTopTabs tabs={tabs} />
             <TitleHeader
                 title="Documents"
                 actionButtons={

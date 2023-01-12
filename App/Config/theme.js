@@ -41,10 +41,8 @@ const themeObj = {
         icon: {
             active: "#000",
             inactive: "#707070",
-            inactive1: "#BBC9DC",
             lightActive: "#ACADAF",
             input: "#ACADAF",
-            blue: "#1b4d87",
         },
         iconblue: {
             active: "#327ab1",
@@ -102,13 +100,12 @@ const themeObj = {
             xGrey2: "#898989",
             xGrey3: "#A7A8AA",
             xxGrey: "#888888",
-            xxxGrey: "#707070",
+            xxxGrey: '#707070',
             xxxGrey1: "#7D7D7D",
             grey: "#5F6163",
             lighter: "#A1A1A1",
             link: "#0E2FFFCC",
-            secondarish: "#2D4766",
-            secondarish1: "#173657",
+            secondarish: "#2D4766"
         },
         outlinedBtn: {
             main: '#C9C9C9',
@@ -131,8 +128,7 @@ const themeObj = {
         },
         borders: {
             main: "#9EB6D3",
-            secondary: "#10178288",
-            gray: "#E8E9EA",
+            secondary: "#10178288"
         },
         tableHeader: {
             main: "#F5F8FA"
