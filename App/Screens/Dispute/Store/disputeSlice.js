@@ -10,6 +10,7 @@ const clientsSlice = createSlice({
     initialState: {
         addCreditMonitoringInfoDialog: false,
         addDisputeDialog: false,
+        followUpDialog: false,
         columns: [
             {
                 field: 'settings',
@@ -358,7 +359,10 @@ const clientsSlice = createSlice({
         },
         setDisputeDialog: (state, action) => {
             state.addDisputeDialog = action.payload
-        }
+        },
+        setFollowUpDialog: (state, action) => {
+            state.followUpDialog = action.payload
+        },
     },
     extraReducers: {
     },
@@ -366,6 +370,7 @@ const clientsSlice = createSlice({
 
 export const {
     setDisputeDialog,
+    setFollowUpDialog,
     setColumnVisibility,
     setAllColumnsVisibility,
     setDefaultColumnsVisibility,

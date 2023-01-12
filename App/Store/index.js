@@ -8,6 +8,8 @@ import shared from '@Screens/Shared/Store/sharedSlice'
 import layout from '@Screens/Layouts/Store/layoutSlice'
 import dispute from '@Screens/Dispute/Store/disputeSlice'
 import documents from '@Screens/Documents/Store/documentsSlice'
+import letterslibrary from '@Screens/LetterLibrary/Store/letterlibrarySlice'
+import templates from '@Screens/Templates/Store/templatesSlice'
 import storage from '@Store/storage'
 
 const reducers = combineReducers({
@@ -17,6 +19,8 @@ const reducers = combineReducers({
     shared,
     dispute,
     documents,
+    letterslibrary,
+    templates,
     [authApi.reducerPath]: authApi.reducer,
 });
 

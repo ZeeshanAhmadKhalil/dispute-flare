@@ -11,6 +11,8 @@ import {
 } from 'react-redux';
 import AddCreditMonitoringInfoDialog from './Components/AddCreditMonitoringInfoDialog';
 import AddDisputeDialog from './Components/AddDisputeDialog';
+import DisputeActions from './Components/DisputeActions';
+import FollowUpDialog from './Components/FollowUpDialog';
 import {
     setAllColumnsVisibility,
     setColumnVisibility,
@@ -20,6 +22,13 @@ import {
 
 function Dispute(props) {
 
+    const tabs = [
+        { label: "Dashboard", value: "client-dashboard" },
+        { label: "Dispute", value: "dispute" },
+        { label: "Documents", value: "documents" },
+        { label: "Tasks Manager", value: "taskmanager" },
+        { label: "Internal Notes", value: "internal-notes" },
+    ]
     const dispatch = useDispatch()
 
     const {
@@ -37,14 +46,14 @@ function Dispute(props) {
 
     return (
         <>
-            <ClientTopTabs />
+            <ClientTopTabs tabs={tabs} />
             <TitleHeader
                 title="Dispute"
-            // actionButtons={
-            //     <ClientActions
-            //         selectedClients={selectedClients}
-            //     />
-            // }
+                actionButtons={
+                    <DisputeActions
+                        selectedClients={selectedClients}
+                    />
+                }
             />
             <Table
                 title="Dispute"
@@ -71,6 +80,7 @@ function Dispute(props) {
             />
             <AddCreditMonitoringInfoDialog />
             <AddDisputeDialog />
+            <FollowUpDialog />
         </>
     )
 }
