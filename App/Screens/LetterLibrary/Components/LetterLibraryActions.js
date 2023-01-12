@@ -5,6 +5,7 @@ import FileUploadIcon from '@mui/icons-material/FileUpload';
 import Thunder from 'public/Assets/Svgs/thunder.svg';
 import { useDispatch } from 'react-redux';
 // import { setAddClientDialog, setImportClientsDialog } from '../Store/clientsSlice';
+import { setAddFlowDialog } from '../Store/letterlibrarySlice';
 
 function LetterLibraryAction(props) {
 
@@ -17,7 +18,7 @@ function LetterLibraryAction(props) {
     return (
         <>
             <Button
-                //   onClick={() => dispatch(setImportClientsDialog(true))}
+                onClick={() => dispatch(setAddFlowDialog(true))}
                 iconOnSmall={<FileUploadIcon />}
                 color={"primary"}
                 startIcon={null}

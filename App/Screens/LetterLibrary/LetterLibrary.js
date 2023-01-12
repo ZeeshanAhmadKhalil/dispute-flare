@@ -12,6 +12,7 @@ import {
     setColumnVisibility,
 } from './Store/letterlibrarySlice';
 import Title from './Components/Title';
+import AddFlowDialog from './Components/AddFlow/AddFlowDialog';
 
 
 
@@ -173,7 +174,7 @@ function LetterLibrary(props) {
                 setAllColumnsVisibility={setAllColumnsVisibility}
             />
 
-
+            <AddFlowDialog />
         </>
     )
 }
