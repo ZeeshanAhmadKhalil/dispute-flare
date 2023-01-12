@@ -32,6 +32,9 @@ const themeObj = {
         lead: {
             main: "#00428E"
         },
+        leadLight: {
+            main: "#06AEEE"
+        },
         cancelled: {
             main: "#D33C41"
         },
@@ -103,6 +106,10 @@ const themeObj = {
             lighter: "#A1A1A1",
             link: "#0E2FFFCC",
             secondarish: "#2D4766"
+        },
+        outlinedBtn: {
+            main: '#C9C9C9',
+            contrastText: "#000",
         },
         background: {
             xTrans: '#00000044'

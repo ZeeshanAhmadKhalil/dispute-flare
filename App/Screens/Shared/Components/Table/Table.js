@@ -157,6 +157,7 @@ function Table(props) {
         rows,
         title,
         columns,
+        onRowClick,
         autoHeight,
         borderColor,
         height = 650,
@@ -201,6 +202,7 @@ function Table(props) {
 
             >
                 <DataGrid
+                    onRowClick={onRowClick}
                     hideFooter={hidePagination}
                     localeText={{
                         noRowsLabel:

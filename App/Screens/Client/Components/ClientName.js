@@ -9,17 +9,7 @@ function ClientName(props) {
     const {
         clientName,
         status,
-        id,
     } = props.row || {}
-
-    const router = useRouter()
-    const dispatch = useDispatch()
-
-    const handleClick = () => {
-
-        dispatch(setSelectedClientId(id))
-        router.push('client-dashboard')
-    }
 
     return (
         <Box
@@ -35,13 +25,7 @@ function ClientName(props) {
                     mr: 1,
                 }}
             />
-            <span
-                onClick={handleClick}
-                className={cls(
-                    'hover:underline',
-                    'cursor-pointer',
-                )}
-            >
+            <span>
                 {clientName}
             </span>
         </Box>

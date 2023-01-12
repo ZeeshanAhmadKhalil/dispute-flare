@@ -1,7 +1,13 @@
 import ClientTopTabs from '@Components/ClientTopTabs/ClientTopTabs';
 import Table from '@Components/Table/Table';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
-import { Divider, Tab, Tabs, Typography, useTheme } from '@mui/material';
+import {
+    Divider,
+    Tab,
+    Tabs,
+    Typography,
+    useTheme
+} from '@mui/material';
 import { Box } from '@mui/system';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
