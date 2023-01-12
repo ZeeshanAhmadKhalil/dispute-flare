@@ -8,16 +8,9 @@ import {
     useDispatch,
     useSelector
 } from 'react-redux';
+import Report from './Components/Report';
 
 function InternalNotes(props) {
-
-    const dispatch = useDispatch()
-
-    const {
-        selectedClientId
-    } = useSelector(state => state.shared)
-
-    const [selectedClients, setSelectedClients] = useState([])
 
     useEffect(() => {
     }, [])
@@ -28,6 +21,7 @@ function InternalNotes(props) {
             <TitleHeader
                 title="REPORT"
             />
+            <Report />
         </>
     )
 }
