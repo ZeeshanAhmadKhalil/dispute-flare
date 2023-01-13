@@ -1,6 +1,8 @@
 
 import DropDown from '@Components/DropDown/DropDown';
 import TextInput from '@Components/TextInput/TextInput';
+import CloseSharpIcon from '@mui/icons-material/CloseSharp';
+import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
 import {
     Divider,
     Grid,
@@ -8,6 +10,7 @@ import {
     Typography,
     useTheme
 } from '@mui/material';
+import { palette } from '@mui/system';
 import cls from 'classnames';
 import { useSelector } from 'react-redux';
 import styles from './ClientInformation.module.scss';
@@ -43,9 +46,7 @@ function AddFlowForm(props) {
     } = props || {}
 
     const {
-        palette: {
-            tableSeparator
-        }
+        palette
     } = useTheme()
 
 
@@ -57,7 +58,7 @@ function AddFlowForm(props) {
 
     return (
 
-        <Grid sx={{ backgroundColor: tableSeparator.light, marginTop: "0", padding: "1rem 1rem 2rem 1rem" }}
+        <Grid sx={{ backgroundColor: palette.tableSeparator.light, marginTop: "0", padding: "1rem 1rem 2rem 1rem" }}
             container
             rowSpacing={3}
             className={cls(
@@ -90,7 +91,7 @@ function AddFlowForm(props) {
                     register={register("letterFlowName", {
                         required: true,
                     })}
-                    name=" Letter Flow Name"
+                    name="Flow Name"
                     error={errors.letterFlowName}
                     width="85%"
                     fullWidth
@@ -98,7 +99,7 @@ function AddFlowForm(props) {
             </Grid>
             <Divider
                 sx={{
-                    backgroundColor: tableSeparator.dark
+                    backgroundColor: palette.tableSeparator.dark
                 }}
             />
 
@@ -147,21 +148,44 @@ function AddFlowForm(props) {
                     error={errors.reason}
                 />
             </Grid>
-            <Grid item xl="2" md="6" xs="12">
-                <Label
+            <Grid item xl="12" md="12" xs="12">
+                <Typography
+                    color="text.xxGrey"
+                    variant='subtitle2'
+                    className={cls(
+                        styles.formDesc
+                    )}
+                >
+                    Then the following sequences if letter will begin:
+                </Typography>
+            </Grid>
+            <Grid item xl="2" md="6" xs="12" padding="0px" >
+                <Label sx={{ margin: "0px", padding: "0px" }}
                     variant="subtitle1"
                 >Bureau Flow
                 </Label>
             </Grid>
-            <Grid item xl="4" md="6" xs="12">
-                <DropDown
-                    watch={watch}
-                    register={register("bureauFlow")}
-                    list={providers}
-                    name="Bureau Flow"
-                    error={errors.bureauFlow}
-                />
+            <Grid item xl="4" md="6" xs="12" alignItems="center"
+                justifyContent="center" >
+                <Grid item xl="12" md="12" xs="12" alignItems="center">
+                    <DropDown
+                        watch={watch}
+                        register={register("furnishFlow")}
+                        list={providers}
+                        name="Furnish Flow"
+                        error={errors.furnishFlow}
+                    />
+                    <CloseSharpIcon sx={{ color: palette.cancelled.main }} />
+
+                </Grid>
+                <Grid display="flex" justifyContent="end" xl="9" md="12" xs="12" paddingRight="1rem" >
+
+                    <AddCircleOutlineOutlinedIcon sx={{ color: palette.lead.main }} />
+                    <Typography color={palette.lead.main} sx={{ textDecoration: "underline" }}>Add Letter</Typography>
+                </Grid>
+
             </Grid>
+
             <Grid item xl="2" md="6" xs="12">
                 <Label
                     variant="subtitle1"
@@ -170,13 +194,23 @@ function AddFlowForm(props) {
                 </Label>
             </Grid>
             <Grid item xl="4" md="6" xs="12">
-                <DropDown
-                    watch={watch}
-                    register={register("furnishFlow")}
-                    list={providers}
-                    name="Furnish Flow"
-                    error={errors.furnishFlow}
-                />
+                <Grid item xl="12" md="12" xs="12">
+                    <DropDown
+                        watch={watch}
+                        register={register("furnishFlow")}
+                        list={providers}
+                        name="Furnish Flow"
+                        error={errors.furnishFlow}
+                    />
+                    <CloseSharpIcon sx={{ color: palette.cancelled.main }} />
+
+                </Grid>
+                <Grid display="flex" justifyContent="end" xl="9" md="12" xs="12" paddingRight="1rem" >
+
+                    <AddCircleOutlineOutlinedIcon sx={{ color: palette.lead.main }} />
+                    <Typography color={palette.lead.main} sx={{ textDecoration: "underline" }}>Add Letter</Typography>
+                </Grid>
+
             </Grid>
 
 

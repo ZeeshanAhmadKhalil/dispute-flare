@@ -5,8 +5,8 @@ import { createSlice } from '@reduxjs/toolkit';
 const templatesSlice = createSlice({
     name: 'templates',
     initialState: {
-        addClientDialog: false,
-        importClientsDialog: false,
+        addLetterTemplateDialog: false,
+
 
         defaultColumns: [
             "id",
@@ -19,6 +19,9 @@ const templatesSlice = createSlice({
         ],
     },
     reducers: {
+        setAddLetterTemplateDialog: (state, action) => {
+            state.addLetterTemplateDialog = action.payload
+        },
         setColumnVisibility: (state, action) => {
 
             const { field, hide } = action.payload || {}
@@ -71,6 +74,7 @@ export const {
     setColumnVisibility,
     setAllColumnsVisibility,
     setDefaultColumnsVisibility,
+    setAddLetterTemplateDialog
 } = templatesSlice.actions;
 
 export default templatesSlice.reducer;

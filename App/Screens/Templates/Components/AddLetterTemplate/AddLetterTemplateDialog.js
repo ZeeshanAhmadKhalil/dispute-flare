@@ -6,16 +6,17 @@ import {
     Typography,
     useTheme
 } from '@mui/material';
-import { setAddFlowDialog } from '@Screens/LetterLibrary/Store/letterlibrarySlice';
+import { setAddLetterTemplateDialog } from '@Screens/Templates/Store/templatesSlice';
 import {
     useDispatch,
     useSelector
 } from 'react-redux';
 import cls from 'classnames'
-import styles from './AddFlowDialog.module.scss'
+import styles from './AddTemplateDialog.module.scss'
 import { useForm } from 'react-hook-form';
-import AddFlowForm from './AddFlowForm/AddFlowForm';
-import AddFlowActions from './AddFlowActions';
+import AddTemplateAction from './AddTemplateAction';
+import AddTemplateForm from './AddLetterTemplate/AddTemplateForm';
+
 const Container = styled(Box)(({ theme }) => {
 
     const {
@@ -31,7 +32,7 @@ const Container = styled(Box)(({ theme }) => {
     }
 })
 
-function AddFlowDialog(props) {
+function AddLetterTemplateDialog(props) {
 
     const defaultValues = {
         firstName: null,
@@ -73,8 +74,8 @@ function AddFlowDialog(props) {
 
     } = useSelector(state => state.shared)
     const {
-        addFlowDialog
-    } = useSelector(state => state.letterlibrary)
+        addLetterTemplateDialog
+    } = useSelector(state => state.templates)
 
     const {
         register,
@@ -90,18 +91,18 @@ function AddFlowDialog(props) {
 
     return (
         <RightDialogLayout
-            onClose={() => dispatch(setAddFlowDialog(false))}
+            onClose={() => dispatch(setAddLetterTemplateDialog(false))}
             actionButtons={
-                <AddFlowActions
+                <AddTemplateAction
                     handleSubmit={handleSubmit}
                     onClose={() =>
-                        dispatch(setAddFlowDialog(false))
+                        dispatch(setAddLetterTemplateDialog(false))
                     }
                 />
             }
-            open={addFlowDialog}
-            closeBtnText="Flow"
-            title={"Add Flow"}
+            open={addLetterTemplateDialog}
+            closeBtnText="Template"
+            title={"Add Letter Template"}
         >
             <Container>
                 <Typography
@@ -111,14 +112,14 @@ function AddFlowDialog(props) {
                         styles.formDesc
                     )}
                 >
-                    {"Create your new letter flow"}
+                    {"Create your new letter template"}
                 </Typography>
                 <Divider
                     sx={{
                         backgroundColor: tableSeparator?.light
                     }}
                 />
-                <AddFlowForm
+                <AddTemplateForm
                     watch={watch}
                     register={register}
                     control={control}
@@ -130,4 +131,4 @@ function AddFlowDialog(props) {
     );
 }
 
-export default AddFlowDialog
+export default AddLetterTemplateDialog
