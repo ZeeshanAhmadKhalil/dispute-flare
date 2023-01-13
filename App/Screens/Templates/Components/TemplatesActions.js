@@ -4,7 +4,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import FileUploadIcon from '@mui/icons-material/FileUpload';
 import Thunder from 'public/Assets/Svgs/thunder.svg';
 import { useDispatch } from 'react-redux';
-// import { setAddClientDialog, setImportClientsDialog } from '../Store/clientsSlice';
+import { setAddLetterTemplateDialog } from '../Store/templatesSlice';
 
 function TemplatesAction(props) {
 
@@ -17,7 +17,7 @@ function TemplatesAction(props) {
     return (
         <>
             <Button
-                //   onClick={() => dispatch(setImportClientsDialog(true))}
+                onClick={() => dispatch(setAddLetterTemplateDialog(true))}
                 iconOnSmall={<FileUploadIcon />}
                 color={"primary"}
                 startIcon={null}

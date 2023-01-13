@@ -1,0 +1,42 @@
+.btn22 {
+    border-radius: 2px;
+    background-image: -moz-linear-gradient( 90deg, pink 0%, pink 100%);
+    background-image: -webkit-linear-gradient( 90deg, pink 0%, pink 100%);
+    background-image: -ms-linear-gradient( 90deg, pink 0%, pink 100%);
+    color: pink;
+    text-align: center;
+    height: 25px;
+    border: 1px solid pink;
+    vertical-align: middle;
+    font-family: "Segoe UI";
+    box-shadow: 0px 0px 1px pink;
+    background-color: pink;
+      position: relative;
+  }
+  
+  .btn22 span {
+      position: relative;
+      z-index: 1;
+      background-color: pink;
+  }
+  
+  .btn22:after {
+      content: "";
+      width: 16px;
+      height: 16px;
+      background-image: -moz-linear-gradient( 135deg, pink 0%, pink 100%);
+      background-image: -webkit-linear-gradient( 135deg,pink 0%, pink 100%);
+      background-image: -ms-linear-gradient( 135deg, pink 0%, pink 100%);
+      display: block;
+      position: absolute;
+      top: 3px;
+      right: -px;
+      border: 1px solid pink;
+      border-left: none;
+      border-bottom: none;
+      border-radius: 2px;
+      -webkit-transform: rotate(47deg) skew(5deg);
+      -moz-transform: rotate(47deg) skew(5deg);
+      transform: rotate(47deg) skew(5deg);
+      background-color: pink;
+  }
