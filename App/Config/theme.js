@@ -1,5 +1,6 @@
 import { createTheme } from "@mui/material";
 
+
 const themeObj = {
     breakpoints: {
         values: {
@@ -104,6 +105,8 @@ const themeObj = {
             xxxGrey1: "#7D7D7D",
             grey: "#5F6163",
             lighter: "#A1A1A1",
+            lighter1: "#BAC1CC",
+            lighter2: "#8D97AA",
             link: "#0E2FFFCC",
             secondarish: "#2D4766"
         },
@@ -112,7 +115,8 @@ const themeObj = {
             contrastText: "#000",
         },
         background: {
-            xTrans: '#00000044'
+            main: "#fff",
+            xTrans: '#00000044',
         },
         xTrans: {
             main: "#00000044"
