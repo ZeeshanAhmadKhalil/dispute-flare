@@ -1,14 +1,15 @@
 import { darkTheme } from '@Config/theme';
 import { ThemeProvider } from '@mui/material/styles';
 import store from '@Store/index';
+import 'react-circular-progressbar/dist/styles.css';
+import {
+  Toaster
+} from 'react-hot-toast';
 import { Provider } from 'react-redux';
 import { persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
 import '../styles/custom.css';
 import '../styles/globals.css';
-import {
-  Toaster
-} from 'react-hot-toast';
 
 function MyApp(props) {
 

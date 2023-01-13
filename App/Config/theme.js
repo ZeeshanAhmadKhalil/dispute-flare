@@ -14,6 +14,7 @@ const themeObj = {
             lg: 1250,
             xl: 1300,
             xl1: 1400,
+            xl2: 1650,
         }
     },
     typography: {
@@ -23,6 +24,13 @@ const themeObj = {
         mode: 'dark',
         shadow: {
             main: "#00000088"
+        },
+        rating: {
+            bad: "#ee3168",
+            normal: "#8660dd",
+            good: "#6786f6",
+            vGood: "#4bb6de",
+            excellent: "#58e29c",
         },
         active: {
             main: "#29D652"
@@ -82,6 +90,9 @@ const themeObj = {
             contrastText: "#fff",
             hovered: "#A47313",
         },
+        danger: {
+            main: "#ee3168"
+        },
         pink: {
             main: '#D14CC3',
             contrastText: "#fff",
@@ -100,6 +111,7 @@ const themeObj = {
             xGrey1: "#898989",
             xGrey2: "#898989",
             xGrey3: "#A7A8AA",
+            xGrey4: "#8F9AA8",
             xxGrey: "#888888",
             xxxGrey: '#707070',
             xxxGrey1: "#7D7D7D",
@@ -116,6 +128,7 @@ const themeObj = {
         },
         background: {
             main: "#fff",
+            light: "#F3F4FA",
             xTrans: '#00000044',
         },
         xTrans: {
