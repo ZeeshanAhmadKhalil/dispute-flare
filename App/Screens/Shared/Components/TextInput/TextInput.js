@@ -10,7 +10,7 @@ import {
     useTheme
 } from '@mui/material';
 
-const TextField = styled(InputBase)(({ theme }) => ({
+const TextField = styled(InputBase)(({ theme, width }) => ({
     'label + &': {
         marginTop: theme.spacing(3),
     },
@@ -20,7 +20,7 @@ const TextField = styled(InputBase)(({ theme }) => ({
         color: theme.palette.text.contrastText,
         border: `1px solid ${theme.palette.tableSeparator.dark}`,
         fontSize: 14,
-        width: 250,
+        width: width ? width : 250,
         height: 10,
         padding: '10px 12px',
         transition: theme.transitions.create([
@@ -42,6 +42,8 @@ function TextInput(props) {
         name,
         error,
         placeholder,
+        width,
+        fullWidth
     } = props || {}
 
     const {
@@ -62,6 +64,8 @@ function TextInput(props) {
                 type={name}
                 id={camelToBreadcrumbs(name)}
                 variant="outlined"
+                width={width ? width : null}
+                fullWidth
                 placeholder={
                     placeholder ?
                         placeholder

@@ -5,8 +5,8 @@ import { createSlice } from '@reduxjs/toolkit';
 const letterlibrarySlice = createSlice({
     name: 'letterlibrary',
     initialState: {
-        addClientDialog: false,
-        importClientsDialog: false,
+        addFlowDialog: false,
+        importFlowDialog: false,
 
         defaultColumns: [
             "id",
@@ -19,6 +19,13 @@ const letterlibrarySlice = createSlice({
         ],
     },
     reducers: {
+
+        // setImportClientsDialog: (state, action) => {
+        //     state.importClientsDialog = action.payload
+        // },
+        setAddFlowDialog: (state, action) => {
+            state.addFlowDialog = action.payload
+        },
         setColumnVisibility: (state, action) => {
 
             const { field, hide } = action.payload || {}
@@ -68,6 +75,7 @@ const letterlibrarySlice = createSlice({
 });
 
 export const {
+    setAddFlowDialog,
     setColumnVisibility,
     setAllColumnsVisibility,
     setDefaultColumnsVisibility,

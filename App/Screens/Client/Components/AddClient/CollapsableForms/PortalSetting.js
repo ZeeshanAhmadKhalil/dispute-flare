@@ -143,6 +143,7 @@ function PortalSetting(props) {
                         </Grid>
                         <Grid item md="10" xs="12">
                             <CheckBoxes
+                                watch={watch}
                                 control={control}
                                 name="requiredDocuments"
                                 error={errors.requiredDocuments}

@@ -1,23 +1,11 @@
 import ClientTopTabs from '@Components/ClientTopTabs/ClientTopTabs';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
 import {
-    useEffect,
-    useState
+    useEffect
 } from 'react';
-import {
-    useDispatch,
-    useSelector
-} from 'react-redux';
+import CreditScoreReport from './Components/CreditScoreReport';
 
 function InternalNotes(props) {
-
-    const dispatch = useDispatch()
-
-    const {
-        selectedClientId
-    } = useSelector(state => state.shared)
-
-    const [selectedClients, setSelectedClients] = useState([])
 
     useEffect(() => {
     }, [])
@@ -28,6 +16,7 @@ function InternalNotes(props) {
             <TitleHeader
                 title="REPORT"
             />
+            <CreditScoreReport />
         </>
     )
 }
