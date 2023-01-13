@@ -390,7 +390,7 @@ function CreditScoreReport() {
                     />
                 </Grid>
             </Grid>
-            <Box
+            {/* <Box
                 className={cls(
                     'flex',
                     'items-center',
@@ -447,7 +447,7 @@ function CreditScoreReport() {
                     height={280}
                     hidePagination={true}
                 />
-            </ShadowCard>
+            </ShadowCard> */}
         </Container>
     )
 }

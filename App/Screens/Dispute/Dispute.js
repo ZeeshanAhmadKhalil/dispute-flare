@@ -26,7 +26,6 @@ function Dispute(props) {
         { label: "Dashboard", value: "client-dashboard" },
         { label: "Dispute", value: "dispute" },
         { label: "Documents", value: "documents" },
-        { label: "Tasks Manager", value: "taskmanager" },
         { label: "Internal Notes", value: "internal-notes" },
     ]
     const dispatch = useDispatch()
