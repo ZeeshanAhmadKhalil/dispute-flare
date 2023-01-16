@@ -35,6 +35,9 @@ const themeObj = {
         active: {
             main: "#29D652"
         },
+        tags: {
+            main: "#6193CB"
+        },
         inactive: {
             main: "#EBA51C"
         },

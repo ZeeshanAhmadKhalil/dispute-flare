@@ -1,8 +1,6 @@
 
 import DropDown from '@Components/DropDown/DropDown';
 import TextInput from '@Components/TextInput/TextInput';
-import CloseSharpIcon from '@mui/icons-material/CloseSharp';
-import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
 import {
     Divider,
     Grid,
@@ -10,6 +8,7 @@ import {
     Typography,
     useTheme
 } from '@mui/material';
+import Button from '@Components/Button/Button';
 import { palette } from '@mui/system';
 import cls from 'classnames';
 import { useSelector } from 'react-redux';
@@ -28,6 +27,19 @@ const Label = styled(Typography)(({ theme }) => {
     }
 })
 
+const Elements = styled(Typography)(({ theme }) => {
+
+    const {
+        text: { xxxGrey },
+    } = theme.palette
+
+    return {
+        color: xxxGrey,
+        fontWeight: 500,
+    }
+})
+
+
 function AddTemplateForm(props) {
 
 
@@ -38,7 +50,19 @@ function AddTemplateForm(props) {
         { label: 'Usman', value: 4 },
         { label: 'Mudasir', value: 5 },
     ]
-
+    const elements = [{ label: "CLIENT FULL NAME" },
+    { label: "CLIENT FULL NAME" },
+    { label: "CLIENT ADDRESS" },
+    { label: "CITY" },
+    { label: "STATE" },
+    { label: "ZIP CODE" },
+    { label: "SSN" },
+    { label: "PHONE NUMBER" },
+    { label: "DISPUTE REASON" },
+    { label: "DATE OF BIRTH" },
+    { label: "ACCOUNT NUMBER" },
+    { label: "ACCOUNT INFO LIST" },
+    { label: "DATE" },]
     const {
         register,
         control,
@@ -93,11 +117,8 @@ function AddTemplateForm(props) {
                 sx={{
                     backgroundColor: palette.tableSeparator.dark
                 }}
+                color="pink"
             />
-
-
-
-
             <Grid item xl="2" md="6" xs="12" padding="0px" >
                 <Label sx={{ margin: "0px", padding: "0px" }}
                     variant="subtitle1"
@@ -148,13 +169,31 @@ function AddTemplateForm(props) {
                     keys
                 </Label>
             </Grid>
-            <Grid item xl="10" md="12" xs="12">
-                <Tags />
+            <Grid item xl="10" md="12" xs="12" display="flex" flexDirection="row">
+                <Tags />  <Tags />  <Tags />  <Tags />
+                <Typography color={palette.lead.main} sx={{ textDecoration: "underline" }}>Show All</Typography>
+
+
             </Grid>
 
+            <Grid item xl="12" md="12" xs="12" display="flex" flexDirection="row" flexWrap="wrap">
+                {
+                    elements && elements.map((item) => {
 
+                        return <Button
+                            //    onClick={() => dispatch(setAddClientDialog(true))}
 
+                            color={"tags"}
+                            //  startIcon={null}
+                            style={{
+                                borderRadius: 3,
+                                marginRight: 10,
+                                marginBottom: 10
 
+                            }}>{item.label}</Button>
+                    })
+                }
+            </Grid>
         </Grid>
     )
 }
