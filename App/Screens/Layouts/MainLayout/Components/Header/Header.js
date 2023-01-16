@@ -1,6 +1,10 @@
 import Avatar from '@Components/Avatar/Avatar';
 import Button from '@Components/Button/Button';
-import { drawerClosedWidth, drawerWidth } from '@Config/constants';
+import {
+    appBarHeight,
+    drawerClosedWidth,
+    drawerWidth
+} from '@Config/constants';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import MuiAppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -22,6 +26,7 @@ import StorefrontIcon from '@mui/icons-material/Storefront';
 const AppBar = styled(MuiAppBar, {
     shouldForwardProp: (prop) => prop !== 'open',
 })(({ theme, open }) => ({
+    height: appBarHeight,
     paddingRight: 0,
     marginRight: drawerClosedWidth,
     zIndex: theme.zIndex.drawer + 1,

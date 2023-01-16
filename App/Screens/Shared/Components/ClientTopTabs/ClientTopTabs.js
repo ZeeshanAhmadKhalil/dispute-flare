@@ -1,4 +1,4 @@
-import { Divider } from '@mui/material';
+import { topTabsHeight } from '@Config/constants';
 import Box from '@mui/material/Box';
 import { styled, useTheme } from '@mui/material/styles';
 import Tab from '@mui/material/Tab';
@@ -81,7 +81,9 @@ function ClientTopTabs(props) {
     return (
         <Box
             sx={{
-                width: '100%'
+                width: '100%',
+                border: '0px solid blue',
+                height: topTabsHeight,
             }}
         >
             <Box
