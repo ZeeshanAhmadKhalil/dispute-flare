@@ -6,6 +6,7 @@ import {
     drawerWidth
 } from '@Config/constants';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import StorefrontIcon from '@mui/icons-material/Storefront';
 import MuiAppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
@@ -14,13 +15,12 @@ import { setProfileDialog } from '@Screens/Shared/Store/sharedSlice';
 import cls from 'classnames';
 import Image from 'next/image';
 import logo from 'public/Assets/Images/logo.png';
-import Upgrade from 'public/Assets/Svgs/upgrade.svg';
 import UpgradeLine from 'public/Assets/Svgs/upgrade-line.svg';
+import Upgrade from 'public/Assets/Svgs/upgrade.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import ProfileDialog from './Components/ProfileDialog';
 import ThemesDialog from './Components/ThemesDialog';
 import styles from './Header.module.scss';
-import StorefrontIcon from '@mui/icons-material/Storefront';
 
 
 const AppBar = styled(MuiAppBar, {

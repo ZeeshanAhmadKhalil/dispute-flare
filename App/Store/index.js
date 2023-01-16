@@ -4,6 +4,7 @@ import { persistReducer } from 'redux-persist'
 import { authApi } from '@Screens/Auth/Services/authApi'
 import auth from '@Screens/Auth/Store/authSlice'
 import clients from '@Screens/Client/Store/clientsSlice'
+import creditor from '@Screens/Creditor/Store/creditorSlice'
 import shared from '@Screens/Shared/Store/sharedSlice'
 import layout from '@Screens/Layouts/Store/layoutSlice'
 import dispute from '@Screens/Dispute/Store/disputeSlice'
@@ -13,13 +14,14 @@ import templates from '@Screens/Templates/Store/templatesSlice'
 import storage from '@Store/storage'
 
 const reducers = combineReducers({
-    clients,
     auth,
-    layout,
-    shared,
+    clients,
+    creditor,
     dispute,
     documents,
+    layout,
     letterlibrary,
+    shared,
     templates,
     [authApi.reducerPath]: authApi.reducer,
 });

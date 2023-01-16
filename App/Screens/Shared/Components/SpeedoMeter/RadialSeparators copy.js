@@ -35,8 +35,6 @@ function CircuarLabels({
     const turns = 1 / count;
     return _.range(count).map(index => {
 
-        console.log("index===>", index)
-
         if (index <= 3 || index == 9)
             return (
                 <Label

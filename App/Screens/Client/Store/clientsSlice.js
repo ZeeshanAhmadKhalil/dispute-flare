@@ -1008,8 +1008,6 @@ const clientsSlice = createSlice({
 
             const { hide } = action.payload || {}
 
-            console.log("hide===>", hide)
-
             state.columns
                 = state
                     .columns

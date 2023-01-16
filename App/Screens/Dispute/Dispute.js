@@ -38,7 +38,7 @@ function Dispute(props) {
         selectedClientId
     } = useSelector(state => state.shared)
 
-    const [selectedClients, setSelectedClients] = useState([])
+    const [selectedDisputes, setSelectedDisputes] = useState([])
 
     useEffect(() => {
     }, [])
@@ -50,14 +50,14 @@ function Dispute(props) {
                 title="Dispute"
                 actionButtons={
                     <DisputeActions
-                        selectedClients={selectedClients}
+                        selectedDisputes={selectedDisputes}
                     />
                 }
             />
             <Table
                 title="Dispute"
                 onSelectionModelChange={(selected) =>
-                    setSelectedClients(selected)
+                    setSelectedDisputes(selected)
                 }
                 hasCreditMonitoringInfo={
                     selectedClientId == 1 ||
