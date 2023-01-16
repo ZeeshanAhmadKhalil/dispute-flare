@@ -13,16 +13,21 @@ function TextEditor() {
         <div>
 
             <Editor
+
                 apiKey='3743rmrmoeyi5rbjbrqn07vqqlusreuur958r1f1stfyf867'
                 onInit={(evt, editor) => editorRef.current = editor}
-                initialValue="<p>This is the initial content of the editor.</p>"
+                initialValue="create template"
                 init={{
                     height: 500,
+                    width: 1000,
                     menubar: true,
+
+                    selector: "textarea",
+
                     plugins: [
-                        'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
+                        'autolink', 'lists', 'link', 'preview',
                         'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen', 'save',
-                        'insertdatetime', 'media', 'table', 'code', 'help', 'wordcount'
+                        'wordcount'
                     ],
                     toolbar: 'undo redo | blocks | ' + 'save' +
                         'bold italic forecolor | alignleft aligncenter ' +
