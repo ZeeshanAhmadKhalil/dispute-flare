@@ -6,7 +6,6 @@ import { Box, ThemeProvider, useTheme } from '@mui/system';
 import {
     DataGrid as MuiDataGrid
 } from '@mui/x-data-grid';
-import { setDefaultColumnsVisibility } from '@Screens/Client/Store/clientsSlice';
 import { setAddCreditMonitoringInfoDialog } from '@Screens/Dispute/Store/disputeSlice';
 import { setToolbar } from '@Screens/Shared/Store/sharedSlice';
 import cls from 'classnames';
@@ -193,6 +192,7 @@ function Table(props) {
         hasCreditMonitoringInfo,
         setAllColumnsVisibility,
         checkboxSelection = true,
+        setDefaultColumnsVisibility,
         headerColor = tableHeader?.main,
         rowSeparatorColor = tableSeparator?.main,
     } = props || {}

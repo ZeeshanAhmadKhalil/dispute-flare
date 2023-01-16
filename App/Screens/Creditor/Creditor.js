@@ -4,7 +4,12 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import AddCreditorDialog from './Components/AddCreditorDialog';
 import CreditorActions from './Components/CreditorActions';
-import { setAllColumnsVisibility, setColumnVisibility, setCreditorDialog, setDefaultColumnsVisibility } from './Store/creditorSlice';
+import {
+    setAllColumnsVisibility,
+    setColumnVisibility,
+    setCreditorDialog,
+    setDefaultColumnsVisibility
+} from './Store/creditorSlice';
 
 function Creditor(props) {
 

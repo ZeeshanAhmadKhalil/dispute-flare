@@ -8,7 +8,6 @@ const creditorSlice = createSlice({
     name: 'creditor',
     initialState: {
         creditorDialog: false,
-
         columns: [
             {
                 field: 'settings',
@@ -43,12 +42,14 @@ const creditorSlice = createSlice({
                 headerName: 'Phone',
                 width: 200,
                 hide: false,
+                hidable: true,
             },
             {
                 field: 'address',
                 headerName: 'Address',
                 width: 200,
                 hide: false,
+                hidable: true,
             },
             {
                 field: 'city',
@@ -166,7 +167,16 @@ const creditorSlice = createSlice({
                 state: "Punjab",
                 status: "Active",
             },
-        ]
+        ],
+        defaultColumns: [
+            "settings",
+            "creditor",
+            "phone",
+            "address",
+            "city",
+            "state",
+            "status",
+        ],
     },
     reducers: {
         setCreditorDialog: (state, action) => {
@@ -203,6 +213,7 @@ const creditorSlice = createSlice({
 
         },
         setDefaultColumnsVisibility: (state, action) => {
+
             state.columns
                 = state
                     .columns

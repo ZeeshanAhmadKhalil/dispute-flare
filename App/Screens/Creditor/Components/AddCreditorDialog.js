@@ -29,7 +29,7 @@ function AddCreditorDialog(props) {
     } = useTheme()
 
     const {
-        addCreditorDialog
+        creditorDialog
     } = useSelector(state => state.creditor)
 
     const {
@@ -58,7 +58,7 @@ function AddCreditorDialog(props) {
                     }
                 />
             }
-            open={addCreditorDialog}
+            open={creditorDialog}
             closeBtnText="Creditor"
             title={"Add Creditor"}
         >

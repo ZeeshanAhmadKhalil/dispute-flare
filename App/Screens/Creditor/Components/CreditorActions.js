@@ -18,7 +18,7 @@ function CreditorActions(props) {
         <>
             <Button
                 match="lg"
-                onClick={() => dispatch(setCreditorDialog(true))}
+                onClick={null}
                 iconOnSmall={<FileUploadIcon />}
                 color={"primary"}
                 startIcon={null}
