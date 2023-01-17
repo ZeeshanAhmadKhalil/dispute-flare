@@ -51,19 +51,19 @@ function AddTemplateForm(props) {
         { label: 'Usman', value: 4 },
         { label: 'Mudasir', value: 5 },
     ]
-    const elements = [{ label: "CLIENT FULL NAME" },
-    { label: "CLIENT FULL NAME" },
-    { label: "CLIENT ADDRESS" },
-    { label: "CITY" },
-    { label: "STATE" },
-    { label: "ZIP CODE" },
-    { label: "SSN" },
-    { label: "PHONE NUMBER" },
-    { label: "DISPUTE REASON" },
-    { label: "DATE OF BIRTH" },
-    { label: "ACCOUNT NUMBER" },
-    { label: "ACCOUNT INFO LIST" },
-    { label: "DATE" },]
+    const elements = [
+        { label: "CLIENT FULL NAME" },
+        { label: "CLIENT ADDRESS" },
+        { label: "CITY" },
+        { label: "STATE" },
+        { label: "ZIP CODE" },
+        { label: "SSN" },
+        { label: "PHONE NUMBER" },
+        { label: "DISPUTE REASON" },
+        { label: "DATE OF BIRTH" },
+        { label: "ACCOUNT NUMBER" },
+        { label: "ACCOUNT INFO LIST" },
+        { label: "DATE" },]
     const {
         register,
         control,
