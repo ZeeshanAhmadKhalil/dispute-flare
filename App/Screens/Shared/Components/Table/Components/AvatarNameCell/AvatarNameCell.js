@@ -1,12 +1,14 @@
 import { Avatar, Badge, Box } from '@mui/material';
 import { useEffect } from 'react';
 
-function AssignedTo(props) {
+function AvatarNameCell(props) {
 
     const {
-        assignedTo,
-        assignedToPfp,
-    } = props.row || {}
+        row: {
+            pfp
+        },
+        value,
+    } = props || {}
 
     return (
         <Box
@@ -16,16 +18,16 @@ function AssignedTo(props) {
             }}
         >
             <Avatar
-                src={assignedToPfp}
+                src={pfp}
                 sx={{
                     width: 24,
                     height: 24,
                     mr: 1,
                 }}
             />
-            <span>{assignedTo}</span>
+            <span>{value}</span>
         </Box>
     )
 }
 
-export default AssignedTo
+export default AvatarNameCell

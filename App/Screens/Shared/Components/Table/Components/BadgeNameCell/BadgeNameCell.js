@@ -4,7 +4,7 @@ import cls from 'classnames'
 import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
 
-function ClientName(props) {
+function BadgeNameCell(props) {
 
     const {
         clientName,
@@ -32,4 +32,4 @@ function ClientName(props) {
     )
 }
 
-export default ClientName
+export default BadgeNameCell

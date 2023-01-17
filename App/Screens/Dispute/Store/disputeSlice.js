@@ -1,9 +1,9 @@
+import AvatarNameCell from '@Components/Table/Components/AvatarNameCell/AvatarNameCell';
+import DateCell from '@Components/Table/Components/DateCell/DateCell';
 import DropDownCell from '@Components/Table/Components/DropDownCell/DropDownCell';
+import SecretCell from '@Components/Table/Components/SecretCell/SecretCell';
 import { createSlice } from '@reduxjs/toolkit';
 import Gear from 'public/Assets/Svgs/gear.svg';
-import Account from '../Components/Account';
-import Creditor from '../Components/Creditor';
-import DateCreated from '../Components/DateCreated';
 
 const clientsSlice = createSlice({
     name: 'clients',
@@ -39,7 +39,7 @@ const clientsSlice = createSlice({
                 headerClassName: 'separator-header',
                 hidable: true,
                 hide: false,
-                renderCell: DateCreated,
+                renderCell: DateCell,
             },
             {
                 field: 'creditor',
@@ -48,7 +48,7 @@ const clientsSlice = createSlice({
                 headerClassName: 'separator-header',
                 hidable: true,
                 hide: false,
-                renderCell: Creditor,
+                renderCell: AvatarNameCell,
             },
             {
                 field: 'account',
@@ -57,7 +57,7 @@ const clientsSlice = createSlice({
                 headerClassName: 'separator-header',
                 hidable: true,
                 hide: false,
-                renderCell: Account,
+                renderCell: SecretCell,
             },
             {
                 field: 'bureau',
@@ -116,7 +116,7 @@ const clientsSlice = createSlice({
                 id: 1,
                 dateCreated: new Date(2022, 1, 1),
                 creditor: "Razor",
-                creditorPfp: '/Assets/Images/razor.png',
+                pfp: '/Assets/Images/razor.png',
                 account: "5456748746789753",
                 bureau: "Experian",
                 dispute: "dispute 1",
@@ -129,7 +129,7 @@ const clientsSlice = createSlice({
                 id: 2,
                 dateCreated: new Date(2022, 1, 2),
                 creditor: "Lisa",
-                creditorPfp: '/Assets/Images/lisa.png',
+                pfp: '/Assets/Images/lisa.png',
                 account: "5456748746789753",
                 bureau: "Experian",
                 dispute: "dispute 2",
@@ -142,7 +142,7 @@ const clientsSlice = createSlice({
                 id: 3,
                 dateCreated: new Date(2022, 1, 3),
                 creditor: "Klee",
-                creditorPfp: '/Assets/Images/klee.png',
+                pfp: '/Assets/Images/klee.png',
                 account: "5456748746789753",
                 bureau: "Experian",
                 dispute: "dispute 3",
@@ -155,7 +155,7 @@ const clientsSlice = createSlice({
                 id: 4,
                 dateCreated: new Date(2022, 1, 4),
                 creditor: "Kaeya",
-                creditorPfp: '/Assets/Images/kaeya.png',
+                pfp: '/Assets/Images/kaeya.png',
                 account: "5456748746789753",
                 bureau: "Experian",
                 dispute: "dispute 4",
@@ -168,7 +168,7 @@ const clientsSlice = createSlice({
                 id: 5,
                 dateCreated: new Date(2022, 1, 5),
                 creditor: "Jean",
-                creditorPfp: '/Assets/Images/jean.png',
+                pfp: '/Assets/Images/jean.png',
                 account: "5456748746789753",
                 bureau: "Experian",
                 dispute: "dispute 5",
@@ -181,7 +181,7 @@ const clientsSlice = createSlice({
                 id: 6,
                 dateCreated: new Date(2022, 1, 6),
                 creditor: "Barbara",
-                creditorPfp: '/Assets/Images/barbara.png',
+                pfp: '/Assets/Images/barbara.png',
                 account: "5456748746789753",
                 bureau: "Experian",
                 dispute: "dispute 6",
@@ -194,7 +194,7 @@ const clientsSlice = createSlice({
                 id: 7,
                 dateCreated: new Date(2022, 1, 7),
                 creditor: "Amber",
-                creditorPfp: '/Assets/Images/amber.png',
+                pfp: '/Assets/Images/amber.png',
                 account: "5456748746789753",
                 bureau: "Experian",
                 dispute: "dispute 7",
@@ -207,7 +207,7 @@ const clientsSlice = createSlice({
                 id: 8,
                 dateCreated: new Date(2022, 1, 8),
                 creditor: "Aloy",
-                creditorPfp: '/Assets/Images/aloy.png',
+                pfp: '/Assets/Images/aloy.png',
                 account: "5456748746789753",
                 bureau: "Experian",
                 dispute: "dispute 8",
@@ -220,7 +220,7 @@ const clientsSlice = createSlice({
                 id: 9,
                 dateCreated: new Date(2022, 1, 9),
                 creditor: "Jean",
-                creditorPfp: '/Assets/Images/jean.png',
+                pfp: '/Assets/Images/jean.png',
                 account: "5456748746789753",
                 bureau: "Experian",
                 dispute: "dispute 9",
@@ -233,7 +233,7 @@ const clientsSlice = createSlice({
                 id: 10,
                 dateCreated: new Date(2022, 1, 9),
                 creditor: "Rosaria",
-                creditorPfp: '/Assets/Images/rosaria.png',
+                pfp: '/Assets/Images/rosaria.png',
                 account: "5456748746789753",
                 bureau: "Experian",
                 dispute: "dispute 9",
@@ -246,7 +246,7 @@ const clientsSlice = createSlice({
                 id: 11,
                 dateCreated: new Date(2022, 1, 10),
                 creditor: "Mona",
-                creditorPfp: '/Assets/Images/mona.png',
+                pfp: '/Assets/Images/mona.png',
                 account: "5456748746789753",
                 bureau: "Experian",
                 dispute: "dispute 10",
@@ -259,7 +259,7 @@ const clientsSlice = createSlice({
                 id: 12,
                 dateCreated: new Date(2022, 1, 11),
                 creditor: "Eula",
-                creditorPfp: '/Assets/Images/eula.png',
+                pfp: '/Assets/Images/eula.png',
                 account: "5456748746789753",
                 bureau: "Experian",
                 dispute: "dispute 11",
@@ -272,7 +272,7 @@ const clientsSlice = createSlice({
                 id: 13,
                 dateCreated: new Date(2022, 1, 12),
                 creditor: "Bennett",
-                creditorPfp: '/Assets/Images/bennett.png',
+                pfp: '/Assets/Images/bennett.png',
                 account: "5456748746789753",
                 bureau: "Experian",
                 dispute: "dispute 12",
