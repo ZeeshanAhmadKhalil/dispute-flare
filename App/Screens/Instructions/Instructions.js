@@ -2,54 +2,52 @@ import ClientTopTabs from '@Components/ClientTopTabs/ClientTopTabs';
 import Table from '@Components/Table/Table';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
 import DefaultCell from '@Components/DefaultCell/DefaultCell';
-import { Divider, FormControlLabel, FormGroup, Switch, Tab, Tabs, Typography, useTheme, styled } from '@mui/material';
+import { Divider, FormControlLabel, FormGroup, useTheme, styled } from '@mui/material';
 import { Box } from '@mui/system';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import TemplatesActions from "./Components/ReasonActions";
 import React from 'react';
 import {
     setAllColumnsVisibility,
     setColumnVisibility,
-} from './Store/reasonsSlice';
-import Title from './Components/Title';
+} from './Store/instructionsSlice';
+import AddInstructionDialog from './Components/AddInstruction/AddInstructionDialog';
 import IOSSwitch from '@Components/IOSSwitch/IOSSwitch';
-import ReasonsAction from './Components/ReasonActions';
-import AddReasonDialog from './Components/AddReason/AddReasonDialog';
+import InstructionActions from './Components/InstructionActions';
 
 
 const label = { inputProps: { 'aria-label': 'Switch demo' } };
 
 
-const reasons = [
+const instructions = [
     {
         id: 1,
-        title: "credit card",
+        instruction: "Collection Validation",
         status: "active",
         addedBy: "James Bond"
     }, {
         id: 2,
-        title: "credit card",
+        instruction: "Collection Validation",
         status: "active",
         addedBy: "James Bond"
     }, {
         id: 3,
-        title: "credit card",
+        instruction: "Collection Validation",
         status: "active",
         addedBy: "James Bond"
     }, {
         id: 4,
-        title: "credit card",
+        instruction: "Collection Validation",
         status: "active",
         addedBy: "James Bond"
     }, {
         id: 5,
-        title: "credit card",
+        instruction: "Collection Validation",
         status: "active",
         addedBy: "James Bond"
     }, {
         id: 6,
-        title: "credit card",
+        instruction: "Collection Validation",
         status: "active",
         addedBy: "James Bond"
     },]
@@ -58,7 +56,7 @@ const reasons = [
 function Instructions(props) {
 
     const [checked, setChecked] = React.useState(true);
-    const [selectedReasons, setSelectedReasons] = useState([])
+    const [selectedInstructions, setSelectedInstructions] = useState([])
 
     const handleChange = (event) => {
         setChecked(event.target.checked);
@@ -80,13 +78,13 @@ function Instructions(props) {
             hidable: true,
         },
         {
-            field: 'title',
-            headerName: 'Title',
+            field: 'instruction',
+            headerName: 'Instruction',
             width: 200,
             headerClassName: 'separator-header',
             hidable: true,
             hide: false,
-            renderCell: Title,
+            renderCell: ({ value }) => <DefaultCell value={value} />,
         },
         {
             field: 'status',
@@ -118,7 +116,7 @@ function Instructions(props) {
         palette
     } = useTheme()
     const {
-        selectedClientId
+        selectedInstructionsId
     } = useSelector(state => state.shared)
 
 
@@ -132,8 +130,8 @@ function Instructions(props) {
             <TitleHeader
                 title="Reasons"
                 actionButtons={
-                    <ReasonsAction
-                        selectedReasons={selectedReasons}
+                    <InstructionActions
+                        selectedInstructions={selectedInstructions}
                     />
                 }
             />
@@ -148,22 +146,19 @@ function Instructions(props) {
 
             <Table
                 autoHeight={true}
-                title="reasons"
+                title="instructions"
                 onSelectionModelChange={(selected) =>
-                    setSelectedReasons(selected)
+                    setSelectedInstructions(selected)
                 }
-                hasCreditMonitoringInfo={
-                    selectedClientId == 1 ||
-                    selectedClientId == 2
-                }
+
                 columns={columns}
-                rows={reasons}
+                rows={instructions}
                 setColumnVisibility={setColumnVisibility}
                 setAllColumnsVisibility={setAllColumnsVisibility}
             />
 
 
-            <AddReasonDialog />
+            <AddInstructionDialog />
         </>
     )
 }
