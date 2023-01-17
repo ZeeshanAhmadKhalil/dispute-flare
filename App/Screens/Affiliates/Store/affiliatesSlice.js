@@ -2,17 +2,17 @@ import { createSlice } from '@reduxjs/toolkit';
 
 
 
-const instructionsSlice = createSlice({
-    name: 'instructions',
+const affiliatesSlice = createSlice({
+    name: 'affiliates',
     initialState: {
-        addInstructionsDialog: false,
-        selectedinstructionsId: 0,
+        addAffiliatesDialog: false,
+        selectedAffiliatesId: 0,
     },
     reducers: {
-        setAddInstructionsDialog: (state, action) => {
-            state.addInstructionsDialog = action.payload
+        setAddAffiliatesDialog: (state, action) => {
+            state.addAffiliatesDialog = action.payload
         },
-        setSelectedInstructionsId: (state, action) => {
+        setSelectedAffiliatesId: (state, action) => {
 
             console.log("action.payload===>", action.payload)
 
@@ -70,8 +70,8 @@ export const {
     setColumnVisibility,
     setAllColumnsVisibility,
     setDefaultColumnsVisibility,
-    setAddInstructionsDialog,
-    setSelectedInstructionsId
-} = instructionsSlice.actions;
+    setAddAffiliatesDialog,
+    setSelectedAffiliatesId
+} = affiliatesSlice.actions;
 
-export default instructionsSlice.reducer;
+export default affiliatesSlice.reducer;

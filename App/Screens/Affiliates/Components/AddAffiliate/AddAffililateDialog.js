@@ -6,17 +6,16 @@ import {
     Typography,
     useTheme
 } from '@mui/material';
-import { setAddInstructionsDialog } from '@Screens/Instructions/Store/instructionsSlice'
+import { setAddAffiliatesDialog } from '@Screens/Affiliates/Store/affiliatesSlice'
 import {
     useDispatch,
     useSelector
 } from 'react-redux';
 import cls from 'classnames'
-import styles from './AddInstructionDialog.module.scss'
+import styles from './AddAffiliateDialog.module.scss'
 import { useForm } from 'react-hook-form';
-import AddInstructionActions from './AddInstructionActions';
+import AddInstructionActions from './AddAffiliteActions';
 import AddInstructionForm from './AddInstruction/AddInstructionForm';
-
 const Container = styled(Box)(({ theme }) => {
 
     const {
@@ -32,7 +31,7 @@ const Container = styled(Box)(({ theme }) => {
     }
 })
 
-function AddInstructionDialog(props) {
+function AddAffiliateDialog(props) {
 
     const defaultValues = {
         firstName: null,
@@ -69,13 +68,9 @@ function AddInstructionDialog(props) {
             tableSeparator
         }
     } = useTheme()
-
     const {
-
-    } = useSelector(state => state.shared)
-    const {
-        addInstructionsDialog
-    } = useSelector(state => state.instructions)
+        addAffiliatesDialog
+    } = useSelector(state => state.affiliates)
 
     const {
         register,
@@ -91,18 +86,18 @@ function AddInstructionDialog(props) {
 
     return (
         <RightDialogLayout
-            onClose={() => dispatch(setAddInstructionsDialog(false))}
+            onClose={() => dispatch(setAddAffiliatesDialog(false))}
             actionButtons={
                 <AddInstructionActions
                     handleSubmit={handleSubmit}
                     onClose={() =>
-                        dispatch(setAddInstructionsDialog(false))
+                        dispatch(setAddAffiliatesDialog(false))
                     }
                 />
             }
-            open={addInstructionsDialog}
-            closeBtnText="Reason"
-            title={"Add Instruction"}
+            open={addAffiliatesDialog}
+            closeBtnText="Affiliates"
+            title={"Add Affiliates"}
         >
             <Container>
                 <Typography
@@ -112,7 +107,7 @@ function AddInstructionDialog(props) {
                         styles.formDesc
                     )}
                 >
-                    {"Add a new Instruction"}
+                    {"You can add a minimum of the affiliate name, email and their pay rate when adding them."}
                 </Typography>
                 <Divider
                     sx={{
@@ -131,4 +126,4 @@ function AddInstructionDialog(props) {
     );
 }
 
-export default AddInstructionDialog
+export default AddAffiliateDialog

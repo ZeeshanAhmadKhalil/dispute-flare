@@ -1,11 +1,9 @@
 import Button from '@Components/Button/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import FileUploadIcon from '@mui/icons-material/FileUpload';
-
 import { useDispatch } from 'react-redux';
-import { setAddInstructionsDialog } from '../Store/instructionsSlice';
-
-function InstructionActions(props) {
+import { setAddAffiliatesDialog } from '../Store/affiliatesSlice';
+function AffiliatesActions(props) {
 
     const dispatch = useDispatch()
 
@@ -16,7 +14,7 @@ function InstructionActions(props) {
     return (
         <>
             <Button
-                onClick={() => dispatch(setAddInstructionsDialog(true))}
+                onClick={() => dispatch(setAddAffiliatesDialog(true))}
                 iconOnSmall={<FileUploadIcon />}
                 color={"primary"}
                 startIcon={null}
@@ -25,7 +23,7 @@ function InstructionActions(props) {
                     marginRight: 10
                 }}
             >
-                ADD INSTRUCTION
+                ADD AFFILIATE
             </Button>
             {selectedInstructions?.length > 0 &&
                 <>
@@ -64,4 +62,4 @@ function InstructionActions(props) {
     )
 }
 
-export default InstructionActions
+export default AffiliatesActions
