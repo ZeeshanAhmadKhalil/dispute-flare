@@ -1,15 +1,13 @@
 import CollapsableForm from '@Components/CollapsableForm/CollapsableForm';
 import TextInput from '@Components/TextInput/TextInput';
+import AddIcon from '@mui/icons-material/Add';
 import {
     Box,
     Grid,
     styled,
-    Typography,
-    useTheme
+    Typography
 } from '@mui/material';
 import cls from 'classnames';
-import { useSelector } from 'react-redux';
-import AddIcon from '@mui/icons-material/Add';
 
 const Label = styled(Typography)(({ theme }) => {
 
@@ -31,10 +29,6 @@ function AddInternalNote(props) {
         errors,
         watch,
     } = props || {}
-
-    const {
-        providers,
-    } = useSelector(state => state.dispute)
 
     return (
         <CollapsableForm

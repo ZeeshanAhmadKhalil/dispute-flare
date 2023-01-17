@@ -3,6 +3,7 @@ import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import FileUploadIcon from '@mui/icons-material/FileUpload';
+import { setImportClientsDialog } from '@Screens/Client/Store/clientsSlice';
 import { useDispatch } from 'react-redux';
 import { setCreditorDialog } from '../Store/creditorSlice';
 
@@ -18,7 +19,7 @@ function CreditorActions(props) {
         <>
             <Button
                 match="lg"
-                onClick={null}
+                onClick={() => dispatch(setImportClientsDialog(true))}
                 iconOnSmall={<FileUploadIcon />}
                 color={"primary"}
                 startIcon={null}
