@@ -20,7 +20,6 @@ import cls from 'classnames'
 import Csv from 'public/Assets/Svgs/csv.svg'
 import SampleCsv from 'public/Assets/Svgs/sample-csv.svg'
 import Tick from 'public/Assets/Svgs/tick.svg'
-import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import {
     useDispatch,
@@ -70,8 +69,6 @@ function ImportClientsDialog(props) {
     } = useTheme()
 
 
-    const {
-    } = useSelector(state => state.shared)
     const {
         importClientsDialog
     } = useSelector(state => state.clients)
