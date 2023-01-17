@@ -14,6 +14,7 @@ import cls from 'classnames';
 import { useSelector } from 'react-redux';
 import styles from './ClientInformation.module.scss';
 import Tags from '@Components/Tags/Tags';
+import TextEditor from '@Components/TextEditor/TextEditor';
 
 const Label = styled(Typography)(({ theme }) => {
 
@@ -193,6 +194,11 @@ function AddTemplateForm(props) {
                             }}>{item.label}</Button>
                     })
                 }
+            </Grid>
+
+            <Grid item xl="12" md="12" xs="12" display="flex" flexDirection="row" flexWrap="wrap">
+
+                <TextEditor />
             </Grid>
         </Grid>
     )
