@@ -1,4 +1,7 @@
+import ConditionCell from '@Components/Table/Components/ConditionCell/ConditionCell';
+import StyledCell from '@Components/Table/Components/StyledCell/StyledCell';
 import Table from '@Components/Table/Table';
+import LogoLight from 'public/Assets/Svgs/logo-light.svg';
 import {
     Box,
     Divider,
@@ -11,7 +14,8 @@ import Hi from 'public/Assets/Svgs/hi.svg';
 import { useEffect, useState } from 'react';
 import Card from './Card';
 import {
-    Container, ShadowCard
+    Container,
+    ShadowCard
 } from './StyledComponents';
 import Tile from './Tile';
 
@@ -26,102 +30,184 @@ function CreditScoreReport() {
             hidable: true,
         },
         {
-            field: 'creditor',
-            headerName: 'Creditor',
-            width: 210,
+            field: 'bureau',
+            headerName: 'Bureau',
+            width: 280,
             headerClassName: 'separator-header',
             hidable: true,
+            renderCell: ({
+                value
+            }) =>
+                <StyledCell
+                    value={value}
+                    styles={{
+                        fontWeight: "bold"
+                    }}
+                />
         },
         {
-            field: 'accountNumber',
-            headerName: 'Account',
-            width: 120,
+            field: 'equifax',
+            headerName: 'Equifax',
+            width: 280,
             headerClassName: 'separator-header',
             hidable: true,
+            renderCell: ConditionCell
         },
         {
-            field: 'type',
-            headerName: 'Type',
-            width: 120,
+            field: 'transUnion',
+            headerName: 'TransUnion',
+            width: 280,
             headerClassName: 'separator-header',
             hidable: true,
+            renderCell: ConditionCell
         },
         {
-            field: 'dispute',
-            headerName: 'Dispute',
-            width: 180,
+            field: 'experian',
+            headerName: 'Experian',
+            width: 280,
             headerClassName: 'separator-header',
             hidable: true,
+            renderCell: ConditionCell
+        },
+    ]
+    let energyMarketing = [
+        {
+            id: 1,
+            bureau: "Account #",
+            equifax: "746283****",
+            transUnion: "-",
+            experian: "746283****",
         },
         {
-            field: 'reason',
-            headerName: 'Reason',
-            width: 180,
-            headerClassName: 'separator-header',
-            hidable: true,
+            id: 2,
+            bureau: "Status on Previous Report",
+            equifax: "-",
+            transUnion: "-",
+            experian: "-",
         },
         {
-            field: 'instruction',
-            headerName: 'Instruction',
-            width: 200,
-            headerClassName: 'separator-header',
-            hidable: true,
+            id: 3,
+            bureau: "Action Taken",
+            equifax: 1,
+            transUnion: "-",
+            experian: 1,
         },
         {
-            field: 'bureaus',
-            headerName: 'Bureaus',
-            width: 200,
-            headerClassName: 'separator-header',
-            hidable: true,
+            id: 4,
+            bureau: "Dispute Reason",
+            equifax: "-",
+            transUnion: "-",
+            experian: "-",
+        },
+        {
+            id: 5,
+            bureau: "Result (New Import)",
+            equifax: -1,
+            transUnion: "-",
+            experian: -1,
+        },
+        {
+            id: 6,
+            bureau: "Re-import As",
+            equifax: -1,
+            transUnion: "-",
+            experian: -1,
+        },
+    ]
+    let energyLa = [
+        {
+            id: 1,
+            bureau: "Account #",
+            equifax: "746283****",
+            transUnion: "-",
+            experian: "-",
+        },
+        {
+            id: 2,
+            bureau: "Status on Previous Report",
+            equifax: "-",
+            transUnion: "-",
+            experian: "-",
+        },
+        {
+            id: 3,
+            bureau: "Action Taken",
+            equifax: 1,
+            transUnion: "-",
+            experian: "-",
+        },
+        {
+            id: 4,
+            bureau: "Dispute Reason",
+            equifax: "-",
+            transUnion: "-",
+            experian: "-",
+        },
+        {
+            id: 5,
+            bureau: "Result (New Import)",
+            equifax: -1,
+            transUnion: "-",
+            experian: "-",
+        },
+        {
+            id: 6,
+            bureau: "Re-import As",
+            equifax: -1,
+            transUnion: "-",
+            experian: "-",
         },
     ]
     let rows = [
         {
             id: 1,
-            creditor: "HDEKE (Original Creditor: 09)",
-            accountNumber: "743462***",
-            type: "Collection",
-            dispute: "Lorem ipsum",
-            reason: "Unverified account",
-            instruction: "Lorem ipsum is a",
-            bureaus: "bureaus",
+            bureau: "Account #",
+            equifax: "746283****",
+            transUnion: "746283****",
+            experian: "746283****",
         },
         {
             id: 2,
-            creditor: "EISD (Original Creditor: 10A)",
-            accountNumber: "743462***",
-            type: "Collection",
-            dispute: "Lorem ipsum",
-            reason: "Unverified account",
-            instruction: "Lorem ipsum is a",
-            bureaus: "bureaus",
+            bureau: "Status on Previous Report",
+            equifax: -1,
+            transUnion: -1,
+            experian: -1,
+            text: "Charge off accounts are disabled"
         },
         {
             id: 3,
-            creditor: "EWISD (Original Creditor: 11)",
-            accountNumber: "743462***",
-            type: "Collection",
-            dispute: "Lorem ipsum",
-            reason: "Unverified account",
-            instruction: "Lorem ipsum is a",
-            bureaus: "bureaus",
+            bureau: "Action Taken",
+            equifax: 1,
+            transUnion: 1,
+            experian: 1,
+            text: "Verified"
         },
         {
             id: 4,
-            creditor: "JEW (Original Creditor: 12 AT T)",
-            accountNumber: "743462***",
-            type: "Collection",
-            dispute: "Lorem ipsum",
-            reason: "Unverified account",
-            instruction: "Lorem ipsum is a",
-            bureaus: "bureaus",
+            bureau: "Dispute Reason",
+            equifax: "The following account is defaulter",
+            transUnion: "The following account is defaulter",
+            experian: "The following account is defaulter",
+        },
+        {
+            id: 5,
+            bureau: "Result (New Import)",
+            equifax: -1,
+            transUnion: -1,
+            experian: -1,
+        },
+        {
+            id: 6,
+            bureau: "Re-import As",
+            equifax: -1,
+            transUnion: -1,
+            experian: -1,
         },
     ]
 
     const {
         palette: {
             danger,
-            borders,
             text: {
                 lighter1,
                 lighter2,
@@ -130,7 +216,9 @@ function CreditScoreReport() {
             },
             tableSeparator: {
                 light,
+                none,
             },
+            tableHeader,
         }
     } = useTheme()
 
@@ -176,6 +264,7 @@ function CreditScoreReport() {
                     className={cls(
                         'flex',
                         'border-red-700 border-0',
+                        'mt-10',
                     )}
                 >
                     <Typography
@@ -390,7 +479,7 @@ function CreditScoreReport() {
                     />
                 </Grid>
             </Grid>
-            {/* <Box
+            <Box
                 className={cls(
                     'flex',
                     'items-center',
@@ -438,16 +527,89 @@ function CreditScoreReport() {
                     Scana Energy Marketing
                 </Typography>
                 <Table
+                    stripedRows={true}
+                    rowSeparatorColor={none}
+                    headerColor={tableHeader.none}
+                    hideSeparator={true}
+                    title="Scana Energy Marketing"
+                    checkboxSelection={false}
+                    columns={columns}
+                    rows={energyMarketing}
+                    setColumnVisibility={true}
+                    setAllColumnsVisibility={true}
+                    height={400}
+                    hidePagination={true}
+                />
+                <Divider
+                    sx={{
+                        backgroundColor: light,
+                        mb: 2,
+                    }}
+                />
+                <Typography
+                    sx={{
+                        fontWeight: 500
+                    }}
+                    variant='h6'
+                    color={lighter2}
+                >
+                    Energy La
+                </Typography>
+                <Table
+                    stripedRows={true}
+                    rowSeparatorColor={none}
+                    headerColor={tableHeader.none}
+                    hideSeparator={true}
+                    title="Scana Energy Marketing"
+                    checkboxSelection={false}
+                    columns={columns}
+                    rows={energyLa}
+                    setColumnVisibility={true}
+                    setAllColumnsVisibility={true}
+                    height={400}
+                    hidePagination={true}
+                />
+                <Divider
+                    sx={{
+                        backgroundColor: light,
+                        mb: 2,
+                    }}
+                />
+                <Typography
+                    sx={{
+                        fontWeight: 500
+                    }}
+                    variant='h6'
+                    color={lighter2}
+                >
+                    Capital One
+                </Typography>
+                <Table
+                    stripedRows={true}
+                    rowSeparatorColor={none}
+                    headerColor={tableHeader.none}
+                    hideSeparator={true}
                     title="Scana Energy Marketing"
                     checkboxSelection={false}
                     columns={columns}
                     rows={rows}
                     setColumnVisibility={true}
                     setAllColumnsVisibility={true}
-                    height={280}
+                    height={400}
                     hidePagination={true}
                 />
-            </ShadowCard> */}
+            </ShadowCard>
+            <Box
+                className={cls(
+                    'absolute',
+                    'top-3'
+                )}
+            >
+                <LogoLight
+                    height={80}
+                    width={80}
+                />
+            </Box>
         </Container>
     )
 }

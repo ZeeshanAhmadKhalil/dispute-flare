@@ -10,6 +10,7 @@ import { persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
 import '../styles/custom.css';
 import '../styles/globals.css';
+import '../styles/ScrollContainer.css';
 
 function MyApp(props) {
 

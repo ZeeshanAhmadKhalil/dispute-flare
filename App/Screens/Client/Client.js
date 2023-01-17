@@ -15,7 +15,8 @@ import ClientActions from './Components/ClientActions';
 import ImportClientsDialog from './Components/ImportClients/ImportClientsDialog';
 import {
     setAllColumnsVisibility,
-    setColumnVisibility
+    setColumnVisibility,
+    setDefaultColumnsVisibility
 } from './Store/clientsSlice';
 
 function Client(props) {
@@ -60,6 +61,7 @@ function Client(props) {
                 rows={clients}
                 setColumnVisibility={setColumnVisibility}
                 setAllColumnsVisibility={setAllColumnsVisibility}
+                setDefaultColumnsVisibility={setDefaultColumnsVisibility}
             />
             <AddClientDialog />
             <ImportClientsDialog />

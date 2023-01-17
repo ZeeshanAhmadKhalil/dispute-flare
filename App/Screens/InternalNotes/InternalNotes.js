@@ -1,4 +1,5 @@
 import ClientTopTabs from '@Components/ClientTopTabs/ClientTopTabs';
+import ScrollContainer from '@Components/ScrollContainer/ScrollContainer';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
 import {
     useEffect
@@ -20,10 +21,12 @@ function InternalNotes(props) {
     return (
         <>
             <ClientTopTabs tabs={tabs} />
-            <TitleHeader
-                title="REPORT"
-            />
-            <CreditScoreReport />
+            <ScrollContainer>
+                <TitleHeader
+                    title="REPORT"
+                />
+                <CreditScoreReport />
+            </ScrollContainer>
         </>
     )
 }

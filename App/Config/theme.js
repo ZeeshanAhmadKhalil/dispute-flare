@@ -103,6 +103,11 @@ const themeObj = {
             contrastText: "#fff",
             hovered: '#8d6ac9',
         },
+        lighterPink: {
+            main: '#6E6694',
+            contrastText: "#fff",
+            hovered: '#8d6ac9',
+        },
         text: {
             main: '#fff',
             contrastText: "#000",
@@ -148,12 +153,17 @@ const themeObj = {
             secondary: "#10178288"
         },
         tableHeader: {
-            main: "#F5F8FA"
+            main: "#F5F8FA",
+            none: "#fff",
+        },
+        tableRow: {
+            main: "#F4F5F7",
         },
         tableSeparator: {
             dark: "#D4D4D4",
             main: "#D1D6DC",
             light: "#DFDFDF",
+            none: "#fff",
 
         },
         tableBody: {

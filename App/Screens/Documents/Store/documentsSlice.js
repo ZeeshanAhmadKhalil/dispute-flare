@@ -1,9 +1,7 @@
 import DropDownCell from '@Components/Table/Components/DropDownCell/DropDownCell';
 import { createSlice } from '@reduxjs/toolkit';
 import DateAdded from '../Components/DateAdded';
-import useWindowDimensions from '@Hooks/useWindowDimensions';
 import Title from '../Components/Title';
-
 
 const documentsSlice = createSlice({
     name: 'documents',

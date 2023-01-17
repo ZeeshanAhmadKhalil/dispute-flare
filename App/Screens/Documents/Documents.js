@@ -20,6 +20,7 @@ import {
     setColumnVisibility,
 } from './Store/documentsSlice';
 import TilesView from './Components/TilesView';
+import ScrollContainer from '@Components/ScrollContainer/ScrollContainer';
 function Documents(props) {
 
     const tabs = [
@@ -77,73 +78,73 @@ function Documents(props) {
     return (
         <>
             <ClientTopTabs tabs={tabs} />
-            <TitleHeader
-                title="Documents"
-                actionButtons={
-                    <DocumentsActions
-                        selectedDocuments={selectedDocuments}
-                    />
-                }
-            />
-            <Box sx={{ display: "flex", padding: "1rem" }}>
-                <UploadedDocuments />
-                <UploadingDocuments />
-            </Box>
-            <Divider
-                sx={{
-                    borderWidth: 0.5,
-                    borderColor: 'borders.main',
-                    backgroundColor: 'borders.main',
-                }} />
-
-            <Tabs
-                value={value}
-                //    ref={() => console.log("iammounted ")}
-                onChange={handleChange}
-                aria-label="basic tabs example"
-                textColor='secondary'
-                indicatorColor='secondary'
-                variant='srollable'
-
-
-
-                sx={{
-                    backgroundColor: palette.transWhite.main,
-
-                    width: "20%",
-                    borderRadius: "2rem",
-                    marginTop: "1rem",
-                    color: palette.icon.inactive,
-                    padding: "0 2rem 2px 2rem"
-                }}
-            >
-
-                <Tab label="Documents Added" {...a11yProps(0)} />
-                <Tab label="Tiles" {...a11yProps(1)} />
-
-            </Tabs>
-            <TabPanel value={value} index={0}>
-                <Table
-                    autoHeight={true}
+            <ScrollContainer>
+                <TitleHeader
                     title="Documents"
-                    onSelectionModelChange={(selected) =>
-                        setSelectedDocuments(selected)
+                    actionButtons={
+                        <DocumentsActions
+                            selectedDocuments={selectedDocuments}
+                        />
                     }
-                    hasCreditMonitoringInfo={
-                        selectedClientId == 1 ||
-                        selectedClientId == 2
-                    }
-                    columns={columns}
-                    rows={documents}
-                    setColumnVisibility={setColumnVisibility}
-                    setAllColumnsVisibility={setAllColumnsVisibility}
                 />
-            </TabPanel>
-            <TabPanel value={value} index={1}>
-                <TilesView />
-            </TabPanel>
+                <Box sx={{ display: "flex", padding: "1rem" }}>
+                    <UploadedDocuments />
+                    <UploadingDocuments />
+                </Box>
+                <Divider
+                    sx={{
+                        borderWidth: 0.5,
+                        borderColor: 'borders.main',
+                        backgroundColor: 'borders.main',
+                    }} />
+
+                <Tabs
+                    value={value}
+                    //    ref={() => console.log("iammounted ")}
+                    onChange={handleChange}
+                    aria-label="basic tabs example"
+                    textColor='secondary'
+                    indicatorColor='secondary'
+                    variant='srollable'
 
 
+
+                    sx={{
+                        backgroundColor: palette.transWhite.main,
+
+                        width: "20%",
+                        borderRadius: "2rem",
+                        marginTop: "1rem",
+                        color: palette.icon.inactive,
+                        padding: "0 2rem 2px 2rem"
+                    }}
+                >
+
+                    <Tab label="Documents Added" {...a11yProps(0)} />
+                    <Tab label="Tiles" {...a11yProps(1)} />
+
+                </Tabs>
+                <TabPanel value={value} index={0}>
+                    <Table
+                        autoHeight={true}
+                        title="Documents"
+                        onSelectionModelChange={(selected) =>
+                            setSelectedDocuments(selected)
+                        }
+                        hasCreditMonitoringInfo={
+                            selectedClientId == 1 ||
+                            selectedClientId == 2
+                        }
+                        columns={columns}
+                        rows={documents}
+                        setColumnVisibility={setColumnVisibility}
+                        setAllColumnsVisibility={setAllColumnsVisibility}
+                    />
+                </TabPanel>
+                <TabPanel value={value} index={1}>
+                    <TilesView />
+                </TabPanel>
+            </ScrollContainer>
         </>
     )
 }

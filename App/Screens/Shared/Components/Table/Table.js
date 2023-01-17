@@ -1,32 +1,40 @@
 import BaseCheckbox from '@Components/Table/Components/CheckBox/CheckBox';
 import SortIcons from '@Components/Table/Components/SortIcons/SortIcons';
+import { lightTheme } from '@Config/theme';
 import { styled } from '@mui/material/styles';
 import { Box, ThemeProvider, useTheme } from '@mui/system';
 import {
     DataGrid as MuiDataGrid
 } from '@mui/x-data-grid';
-import { setDefaultColumnsVisibility } from '@Screens/Client/Store/clientsSlice';
+import { setAddCreditMonitoringInfoDialog } from '@Screens/Dispute/Store/disputeSlice';
 import { setToolbar } from '@Screens/Shared/Store/sharedSlice';
-import HeaderSeparator from 'public/Assets/Svgs/HeaderSeparator.svg';
+import cls from 'classnames';
 import AddCircle from 'public/Assets/Svgs/add-circle.svg';
+import HeaderSeparator from 'public/Assets/Svgs/HeaderSeparator.svg';
 import { useDispatch } from 'react-redux';
 import Toolbar from './Components/Toolbar/Toolbar';
-import { lightTheme } from '@Config/theme';
-import cls from 'classnames'
-import { setAddCreditMonitoringInfoDialog } from '@Screens/Dispute/Store/disputeSlice';
 
-const DataGrid = styled(MuiDataGrid)(({ theme }) => {
+const DataGrid = styled(MuiDataGrid)((
+    props
+) => {
 
     const {
-        tableHeader,
-        tableSeparator,
-        tableBody,
+        theme,
+        headerColor,
+        stripedRows,
+        rowSeparatorColor,
+    } = props || {}
+
+    const {
         text,
+        tableBody,
+        tableHeader,
+        tableRow,
     } = theme.palette || {}
 
     return {
         '& .MuiDataGrid-columnHeaders': {
-            backgroundColor: tableHeader?.main,
+            backgroundColor: headerColor,
             borderBottomWidth: 0
         },
         '& .MuiDataGrid-columnSeparator': {
@@ -45,7 +53,13 @@ const DataGrid = styled(MuiDataGrid)(({ theme }) => {
             fontSize: 14,
         },
         '& .MuiDataGrid-cell': {
-            borderBottomColor: tableSeparator?.main,
+            borderBottomColor: rowSeparatorColor,
+        },
+        '& .Mui-even': {
+            backgroundColor: stripedRows ?
+                tableRow.main
+                :
+                undefined
         },
         '& .MuiDataGrid-cell:focus,\
         .MuiDataGrid-cell:focus-within,\
@@ -154,6 +168,14 @@ const NoRows = ({
 function Table(props) {
 
     const {
+        palette: {
+            text: { xGrey3 },
+            tableHeader,
+            tableSeparator,
+        }
+    } = useTheme()
+
+    const {
         rows,
         title,
         columns,
@@ -163,19 +185,19 @@ function Table(props) {
         height = 650,
         noRowsAction,
         hidePagination,
+        stripedRows = false,
         setColumnVisibility,
+        hideSeparator = false,
         onSelectionModelChange,
         hasCreditMonitoringInfo,
         setAllColumnsVisibility,
         checkboxSelection = true,
+        setDefaultColumnsVisibility,
+        headerColor = tableHeader?.main,
+        rowSeparatorColor = tableSeparator?.main,
     } = props || {}
 
     const dispatch = useDispatch()
-    const {
-        palette: {
-            text: { xGrey3 }
-        }
-    } = useTheme()
 
     const handleClick = () => {
 
@@ -202,8 +224,28 @@ function Table(props) {
 
             >
                 <DataGrid
+                    stripedRows={stripedRows}
+                    rowSeparatorColor={rowSeparatorColor}
+                    headerColor={headerColor}
                     onRowClick={onRowClick}
                     hideFooter={hidePagination}
+                    onSelectionModelChange={onSelectionModelChange}
+                    loading={false}
+                    rows={rows}
+                    autoHeight={autoHeight}
+                    columns={columns}
+                    rowsPerPageOptions={[5, 25, 50, 100]}
+                    disableSelectionOnClick
+                    disableColumnMenu
+                    checkboxSelection={checkboxSelection}
+                    getRowClassName={({
+                        indexRelativeToCurrentPage
+                    }) =>
+                        indexRelativeToCurrentPage % 2 === 0 ?
+                            'Mui-even'
+                            :
+                            'Mui-odd'
+                    }
                     localeText={{
                         noRowsLabel:
                             hasCreditMonitoringInfo ?
@@ -216,15 +258,6 @@ function Table(props) {
                                     xGrey3={xGrey3}
                                 />
                     }}
-                    onSelectionModelChange={onSelectionModelChange}
-                    loading={false}
-                    rows={rows}
-                    autoHeight={autoHeight}
-                    columns={columns}
-                    rowsPerPageOptions={[5, 25, 50, 100]}
-                    disableSelectionOnClick
-                    disableColumnMenu
-                    checkboxSelection={checkboxSelection}
                     sx={{
                         mt: 2,
                         backgroundColor: 'tableBody.main',
@@ -239,10 +272,13 @@ function Table(props) {
                     }}
                     components={{
                         ColumnResizeIcon: () => (
-                            <HeaderSeparator
-                                height={35}
-                                width={5}
-                            />
+                            hideSeparator ?
+                                null
+                                :
+                                <HeaderSeparator
+                                    height={35}
+                                    width={5}
+                                />
                         ),
                         BaseCheckbox: (props) => (
                             <BaseCheckbox

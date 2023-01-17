@@ -19,6 +19,7 @@ const Container = styled(Box)(({ theme }) => {
         marginTop: 25,
         padding: 40,
         borderRadius: 10,
+        position: 'relative',
     }
 })
 
