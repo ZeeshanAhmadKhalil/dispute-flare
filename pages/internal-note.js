@@ -1,10 +1,10 @@
-import InternalNotes from "@Screens/InternalNotes/InternalNotes"
+import InternalNote from "@Screens/InternalNote/InternalNote"
 import MainLayout from "@Screens/Layouts/MainLayout/MainLayout"
 
 function InternalNotesPage() {
     return (
         <MainLayout>
-            <InternalNotes />
+            <InternalNote />
         </MainLayout>
     )
 }

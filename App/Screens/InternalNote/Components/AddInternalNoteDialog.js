@@ -1,16 +1,18 @@
 import RightDialogLayout from '@Layouts/RightDialogLayout/RightDialogLayout';
 import {
-    Box, Divider,
-    styled, useTheme
+    Box,
+    Divider,
+    styled,
+    useTheme
 } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import {
     useDispatch,
     useSelector
 } from 'react-redux';
-import { setAddCreditMonitoringInfoDialog } from '../Store/disputeSlice';
-import AddCreditMonitoringInfoActions from './AddCreditMonitoringInfoActions';
-import CreditMonitoringInformation from './CollapsableForm/CreditMonitoringInformation';
+import { setAddInternalNoteDialog } from '../Store/internalNoteSlice';
+import AddInternalNote from './AddInternalNote';
+import AddInternalNoteActions from './AddInternalNoteActions';
 
 const Container = styled(Box)(({ theme }) => {
 
@@ -27,13 +29,11 @@ const Container = styled(Box)(({ theme }) => {
     }
 })
 
-function AddCreditMonitoringInfoDialog(props) {
+function AddInternalNoteDialog(props) {
 
     const defaultValues = {
-        provider: null,
-        username: null,
-        password: null,
-        ssn: null,
+        description: null,
+        attachment: null,
     }
 
     const dispatch = useDispatch()
@@ -44,8 +44,8 @@ function AddCreditMonitoringInfoDialog(props) {
     } = useTheme()
 
     const {
-        addCreditMonitoringInfoDialog
-    } = useSelector(state => state.dispute)
+        addInternalNoteDialog
+    } = useSelector(state => state.internalNote)
 
     const {
         register,
@@ -62,19 +62,19 @@ function AddCreditMonitoringInfoDialog(props) {
     return (
         <RightDialogLayout
             onClose={() =>
-                dispatch(setAddCreditMonitoringInfoDialog(false))
+                dispatch(setAddInternalNoteDialog(false))
             }
             actionButtons={
-                <AddCreditMonitoringInfoActions
+                <AddInternalNoteActions
                     handleSubmit={handleSubmit}
                     onClose={() =>
-                        dispatch(setAddCreditMonitoringInfoDialog(false))
+                        dispatch(setAddInternalNoteDialog(false))
                     }
                 />
             }
-            open={addCreditMonitoringInfoDialog}
-            closeBtnText="CREDIT"
-            title={"Add Credit Monitoring Information"}
+            open={addInternalNoteDialog}
+            closeBtnText="NOTES"
+            title={"Add Notes"}
         >
             <Container>
                 <Divider
@@ -82,7 +82,7 @@ function AddCreditMonitoringInfoDialog(props) {
                         backgroundColor: tableSeparator?.light
                     }}
                 />
-                <CreditMonitoringInformation
+                <AddInternalNote
                     watch={watch}
                     register={register}
                     control={control}
@@ -93,4 +93,4 @@ function AddCreditMonitoringInfoDialog(props) {
     );
 }
 
-export default AddCreditMonitoringInfoDialog
+export default AddInternalNoteDialog

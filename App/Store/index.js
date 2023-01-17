@@ -10,6 +10,7 @@ import layout from '@Screens/Layouts/Store/layoutSlice'
 import dispute from '@Screens/Dispute/Store/disputeSlice'
 import documents from '@Screens/Documents/Store/documentsSlice'
 import letterlibrary from '@Screens/LetterLibrary/Store/letterlibrarySlice'
+import internalNote from '@Screens/InternalNote/Store/internalNoteSlice'
 import templates from '@Screens/Templates/Store/templatesSlice'
 import storage from '@Store/storage'
 
@@ -19,6 +20,7 @@ const reducers = combineReducers({
     creditor,
     dispute,
     documents,
+    internalNote,
     layout,
     letterlibrary,
     shared,

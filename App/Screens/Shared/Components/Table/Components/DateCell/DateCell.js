@@ -1,11 +1,11 @@
 import { Box } from '@mui/material';
 import moment from 'moment'
 
-function DateCreated(props) {
+function DateCell(props) {
 
     const {
-        dateCreated,
-    } = props.row || {}
+        value,
+    } = props || {}
 
     return (
         <Box
@@ -15,10 +15,10 @@ function DateCreated(props) {
             }}
         >
             <span>
-                {moment(dateCreated).format("MMMM DD, hh:mm a")}
+                {moment(value).format("MMMM DD, hh:mm a")}
             </span>
         </Box>
     )
 }
 
-export default DateCreated
+export default DateCell

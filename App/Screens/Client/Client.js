@@ -38,9 +38,6 @@ function Client(props) {
         router.push('client-dashboard')
     }
 
-    useEffect(() => {
-    }, [])
-
     return (
         <>
             <TitleHeader

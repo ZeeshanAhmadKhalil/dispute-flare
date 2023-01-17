@@ -6,13 +6,13 @@ import {
 } from 'react';
 import CreditScoreReport from './Components/CreditScoreReport';
 
-function InternalNotes(props) {
+function Report(props) {
 
     const tabs = [
         { label: "Dashboard", value: "client-dashboard" },
         { label: "Dispute", value: "dispute" },
         { label: "Documents", value: "documents" },
-        { label: "Internal Notes", value: "internal-notes" },
+        { label: "Internal Notes", value: "internal-note" },
     ]
 
     useEffect(() => {
@@ -31,4 +31,4 @@ function InternalNotes(props) {
     )
 }
 
-export default InternalNotes
+export default Report

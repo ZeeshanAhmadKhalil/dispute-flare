@@ -1,8 +1,8 @@
+import AvatarNameCell from '@Components/Table/Components/AvatarNameCell/AvatarNameCell';
+import BadgeNameCell from '@Components/Table/Components/BadgeNameCell/BadgeNameCell';
 import DropDownCell from '@Components/Table/Components/DropDownCell/DropDownCell';
 import { createSlice } from '@reduxjs/toolkit';
 import Gear from 'public/Assets/Svgs/gear.svg';
-import AssignedTo from '../Components/AssignedTo';
-import ClientName from '../Components/ClientName';
 
 const clientsSlice = createSlice({
     name: 'clients',
@@ -36,7 +36,7 @@ const clientsSlice = createSlice({
                 width: 200,
                 headerClassName: 'separator-header',
                 hidable: true,
-                renderCell: ClientName,
+                renderCell: BadgeNameCell,
                 hide: false,
             },
             {
@@ -54,7 +54,7 @@ const clientsSlice = createSlice({
                 hidable: true,
             },
             {
-                field: 'assignedToPfp',
+                field: 'pfp',
                 headerName: 'Assigned To Pfp',
                 width: 200,
                 hide: true,
@@ -65,7 +65,7 @@ const clientsSlice = createSlice({
                 width: 200,
                 headerClassName: 'separator-header',
                 hidable: true,
-                renderCell: AssignedTo,
+                renderCell: AvatarNameCell,
             },
             {
                 field: 'followUp',
@@ -98,7 +98,7 @@ const clientsSlice = createSlice({
                 clientName: 'Zeeshan Ahmad',
                 email: 'zak@gmail.com',
                 mobile: '(000) 000 - 0000',
-                assignedToPfp: '/Assets/Images/d-ace.jpg',
+                pfp: '/Assets/Images/d-ace.jpg',
                 assignedTo: 'd ace',
                 followUp: '12/02/2022',
                 lastLogin: 'June 22, 12:20 PM',
@@ -109,7 +109,7 @@ const clientsSlice = createSlice({
                 clientName: 'Rafay',
                 email: 'John@gmail.com',
                 mobile: '(000) 000 - 0000',
-                assignedToPfp: '/Assets/Images/d-water-law.jpg',
+                pfp: '/Assets/Images/d-water-law.jpg',
                 assignedTo: 'd water law',
                 followUp: '12/02/2022',
                 lastLogin: 'June 22, 12:20 PM',
@@ -120,7 +120,7 @@ const clientsSlice = createSlice({
                 clientName: 'Ali',
                 email: 'John@gmail.com',
                 mobile: '(000) 000 - 0000',
-                assignedToPfp: '/Assets/Images/d-luffy.jpg',
+                pfp: '/Assets/Images/d-luffy.jpg',
                 assignedTo: 'd luffy',
                 followUp: '12/02/2022',
                 lastLogin: 'June 22, 12:20 PM',
@@ -131,7 +131,7 @@ const clientsSlice = createSlice({
                 clientName: 'Usman',
                 email: 'John@gmail.com',
                 mobile: '(000) 000 - 0000',
-                assignedToPfp: '/Assets/Images/kaido.jpg',
+                pfp: '/Assets/Images/kaido.jpg',
                 assignedTo: 'kaido',
                 followUp: '12/02/2022',
                 lastLogin: 'June 22, 12:20 PM',
@@ -142,7 +142,7 @@ const clientsSlice = createSlice({
                 clientName: 'Mudasir',
                 email: 'John@gmail.com',
                 mobile: '(000) 000 - 0000',
-                assignedToPfp: '/Assets/Images/nami.jpg',
+                pfp: '/Assets/Images/nami.jpg',
                 assignedTo: 'nami',
                 followUp: '12/02/2022',
                 lastLogin: 'June 22, 12:20 PM',
@@ -153,7 +153,7 @@ const clientsSlice = createSlice({
                 clientName: 'Qammar Jamshaid',
                 email: 'John@gmail.com',
                 mobile: '(000) 000 - 0000',
-                assignedToPfp: '/Assets/Images/nico-robin.jpg',
+                pfp: '/Assets/Images/nico-robin.jpg',
                 assignedTo: 'nico robin',
                 followUp: '12/02/2022',
                 lastLogin: 'June 22, 12:20 PM',
@@ -164,7 +164,7 @@ const clientsSlice = createSlice({
                 clientName: 'Usama',
                 email: 'John@gmail.com',
                 mobile: '(000) 000 - 0000',
-                assignedToPfp: '/Assets/Images/roronoa-zoro.jpg',
+                pfp: '/Assets/Images/roronoa-zoro.jpg',
                 assignedTo: 'roronoa zoro',
                 followUp: '12/02/2022',
                 lastLogin: 'June 22, 12:20 PM',
@@ -175,7 +175,7 @@ const clientsSlice = createSlice({
                 clientName: 'Haris',
                 email: 'John@gmail.com',
                 mobile: '(000) 000 - 0000',
-                assignedToPfp: '/Assets/Images/shanks.jpg',
+                pfp: '/Assets/Images/shanks.jpg',
                 assignedTo: 'shanks',
                 followUp: '12/02/2022',
                 lastLogin: 'June 22, 12:20 PM',
@@ -186,7 +186,7 @@ const clientsSlice = createSlice({
                 clientName: 'Showkat',
                 email: 'John@gmail.com',
                 mobile: '(000) 000 - 0000',
-                assignedToPfp: '/Assets/Images/tony-tony-chopper.jpg',
+                pfp: '/Assets/Images/tony-tony-chopper.jpg',
                 assignedTo: 'tony tony chopper',
                 followUp: '12/02/2022',
                 lastLogin: 'June 22, 12:20 PM',
@@ -197,7 +197,7 @@ const clientsSlice = createSlice({
                 clientName: 'Awais',
                 email: 'John@gmail.com',
                 mobile: '(000) 000 - 0000',
-                assignedToPfp: '/Assets/Images/vinsmoke-sanji.jpg',
+                pfp: '/Assets/Images/vinsmoke-sanji.jpg',
                 assignedTo: 'vinsmoke sanji',
                 followUp: '12/02/2022',
                 lastLogin: 'June 22, 12:20 PM',

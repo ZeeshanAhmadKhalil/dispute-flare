@@ -38,12 +38,13 @@ const TextField = styled(InputBase)(({ theme, width }) => ({
 function TextInput(props) {
 
     const {
-        register,
         name,
-        error,
-        placeholder,
         width,
-        fullWidth
+        error,
+        register,
+        multiline,
+        placeholder,
+        rows = undefined,
     } = props || {}
 
     const {
@@ -60,6 +61,8 @@ function TextInput(props) {
         >
             <TextField
                 {...register}
+                rows={rows}
+                multiline={multiline}
                 autoComplete={false}
                 type={name}
                 id={camelToBreadcrumbs(name)}

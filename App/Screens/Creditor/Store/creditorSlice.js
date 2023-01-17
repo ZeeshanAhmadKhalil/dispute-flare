@@ -1,7 +1,5 @@
 import DropDownCell from '@Components/Table/Components/DropDownCell/DropDownCell';
 import { createSlice } from '@reduxjs/toolkit';
-import AssignedTo from '@Screens/Client/Components/AssignedTo';
-import ClientName from '@Screens/Client/Components/ClientName';
 import Gear from 'public/Assets/Svgs/gear.svg';
 
 const creditorSlice = createSlice({

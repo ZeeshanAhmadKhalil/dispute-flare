@@ -53,6 +53,8 @@ const themeObj = {
         icon: {
             active: "#000",
             inactive: "#707070",
+            inactive1: "#8DA6C4",
+            blue:"#1B4D87",
             lightActive: "#ACADAF",
             input: "#ACADAF",
         },
@@ -128,7 +130,8 @@ const themeObj = {
             lighter1: "#BAC1CC",
             lighter2: "#8D97AA",
             link: "#0E2FFFCC",
-            secondarish: "#2D4766"
+            secondarish: "#2D4766",
+            secondarish1: "#173456",
         },
         outlinedBtn: {
             main: '#C9C9C9',

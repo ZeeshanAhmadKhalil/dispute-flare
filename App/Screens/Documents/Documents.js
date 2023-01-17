@@ -1,4 +1,5 @@
 import ClientTopTabs from '@Components/ClientTopTabs/ClientTopTabs';
+import ScrollContainer from '@Components/ScrollContainer/ScrollContainer';
 import Table from '@Components/Table/Table';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
 import {
@@ -9,30 +10,28 @@ import {
     useTheme
 } from '@mui/material';
 import { Box } from '@mui/system';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import DocumentsActions from "./Components/DocumentsActions";
+import TilesView from './Components/TilesView';
 import UploadedDocuments from './Components/UploadedDocuments';
 import UploadingDocuments from './Components/UploadingFiles';
-import DocumentsActions from "./Components/DocumentsActions";
-import React from 'react';
 import {
     setAllColumnsVisibility,
-    setColumnVisibility,
+    setColumnVisibility
 } from './Store/documentsSlice';
-import TilesView from './Components/TilesView';
-import ScrollContainer from '@Components/ScrollContainer/ScrollContainer';
 function Documents(props) {
 
     const tabs = [
         { label: "Dashboard", value: "client-dashboard" },
         { label: "Dispute", value: "dispute" },
         { label: "Documents", value: "documents" },
-        { label: "Internal Notes", value: "internal-notes" },
+        { label: "Internal Notes", value: "internal-note" },
     ]
     const {
         palette
     } = useTheme()
-    const dispatch = useDispatch()
+    
     const {
         columns,
         documents,
@@ -40,8 +39,9 @@ function Documents(props) {
     const {
         selectedClientId
     } = useSelector(state => state.shared)
-    const [value, setValue] = React.useState(0);
+    const [value, setValue] = useState(0);
     const [selectedDocuments, setSelectedDocuments] = useState([])
+    
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };

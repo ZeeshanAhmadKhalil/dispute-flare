@@ -1,10 +1,10 @@
 import { Box } from '@mui/material';
 
-function Account(props) {
+function SecretCell(props) {
 
     const {
-        account,
-    } = props.row || {}
+        value,
+    } = props || {}
 
     return (
         <Box
@@ -14,10 +14,10 @@ function Account(props) {
             }}
         >
             <span>
-                {account.slice(0, 5) + "***"}
+                {value.slice(0, 5) + "***"}
             </span>
         </Box>
     )
 }
 
-export default Account
+export default SecretCell
