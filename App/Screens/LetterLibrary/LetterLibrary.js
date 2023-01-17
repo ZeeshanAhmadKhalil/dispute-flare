@@ -11,8 +11,8 @@ import {
     setAllColumnsVisibility,
     setColumnVisibility,
 } from './Store/letterlibrarySlice';
-import Title from './Components/Title';
 import AddFlowDialog from './Components/AddFlow/AddFlowDialog';
+import Value from './Components/Value';
 
 
 
@@ -31,7 +31,7 @@ const columns = [
         headerClassName: 'separator-header',
         hidable: true,
         hide: false,
-        renderCell: Title,
+        renderCell: ({ value }) => <Value value={value} />,
     },
     {
         field: 'type',
@@ -40,7 +40,8 @@ const columns = [
         headerClassName: 'separator-header',
         hidable: true,
         hide: false,
-        renderCell: Title,
+
+        renderCell: ({ value }) => <Value value={value} />,
     },
     {
         field: 'reason',
@@ -49,7 +50,8 @@ const columns = [
         headerClassName: 'separator-header',
         hidable: true,
         hide: false,
-        renderCell: Title,
+
+        renderCell: ({ value }) => <Value value={value} />,
     },
     {
         field: 'rounds',
@@ -58,7 +60,8 @@ const columns = [
         headerClassName: 'separator-header',
         hidable: true,
         hide: false,
-        renderCell: Title,
+
+        renderCell: ({ value }) => <Value value={value} />,
     },
     {
         field: 'addedBy',
@@ -67,7 +70,8 @@ const columns = [
         headerClassName: 'separator-header',
         hidable: true,
         hide: false,
-        renderCell: Title,
+
+        renderCell: ({ value }) => <Value value={value} />,
     },
 
 
@@ -81,35 +85,35 @@ const letters = [
         rounds: "6",
         addedBy: "James Bond"
     }, {
-        id: 1,
+        id: 7,
         title: "credit card",
         type: "type A",
         reason: "IDK",
         rounds: "6",
         addedBy: "James Bond"
     }, {
-        id: 1,
+        id: 2,
         title: "credit card",
         type: "type A",
         reason: "IDK",
         rounds: "6",
         addedBy: "James Bond"
     }, {
-        id: 1,
+        id: 3,
         title: "credit card",
         type: "type A",
         reason: "IDK",
         rounds: "6",
         addedBy: "James Bond"
     }, {
-        id: 1,
+        id: 4,
         title: "credit card",
         type: "type A",
         reason: "IDK",
         rounds: "6",
         addedBy: "James Bond"
     }, {
-        id: 1,
+        id: 5,
         title: "credit card",
         type: "type A",
         reason: "IDK",

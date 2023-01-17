@@ -11,6 +11,7 @@ import dispute from '@Screens/Dispute/Store/disputeSlice'
 import documents from '@Screens/Documents/Store/documentsSlice'
 import letterlibrary from '@Screens/LetterLibrary/Store/letterlibrarySlice'
 import templates from '@Screens/Templates/Store/templatesSlice'
+import reasons from '@Screens/Reasons/Store/reasonsSlice'
 import storage from '@Store/storage'
 
 const reducers = combineReducers({
@@ -23,6 +24,7 @@ const reducers = combineReducers({
     letterlibrary,
     shared,
     templates,
+    reasons,
     [authApi.reducerPath]: authApi.reducer,
 });
 
