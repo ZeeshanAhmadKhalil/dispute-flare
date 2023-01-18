@@ -2,6 +2,7 @@ import RightDialogLayout from '@Layouts/RightDialogLayout/RightDialogLayout';
 import {
     Box,
     Divider,
+    Grid,
     styled,
     Typography,
     useTheme
@@ -15,7 +16,7 @@ import cls from 'classnames'
 import styles from './AddAffiliateDialog.module.scss'
 import { useForm } from 'react-hook-form';
 import AddInstructionActions from './AddAffiliteActions';
-import AddInstructionForm from './AddInstruction/AddInstructionForm';
+import AddAffiliateForm from './AddInstruction/AddInstructionForm';
 const Container = styled(Box)(({ theme }) => {
 
     const {
@@ -64,9 +65,7 @@ function AddAffiliateDialog(props) {
 
     const dispatch = useDispatch()
     const {
-        palette: {
-            tableSeparator
-        }
+        palette
     } = useTheme()
     const {
         addAffiliatesDialog
@@ -103,6 +102,7 @@ function AddAffiliateDialog(props) {
                 <Typography
                     color="text.xxGrey"
                     variant='subtitle2'
+
                     className={cls(
                         styles.formDesc
                     )}
@@ -111,15 +111,39 @@ function AddAffiliateDialog(props) {
                 </Typography>
                 <Divider
                     sx={{
-                        backgroundColor: tableSeparator?.light
+                        backgroundColor: palette.tableSeparator?.light
                     }}
                 />
-                <AddInstructionForm
-                    watch={watch}
-                    register={register}
-                    control={control}
-                    errors={errors}
-                />
+
+                <Grid item xs="12">
+                    <Typography
+                        variant="subtitle1"
+                        className={cls(
+                            styles.groupTitle
+                        )}
+                    >
+                        Company Information
+                    </Typography>
+                </Grid>
+                <Grid
+                    container
+                    rowSpacing={3}
+                    sx={{ backgroundColor: palette.dialog.xxxxOff, marginTop: "10px" }}
+                    className={cls(
+                        'border-red-700',
+                        'border-0',
+                        'flex',
+                        'items-center', 'p-[20px]',
+                    )}
+                >
+                    <AddAffiliateForm
+                        watch={watch}
+                        register={register}
+                        control={control}
+                        errors={errors}
+                    />
+
+                </Grid>
 
             </Container>
         </RightDialogLayout >
