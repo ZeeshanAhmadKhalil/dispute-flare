@@ -70,8 +70,6 @@ function ImportCreditorsDialog(props) {
 
 
     const {
-    } = useSelector(state => state.shared)
-    const {
         importCreditorsDialog
     } = useSelector(state => state.creditor)
 

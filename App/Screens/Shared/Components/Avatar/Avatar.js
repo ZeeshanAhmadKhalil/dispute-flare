@@ -1,11 +1,10 @@
 import { Avatar as MuiAvatar } from '@mui/material';
 import { useSelector } from 'react-redux';
 
-function Avatar(props) {
-
-    const {
-        styles
-    } = props
+function Avatar({
+    styles,
+    pfp,
+}) {
 
     const {
         user
@@ -14,7 +13,11 @@ function Avatar(props) {
     return (
         <MuiAvatar
             alt={user?.name}
-            src={user?.pfp}
+            src={pfp ?
+                pfp
+                :
+                user?.pfp
+            }
             sx={{ ...styles }}
         />
     );
