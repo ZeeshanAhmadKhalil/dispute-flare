@@ -7,7 +7,7 @@ import {
     Typography,
     useTheme
 } from '@mui/material';
-import { setAddAffiliatesDialog } from '@Screens/Affiliates/Store/affiliatesSlice'
+import { setrecordPaymentDialogDialog } from '@Screens/AffiliateDashboard/Store/affiliateDashboardSlice'
 import {
     useDispatch,
     useSelector
@@ -15,8 +15,8 @@ import {
 import cls from 'classnames'
 import styles from './AddAffiliateDialog.module.scss'
 import { useForm } from 'react-hook-form';
-import AddInstructionActions from './AddAffiliteActions';
-import AddAffiliateForm from './AddInstruction/AddAffiliateForm';
+import RecordPaymentActions from './RecordPaymentActions';
+import AddAffiliateForm from './RecordPayment/RecordPaymentForm';
 const Container = styled(Box)(({ theme }) => {
 
     const {
@@ -32,7 +32,7 @@ const Container = styled(Box)(({ theme }) => {
     }
 })
 
-function AddAffiliateDialog(props) {
+function RecordPaymentDialog(props) {
 
     const defaultValues = {
         firstName: null,
@@ -68,8 +68,8 @@ function AddAffiliateDialog(props) {
         palette
     } = useTheme()
     const {
-        addAffiliatesDialog
-    } = useSelector(state => state.affiliates)
+        recordPaymentDialog
+    } = useSelector(state => state.affiliateDashboard)
 
     const {
         register,
@@ -85,18 +85,18 @@ function AddAffiliateDialog(props) {
 
     return (
         <RightDialogLayout
-            onClose={() => dispatch(setAddAffiliatesDialog(false))}
+            onClose={() => dispatch(setrecordPaymentDialogDialog(false))}
             actionButtons={
-                <AddInstructionActions
+                <RecordPaymentActions
                     handleSubmit={handleSubmit}
                     onClose={() =>
-                        dispatch(setAddAffiliatesDialog(false))
+                        dispatch(setrecordPaymentDialogDialog(false))
                     }
                 />
             }
-            open={addAffiliatesDialog}
-            closeBtnText="Affiliates"
-            title={"Add Affiliates"}
+            open={recordPaymentDialog}
+            closeBtnText="Dashboard"
+            title={"Record a Payment"}
         >
             <Container>
                 <Typography
@@ -107,24 +107,14 @@ function AddAffiliateDialog(props) {
                         styles.formDesc
                     )}
                 >
-                    {"You can add a minimum of the affiliate name, email and their pay rate when adding them."}
+
+                    {"Record a Payment"}
                 </Typography>
                 <Divider
                     sx={{
                         backgroundColor: palette.tableSeparator?.light
                     }}
                 />
-
-                <Grid item xs="12">
-                    <Typography
-                        variant="subtitle1"
-                        className={cls(
-                            styles.groupTitle
-                        )}
-                    >
-                        Company Information
-                    </Typography>
-                </Grid>
                 <Grid
                     container
                     rowSpacing={3}
@@ -142,7 +132,6 @@ function AddAffiliateDialog(props) {
                         control={control}
                         errors={errors}
                     />
-
                 </Grid>
 
             </Container>
@@ -150,4 +139,4 @@ function AddAffiliateDialog(props) {
     );
 }
 
-export default AddAffiliateDialog
+export default RecordPaymentDialog
