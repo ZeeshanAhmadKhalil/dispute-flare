@@ -133,6 +133,7 @@ function CreditorDashboard(props) {
                                 }}
                             >
                                 <TotalCommission
+                                    color={icongreen.light}
                                     height={25}
                                     width={25}
                                 />

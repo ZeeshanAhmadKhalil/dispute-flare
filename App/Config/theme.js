@@ -56,6 +56,7 @@ const themeObj = {
             main: "#D33C41"
         },
         icon: {
+            dark: "#fff",
             active: "#000",
             inactive: "#707070",
             inactive1: "#8DA6C4",
@@ -94,6 +95,9 @@ const themeObj = {
             main: '#00428E',
             contrastText: "#fff",
             hovered: "#002E63",
+        },
+        secondaryOff: {
+            main: "#25617B"
         },
         info: {
             main: '#02AEEE',
@@ -168,6 +172,7 @@ const themeObj = {
             main: "#ffffff4c",
         },
         borders: {
+            light: "#fff",
             main: "#9EB6D3",
             secondary: "#10178288"
         },

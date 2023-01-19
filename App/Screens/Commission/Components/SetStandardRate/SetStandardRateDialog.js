@@ -1,22 +1,19 @@
+import {
+    AddItemContainer
+} from '@Components/StyledComponents/StyledComponents';
 import RightDialogLayout from '@Layouts/RightDialogLayout/RightDialogLayout';
 import {
-    Box,
-    styled,
-    useTheme
-} from '@mui/material';
+    setStandardRateDialog
+} from '@Screens/Commission/Store/commissionSlice';
 import { useForm } from 'react-hook-form';
 import {
     useDispatch,
     useSelector
 } from 'react-redux';
-import { setCreditorDialog } from '../Store/creditorSlice';
-import AddCreditorActions from './AddCreditorActions';
-import {
-    AddItemContainer
-} from '@Components/StyledComponents/StyledComponents'
-import AddCreditor from './AddCreditor';
+import SetStandardRate from './SetStandardRate';
+import SetStandardRateActions from './SetStandardRateActions';
 
-function AddCreditorDialog(props) {
+function SetStandardRateDialog(props) {
 
     const defaultValues = {
         creditorName: null,
@@ -32,8 +29,8 @@ function AddCreditorDialog(props) {
     const dispatch = useDispatch()
 
     const {
-        creditorDialog
-    } = useSelector(state => state.creditor)
+        standardRateDialog
+    } = useSelector(state => state.commission)
 
     const {
         register,
@@ -50,23 +47,23 @@ function AddCreditorDialog(props) {
     return (
         <RightDialogLayout
             onClose={() =>
-                dispatch(setCreditorDialog(false))
+                dispatch(setStandardRateDialog(false))
             }
             actionButtons={
-                <AddCreditorActions
+                <SetStandardRateActions
                     reset={reset}
                     handleSubmit={handleSubmit}
                     onClose={() =>
-                        dispatch(setCreditorDialog(false))
+                        dispatch(setStandardRateDialog(false))
                     }
                 />
             }
-            open={creditorDialog}
-            closeBtnText="Creditor"
-            title={"Add Creditor"}
+            open={standardRateDialog}
+            closeBtnText="RATE"
+            title={"Set Standard Rate"}
         >
             <AddItemContainer>
-                <AddCreditor
+                <SetStandardRate
                     watch={watch}
                     register={register}
                     control={control}
@@ -77,4 +74,4 @@ function AddCreditorDialog(props) {
     );
 }
 
-export default AddCreditorDialog
+export default SetStandardRateDialog

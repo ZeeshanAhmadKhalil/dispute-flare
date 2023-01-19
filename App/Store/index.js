@@ -15,12 +15,14 @@ import templates from '@Screens/Templates/Store/templatesSlice'
 import reasons from '@Screens/Reasons/Store/reasonsSlice'
 import instructions from '@Screens/Instructions/Store/instructionsSlice'
 import affiliates from '@Screens/Affiliates/Store/affiliatesSlice'
+import commission from '@Screens/Commission/Store/commissionSlice'
 import storage from '@Store/storage'
 
 const reducers = combineReducers({
     auth,
     clients,
     creditor,
+    commission,
     dispute,
     documents,
     internalNote,
