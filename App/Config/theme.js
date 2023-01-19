@@ -22,6 +22,11 @@ const themeObj = {
     },
     palette: {
         mode: 'dark',
+        chart: {
+            line: "#C1D2DF",
+            dot: "#5C86B7",
+            gridLine: "#B4B9BF"
+        },
         shadow: {
             main: "#00000088"
         },
@@ -54,7 +59,7 @@ const themeObj = {
             active: "#000",
             inactive: "#707070",
             inactive1: "#8DA6C4",
-            blue:"#1B4D87",
+            blue: "#1B4D87",
             lightActive: "#ACADAF",
             input: "#ACADAF",
         },
@@ -69,6 +74,8 @@ const themeObj = {
             inactive: "#707070",
             lightActive: "#37B555",
             input: "#ACADAF",
+            light: "#19C5B4",
+            light1: "#99BC51",
         },
         checkbox: {
             checked: "#37D667",
@@ -79,6 +86,9 @@ const themeObj = {
             main: '#B2E323',
             contrastText: "#fff",
             hovered: "#7C9E18"
+        },
+        success: {
+            main: '#0F7E3B',
         },
         secondary: {
             main: '#00428E',
@@ -116,6 +126,7 @@ const themeObj = {
         text: {
             main: '#fff',
             contrastText: "#000",
+            contrastText1: "#4E4E4E",
             hovered: '#fff1',
             xGrey: "#858585",
             xGrey1: "#898989",
@@ -140,6 +151,7 @@ const themeObj = {
         background: {
             main: "#fff",
             light: "#F3F4FA",
+            light1: "#fffd",
             xTrans: '#00000044',
         },
         xTrans: {
@@ -150,6 +162,7 @@ const themeObj = {
         },
         link: {
             main: '#0E2FFFCC',
+            light: '#3D8BE5'
         },
         transWhite: {
             main: "#ffffff4c",

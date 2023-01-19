@@ -1,9 +1,7 @@
 import Table from '@Components/Table/Table';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
-import { setSelectedClientId } from '@Screens/Shared/Store/sharedSlice';
 import { useRouter } from 'next/router';
 import {
-    useEffect,
     useState
 } from 'react';
 import {
@@ -21,22 +19,12 @@ import {
 
 function Client(props) {
 
-    const router = useRouter()
-    const dispatch = useDispatch()
-
     const {
         columns,
         clients,
     } = useSelector(state => state.clients)
 
     const [selectedClients, setSelectedClients] = useState([])
-
-    const onRowClick = ({
-        id
-    }) => {
-        dispatch(setSelectedClientId(id))
-        router.push('client-dashboard')
-    }
 
     return (
         <>
@@ -53,7 +41,6 @@ function Client(props) {
                 onSelectionModelChange={(selected) =>
                     setSelectedClients(selected)
                 }
-                onRowClick={onRowClick}
                 columns={columns}
                 rows={clients}
                 setColumnVisibility={setColumnVisibility}

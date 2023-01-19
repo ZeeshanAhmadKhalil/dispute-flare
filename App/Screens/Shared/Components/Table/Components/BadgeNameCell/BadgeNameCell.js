@@ -1,21 +1,43 @@
-import { Badge, Box } from '@mui/material';
+import {
+    Badge,
+    Box
+} from '@mui/material';
 import { setSelectedClientId } from '@Screens/Shared/Store/sharedSlice';
-import cls from 'classnames'
 import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
 
 function BadgeNameCell(props) {
 
     const {
-        clientName,
-        status,
-    } = props.row || {}
+        row: {
+            status,
+            id,
+        },
+        value,
+        navigateTo,
+    } = props || {}
+
+    const router = useRouter()
+    const dispatch = useDispatch()
+
+    const handleClick = () => {
+
+        if (navigateTo) {
+            dispatch(setSelectedClientId(id))
+            router.push(navigateTo)
+        }
+    }
 
     return (
         <Box
+            onClick={handleClick}
             sx={{
                 display: 'flex',
                 alignItems: 'center',
+                '&:hover': {
+                    textDecoration: 'underline',
+                    cursor: 'pointer',
+                }
             }}
         >
             <Badge
@@ -26,7 +48,7 @@ function BadgeNameCell(props) {
                 }}
             />
             <span>
-                {clientName}
+                {value}
             </span>
         </Box>
     )

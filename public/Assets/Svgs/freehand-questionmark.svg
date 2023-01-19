@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="17.25" height="17.25" viewBox="-2 -7 18.21 32.38">
+    <g data-name=" CompositeLayer">
+        <path d="M17.25 8.625a8.625 8.625 0 1 1-17.25 0 8.625 8.625 0 0 1 17.25 0Z" stroke-linejoin="round"
+            stroke-linecap="round" stroke="#4e4e4e" fill="transparent" data-name="Path 340" />
+        <path d="M6.115 6.037a2.587 2.587 0 0 1 5.029.863c0 1.725-2.588 2.588-2.588 2.588" stroke-linejoin="round"
+            stroke-linecap="round" stroke="#4e4e4e" fill="transparent" data-name="Path 341" />
+        <path d="M8.625 12.938h0" stroke-linejoin="round" stroke-linecap="round" stroke="#4e4e4e" fill="transparent"
+            data-name="Path 342" />
+    </g>
+</svg>
