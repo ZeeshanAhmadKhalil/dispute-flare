@@ -3,53 +3,58 @@ import Table from '@Components/Table/Table';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
 import DefaultCell from '@Components/DefaultCell/DefaultCell';
 import { Divider, FormControlLabel, FormGroup, useTheme, styled } from '@mui/material';
-import { Box } from '@mui/system';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import React from 'react';
 import {
     setAllColumnsVisibility,
     setColumnVisibility,
-} from './Store/instructionsSlice';
-import AddInstructionDialog from './Components/AddInstruction/AddInstructionDialog';
+} from './Store/affiliatesSlice';
+import AddInstructionDialog from './Components/AddAffiliate/AddAffililateDialog';
 import IOSSwitch from '@Components/IOSSwitch/IOSSwitch';
-import InstructionActions from './Components/InstructionActions';
-
-
+import AffiliatesActions from './Components/AffiliatesActions';
 const label = { inputProps: { 'aria-label': 'Switch demo' } };
-
-
-const instructions = [
+const affiliates = [
     {
         id: 1,
-        instruction: "Collection Validation",
-        status: "active",
-        addedBy: "James Bond"
+        name: "Imran Hashmi",
+        company: "SB-BC",
+        email: "email@gmail.kaam",
+        totalCommission: "$5300",
+        clientReferred: "Gen Bajwa",
+        status: "active"
     }, {
         id: 2,
-        instruction: "Collection Validation",
-        status: "active",
-        addedBy: "James Bond"
+        name: "Imran Hashmi",
+        company: "SB-BC",
+        email: "email@gmail.kaam",
+        totalCommission: "$5300",
+        clientReferred: "Gen Bajwa",
+        status: "active"
     }, {
         id: 3,
-        instruction: "Collection Validation",
-        status: "active",
-        addedBy: "James Bond"
+        name: "Imran Hashmi",
+        company: "SB-BC",
+        email: "email@gmail.kaam",
+        totalCommission: "$5300",
+        clientReferred: "Gen Bajwa",
+        status: "active"
     }, {
         id: 4,
-        instruction: "Collection Validation",
-        status: "active",
-        addedBy: "James Bond"
+        name: "Imran Hashmi",
+        company: "SB-BC",
+        email: "email@gmail.kaam",
+        totalCommission: "$5300",
+        clientReferred: "Gen Bajwa",
+        status: "active"
     }, {
         id: 5,
-        instruction: "Collection Validation",
-        status: "active",
-        addedBy: "James Bond"
-    }, {
-        id: 6,
-        instruction: "Collection Validation",
-        status: "active",
-        addedBy: "James Bond"
+        name: "Imran Hashmi",
+        company: "SB-BC",
+        email: "email@gmail.kaam",
+        totalCommission: "$5300",
+        clientReferred: "Gen Bajwa",
+        status: "active"
     },]
 
 
@@ -62,12 +67,10 @@ function Affiliates(props) {
         setChecked(event.target.checked);
     };
     const tabs = [
-        { label: "Letter Flow", value: "letterlibrary" },
-        { label: "Templates", value: "templates" },
-        { label: "Reasons", value: "reasons" },
-        { label: "Instructions", value: "instructions" }
+        { label: "Dashboard", value: "creditor-dashboard" },
+        { label: "Affiliates", value: "affiliates" },
+        { label: "Commission", value: "commission" },
     ]
-
 
     const columns = [
         {
@@ -78,14 +81,52 @@ function Affiliates(props) {
             hidable: true,
         },
         {
-            field: 'instruction',
-            headerName: 'Instruction',
+            field: 'name',
+            headerName: 'Name',
             width: 200,
             headerClassName: 'separator-header',
             hidable: true,
             hide: false,
             renderCell: ({ value }) => <DefaultCell value={value} />,
         },
+        {
+            field: 'company',
+            headerName: 'company',
+            width: 200,
+            headerClassName: 'separator-header',
+            hidable: true,
+            hide: false,
+            renderCell: ({ value }) => <DefaultCell value={value} />,
+        },
+
+        {
+            field: 'email',
+            headerName: 'email',
+            width: 200,
+            headerClassName: 'separator-header',
+            hidable: true,
+            hide: false,
+            renderCell: ({ value }) => <DefaultCell value={value} />,
+        },
+        {
+            field: 'totalCommission',
+            headerName: 'Total Commission',
+            width: 200,
+            headerClassName: 'separator-header',
+            hidable: true,
+            hide: false,
+            renderCell: ({ value }) => <DefaultCell value={value} />,
+        },
+        {
+            field: 'clientReferred',
+            headerName: 'Client Referred',
+            width: 200,
+            headerClassName: 'separator-header',
+            hidable: true,
+            hide: false,
+            renderCell: ({ value }) => <DefaultCell value={value} />,
+        },
+
         {
             field: 'status',
             headerName: 'Status',
@@ -99,15 +140,6 @@ function Affiliates(props) {
                     label="active"
                 />
             </FormGroup>,
-        },
-        {
-            field: 'addedBy',
-            headerName: 'Added By',
-            width: 200,
-            headerClassName: 'separator-header',
-            hidable: true,
-            hide: false,
-            renderCell: ({ value }) => <DefaultCell value={value} />,
         },
 
 
@@ -128,9 +160,9 @@ function Affiliates(props) {
         <>
             <ClientTopTabs tabs={tabs} />
             <TitleHeader
-                title="Reasons"
+                title="Affiliates"
                 actionButtons={
-                    <InstructionActions
+                    <AffiliatesActions
                         selectedInstructions={selectedInstructions}
                     />
                 }
@@ -142,8 +174,6 @@ function Affiliates(props) {
                     borderColor: 'borders.main',
                     backgroundColor: 'borders.main',
                 }} />
-
-
             <Table
                 autoHeight={true}
                 title="instructions"
@@ -152,7 +182,7 @@ function Affiliates(props) {
                 }
 
                 columns={columns}
-                rows={instructions}
+                rows={affiliates}
                 setColumnVisibility={setColumnVisibility}
                 setAllColumnsVisibility={setAllColumnsVisibility}
             />

@@ -2,7 +2,7 @@ import Button from '@Components/Button/Button';
 import { useTheme } from '@mui/material';
 import { useDispatch } from 'react-redux';
 
-function AddInstructionActions(props) {
+function AddAffiliateActions(props) {
 
     const {
         onClose,
@@ -34,7 +34,7 @@ function AddInstructionActions(props) {
                     fontWeight: 'bold',
                 }}
             >
-                {"ADD INSTRUCTION"}
+                {"ADD AFFILIATE"}
             </Button>
             <Button
                 color={"text"}
@@ -52,4 +52,4 @@ function AddInstructionActions(props) {
     )
 }
 
-export default AddInstructionActions
+export default AddAffiliateActions

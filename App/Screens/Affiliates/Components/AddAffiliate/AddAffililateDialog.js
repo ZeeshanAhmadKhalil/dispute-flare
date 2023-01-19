@@ -2,21 +2,21 @@ import RightDialogLayout from '@Layouts/RightDialogLayout/RightDialogLayout';
 import {
     Box,
     Divider,
+    Grid,
     styled,
     Typography,
     useTheme
 } from '@mui/material';
-import { setAddInstructionsDialog } from '@Screens/Instructions/Store/instructionsSlice'
+import { setAddAffiliatesDialog } from '@Screens/Affiliates/Store/affiliatesSlice'
 import {
     useDispatch,
     useSelector
 } from 'react-redux';
 import cls from 'classnames'
-import styles from './AddInstructionDialog.module.scss'
+import styles from './AddAffiliateDialog.module.scss'
 import { useForm } from 'react-hook-form';
-import AddInstructionActions from './AddInstructionActions';
-import AddInstructionForm from './AddInstruction/AddInstructionForm';
-
+import AddInstructionActions from './AddAffiliteActions';
+import AddAffiliateForm from './AddInstruction/AddInstructionForm';
 const Container = styled(Box)(({ theme }) => {
 
     const {
@@ -32,7 +32,7 @@ const Container = styled(Box)(({ theme }) => {
     }
 })
 
-function AddInstructionDialog(props) {
+function AddAffiliateDialog(props) {
 
     const defaultValues = {
         firstName: null,
@@ -65,17 +65,11 @@ function AddInstructionDialog(props) {
 
     const dispatch = useDispatch()
     const {
-        palette: {
-            tableSeparator
-        }
+        palette
     } = useTheme()
-
     const {
-
-    } = useSelector(state => state.shared)
-    const {
-        addInstructionsDialog
-    } = useSelector(state => state.instructions)
+        addAffiliatesDialog
+    } = useSelector(state => state.affiliates)
 
     const {
         register,
@@ -91,44 +85,69 @@ function AddInstructionDialog(props) {
 
     return (
         <RightDialogLayout
-            onClose={() => dispatch(setAddInstructionsDialog(false))}
+            onClose={() => dispatch(setAddAffiliatesDialog(false))}
             actionButtons={
                 <AddInstructionActions
                     handleSubmit={handleSubmit}
                     onClose={() =>
-                        dispatch(setAddInstructionsDialog(false))
+                        dispatch(setAddAffiliatesDialog(false))
                     }
                 />
             }
-            open={addInstructionsDialog}
-            closeBtnText="Reason"
-            title={"Add Instruction"}
+            open={addAffiliatesDialog}
+            closeBtnText="Affiliates"
+            title={"Add Affiliates"}
         >
             <Container>
                 <Typography
                     color="text.xxGrey"
                     variant='subtitle2'
+
                     className={cls(
                         styles.formDesc
                     )}
                 >
-                    {"Add a new Instruction"}
+                    {"You can add a minimum of the affiliate name, email and their pay rate when adding them."}
                 </Typography>
                 <Divider
                     sx={{
-                        backgroundColor: tableSeparator?.light
+                        backgroundColor: palette.tableSeparator?.light
                     }}
                 />
-                <AddInstructionForm
-                    watch={watch}
-                    register={register}
-                    control={control}
-                    errors={errors}
-                />
+
+                <Grid item xs="12">
+                    <Typography
+                        variant="subtitle1"
+                        className={cls(
+                            styles.groupTitle
+                        )}
+                    >
+                        Company Information
+                    </Typography>
+                </Grid>
+                <Grid
+                    container
+                    rowSpacing={3}
+                    sx={{ backgroundColor: palette.dialog.xxxxOff, marginTop: "10px" }}
+                    className={cls(
+                        'border-red-700',
+                        'border-0',
+                        'flex',
+                        'items-center', 'p-[20px]',
+                    )}
+                >
+                    <AddAffiliateForm
+                        watch={watch}
+                        register={register}
+                        control={control}
+                        errors={errors}
+                    />
+
+                </Grid>
 
             </Container>
         </RightDialogLayout >
     );
 }
 
-export default AddInstructionDialog
+export default AddAffiliateDialog

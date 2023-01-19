@@ -14,6 +14,7 @@ import internalNote from '@Screens/InternalNote/Store/internalNoteSlice'
 import templates from '@Screens/Templates/Store/templatesSlice'
 import reasons from '@Screens/Reasons/Store/reasonsSlice'
 import instructions from '@Screens/Instructions/Store/instructionsSlice'
+import affiliates from '@Screens/Affiliates/Store/affiliatesSlice'
 import storage from '@Store/storage'
 
 const reducers = combineReducers({
@@ -29,6 +30,7 @@ const reducers = combineReducers({
     templates,
     reasons,
     instructions,
+    affiliates,
     [authApi.reducerPath]: authApi.reducer,
 });
 
