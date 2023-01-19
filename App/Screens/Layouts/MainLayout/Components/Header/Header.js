@@ -14,7 +14,7 @@ import Toolbar from '@mui/material/Toolbar';
 import { setProfileDialog } from '@Screens/Shared/Store/sharedSlice';
 import cls from 'classnames';
 import Image from 'next/image';
-import logo from 'public/Assets/Images/logo.png';
+import LogoDark from 'public/Assets/Svgs/logo-dark.svg';
 import UpgradeLine from 'public/Assets/Svgs/upgrade-line.svg';
 import Upgrade from 'public/Assets/Svgs/upgrade.svg';
 import { useDispatch, useSelector } from 'react-redux';
@@ -75,10 +75,9 @@ export default function Header() {
                 >
                     <Box sx={{ display: { md: 'flex', xs: 'none' } }}>
                         {(!sidebar && !hoverSidebar) &&
-                            <Image
-                                width={75}
+                            <LogoDark
+                                width={85}
                                 height={45}
-                                src={logo}
                             />
                         }
                     </Box>

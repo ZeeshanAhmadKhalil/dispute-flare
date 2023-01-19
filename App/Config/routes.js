@@ -51,14 +51,14 @@ const sidebarRoutes = [
     },
     {
         type: "menu-item",
-        displayName: "Calender",
+        displayName: "Calendar",
         icon: (
             <Calendar
                 width={22}
                 height={22}
             />
         ),
-        path: '/calender'
+        path: '/calendar'
     },
     {
         type: "menu-item",

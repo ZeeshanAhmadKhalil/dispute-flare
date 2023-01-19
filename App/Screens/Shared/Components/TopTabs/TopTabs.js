@@ -1,21 +1,23 @@
-import { topTabsHeight } from '@Config/constants';
+import {
+    topTabsHeight
+} from '@Config/constants';
+import { Divider } from '@mui/material';
 import Box from '@mui/material/Box';
-import { styled, useTheme } from '@mui/material/styles';
+import {
+    styled,
+    useTheme
+} from '@mui/material/styles';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 import {
     useRouter
 } from 'next/router';
-import {
-    useEffect
-} from 'react';
 
 const AntTabs = styled(Tabs)(({ theme }) => {
 
     const {
         text: {
             xxxGrey1,
-            xGrey2,
         },
         secondary: {
             main
@@ -35,7 +37,7 @@ const AntTabs = styled(Tabs)(({ theme }) => {
 
     }
 });
-const AntTab = styled(Tab)(({ theme, i }) => {
+const AntTab = styled(Tab)(({ theme, index }) => {
 
     const {
         text: {
@@ -48,24 +50,22 @@ const AntTab = styled(Tab)(({ theme, i }) => {
     } = theme.palette || {}
 
     return {
-
-        borderLeft: i == 1 ? `1px solid ${xGrey2}` : null,
-        marginRight: i == 0 ? "1rem" : "",
-
-
+        marginRight: index == 0 ?
+            "2rem"
+            :
+            null,
     }
 });
 
-function ClientTopTabs(props) {
+function TopTabs(props) {
 
     const {
         palette: {
             text: {
                 xGrey2,
-            },
+            }
         }
     } = useTheme()
-
 
     const tabs = props.tabs || [];
     const router = useRouter()
@@ -74,9 +74,18 @@ function ClientTopTabs(props) {
         router.push(`/${newValue}`)
     }
 
-    useEffect(() => {
+    const renderTabs =
+        tabs.map((item, key) => {
 
-    }, router)
+            return (
+                <AntTab
+                    key={key}
+                    index={key}
+                    label={item.label}
+                    value={item.value}
+                />
+            )
+        })
 
     return (
         <Box
@@ -98,10 +107,18 @@ function ClientTopTabs(props) {
                     textColor='secondary'
                     indicatorColor='secondary'
                 >
-                    {tabs && tabs.map((item, i) => {
-
-                        return <AntTab label={item.label} value={item.value} i={i} />
-                    })
+                    <Divider
+                        sx={{
+                            height: topTabsHeight,
+                            backgroundColor: xGrey2,
+                            position: 'absolute',
+                            left: 45 + tabs[0].label.length * 10,
+                        }}
+                        flexItem
+                        orientation="vertical"
+                    />
+                    {tabs &&
+                        renderTabs
                     }
 
                 </AntTabs>
@@ -110,4 +127,4 @@ function ClientTopTabs(props) {
     );
 }
 
-export default ClientTopTabs
+export default TopTabs

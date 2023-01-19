@@ -1,4 +1,4 @@
-import ClientTopTabs from '@Components/ClientTopTabs/ClientTopTabs';
+import TopTabs from '@Components/TopTabs/TopTabs';
 import ScrollContainer from '@Components/ScrollContainer/ScrollContainer';
 import AvatarNameCell from '@Components/Table/Components/AvatarNameCell/AvatarNameCell';
 import DateCell from '@Components/Table/Components/DateCell/DateCell';
@@ -133,7 +133,7 @@ function InternalNote() {
 
     return (
         <>
-            <ClientTopTabs tabs={tabs} />
+            <TopTabs tabs={tabs} />
             <TitleHeader
                 title="Internal Notes"
                 actionButtons={

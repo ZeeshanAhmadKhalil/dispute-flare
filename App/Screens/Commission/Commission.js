@@ -1,4 +1,4 @@
-import ClientTopTabs from '@Components/ClientTopTabs/ClientTopTabs';
+import TopTabs from '@Components/TopTabs/TopTabs';
 import ScrollContainer from '@Components/ScrollContainer/ScrollContainer';
 import StatsTile from '@Components/StatsTile/StatsTile';
 import DropDownCell from '@Components/Table/Components/DropDownCell/DropDownCell';
@@ -159,7 +159,7 @@ function Commission(props) {
 
     return (
         <>
-            <ClientTopTabs tabs={tabs} />
+            <TopTabs tabs={tabs} />
             <ScrollContainer>
                 <TitleHeader
                     title="Commission"

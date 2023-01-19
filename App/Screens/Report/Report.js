@@ -1,4 +1,4 @@
-import ClientTopTabs from '@Components/ClientTopTabs/ClientTopTabs';
+import TopTabs from '@Components/TopTabs/TopTabs';
 import ScrollContainer from '@Components/ScrollContainer/ScrollContainer';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
 import {
@@ -20,7 +20,7 @@ function Report(props) {
 
     return (
         <>
-            <ClientTopTabs tabs={tabs} />
+            <TopTabs tabs={tabs} />
             <ScrollContainer>
                 <TitleHeader
                     title="REPORT"
