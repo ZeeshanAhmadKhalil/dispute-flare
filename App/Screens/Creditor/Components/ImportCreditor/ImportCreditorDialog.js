@@ -1,6 +1,6 @@
 import FileDropPicker from '@Components/FileDropPicker/FileDropPicker'
 import {
-    importClientDesc
+    importCreditorDesc
 } from '@Config/constants'
 import RightDialogLayout from '@Layouts/RightDialogLayout/RightDialogLayout'
 import {
@@ -14,8 +14,8 @@ import LinearProgress, {
     linearProgressClasses
 } from '@mui/material/LinearProgress'
 import {
-    setImportClientsDialog
-} from '@Screens/Client/Store/clientsSlice'
+    setImportCreditorsDialog
+} from '@Screens/Creditor/Store/creditorSlice'
 import cls from 'classnames'
 import Csv from 'public/Assets/Svgs/csv.svg'
 import SampleCsv from 'public/Assets/Svgs/sample-csv.svg'
@@ -25,7 +25,7 @@ import {
     useDispatch,
     useSelector
 } from 'react-redux'
-import ImportClientActions from './ImportClientActions'
+import ImportCreditorActions from './ImportCreditorActions'
 
 const Container = styled(Box)(({ theme }) => {
 
@@ -55,7 +55,7 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
 }))
 
 
-function ImportClientsDialog(props) {
+function ImportCreditorsDialog(props) {
 
     const defaultValues = {
         files: []
@@ -70,8 +70,8 @@ function ImportClientsDialog(props) {
 
 
     const {
-        importClientsDialog
-    } = useSelector(state => state.clients)
+        importCreditorsDialog
+    } = useSelector(state => state.creditor)
 
     const {
         register,
@@ -99,8 +99,7 @@ function ImportClientsDialog(props) {
                     alignItems: "center",
                     paddingX: "1rem",
                     justifyContent: "space-between",
-                }
-                }
+                }}
             >
                 <Box
                     sx={{
@@ -137,18 +136,18 @@ function ImportClientsDialog(props) {
     }
     return (
         <RightDialogLayout
-            onClose={() => dispatch(setImportClientsDialog(false))}
+            onClose={() => dispatch(setImportCreditorsDialog(false))}
             actionButtons={
-                <ImportClientActions
+                <ImportCreditorActions
                     handleSubmit={handleSubmit}
                     onClose={() =>
-                        dispatch(setImportClientsDialog(false))
+                        dispatch(setImportCreditorsDialog(false))
                     }
                 />
             }
-            open={importClientsDialog}
+            open={importCreditorsDialog}
             closeBtnText="IMPORT"
-            title={"Import Clients via CSV"}
+            title={"Import Creditors via CSV"}
         >
             <Container>
                 <Grid
@@ -180,7 +179,7 @@ function ImportClientsDialog(props) {
                             variant='body2'
                             component="div"
                         >
-                            {importClientDesc}
+                            {importCreditorDesc}
                         </Typography>
                     </Grid>
                     <Grid
@@ -241,4 +240,4 @@ function ImportClientsDialog(props) {
     )
 }
 
-export default ImportClientsDialog
+export default ImportCreditorsDialog

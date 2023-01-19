@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import AddCreditorDialog from './Components/AddCreditorDialog';
 import CreditorActions from './Components/CreditorActions';
+import ImportCreditorsDialog from './Components/ImportCreditor/ImportCreditorDialog';
 import {
     setAllColumnsVisibility,
     setColumnVisibility,
@@ -23,13 +24,6 @@ function Creditor(props) {
     } = useSelector(state => state.creditor)
 
     const [selectedCreditors, setSelectedCreditors] = useState([])
-
-    const onRowClick = ({
-        id
-    }) => {
-        //  dispatch(setSelectedClientId(id))
-        router.push('creditor-dashboard')
-    }
 
     useEffect(() => {
     }, [])
@@ -54,12 +48,12 @@ function Creditor(props) {
                 }}
                 columns={columns}
                 rows={creditors}
-                onRowClick={onRowClick}
                 setColumnVisibility={setColumnVisibility}
                 setAllColumnsVisibility={setAllColumnsVisibility}
                 setDefaultColumnsVisibility={setDefaultColumnsVisibility}
             />
             <AddCreditorDialog />
+            <ImportCreditorsDialog />
         </>
     )
 }

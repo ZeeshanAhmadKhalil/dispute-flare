@@ -36,7 +36,12 @@ const clientsSlice = createSlice({
                 width: 200,
                 headerClassName: 'separator-header',
                 hidable: true,
-                renderCell: BadgeNameCell,
+                renderCell: (props) => (
+                    <BadgeNameCell
+                        {...props}
+                        navigateTo="client-dashboard"
+                    />
+                ),
                 hide: false,
             },
             {

@@ -14,19 +14,22 @@ import AddCreditorActions from './AddCreditorActions';
 import {
     AddItemContainer
 } from '@Components/StyledComponents/StyledComponents'
+import AddCreditor from './AddCreditor';
 
 function AddCreditorDialog(props) {
 
     const defaultValues = {
+        creditorName: null,
+        address: null,
+        city: null,
+        fax: null,
+        phone: null,
+        state: null,
+        zipCode: null,
+        accountNature: null,
     }
 
     const dispatch = useDispatch()
-    const {
-        palette: {
-            tableSeparator,
-            text,
-        }
-    } = useTheme()
 
     const {
         creditorDialog
@@ -63,6 +66,12 @@ function AddCreditorDialog(props) {
             title={"Add Creditor"}
         >
             <AddItemContainer>
+                <AddCreditor
+                    watch={watch}
+                    register={register}
+                    control={control}
+                    errors={errors}
+                />
             </AddItemContainer>
         </RightDialogLayout >
     );

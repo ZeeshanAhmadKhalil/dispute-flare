@@ -2,21 +2,20 @@ import Button from '@Components/Button/Button';
 import { useTheme } from '@mui/material';
 import { useDispatch } from 'react-redux';
 
-function AddInstructionActions(props) {
+function ImportCreditorActions(props) {
 
     const {
         onClose,
         handleSubmit,
     } = props || {}
 
-    const dispatch = useDispatch()
     const {
         palette: {
             text: { grey }
         }
     } = useTheme()
 
-    const handleFlowClient = handleSubmit((data) => {
+    const handleSave = handleSubmit((data) => {
         console.log("data===>", data)
     })
 
@@ -24,7 +23,7 @@ function AddInstructionActions(props) {
     return (
         <>
             <Button
-                onClick={handleFlowClient}
+                onClick={handleSave}
                 color={"primary"}
                 style={{
                     borderRadius: 3,
@@ -34,7 +33,7 @@ function AddInstructionActions(props) {
                     fontWeight: 'bold',
                 }}
             >
-                {"ADD INSTRUCTION"}
+                {"SAVE"}
             </Button>
             <Button
                 color={"text"}
@@ -52,4 +51,4 @@ function AddInstructionActions(props) {
     )
 }
 
-export default AddInstructionActions
+export default ImportCreditorActions

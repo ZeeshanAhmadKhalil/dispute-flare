@@ -1,4 +1,5 @@
 import DropDownCell from '@Components/Table/Components/DropDownCell/DropDownCell';
+import LinkCell from '@Components/Table/Components/LinkCell/LinkCell';
 import { createSlice } from '@reduxjs/toolkit';
 import Gear from 'public/Assets/Svgs/gear.svg';
 
@@ -6,6 +7,7 @@ const creditorSlice = createSlice({
     name: 'creditor',
     initialState: {
         creditorDialog: false,
+        importCreditorsDialog: false,
         columns: [
             {
                 field: 'settings',
@@ -32,6 +34,12 @@ const creditorSlice = createSlice({
                 headerName: 'Creditor',
                 width: 200,
                 headerClassName: 'separator-header',
+                renderCell: (props) => (
+                    <LinkCell
+                        {...props}
+                        navigateTo="creditor-dashboard"
+                    />
+                ),
                 hidable: true,
                 hide: false,
             },
@@ -180,6 +188,9 @@ const creditorSlice = createSlice({
         setCreditorDialog: (state, action) => {
             state.creditorDialog = action.payload
         },
+        setImportCreditorsDialog: (state, action) => {
+            state.importCreditorsDialog = action.payload
+        },
         setColumnVisibility: (state, action) => {
 
             const { field, hide } = action.payload || {}
@@ -232,6 +243,7 @@ const creditorSlice = createSlice({
 
 export const {
     setCreditorDialog,
+    setImportCreditorsDialog,
     setColumnVisibility,
     setAllColumnsVisibility,
     setDefaultColumnsVisibility,
