@@ -139,7 +139,7 @@ function AffiliateDashboard(props) {
             <ClientTopTabs tabs={tabs} />
             <ScrollContainer>
                 <TitleHeader
-                    title="Terrnce Lewis"
+                    title="Terence Lewis"
                     actionButtons={
                         <AffiliateDashboardActions
                             selectedInstructions={selectedClients}
