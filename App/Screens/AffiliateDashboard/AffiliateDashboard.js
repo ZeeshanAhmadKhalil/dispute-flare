@@ -1,4 +1,4 @@
-import ClientTopTabs from '@Components/ClientTopTabs/ClientTopTabs';
+
 import StatsTile from '@Components/StatsTile/StatsTile';
 import {
     Box,
@@ -18,6 +18,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import AffiliateDashboardActions from './Components/AffiliateDashboardActions';
 import RecordPaymentDialog from './Components/AddAffiliate/RecordPaymentDialog';
+import TopTabs from '@Components/TopTabs/TopTabs';
 
 const affiliates = [
     {
@@ -136,7 +137,7 @@ function AffiliateDashboard(props) {
 
     return (
         <>
-            <ClientTopTabs tabs={tabs} />
+            <TopTabs tabs={tabs} />
             <ScrollContainer>
                 <TitleHeader
                     title="Terence Lewis"
