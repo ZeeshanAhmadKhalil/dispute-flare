@@ -1,4 +1,4 @@
-import ClientTopTabs from '@Components/ClientTopTabs/ClientTopTabs';
+import TopTabs from '@Components/TopTabs/TopTabs';
 import Table from '@Components/Table/Table';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
 import { Divider, Tab, Tabs, Typography, useTheme } from '@mui/material';
@@ -144,7 +144,7 @@ function LetterLibrary(props) {
 
     return (
         <>
-            <ClientTopTabs tabs={tabs} />
+            <TopTabs tabs={tabs} />
             <TitleHeader
                 title="Letter Library"
                 actionButtons={

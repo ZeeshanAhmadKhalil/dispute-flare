@@ -3,7 +3,7 @@ import TitleHeader from '@Components/TitleHeader/TitleHeader';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import AddCreditorDialog from './Components/AddCreditorDialog';
+import AddCreditorDialog from './Components/AddCreditor/AddCreditorDialog';
 import CreditorActions from './Components/CreditorActions';
 import ImportCreditorsDialog from './Components/ImportCreditor/ImportCreditorDialog';
 import {

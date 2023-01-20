@@ -1,4 +1,4 @@
-import ClientTopTabs from '@Components/ClientTopTabs/ClientTopTabs';
+import TopTabs from '@Components/TopTabs/TopTabs';
 import Table from '@Components/Table/Table';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
 import DefaultCell from '@Components/DefaultCell/DefaultCell';
@@ -13,7 +13,7 @@ import {
 import AddInstructionDialog from './Components/AddAffiliate/AddAffililateDialog';
 import IOSSwitch from '@Components/IOSSwitch/IOSSwitch';
 import AffiliatesActions from './Components/AffiliatesActions';
-const label = { inputProps: { 'aria-label': 'Switch demo' } };
+import LinkCell from '@Components/Table/Components/LinkCell/LinkCell';
 const affiliates = [
     {
         id: 1,
@@ -82,12 +82,17 @@ function Affiliates(props) {
         },
         {
             field: 'name',
-            headerName: 'Name',
+            headerName: 'name',
             width: 200,
             headerClassName: 'separator-header',
+            renderCell: (props) => (
+                <LinkCell
+                    {...props}
+                    navigateTo="affiliate-dashboard"
+                />
+            ),
             hidable: true,
             hide: false,
-            renderCell: ({ value }) => <DefaultCell value={value} />,
         },
         {
             field: 'company',
@@ -158,7 +163,7 @@ function Affiliates(props) {
 
     return (
         <>
-            <ClientTopTabs tabs={tabs} />
+            <TopTabs tabs={tabs} />
             <TitleHeader
                 title="Affiliates"
                 actionButtons={

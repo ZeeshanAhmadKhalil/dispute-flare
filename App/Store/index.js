@@ -15,12 +15,15 @@ import templates from '@Screens/Templates/Store/templatesSlice'
 import reasons from '@Screens/Reasons/Store/reasonsSlice'
 import instructions from '@Screens/Instructions/Store/instructionsSlice'
 import affiliates from '@Screens/Affiliates/Store/affiliatesSlice'
+import affiliateDashboard from '@Screens/AffiliateDashboard/Store/affiliateDashboardSlice'
+import commission from '@Screens/Commission/Store/commissionSlice'
 import storage from '@Store/storage'
 
 const reducers = combineReducers({
     auth,
     clients,
     creditor,
+    commission,
     dispute,
     documents,
     internalNote,
@@ -31,6 +34,7 @@ const reducers = combineReducers({
     reasons,
     instructions,
     affiliates,
+    affiliateDashboard,
     [authApi.reducerPath]: authApi.reducer,
 });
 
