@@ -154,7 +154,7 @@ function AffiliateDashboard(props) {
                     )}
                 >
                     <StatsTile
-                        name="TOTAL COMISSION"
+                        name="TOTAL COMISSION "
                         value={"30.5k"}
                         valueColor={warning.main}
                         icon={
