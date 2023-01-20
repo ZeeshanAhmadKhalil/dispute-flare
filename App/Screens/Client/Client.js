@@ -1,11 +1,9 @@
 import Table from '@Components/Table/Table';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
-import { useRouter } from 'next/router';
 import {
     useState
 } from 'react';
 import {
-    useDispatch,
     useSelector
 } from 'react-redux';
 import AddClientDialog from './Components/AddClient/AddClientDialog';

@@ -6,11 +6,12 @@ import {
 import cls from 'classnames';
 
 function StatsTile({
-    value,
-    name,
     icon,
-    valueColor,
+    name,
+    value,
     styles,
+    nameColor,
+    valueColor,
 }) {
 
     const {
@@ -35,8 +36,8 @@ function StatsTile({
                 'rounded-lg',
             )}
             sx={{
+                background: light1,
                 ...styles,
-                background: light1
             }}
         >
             <Box
@@ -57,7 +58,11 @@ function StatsTile({
                     )}
                 >
                     <Typography
-                        color={xGrey1}
+                        color={nameColor ?
+                            nameColor
+                            :
+                            xGrey1
+                        }
                         variant="h6"
                     >
                         {name}

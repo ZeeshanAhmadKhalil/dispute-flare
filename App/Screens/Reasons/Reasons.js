@@ -1,4 +1,4 @@
-import ClientTopTabs from '@Components/ClientTopTabs/ClientTopTabs';
+import TopTabs from '@Components/TopTabs/TopTabs';
 import Table from '@Components/Table/Table';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
 import DefaultCell from '@Components/DefaultCell/DefaultCell';
@@ -128,7 +128,7 @@ function Reasons(props) {
 
     return (
         <>
-            <ClientTopTabs tabs={tabs} />
+            <TopTabs tabs={tabs} />
             <TitleHeader
                 title="Reasons"
                 actionButtons={

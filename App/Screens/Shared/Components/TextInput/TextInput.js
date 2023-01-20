@@ -38,6 +38,7 @@ const TextField = styled(InputBase)(({ theme, width }) => ({
 function TextInput(props) {
 
     const {
+        icon,
         name,
         width,
         error,
@@ -57,25 +58,45 @@ function TextInput(props) {
         <div
             style={{
                 position: 'relative',
+                border: '0px solid red'
             }}
         >
-            <TextField
-                {...register}
-                rows={rows}
-                multiline={multiline}
-                autoComplete={false}
-                type={name}
-                id={camelToBreadcrumbs(name)}
-                variant="outlined"
-                width={width ? width : null}
-                fullWidth
-                placeholder={
-                    placeholder ?
-                        placeholder
-                        :
-                        `Enter ${camelToTitle(name)}`
+            <div
+                style={{
+                    position: 'relative',
+                    border: '0px solid red',
+                    width: 'fit-content'
+                }}
+            >
+                <TextField
+                    {...register}
+                    rows={rows}
+                    multiline={multiline}
+                    autoComplete={false}
+                    type={name}
+                    id={camelToBreadcrumbs(name)}
+                    variant="outlined"
+                    width={width ? width : null}
+                    fullWidth
+                    placeholder={
+                        placeholder ?
+                            placeholder
+                            :
+                            `Enter ${camelToTitle(name)}`
+                    }
+                />
+                {icon &&
+                    <div
+                        style={{
+                            position: 'absolute',
+                            top: 8,
+                            right: 10,
+                        }}
+                    >
+                        {icon}
+                    </div>
                 }
-            />
+            </div>
             {error &&
                 <div
                     style={{

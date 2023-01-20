@@ -1,4 +1,4 @@
-import ClientTopTabs from '@Components/ClientTopTabs/ClientTopTabs';
+import TopTabs from '@Components/TopTabs/TopTabs';
 import StatsTile from '@Components/StatsTile/StatsTile';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
 import {
@@ -42,7 +42,7 @@ function CreditorDashboard(props) {
 
     return (
         <>
-            <ClientTopTabs tabs={tabs} />
+            <TopTabs tabs={tabs} />
             <ScrollContainer>
                 <TitleHeader
                     title="Dashboard"
@@ -133,6 +133,7 @@ function CreditorDashboard(props) {
                                 }}
                             >
                                 <TotalCommission
+                                    color={icongreen.light}
                                     height={25}
                                     width={25}
                                 />

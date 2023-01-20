@@ -189,10 +189,10 @@ function Table(props) {
         setColumnVisibility,
         hideSeparator = false,
         onSelectionModelChange,
-        hasCreditMonitoringInfo,
         setAllColumnsVisibility,
         checkboxSelection = true,
         setDefaultColumnsVisibility,
+        hasCreditMonitoringInfo = true,
         headerColor = tableHeader?.main,
         rowSeparatorColor = tableSeparator?.main,
     } = props || {}
