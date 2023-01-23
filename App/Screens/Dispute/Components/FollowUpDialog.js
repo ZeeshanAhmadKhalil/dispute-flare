@@ -1,4 +1,10 @@
-import { Box, Checkbox, FormControlLabel, ThemeProvider, useTheme } from '@mui/material';
+import {
+    Box,
+    Checkbox,
+    FormControlLabel,
+    ThemeProvider,
+    useTheme
+} from '@mui/material';
 import Dialog from '@mui/material/Dialog';
 import Typography from '@mui/material/Typography';
 import QuestionMark from 'public/Assets/Svgs/question-mark.svg';

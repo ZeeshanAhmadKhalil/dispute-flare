@@ -132,6 +132,7 @@ const themeObj = {
             contrastText: "#000",
             contrastText1: "#4E4E4E",
             hovered: '#fff1',
+            silver: "#c6ced3",
             xGrey: "#858585",
             xGrey1: "#898989",
             xGrey2: "#898989",
@@ -157,6 +158,7 @@ const themeObj = {
             light: "#F3F4FA",
             light1: "#fffd",
             xTrans: '#00000044',
+            dark: "#000",
         },
         xTrans: {
             main: "#00000044"
