@@ -2,6 +2,7 @@ import CollapsableForm from '@Components/CollapsableForm/CollapsableForm';
 import DatePicker from '@Components/DatePicker/DatePicker';
 import DropDown from '@Components/DropDown/DropDown';
 import TextInput from '@Components/TextInput/TextInput';
+import TimePicker from '@Components/TimePicker/TimePicker';
 import {
     Grid,
     styled,
@@ -38,6 +39,20 @@ function AddTask(props) {
         { label: "High", value: 1 },
         { label: "Medium", value: 2 },
         { label: "Low", value: 3 },
+    ]
+    const teamMemberList = [
+        { label: "Gol D. Roger", value: 1 },
+        { label: "Monkey D. Dragon", value: 2 },
+        { label: "Monkey D. Garp", value: 3 },
+        { label: "Monkey D. Luffy", value: 4 },
+        { label: "Portgas D. Ace", value: 5 },
+        { label: "Trafalgar D. Water Law", value: 6 },
+    ]
+    const clientList = [
+        { label: "Catarina Devon", value: 1 },
+        { label: "Nefertari Vivi", value: 2 },
+        { label: "Nico Robin", value: 3 },
+        { label: "Nami", value: 4 },
     ]
 
     const {
@@ -191,7 +206,110 @@ function AddTask(props) {
                     md="6"
                     xs="12"
                 >
-
+                    <Grid
+                        container
+                        className={cls(
+                            'border-red-700', 'border-0',
+                            'flex',
+                            'justify-start'
+                        )}
+                    >
+                        <TimePicker
+                            control={control}
+                            name="startTime"
+                            error={errors.startTime}
+                            width={110}
+                        />
+                        <TimePicker
+                            width={110}
+                            control={control}
+                            name="endTime"
+                            error={errors.endTime}
+                            styles={{
+                                marginLeft: 2.5
+                            }}
+                        />
+                    </Grid>
+                </Grid>
+                <Grid
+                    item
+                    xl="2"
+                    md="6"
+                    xs="12"
+                >
+                    <Label
+                        variant="subtitle1"
+                    >
+                        Team Member
+                    </Label>
+                </Grid>
+                <Grid
+                    item
+                    xl="4"
+                    md="6"
+                    xs="12"
+                >
+                    <DropDown
+                        watch={watch}
+                        register={register("teamMember")}
+                        list={teamMemberList}
+                        name="teamMember"
+                        error={errors.teamMember}
+                    />
+                </Grid>
+                <Grid
+                    item
+                    xl="2"
+                    md="6"
+                    xs="12"
+                >
+                    <Label
+                        variant="subtitle1"
+                    >
+                        Client
+                    </Label>
+                </Grid>
+                <Grid
+                    item
+                    xl="4"
+                    md="6"
+                    xs="12"
+                >
+                    <DropDown
+                        watch={watch}
+                        register={register("client")}
+                        list={clientList}
+                        name="client"
+                        error={errors.client}
+                    />
+                </Grid>
+                <Grid
+                    item
+                    xl="2"
+                    md="6"
+                    xs="12"
+                >
+                    <Label
+                        variant="subtitle1"
+                    >
+                        Notes
+                    </Label>
+                </Grid>
+                <Grid
+                    item
+                    xl="4"
+                    md="6"
+                    xs="12"
+                >
+                    <TextInput
+                        register={register("notes", {
+                            required: true,
+                        })}
+                        name="notes"
+                        error={errors.notes}
+                        multiline={true}
+                        rows={8}
+                    />
                 </Grid>
             </Grid>
         </CollapsableForm >

@@ -12,13 +12,14 @@ import {
 } from '@mui/material';
 import Box from '@mui/material/Box';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { DatePicker as MuiDatePicker } from '@mui/x-date-pickers/DatePicker';
+import { TimePicker as MuiTimePicker } from '@mui/x-date-pickers/TimePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import cls from 'classnames';
-import Calendar from 'public/Assets/Svgs/calendar.svg';
+import Clock from 'public/Assets/Svgs/clock.svg';
 import { Controller } from 'react-hook-form';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
 
-const TextField = styled(InputBase)(({ theme }) => ({
+const TextField = styled(InputBase)(({ theme, width }) => ({
     'label + &': {
         marginTop: theme.spacing(3),
     },
@@ -28,7 +29,7 @@ const TextField = styled(InputBase)(({ theme }) => ({
         color: theme.palette.text.contrastText,
         border: `1px solid ${theme.palette.tableSeparator.dark}`,
         fontSize: 14,
-        width: 250,
+        width,
         height: 10,
         padding: '10px 12px',
         transition: theme.transitions.create([
@@ -51,9 +52,11 @@ const IconContainer = styled(Box)(() => ({
 function TimePicker(props) {
 
     const {
-        control,
         name,
         error,
+        styles,
+        control,
+        width = 250,
     } = props || {}
 
     const {
@@ -71,36 +74,39 @@ function TimePicker(props) {
                 name={name}
                 render={({ field: { value, onChange } }) => (
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
-                        <MuiDatePicker
+                        <MuiTimePicker
                             label={camelToTitle(name)}
                             value={value}
                             onChange={onChange}
                             id={camelToBreadcrumbs(name)}
                             components={{
                                 OpenPickerIcon: () => (
-                                    <Calendar
-                                        width={15}
-                                        height={15}
-                                        color={input}
+                                    <AccessTimeIcon
+                                        sx={{
+                                            color: input,
+                                            fontSize: 18,
+                                        }}
                                     />
                                 )
                             }}
                             renderInput={({ inputRef, inputProps, InputProps }) => (
                                 <Box
                                     className={cls(
-                                        'border-red-700',
-                                        'border-0',
+                                        'border-red-700', 'border-0',
                                     )}
                                     sx={{
                                         display: 'flex',
                                         alignItems: 'center',
                                         position: 'relative',
-                                        width: 260,
+                                        width: width + 10,
+                                        ...styles,
                                     }}
                                 >
                                     <TextField
                                         {...inputProps}
                                         readOnly
+                                        placeholder={camelToTitle(name)}
+                                        width={width}
                                         ref={inputRef}
                                         variant="outlined"
                                     />
