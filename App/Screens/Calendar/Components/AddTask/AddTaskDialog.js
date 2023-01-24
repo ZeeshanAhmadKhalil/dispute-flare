@@ -7,28 +7,29 @@ import {
     useDispatch,
     useSelector
 } from 'react-redux';
-import { setCreditorDialog } from '../../Store/creditorSlice';
-import AddCreditor from './AddCreditor';
-import AddCreditorActions from './AddCreditorActions';
+import { setAddTaskDialog } from '../../Store/calendarSlice';
+import AddTask from './AddTask';
+import AddTaskActions from './AddTaskActions';
 
-function AddCreditorDialog(props) {
+function AddTaskDialog(props) {
 
     const defaultValues = {
-        creditorName: null,
-        address: null,
-        city: null,
-        fax: null,
-        phone: null,
-        state: null,
-        zipCode: null,
-        accountNature: null,
+        title: null,
+        category: null,
+        priority: null,
+        date: null,
+        startTime: null,
+        endTime: null,
+        teamMembers: [],
+        clients: [],
+        notes: null,
     }
 
     const dispatch = useDispatch()
 
     const {
-        creditorDialog
-    } = useSelector(state => state.creditor)
+        addTaskDialog
+    } = useSelector(state => state.calendar)
 
     const {
         register,
@@ -45,23 +46,23 @@ function AddCreditorDialog(props) {
     return (
         <RightDialogLayout
             onClose={() =>
-                dispatch(setCreditorDialog(false))
+                dispatch(setAddTaskDialog(false))
             }
             actionButtons={
-                <AddCreditorActions
+                <AddTaskActions
                     reset={reset}
                     handleSubmit={handleSubmit}
                     onClose={() =>
-                        dispatch(setCreditorDialog(false))
+                        dispatch(setAddTaskDialog(false))
                     }
                 />
             }
-            open={creditorDialog}
-            closeBtnText="Creditor"
-            title={"Add Creditor"}
+            open={addTaskDialog}
+            closeBtnText="Task"
+            title={"Add Task"}
         >
             <AddItemContainer>
-                <AddCreditor
+                <AddTask
                     watch={watch}
                     register={register}
                     control={control}
@@ -72,4 +73,4 @@ function AddCreditorDialog(props) {
     );
 }
 
-export default AddCreditorDialog
+export default AddTaskDialog
