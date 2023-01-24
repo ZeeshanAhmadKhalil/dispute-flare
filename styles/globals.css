@@ -16,7 +16,11 @@
     background-color: #ECF3FA;
     color: #6B6D70;
 }
-.jailal {
 
+.jailal {
     border-right: 3px solid black;
-   }
+}
+
+.rbc-event {
+    background-color: unset !important;
+}

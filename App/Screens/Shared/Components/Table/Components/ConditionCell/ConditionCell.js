@@ -4,8 +4,6 @@ import Negative from 'public/Assets/Svgs/negative.svg';
 
 function ConditionCell(props) {
 
-    console.log("props===>", props)
-
     const {
         value,
         row: {

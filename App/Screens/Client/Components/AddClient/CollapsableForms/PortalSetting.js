@@ -63,8 +63,7 @@ function PortalSetting(props) {
                 container
                 rowSpacing={3}
                 className={cls(
-                    'border-red-700',
-                    'border-0',
+                    'border-red-700', 'border-0',
                     'flex',
                     'items-center',
                 )}

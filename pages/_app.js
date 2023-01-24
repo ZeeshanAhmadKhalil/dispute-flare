@@ -11,6 +11,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import '../styles/custom.css';
 import '../styles/globals.css';
 import '../styles/ScrollContainer.css';
+import 'react-big-calendar/lib/css/react-big-calendar.css';
 
 function MyApp(props) {
 
