@@ -8,15 +8,23 @@ import cls from 'classnames'
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 
-function CalendarToolbar({
-    label,
-    date,
-    views,
-    view,
-    onView,
-    onNavigate
-}) {
+function CalendarToolbar(props) {
 
+    let navigate = {
+        PREVIOUS: 'PREV',
+        NEXT: 'NEXT',
+        TODAY: 'TODAY',
+        DATE: 'DATE',
+        MONTH: 'MONTH',
+        WEEK: 'WEEK',
+        DAY: 'DAY',
+        AGENDA: 'AGENDA',
+    }
+
+    const {
+        label,
+        onNavigate
+    } = props || {}
 
     const {
         palette: {
@@ -36,7 +44,11 @@ function CalendarToolbar({
                 mb: 4,
             }}
         >
-            <IconButton>
+            <IconButton
+                onClick={() =>
+                    onNavigate(navigate.PREVIOUS)
+                }
+            >
                 <ChevronLeftIcon
                     color="outlinedBtn"
                     fontSize="large"
@@ -51,7 +63,11 @@ function CalendarToolbar({
             >
                 {label}
             </Typography>
-            <IconButton>
+            <IconButton
+                onClick={() =>
+                    onNavigate(navigate.NEXT)
+                }
+            >
                 <ChevronRightIcon
                     color="outlinedBtn"
                     fontSize="large"

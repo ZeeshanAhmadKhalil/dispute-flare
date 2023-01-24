@@ -17,7 +17,6 @@ function AddAffiliateActions(props) {
     } = useTheme()
 
     const handleFlowClient = handleSubmit((data) => {
-        console.log("data===>", data)
     })
 
 

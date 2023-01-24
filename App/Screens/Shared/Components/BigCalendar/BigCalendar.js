@@ -11,7 +11,11 @@ import DateHeader from './Components/DateHeader'
 import EventContainerWrapper from './Components/EventContainerWrapper'
 import EventWrapper from './Components/EventWrapper'
 import Header from './Components/Header'
-import { useState } from 'react'
+import {
+    useCallback,
+    useRef,
+    useState
+} from 'react'
 
 const localizer = momentLocalizer(moment)
 

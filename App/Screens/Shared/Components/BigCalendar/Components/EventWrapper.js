@@ -3,8 +3,6 @@ import cls from 'classnames'
 
 function EventWrapper(props) {
 
-    console.log("EventWrapper props===>", props)
-
     const {
         children
     } = props
