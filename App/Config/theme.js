@@ -22,6 +22,11 @@ const themeObj = {
     },
     palette: {
         mode: 'dark',
+        event: {
+            high: "#FDDBD7",
+            medium: "#A8E9D2",
+            low: "#CCC3DE",
+        },
         chart: {
             line: "#C1D2DF",
             dot: "#5C86B7",
@@ -132,6 +137,7 @@ const themeObj = {
             contrastText: "#000",
             contrastText1: "#4E4E4E",
             hovered: '#fff1',
+            lightSilver: "##E6E7E7",
             silver: "#c6ced3",
             xGrey: "#858585",
             xGrey1: "#898989",

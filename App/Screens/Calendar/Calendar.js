@@ -12,29 +12,35 @@ function Calendar() {
 
     const events = [
         {
-            title: "Event 1",
-            start: new Date(2023, 1, 1),
-            end: new Date(2023, 1, 1),
+            title: "Johan doe",
+            start: new Date(2023, 0, 20),
+            end: new Date(2023, 0, 20),
+            type: "high",
         },
         {
-            title: "Event 2",
-            start: new Date(2023, 1, 3),
-            end: new Date(2023, 1, 3),
+            title: "High",
+            start: new Date(2023, 0, 23),
+            end: new Date(2023, 0, 23),
+            type: "high",
         },
         {
-            title: "Event 3",
-            start: new Date(2023, 1, 7),
-            end: new Date(2023, 1, 7),
+            title: "Medium",
+            start: new Date(2023, 0, 23),
+            end: new Date(2023, 0, 23),
+            type: "medium",
         },
         {
-            title: "Event 4",
-            start: new Date(2023, 1, 11),
-            end: new Date(2023, 1, 11),
+            title: "Low",
+            start: new Date(2023, 0, 23),
+            end: new Date(2023, 0, 23),
+            type: "low",
+            value: 420,
         },
         {
-            title: "Event 4",
-            start: new Date(2023, 1, 14),
-            end: new Date(2023, 1, 14),
+            title: "Johan doe",
+            start: new Date(2023, 0, 26),
+            end: new Date(2023, 0, 26),
+            type: "high",
         },
     ]
 
