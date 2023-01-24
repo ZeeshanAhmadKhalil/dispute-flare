@@ -70,27 +70,37 @@ function a11yProps(index) {
     }
 }
 
-function CalendatTabs() {
-
-    const [value, setValue] = React.useState(0)
+function CalendarTabs({
+    view,
+    setView,
+}) {
 
     const handleChange = (event, newValue) => {
-        setValue(newValue)
+        setView(newValue)
     }
 
     return (
         <Box sx={{ width: '100%' }}>
             <Tabs
-                value={value}
+                value={view}
                 onChange={handleChange}
                 aria-label=""
             >
-                <Tab label="Day" {...a11yProps(0)} />
-                <Tab label="Week" {...a11yProps(1)} />
-                <Tab label="Month" {...a11yProps(2)} />
+                <Tab
+                    label="Day"
+                    value={"day"}
+                />
+                <Tab
+                    label="Week"
+                    value={"week"}
+                />
+                <Tab
+                    label="Month"
+                    value={"month"}
+                />
             </Tabs>
         </Box>
     )
 }
 
-export default CalendatTabs
+export default CalendarTabs
