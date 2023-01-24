@@ -14,7 +14,7 @@ import HelpLine from 'public/Assets/Svgs/help-line.svg'
 import PlayOnTv from 'public/Assets/Svgs/play-on-tv.svg'
 import Stack from 'public/Assets/Svgs/stack.svg'
 import Question from 'public/Assets/Svgs/question.svg'
-
+import User from 'public/Assets/Svgs/user.svg'
 const sidebarRoutes = [
     {
         type: "menu-item",
@@ -73,7 +73,20 @@ const sidebarRoutes = [
     },
     {
         type: "divider",
+    }, ,
+    {
+        type: "menu-item",
+        displayName: "My Company",
+        icon: (
+            <User
+                width={25}
+                height={25}
+            />
+        ),
+        collapsable: false,
+        path: '/company'
     },
+
     {
         type: "menu-item",
         displayName: "Others",
@@ -85,7 +98,7 @@ const sidebarRoutes = [
         ),
         collapsable: true,
         path: '/others'
-    },
+    }
 ]
 
 const rightbarRoutes = [
