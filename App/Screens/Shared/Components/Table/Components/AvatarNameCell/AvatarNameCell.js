@@ -1,13 +1,14 @@
-import { Avatar, Badge, Box } from '@mui/material';
-import { useEffect } from 'react';
+import { Avatar, Box } from '@mui/material';
 
 function AvatarNameCell(props) {
 
     const {
         row: {
-            pfp
+            pfp,
+            pfp1,
         },
         value,
+        isSecond,
     } = props || {}
 
     return (
@@ -18,7 +19,11 @@ function AvatarNameCell(props) {
             }}
         >
             <Avatar
-                src={pfp}
+                src={isSecond ?
+                    pfp
+                    :
+                    pfp1
+                }
                 sx={{
                     width: 24,
                     height: 24,

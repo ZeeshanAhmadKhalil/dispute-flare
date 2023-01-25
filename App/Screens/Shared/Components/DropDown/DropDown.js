@@ -69,14 +69,29 @@ const Placeholder = styled(Box)(({ theme }) => {
 function DropDown(props) {
 
     const {
-        register,
         name,
         error,
         list,
         watch,
+        styles,
+        register,
+        customChange,
+        hideTextField,
+        theme = lightTheme,
     } = props || {}
 
     const [open, setOpen] = useState(false)
+
+    let customChangeProps = {}
+    if (customChange)
+        customChangeProps = {
+            value: customChange.value,
+            onChange: (event) => {
+                customChange.onChange(
+                    event.target.value
+                )
+            }
+        }
 
     function RenderList() {
         return list?.map?.((item, key) => {
@@ -95,16 +110,24 @@ function DropDown(props) {
     }
 
     return (
-        <ThemeProvider theme={lightTheme}>
-            <FormControl sx={{}} size="small">
+        <ThemeProvider theme={theme}>
+            <FormControl
+                sx={{
+                }}
+                size="small"
+            >
                 <Select
+                    sx={styles}
                     {...register}
+                    {...customChangeProps}
                     open={open}
                     onClose={() => setOpen(false)}
                     onOpen={() => setOpen(true)}
                     labelId={camelToBreadcrumbs(name)}
                     id={camelToBreadcrumbs(name)}
-                    input={
+                    input={hideTextField ?
+                        undefined
+                        :
                         <TextField />
                     }
                 >
@@ -115,7 +138,10 @@ function DropDown(props) {
                     </MenuItem>
                     {RenderList()}
                 </Select>
-                {!watch(name) &&
+                {(
+                    (watch && !watch?.(name)) ||
+                    (customChange && !customChange?.value)
+                ) &&
                     <Placeholder
                         onClick={() => setOpen(true)}
                     >
