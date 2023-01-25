@@ -27,6 +27,7 @@ const Dialog = styled(MuiDialog)(({ theme }) => {
     return {
         '& .MuiPaper-root': {
             backgroundColor: dialog.xxxxOff,
+            //  opacity: .4,
             color: text.contrastText,
             borderRadius: 0,
             margin: 0,

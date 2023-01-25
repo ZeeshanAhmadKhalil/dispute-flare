@@ -9,6 +9,8 @@ import {
 import Box from '@mui/material/Box';
 import MuiDialog from '@mui/material/Dialog';
 import { setProfileDialog } from '@Screens/Shared/Store/sharedSlice';
+
+import { setProfileDialogMain } from '@Screens/Profile/Store/profileSlice';
 import cls from 'classnames';
 import BellGray from 'public/Assets/Svgs/bell-gray.svg';
 import CloudScape from 'public/Assets/Svgs/cloud-scape.svg';
@@ -165,6 +167,7 @@ function ProfileDialog(props) {
                         }}
                     >
                         <Button
+                            onClick={() => dispatch(setProfileDialogMain(true))}
                             color={"textOff"}
                             variant="text"
                             style={{

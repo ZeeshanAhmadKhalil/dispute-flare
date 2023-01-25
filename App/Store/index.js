@@ -18,6 +18,7 @@ import affiliates from '@Screens/Affiliates/Store/affiliatesSlice'
 import affiliateDashboard from '@Screens/AffiliateDashboard/Store/affiliateDashboardSlice'
 import commission from '@Screens/Commission/Store/commissionSlice'
 import teams from '@Screens/Team/Store/teamsSlice'
+import profile from '@Screens/Profile/Store/profileSlice'
 import storage from '@Store/storage'
 
 const reducers = combineReducers({
@@ -37,6 +38,7 @@ const reducers = combineReducers({
     affiliates,
     affiliateDashboard,
     teams,
+    profile,
     [authApi.reducerPath]: authApi.reducer,
 });
 
