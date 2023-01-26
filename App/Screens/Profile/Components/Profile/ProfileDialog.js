@@ -8,6 +8,10 @@ import {
     useTheme
 } from '@mui/material';
 import React from 'react';
+import StarsIcon from '@mui/icons-material/Stars';
+import RecommendIcon from '@mui/icons-material/Recommend';
+import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
+import CircleIcon from '@mui/icons-material/Circle';
 import Tabs from '@mui/material/Tabs';
 import HorzontalTag from 'public/Assets/Svgs/horizontal-tag.svg'
 import Tab from '@mui/material/Tab';
@@ -20,6 +24,7 @@ import cls from 'classnames'
 import styles from './AddFlowDialog.module.scss'
 import { useForm } from 'react-hook-form';
 import TopTabs from '@Components/TopTabs/TopTabs';
+import Avatar from '@Components/Avatar/Avatar';
 const Container = styled(Box)(({ theme }) => {
 
     const {
@@ -138,18 +143,108 @@ function ProfileDialog(props) {
                 </Tabs>
 
                 <TabPanel value={value} index={0} >
-                    <Grid container>
-                        <Grid xl="4">
-                            <div sx={{ backgroundImage: `url(public/Assets/Svgs/horizontal-tag.svg)` }} >
+                    <Grid container columnSpacing="10px">
+                        <Grid xl="4" >
+                            <Grid padding="1rem 22px 2rem 0px">
+                                <Grid display="flex" justifyContent="space-between" alignItems="flex-start" >
+                                    <div  >
 
-                                <Typography sx={{ position: "relative", top: "0" }}>
-                                    Administator
+                                        <Typography color={palette.text.main} sx={{ position: "relative", top: "25px", left: "5px" }}>
+                                            ADMINSTRATOR
+                                        </Typography>
+                                        <HorzontalTag />
+                                    </div>
+                                    <Box display="flex" flexDirection="column">
+                                        <Box justifyContent="flex-end" display="flex" alignItems="center">
+
+
+                                            <CircleIcon sx={{
+                                                width: "10px",
+                                                height: "10px",
+                                                color: "green",
+                                                marginRight: "2px"
+                                            }} />
+                                            <Typography variant='span' color={palette.text.contrastText1}>
+                                                ONLINE
+                                            </Typography>
+                                        </Box>
+                                        <Typography color={palette.text.xGrey} >
+                                            Last seen 9 minutes ago
+                                        </Typography>
+                                    </Box>
+                                </Grid>
+                                <Grid display="flex" justifyContent="center" marginTop="40px">
+                                    <Avatar styles={{
+                                        height: 150,
+                                        width: 150,
+                                    }} />
+                                </Grid>
+
+                            </Grid>
+                            <Grid sx={{ padding: "10px 1rem 20px 16px", marginTop: "1rem" }} >
+                                <Typography variant='h6'   >
+                                    Appreciation
                                 </Typography>
-                            </div>
+                                <Divider
+                                    sx={{
+                                        backgroundColor: palette.text.xGrey2
+                                    }}
+                                />
+                                <Grid>
+                                    <RecommendIcon />   <RecommendIcon /> <EmojiEmotionsIcon /> <StarsIcon />
+                                </Grid>
+                            </Grid>
+
                         </Grid>
+                        <Grid xl="7" sx={{ padding: "1rem 2rem 1rem 1rem", marginLeft: "5px", }} >
 
-                        doe                 <Grid xl="8" sx={{ backgroundColor: "yellow" }}>
+                            <Grid display="flex" justifyContent="space-between">
 
+
+                                <Typography variant='h5' color={palette.text.xGrey}  >
+                                    Contact Information
+                                </Typography>
+
+
+                                <Typography color={palette.text.xGrey} >
+                                    Edit
+                                </Typography>
+
+
+                            </Grid>
+                            <Divider
+                                sx={{
+                                    backgroundColor: palette.text.main,
+                                    margin: "1rem 0"
+                                }}
+                            />
+                            <Grid rowGap="10px" display="flex" flexDirection="column">
+                                <Typography color={palette.text.xGrey} >
+                                    First Name
+                                </Typography>
+                                <Typography  >
+                                    John
+                                </Typography>
+                                <Typography color={palette.text.xGrey} marginTop="1rem">
+                                    Last Name
+                                </Typography>
+                                <Typography  >
+                                    Doe
+                                </Typography>
+                                <Typography color={palette.text.xGrey} marginTop="1rem">
+                                    Contact Email
+                                </Typography>
+                                <Typography color={palette.secondary.main} >
+                                    Johandoe@gmail.com
+                                </Typography>
+                                <Typography color={palette.text.xGrey} marginTop="1rem">
+                                    Mobile Number
+                                </Typography>
+                                <Typography  >
+                                    (000) 000-000
+                                </Typography>
+
+                            </Grid>
                         </Grid>
                     </Grid>
                 </TabPanel>
