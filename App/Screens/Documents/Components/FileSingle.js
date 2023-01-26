@@ -2,7 +2,6 @@ import {
     Box, Typography,
 } from '@mui/material'
 import * as React from 'react';
-import Button from '@mui/material/Button';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 import Grow from '@mui/material/Grow';
 import Paper from '@mui/material/Paper';
@@ -148,9 +147,6 @@ function FileSingle(props) {
                                                     onKeyDown={handleListKeyDown}
                                                     sx={{ backgroundColor: "white", color: palette.text.xxGrey }}
                                                 >
-                                                    {
-                                                        console.log()
-                                                    }
                                                     <MenuItem onClick={handleClose}>View</MenuItem>
                                                     <MenuItem onClick={handleClose}>Delete</MenuItem>
                                                     <MenuItem onClick={handleClose}>Download</MenuItem>

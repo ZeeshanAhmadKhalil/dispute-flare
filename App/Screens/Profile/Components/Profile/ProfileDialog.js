@@ -9,6 +9,7 @@ import {
 } from '@mui/material';
 import React from 'react';
 import Tabs from '@mui/material/Tabs';
+import HorzontalTag from 'public/Assets/Svgs/horizontal-tag.svg'
 import Tab from '@mui/material/Tab';
 import { setProfileDialogMain } from '@Screens/Profile/Store/profileSlice';
 import {
@@ -138,8 +139,13 @@ function ProfileDialog(props) {
 
                 <TabPanel value={value} index={0} >
                     <Grid container>
-                        <Grid xl="4" sx={{ backgroundColor: "red" }}>
-                            johnnnn
+                        <Grid xl="4">
+                            <div sx={{ backgroundImage: `url(public/Assets/Svgs/horizontal-tag.svg)` }} >
+
+                                <Typography sx={{ position: "relative", top: "0" }}>
+                                    Administator
+                                </Typography>
+                            </div>
                         </Grid>
 
                         doe                 <Grid xl="8" sx={{ backgroundColor: "yellow" }}>
