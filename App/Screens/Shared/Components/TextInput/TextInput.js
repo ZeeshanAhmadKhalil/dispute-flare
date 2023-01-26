@@ -45,6 +45,7 @@ function TextInput(props) {
         register,
         multiline,
         placeholder,
+        containerStyle,
         rows = undefined,
     } = props || {}
 
@@ -65,7 +66,8 @@ function TextInput(props) {
                 style={{
                     position: 'relative',
                     border: '0px solid red',
-                    width: 'fit-content'
+                    width: 'fit-content',
+                    ...containerStyle,
                 }}
             >
                 <TextField

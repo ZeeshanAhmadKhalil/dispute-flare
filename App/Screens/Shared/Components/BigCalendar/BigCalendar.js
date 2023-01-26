@@ -6,11 +6,16 @@ import {
 } from 'react-big-calendar'
 import CalendarEvent from './Components/CalendarEvent'
 import CalendarToolbar from './Components/CalendarToolbar'
-import CalendatTabs from './Components/CalendatTabs'
+import CalendarTabs from './Components/CalendarTabs'
 import DateHeader from './Components/DateHeader'
 import EventContainerWrapper from './Components/EventContainerWrapper'
 import EventWrapper from './Components/EventWrapper'
 import Header from './Components/Header'
+import {
+    useCallback,
+    useRef,
+    useState
+} from 'react'
 
 const localizer = momentLocalizer(moment)
 
@@ -25,15 +30,20 @@ const BigCalendar = ({
         }
     } = useTheme()
 
+    const [view, setView] = useState('month')
+
     return (
         <Box>
-            <CalendatTabs />
+            <CalendarTabs
+                view={view}
+                setView={setView}
+            />
             <Calendar
                 localizer={localizer}
                 events={events}
                 startAccessor="start"
                 endAccessor="end"
-                defaultView='month'
+                view={view}
                 style={{
                     height: 800,
                     background: background.main,

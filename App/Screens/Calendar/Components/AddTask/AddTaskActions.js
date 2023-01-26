@@ -2,7 +2,7 @@ import Button from '@Components/Button/Button';
 import { useTheme } from '@mui/material';
 import { useDispatch } from 'react-redux';
 
-function AddAffiliateActions(props) {
+function AddTaskActions(props) {
 
     const {
         onClose,
@@ -16,14 +16,15 @@ function AddAffiliateActions(props) {
         }
     } = useTheme()
 
-    const handleFlowClient = handleSubmit((data) => {
+    const handleAddClient = handleSubmit((data) => {
+        console.log("data===>", data)
     })
 
 
     return (
         <>
             <Button
-                onClick={handleFlowClient}
+                onClick={handleAddClient}
                 color={"primary"}
                 style={{
                     borderRadius: 3,
@@ -33,7 +34,7 @@ function AddAffiliateActions(props) {
                     fontWeight: 'bold',
                 }}
             >
-                {"RECORD PAYMENT"}
+                {"ADD TASK"}
             </Button>
             <Button
                 color={"text"}
@@ -51,4 +52,4 @@ function AddAffiliateActions(props) {
     )
 }
 
-export default AddAffiliateActions
+export default AddTaskActions

@@ -17,12 +17,14 @@ import instructions from '@Screens/Instructions/Store/instructionsSlice'
 import affiliates from '@Screens/Affiliates/Store/affiliatesSlice'
 import affiliateDashboard from '@Screens/AffiliateDashboard/Store/affiliateDashboardSlice'
 import commission from '@Screens/Commission/Store/commissionSlice'
+import calendar from '@Screens/Calendar/Store/calendarSlice'
 import teams from '@Screens/Team/Store/teamsSlice'
 import profile from '@Screens/Profile/Store/profileSlice'
 import storage from '@Store/storage'
 
 const reducers = combineReducers({
     auth,
+    calendar,
     clients,
     creditor,
     commission,

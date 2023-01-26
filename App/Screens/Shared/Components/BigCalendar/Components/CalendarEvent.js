@@ -6,8 +6,6 @@ import Low from 'public/Assets/Svgs/low.svg';
 
 function CalendarEvent(props) {
 
-    console.log("props===>", props)
-
     const {
         title,
         event: {

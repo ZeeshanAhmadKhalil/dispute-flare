@@ -2,6 +2,8 @@ import TopTabs from '@Components/TopTabs/TopTabs';
 import ScrollContainer from '@Components/ScrollContainer/ScrollContainer';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
 import BigCalendar from '@Components/BigCalendar/BigCalendar';
+import AddTaskDialog from './Components/AddTask/AddTaskDialog';
+import CalendarActions from './Components/CalendarActions';
 
 function Calendar() {
 
@@ -52,12 +54,15 @@ function Calendar() {
             <ScrollContainer>
                 <TitleHeader
                     title="Calendar"
-                    actionButtons={null}
+                    actionButtons={
+                        <CalendarActions />
+                    }
                 />
                 <BigCalendar
                     events={events}
                 />
             </ScrollContainer>
+            <AddTaskDialog />
         </>
     )
 }
