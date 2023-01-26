@@ -1,5 +1,6 @@
 import Button from '@Components/Button/Button';
-import { setSelectedTheme, setThemesDialog } from '@Layouts/Store/layoutSlice';
+import { setThemesDialog } from '@Layouts/Store/layoutSlice';
+import { setSelectedTheme } from '@Layouts/Store/themeSlice';
 import CloseIcon from '@mui/icons-material/Close';
 import {
     Box,
@@ -101,13 +102,15 @@ function ThemesDialog(props) {
     } = useTheme()
 
     const {
-        themes,
         themesDialog,
     } = useSelector(state => state.layout)
+    const {
+        themes,
+    } = useSelector(state => state.theme)
 
     function RenderThemes() {
-        return themes.map((item, key) => {
 
+        return themes.map((item, key) => {
             const {
                 id,
                 name,

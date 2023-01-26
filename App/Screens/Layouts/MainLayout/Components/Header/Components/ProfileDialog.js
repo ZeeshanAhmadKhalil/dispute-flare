@@ -97,9 +97,8 @@ function ProfileDialog(props) {
     } = useSelector(state => state.shared)
     const {
         themes,
-        sidebar,
         selectedTheme,
-    } = useSelector(state => state.layout)
+    } = useSelector(state => state.theme)
 
     let selectedImagePath
         = themes

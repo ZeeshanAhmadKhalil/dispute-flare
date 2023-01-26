@@ -1,4 +1,3 @@
-import { setSelectedTheme } from '@Layouts/Store/layoutSlice';
 import { Box, styled, useTheme } from '@mui/material';
 import cls from 'classnames';
 import Image from 'next/image';
@@ -6,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './Theme.module.scss';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import { setSelectedTheme } from '@Layouts/Store/themeSlice';
 
 const ThemeName = styled(Box, {
     shouldForwardProp: (prop) => prop !== 'hovered'

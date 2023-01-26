@@ -137,15 +137,6 @@ function Reasons(props) {
                     />
                 }
             />
-
-            <Divider
-                sx={{
-                    borderWidth: 0.5,
-                    borderColor: 'borders.main',
-                    backgroundColor: 'borders.main',
-                }} />
-
-
             <Table
                 autoHeight={true}
                 title="reasons"
