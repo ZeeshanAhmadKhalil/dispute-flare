@@ -1,7 +1,6 @@
-import TopTabs from '@Components/TopTabs/TopTabs';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import TopTabs from '@Components/TopTabs/TopTabs';
+import { useDispatch } from 'react-redux';
 
 function ClientDashboard(props) {
 
@@ -13,15 +12,6 @@ function ClientDashboard(props) {
         { label: "Documents", value: "documents" },
         { label: "Internal Notes", value: "internal-note" },
     ]
-    const {
-        columns,
-        clients,
-    } = useSelector(state => state.clients)
-
-    const [selectedClients, setSelectedClients] = useState([])
-
-    useEffect(() => {
-    }, [])
 
     return (
         <>
