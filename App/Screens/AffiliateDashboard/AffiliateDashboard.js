@@ -28,35 +28,40 @@ const affiliates = [
         email: "email@gmail.kaam",
         commission: "$5300",
         status: "active"
-    }, {
+    },
+    {
         id: 2,
         dateReferred: "14 Feb 2023",
         client: "John Ripper",
         email: "email@gmail.kaam",
         commission: "$5300",
         status: "active"
-    }, {
+    },
+    {
         id: 3,
         dateReferred: "14 Feb 2023",
         client: "John Ripper",
         email: "email@gmail.kaam",
         commission: "$5300",
         status: "active"
-    }, {
+    },
+    {
         id: 4,
         dateReferred: "14 Feb 2023",
         client: "John Ripper",
         email: "email@gmail.kaam",
         commission: "$5300",
         status: "active"
-    }, {
+    },
+    {
         id: 5,
         dateReferred: "14 Feb 2023",
         client: "John Ripper",
         email: "email@gmail.kaam",
         commission: "$5300",
         status: "active"
-    },]
+    },
+]
 
 
 const columns = [
@@ -347,8 +352,6 @@ function AffiliateDashboard(props) {
 
                             columns={columns}
                             rows={affiliates}
-                        // setColumnVisibility={setColumnVisibility}
-                        // setAllColumnsVisibility={setAllColumnsVisibility}
                         />
                     </Grid>
                 </Grid>

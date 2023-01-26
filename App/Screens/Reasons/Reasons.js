@@ -21,56 +21,14 @@ import AddReasonDialog from './Components/AddReason/AddReasonDialog';
 const label = { inputProps: { 'aria-label': 'Switch demo' } };
 
 
-const reasons = [
-    {
-        id: 1,
-        title: "credit card",
-        status: "active",
-        addedBy: "James Bond"
-    }, {
-        id: 2,
-        title: "credit card",
-        status: "active",
-        addedBy: "James Bond"
-    }, {
-        id: 3,
-        title: "credit card",
-        status: "active",
-        addedBy: "James Bond"
-    }, {
-        id: 4,
-        title: "credit card",
-        status: "active",
-        addedBy: "James Bond"
-    }, {
-        id: 5,
-        title: "credit card",
-        status: "active",
-        addedBy: "James Bond"
-    }, {
-        id: 6,
-        title: "credit card",
-        status: "active",
-        addedBy: "James Bond"
-    },]
+function Reasons() {
 
-
-function Reasons(props) {
-
-    const [checked, setChecked] = React.useState(true);
-    const [selectedReasons, setSelectedReasons] = useState([])
-
-    const handleChange = (event) => {
-        setChecked(event.target.checked);
-    };
     const tabs = [
         { label: "Letter Flow", value: "letterlibrary" },
         { label: "Templates", value: "templates" },
         { label: "Reasons", value: "reasons" },
         { label: "Instructions", value: "instructions" }
     ]
-
-
     const columns = [
         {
             field: 'id',
@@ -114,17 +72,50 @@ function Reasons(props) {
 
 
     ]
-    const {
-        palette
-    } = useTheme()
+    const reasons = [
+        {
+            id: 1,
+            title: "credit card",
+            status: "active",
+            addedBy: "James Bond"
+        },
+        {
+            id: 2,
+            title: "credit card",
+            status: "active",
+            addedBy: "James Bond"
+        },
+        {
+            id: 3,
+            title: "credit card",
+            status: "active",
+            addedBy: "James Bond"
+        },
+        {
+            id: 4,
+            title: "credit card",
+            status: "active",
+            addedBy: "James Bond"
+        },
+        {
+            id: 5,
+            title: "credit card",
+            status: "active",
+            addedBy: "James Bond"
+        },
+        {
+            id: 6,
+            title: "credit card",
+            status: "active",
+            addedBy: "James Bond"
+        },
+    ]
+
     const {
         selectedClientId
     } = useSelector(state => state.shared)
 
-
-
-    useEffect(() => {
-    }, [])
+    const [selectedReasons, setSelectedReasons] = useState([])
 
     return (
         <>
