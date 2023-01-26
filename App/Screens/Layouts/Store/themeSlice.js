@@ -1,14 +1,20 @@
+import { randomIntFromInterval } from '@Config/helper';
 import { createSlice } from '@reduxjs/toolkit';
 
 const themeSlice = createSlice({
     name: 'theme',
     initialState: {
-        selectedTheme: 1,
+        selectedTheme: randomIntFromInterval(1, 29),
         themes: [
+            {
+                id: 0,
+                imagePath: '/Assets/Images/default.jpeg',
+                name: "Default",
+            },
             {
                 id: 1,
                 imagePath: '/Assets/Images/default.png',
-                name: "Default",
+                name: "Clouds",
             },
             {
                 id: 2,
