@@ -34,10 +34,12 @@ function MainLayout(props) {
     } = props
 
     const {
-        themes,
         sidebar,
-        selectedTheme,
     } = useSelector(state => state.layout)
+    const {
+        themes,
+        selectedTheme,
+    } = useSelector(state => state.theme)
 
     let selectedImagePath
         = themes

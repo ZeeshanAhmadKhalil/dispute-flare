@@ -7,6 +7,7 @@ import clients from '@Screens/Client/Store/clientsSlice'
 import creditor from '@Screens/Creditor/Store/creditorSlice'
 import shared from '@Screens/Shared/Store/sharedSlice'
 import layout from '@Screens/Layouts/Store/layoutSlice'
+import theme from '@Screens/Layouts/Store/themeSlice'
 import dispute from '@Screens/Dispute/Store/disputeSlice'
 import documents from '@Screens/Documents/Store/documentsSlice'
 import letterlibrary from '@Screens/LetterLibrary/Store/letterlibrarySlice'
@@ -23,31 +24,32 @@ import profile from '@Screens/Profile/Store/profileSlice'
 import storage from '@Store/storage'
 
 const reducers = combineReducers({
+    affiliateDashboard,
+    affiliates,
     auth,
     calendar,
     clients,
-    creditor,
     commission,
+    creditor,
     dispute,
     documents,
+    instructions,
     internalNote,
     layout,
     letterlibrary,
-    shared,
-    templates,
-    reasons,
-    instructions,
-    affiliates,
-    affiliateDashboard,
-    teams,
     profile,
+    reasons,
+    shared,
+    teams,
+    templates,
+    theme,
     [authApi.reducerPath]: authApi.reducer,
 });
 
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: ['auth'],
+    whitelist: ['auth', 'theme'],
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);

@@ -6,14 +6,11 @@ import TopTabs from '@Components/TopTabs/TopTabs';
 import {
     Divider,
     FormControlLabel,
-    FormGroup,
-    useTheme
+    FormGroup
 } from '@mui/material';
 import {
-    useEffect,
     useState
 } from 'react';
-import { useSelector } from 'react-redux';
 import AddLetterTemplateDialog from './Components/AddLetterTemplate/AddLetterTemplateDialog';
 import TemplatesActions from "./Components/TemplatesActions";
 import Title from './Components/Title';
@@ -132,17 +129,6 @@ function Templates() {
 
 
     ]
-    const {
-        palette
-    } = useTheme()
-    const {
-        selectedClientId
-    } = useSelector(state => state.shared)
-
-
-
-    useEffect(() => {
-    }, [])
 
     return (
         <>
@@ -155,15 +141,6 @@ function Templates() {
                     />
                 }
             />
-
-            <Divider
-                sx={{
-                    borderWidth: 0.5,
-                    borderColor: 'borders.main',
-                    backgroundColor: 'borders.main',
-                }} />
-
-
             <Table
                 autoHeight={true}
                 title="templates"
