@@ -191,7 +191,9 @@ function ProfileDialog(props) {
                                     }}
                                 />
                                 <Grid>
-                                    <RecommendIcon />   <RecommendIcon /> <EmojiEmotionsIcon /> <StarsIcon />
+                                    <RecommendIcon />   <RecommendIcon sx={{
+                                        transform: "rotate(180deg)"
+                                    }} /> <EmojiEmotionsIcon /> <StarsIcon />
                                 </Grid>
                             </Grid>
 
@@ -214,7 +216,7 @@ function ProfileDialog(props) {
                             </Grid>
                             <Divider
                                 sx={{
-                                    backgroundColor: palette.text.main,
+                                    backgroundColor: palette.text.xGrey3,
                                     margin: "1rem 0"
                                 }}
                             />

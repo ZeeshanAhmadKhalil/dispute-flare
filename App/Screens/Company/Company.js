@@ -33,7 +33,7 @@ function Company(props) {
                 actionButtons={null}
             />
 
-            <ProfileDialog />
+
         </>
     )
 }
