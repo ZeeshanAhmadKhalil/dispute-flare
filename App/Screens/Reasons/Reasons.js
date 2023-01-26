@@ -1,25 +1,14 @@
-import TopTabs from '@Components/TopTabs/TopTabs';
+import DefaultCell from '@Components/DefaultCell/DefaultCell';
+import IOSSwitch from '@Components/IOSSwitch/IOSSwitch';
 import Table from '@Components/Table/Table';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
-import DefaultCell from '@Components/DefaultCell/DefaultCell';
-import { Divider, FormControlLabel, FormGroup, Switch, Tab, Tabs, Typography, useTheme, styled } from '@mui/material';
-import { Box } from '@mui/system';
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import TemplatesActions from "./Components/ReasonActions";
-import React from 'react';
-import {
-    setAllColumnsVisibility,
-    setColumnVisibility,
-} from './Store/reasonsSlice';
-import Title from './Components/Title';
-import IOSSwitch from '@Components/IOSSwitch/IOSSwitch';
-import ReasonsAction from './Components/ReasonActions';
+import TopTabs from '@Components/TopTabs/TopTabs';
+import { FormControlLabel, FormGroup } from '@mui/material';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import AddReasonDialog from './Components/AddReason/AddReasonDialog';
-
-
-const label = { inputProps: { 'aria-label': 'Switch demo' } };
-
+import ReasonsAction from './Components/ReasonActions';
+import Title from './Components/Title';
 
 function Reasons() {
 
@@ -143,8 +132,6 @@ function Reasons() {
                 }
                 columns={columns}
                 rows={reasons}
-                setColumnVisibility={setColumnVisibility}
-                setAllColumnsVisibility={setAllColumnsVisibility}
             />
 
 
