@@ -6,6 +6,7 @@ import {
 import styled from '@emotion/styled';
 import { CssBaseline } from '@mui/material';
 import MuiBox from '@mui/material/Box';
+import ProfileDialog from '@Screens/Profile/Components/Profile/ProfileDialog';
 import cls from 'classnames';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
@@ -78,6 +79,7 @@ function MainLayout(props) {
             >
                 {children}
             </ContentBox>
+            <ProfileDialog />
         </MuiBox>
     )
 }
