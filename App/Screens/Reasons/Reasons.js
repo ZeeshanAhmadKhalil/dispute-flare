@@ -119,7 +119,10 @@ function Reasons() {
 
     return (
         <>
-            <TopTabs tabs={tabs} />
+            <TopTabs
+                left={143}
+                tabs={tabs}
+            />
             <TitleHeader
                 title="Reasons"
                 actionButtons={

@@ -15,43 +15,6 @@ import AddLetterTemplateDialog from './Components/AddLetterTemplate/AddLetterTem
 import TemplatesActions from "./Components/TemplatesActions";
 import Title from './Components/Title';
 
-
-const letters = [
-    {
-        id: 1,
-        title: "credit card",
-        category: "CAT A",
-        status: "active",
-        type: "A",
-        addedBy: "James Bond"
-    },
-    {
-        id: 2,
-        title: "credit card",
-        category: "CAT A",
-        status: "inactive",
-        type: "A",
-        addedBy: "James Bond"
-    },
-    {
-        id: 3,
-        title: "credit card",
-        category: "CAT A",
-        status: "active",
-        type: "A",
-        addedBy: "James Bond"
-    },
-    {
-        id: 4,
-        title: "credit card",
-        category: "CAT A",
-        status: "active",
-        type: "A",
-        addedBy: "James Bond"
-    },
-]
-
-
 function Templates() {
 
     const [selectedDocuments, setSelectedDocuments] = useState([])
@@ -62,7 +25,6 @@ function Templates() {
         { label: "Reasons", value: "reasons" },
         { label: "Instructions", value: "instructions" }
     ]
-
     const columns = [
         {
             field: 'id',
@@ -129,10 +91,47 @@ function Templates() {
 
 
     ]
+    const letters = [
+        {
+            id: 1,
+            title: "credit card",
+            category: "CAT A",
+            status: "active",
+            type: "A",
+            addedBy: "James Bond"
+        },
+        {
+            id: 2,
+            title: "credit card",
+            category: "CAT A",
+            status: "inactive",
+            type: "A",
+            addedBy: "James Bond"
+        },
+        {
+            id: 3,
+            title: "credit card",
+            category: "CAT A",
+            status: "active",
+            type: "A",
+            addedBy: "James Bond"
+        },
+        {
+            id: 4,
+            title: "credit card",
+            category: "CAT A",
+            status: "active",
+            type: "A",
+            addedBy: "James Bond"
+        },
+    ]
 
     return (
         <>
-            <TopTabs tabs={tabs} />
+            <TopTabs
+                left={143}
+                tabs={tabs}
+            />
             <TitleHeader
                 title="Templates"
                 actionButtons={
