@@ -210,7 +210,7 @@ function Team(props) {
         { label: "Letter Flow", value: "letterlibrary" },
         { label: "Templates", value: "templates" },
         { label: "Reasons", value: "reasons" },
-        { label: "Instruction", value: "instruction" }
+        { label: "Instructions", value: "instructions" }
     ]
     const {
         palette
