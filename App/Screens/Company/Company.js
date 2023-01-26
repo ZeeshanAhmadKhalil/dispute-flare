@@ -2,6 +2,7 @@ import TopTabs from '@Components/TopTabs/TopTabs';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import ProfileDialog from '@Screens/Profile/Components/Profile/ProfileDialog';
 
 function Company(props) {
 
@@ -31,6 +32,8 @@ function Company(props) {
                 title="Dashboard"
                 actionButtons={null}
             />
+
+            <ProfileDialog />
         </>
     )
 }
