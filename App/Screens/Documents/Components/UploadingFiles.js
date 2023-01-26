@@ -12,22 +12,30 @@ const Container = styled(Box)(({ theme }) => {
         textOrientation: "sideways-right",
         WebkitTransform: "rotate(180deg)",
         textAlign: "center",
+        marginLeft: "10px"
     }
 })
 function UploadingDocuments() {
 
+    const {
+        palette
+    } = useTheme()
 
 
     return (
         <Box sx={{ display: "flex", flexDirection: "row", columnGap: "1rem", marginTop: "1rem" }}>
 
             <Container>
-                _____  Uploading Documents _____
+                <Typography color={palette.text.lightSilver}>
+                    <span style={{ left: "5px", position: "relative" }}> _____ </span>
+                    Uploading Documents
+                    <span style={{ right: "-5px", position: "relative" }}> _____ </span>
 
+                </Typography>
             </Container>
-            <FileSingle title="Passport" height="240px" width="190px" />
-            <FileSingle title="Passport" height="240px" width="190px" />
-            <FileSingle title="Passport" height="240px" width="190px" />
+            <FileSingle title="Passport" height="220px" width="175px" />
+            <FileSingle title="Passport" height="220px" width="175px" />
+            <FileSingle title="Passport" height="220px" width="175px" />
 
         </Box>
     )

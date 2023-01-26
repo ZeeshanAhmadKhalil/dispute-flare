@@ -31,7 +31,7 @@ function Documents(props) {
     const {
         palette
     } = useTheme()
-    
+
     const {
         columns,
         documents,
@@ -41,7 +41,7 @@ function Documents(props) {
     } = useSelector(state => state.shared)
     const [value, setValue] = useState(0);
     const [selectedDocuments, setSelectedDocuments] = useState([])
-    
+
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
@@ -112,15 +112,15 @@ function Documents(props) {
                     sx={{
                         backgroundColor: palette.transWhite.main,
 
-                        width: "20%",
+                        width: "15%",
                         borderRadius: "2rem",
                         marginTop: "1rem",
                         color: palette.icon.inactive,
-                        padding: "0 2rem 2px 2rem"
+                        padding: "0 1rem 2px 1rem"
                     }}
                 >
 
-                    <Tab label="Documents Added" {...a11yProps(0)} />
+                    <Tab label="List"  {...a11yProps(0)} />
                     <Tab label="Tiles" {...a11yProps(1)} />
 
                 </Tabs>

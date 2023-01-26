@@ -51,8 +51,9 @@ const TitleWrapper = styled(Box)(({ theme }) => {
         paddingLeft: "0rem",
         alignItems: "center",
         display: "flex",
-        justifyContent: "center",
-        flexDirection: "row"
+
+        flexDirection: "row",
+
     }
 })
 
@@ -166,13 +167,19 @@ function FileSingle(props) {
 
             {
                 actions && <ActionsWrapper>
-                    <AddCircleIcon color="secondary" sx={{ width: "40px", height: "40px" }} />
+                    <AddCircleIcon color="secondary" sx={{ width: "42px", height: "42px", margin: "0px" }} />
                     <Sendicon width="35px" height="35px" />
                 </ActionsWrapper>
             }
 
-            <TitleWrapper>
-                <Typography color="text.xxxGrey" >
+            <TitleWrapper
+                sx={{
+                    justifyContent: dropdown ? "flex-start" : "center",
+                    paddingLeft: dropdown ? "16px" : "0px"
+                }}>
+                <Typography
+                    color="text.xxxGrey"
+                    textAlign="left">
 
                     {title}
                 </Typography>
