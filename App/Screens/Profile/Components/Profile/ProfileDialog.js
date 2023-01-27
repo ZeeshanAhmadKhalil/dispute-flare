@@ -132,7 +132,7 @@ function ProfileDialog(props) {
 
             onClose={() => dispatch(setProfileDialogMain(false))}
             open={profileDialogMain}
-            closeBtnText=""
+            closeBtnText="Profile"
             title={"John H. Doe"}
         >
             <Container>

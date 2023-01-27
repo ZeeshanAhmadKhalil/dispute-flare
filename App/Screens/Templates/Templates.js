@@ -1,56 +1,14 @@
 import DefaultCell from '@Components/DefaultCell/DefaultCell';
-import IOSSwitch from '@Components/IOSSwitch/IOSSwitch';
+import SwitchCell from '@Components/Table/Components/SwitchCell/SwitchCell';
 import Table from '@Components/Table/Table';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
 import TopTabs from '@Components/TopTabs/TopTabs';
-import {
-    Divider,
-    FormControlLabel,
-    FormGroup
-} from '@mui/material';
 import {
     useState
 } from 'react';
 import AddLetterTemplateDialog from './Components/AddLetterTemplate/AddLetterTemplateDialog';
 import TemplatesActions from "./Components/TemplatesActions";
 import Title from './Components/Title';
-
-
-const letters = [
-    {
-        id: 1,
-        title: "credit card",
-        category: "CAT A",
-        status: "active",
-        type: "A",
-        addedBy: "James Bond"
-    },
-    {
-        id: 2,
-        title: "credit card",
-        category: "CAT A",
-        status: "inactive",
-        type: "A",
-        addedBy: "James Bond"
-    },
-    {
-        id: 3,
-        title: "credit card",
-        category: "CAT A",
-        status: "active",
-        type: "A",
-        addedBy: "James Bond"
-    },
-    {
-        id: 4,
-        title: "credit card",
-        category: "CAT A",
-        status: "active",
-        type: "A",
-        addedBy: "James Bond"
-    },
-]
-
 
 function Templates() {
 
@@ -62,7 +20,6 @@ function Templates() {
         { label: "Reasons", value: "reasons" },
         { label: "Instructions", value: "instructions" }
     ]
-
     const columns = [
         {
             field: 'id',
@@ -107,14 +64,7 @@ function Templates() {
             headerClassName: 'separator-header',
             hidable: true,
             hide: false,
-            renderCell: () => (
-                <FormGroup>
-                    <FormControlLabel
-                        control={<IOSSwitch sx={{ m: 1 }} defaultChecked />}
-                        label="active"
-                    />
-                </FormGroup>
-            )
+            renderCell: SwitchCell
         },
         {
             field: 'addedBy',
@@ -129,10 +79,47 @@ function Templates() {
 
 
     ]
+    const letters = [
+        {
+            id: 1,
+            title: "credit card",
+            category: "CAT A",
+            status: "active",
+            type: "A",
+            addedBy: "James Bond"
+        },
+        {
+            id: 2,
+            title: "credit card",
+            category: "CAT A",
+            status: "inactive",
+            type: "A",
+            addedBy: "James Bond"
+        },
+        {
+            id: 3,
+            title: "credit card",
+            category: "CAT A",
+            status: "active",
+            type: "A",
+            addedBy: "James Bond"
+        },
+        {
+            id: 4,
+            title: "credit card",
+            category: "CAT A",
+            status: "active",
+            type: "A",
+            addedBy: "James Bond"
+        },
+    ]
 
     return (
         <>
-            <TopTabs tabs={tabs} />
+            <TopTabs
+                left={143}
+                tabs={tabs}
+            />
             <TitleHeader
                 title="Templates"
                 actionButtons={
@@ -150,8 +137,6 @@ function Templates() {
                 columns={columns}
                 rows={letters}
             />
-
-
             <AddLetterTemplateDialog />
         </>
     )

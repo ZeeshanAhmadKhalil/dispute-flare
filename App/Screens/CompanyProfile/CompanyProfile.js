@@ -1,26 +1,10 @@
-import TopTabs from '@Components/TopTabs/TopTabs';
-import Table from '@Components/Table/Table';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
-import DefaultCell from '@Components/DefaultCell/DefaultCell';
-import { Divider, FormControlLabel, FormGroup, useTheme, styled } from '@mui/material';
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import React from 'react';
+import TopTabs from '@Components/TopTabs/TopTabs';
 import { useForm } from 'react-hook-form';
-import IOSSwitch from '@Components/IOSSwitch/IOSSwitch';
-import LinkCell from '@Components/Table/Components/LinkCell/LinkCell';
 import CompanyProfileForm from './Components/CompanyProfileForm';
 
+function CompanyProfile() {
 
-
-function CompanyProfile(props) {
-
-    const [checked, setChecked] = React.useState(true);
-    const [selectedInstructions, setSelectedInstructions] = useState([])
-
-    const handleChange = (event) => {
-        setChecked(event.target.checked);
-    };
     const tabs = [
         { label: "Dashboard", value: "client-dashboard" },
         { label: "Company Profile", value: "company-profile" },
@@ -57,9 +41,6 @@ function CompanyProfile(props) {
         requiredDocuments: [],
         otherRequiredDocument: null
     }
-    const {
-        palette
-    } = useTheme()
 
     const {
         register,
@@ -73,9 +54,6 @@ function CompanyProfile(props) {
         defaultValues,
     });
 
-    useEffect(() => {
-    }, [])
-
     return (
         <>
             <TopTabs tabs={tabs} />
@@ -85,19 +63,11 @@ function CompanyProfile(props) {
                     null
                 }
             />
-
-            <Divider
-                sx={{
-                    borderWidth: 0.5,
-                    borderColor: 'borders.main',
-                    backgroundColor: 'borders.main',
-                }} />
-
-
             <CompanyProfileForm watch={watch}
                 register={register}
                 control={control}
-                errors={errors} />
+                errors={errors}
+            />
         </>
     )
 }

@@ -57,7 +57,10 @@ const AntTab = styled(Tab)(({ theme, index }) => {
     }
 });
 
-function TopTabs(props) {
+function TopTabs({
+    tabs,
+    left = null
+}) {
 
     const {
         palette: {
@@ -67,7 +70,6 @@ function TopTabs(props) {
         }
     } = useTheme()
 
-    const tabs = props.tabs || [];
     const router = useRouter()
 
     const handleTabChange = (event, newValue) => {
@@ -112,7 +114,10 @@ function TopTabs(props) {
                             height: topTabsHeight,
                             backgroundColor: xGrey2,
                             position: 'absolute',
-                            left: 45 + tabs[0].label.length * 10,
+                            left: left ?
+                                left
+                                :
+                                45 + tabs[0].label.length * 10,
                         }}
                         flexItem
                         orientation="vertical"
