@@ -1,3 +1,4 @@
+import ScrollContainer from '@Components/ScrollContainer/ScrollContainer';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
 import TopTabs from '@Components/TopTabs/TopTabs';
 import { useForm } from 'react-hook-form';
@@ -57,17 +58,19 @@ function CompanyProfile() {
     return (
         <>
             <TopTabs tabs={tabs} />
-            <TitleHeader
-                title="Company Profile"
-                actionButtons={
-                    null
-                }
-            />
-            <CompanyProfileForm watch={watch}
-                register={register}
-                control={control}
-                errors={errors}
-            />
+            <ScrollContainer>
+                <TitleHeader
+                    title="Company Profile"
+                    actionButtons={
+                        null
+                    }
+                />
+                <CompanyProfileForm watch={watch}
+                    register={register}
+                    control={control}
+                    errors={errors}
+                />
+            </ScrollContainer>
         </>
     )
 }
