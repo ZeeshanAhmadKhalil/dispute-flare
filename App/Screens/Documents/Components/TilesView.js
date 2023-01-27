@@ -26,10 +26,10 @@ function TilesView() {
                 _____  Uploading Documents _____
 
             </Box> */}
-            <FileSingle title="Passport" height="200px" width="160px" dropdown={true} />
+            <FileSingle title="File 1" height="200px" width="160px" dropdown={true} />
 
-            <FileSingle title="Passport" height="200px" width="160px" dropdown={true} />
-            <FileSingle title="Passport" height="200px" width="160px" dropdown={true} />
+            <FileSingle title="File 2" height="200px" width="160px" dropdown={true} />
+            <FileSingle title="File 3" height="200px" width="160px" dropdown={true} />
         </Container>
     )
 }

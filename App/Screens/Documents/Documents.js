@@ -2,6 +2,10 @@ import TopTabs from '@Components/TopTabs/TopTabs';
 import ScrollContainer from '@Components/ScrollContainer/ScrollContainer';
 import Table from '@Components/Table/Table';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
+import DropDownCell from '@Components/Table/Components/DropDownCell/DropDownCell';
+import DateAdded from './Components/DateAdded';
+import Title from './Components/Title';
+
 import {
     Divider,
     Tab,
@@ -22,6 +26,138 @@ import {
 } from './Store/documentsSlice';
 function Documents(props) {
 
+
+    const columns = [
+        {
+            field: 'id',
+            headerName: 'Id',
+            width: 150,
+            hide: true,
+            hidable: true,
+        },
+        {
+            field: 'dateAdded',
+            headerName: 'Date Added',
+            width: 200,
+            headerClassName: 'separator-header',
+            hidable: true,
+            hide: false,
+            renderCell: DateAdded,
+        },
+        {
+            field: 'title',
+            headerName: 'Title',
+            width: 200,
+            headerClassName: 'separator-header',
+            hidable: true,
+            hide: false,
+            renderCell: Title,
+        },
+        {
+            field: 'expirationDate',
+            headerName: 'Expiration Date',
+            width: 200,
+            headerClassName: 'separator-header',
+            hidable: true,
+            hide: false,
+            renderCell: DateAdded,
+        },
+        {
+            field: 'status',
+            headerName: 'Status',
+            width: 200,
+            hidable: true,
+            editable: true,
+            type: 'singleSelect',
+            valueOptions: ['Repaired', 'Verified', 'Negative', 'Delete'],
+            renderCell: ({ value }) => <DropDownCell value={value} />,
+        },
+
+
+    ]
+    const documents = [
+
+        {
+            id: 1,
+            dateAdded: new Date(2022, 1, 1),
+            title: "Bank Letter",
+            expirationDate: new Date(2022, 1, 1),
+            status: "Repaired",
+
+        },
+        {
+            id: 2,
+            dateAdded: new Date(2022, 1, 1),
+            title: "Bank Letter",
+            expirationDate: new Date(2022, 1, 1),
+            status: "Repaired",
+
+        },
+        {
+            id: 3,
+            dateAdded: new Date(2022, 1, 1),
+            title: "Bank Letter",
+            expirationDate: new Date(2022, 1, 1),
+            status: "Repaired",
+
+        },
+        {
+            id: 4,
+            dateAdded: new Date(2022, 1, 1),
+            title: "Bank Letter",
+            expirationDate: new Date(2022, 1, 1),
+            status: "Repaired",
+
+        },
+        {
+            id: 5,
+            dateAdded: new Date(2022, 1, 1),
+            title: "Bank Letter",
+            expirationDate: new Date(2022, 1, 1),
+            status: "Repaired",
+
+        },
+        {
+            id: 6,
+            dateAdded: new Date(2022, 1, 1),
+            title: "Bank Letter",
+            expirationDate: new Date(2022, 1, 1),
+            status: "Repaired",
+
+        },
+        {
+            id: 7,
+            dateAdded: new Date(2022, 1, 1),
+            title: "Razor",
+            expirationDate: new Date(2022, 1, 1),
+            status: "Repaired",
+
+        },
+        {
+            id: 8,
+            dateAdded: new Date(2022, 1, 1),
+            title: "Bank Letter",
+            expirationDate: new Date(2022, 1, 1),
+            status: "Repaired",
+        },
+        {
+            id: 9,
+            dateAdded: new Date(2022, 1, 1),
+            title: "Bank Letter",
+            expirationDate: new Date(2022, 1, 1),
+            status: "Repaired",
+
+        },
+        {
+            id: 10,
+            dateAdded: new Date(2022, 1, 1),
+            title: "Bank Letter",
+            expirationDate: new Date(2022, 1, 1),
+            status: "Repaired",
+
+        }
+
+    ]
     const tabs = [
         { label: "Dashboard", value: "client-dashboard" },
         { label: "Dispute", value: "dispute" },
@@ -32,10 +168,6 @@ function Documents(props) {
         palette
     } = useTheme()
 
-    const {
-        columns,
-        documents,
-    } = useSelector(state => state.documents)
     const {
         selectedClientId
     } = useSelector(state => state.shared)
@@ -72,8 +204,6 @@ function Documents(props) {
         );
     }
 
-    useEffect(() => {
-    }, [])
 
     return (
         <>
@@ -137,8 +267,6 @@ function Documents(props) {
                         }
                         columns={columns}
                         rows={documents}
-                        setColumnVisibility={setColumnVisibility}
-                        setAllColumnsVisibility={setAllColumnsVisibility}
                     />
                 </TabPanel>
                 <TabPanel value={value} index={1}>

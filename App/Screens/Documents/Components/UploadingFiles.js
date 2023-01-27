@@ -33,9 +33,9 @@ function UploadingDocuments() {
 
                 </Typography>
             </Container>
-            <FileSingle title="Passport" height="220px" width="175px" />
-            <FileSingle title="Passport" height="220px" width="175px" />
-            <FileSingle title="Passport" height="220px" width="175px" />
+            <FileSingle title="Driver Lisense" height="220px" width="175px" uploading={true} />
+            <FileSingle title="Bank Letter" height="220px" width="175px" uploading={true} />
+            <FileSingle title="SSN" height="220px" width="175px" />
 
         </Box>
     )

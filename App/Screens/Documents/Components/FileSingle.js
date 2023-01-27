@@ -19,7 +19,7 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 import MenuIcon from '@mui/icons-material/Menu';
 
 
-const Container = styled(Box)(({ theme, width, height, dropdown }) => {
+const Container = styled(Box)(({ theme, width, height, dropdown, uploading }) => {
     return {
         clipPath: "polygon( 0 0, calc(100% - 40px) 0, 100% 40px, 100% calc(100% - 20px), calc(100% - 00px) 100%, 20px 100%, 0 calc(100% - 0px), 0 20px)",
         display: "flex",
@@ -32,6 +32,7 @@ const Container = styled(Box)(({ theme, width, height, dropdown }) => {
         flexDirection: "column",
         alignItems: "center",
         marginTop: "0px",
+        opacity: uploading ? "0.5" : "1",
         borderRadius: "1rem"
     }
 })
@@ -51,7 +52,7 @@ const TitleWrapper = styled(Box)(({ theme }) => {
         paddingLeft: "0rem",
         alignItems: "center",
         display: "flex",
-
+        //  opacity: "0.5",
         flexDirection: "row",
 
     }
@@ -69,7 +70,7 @@ const MenuIconCustom = styled(MenuIcon)(({ theme }) => {
 
 function FileSingle(props) {
 
-    const { actions, title, width, height, dropdown } = props || {};
+    const { actions, title, width, height, dropdown, uploading } = props || {};
     const {
         palette
     } = useTheme()
@@ -110,7 +111,7 @@ function FileSingle(props) {
 
 
     return (
-        <Container width={width} height={height} dropdown>
+        <Container width={width} height={height} dropdown uploading={uploading}>
             {
                 dropdown && <Box sx={{ width: "100%" }}>
 

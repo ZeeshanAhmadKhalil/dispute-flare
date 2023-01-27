@@ -32,7 +32,8 @@ function UploadedDocuments() {
                 </Typography>
             </Container>
             <FileSingle actions={true} title="Bank Copy" height="220px" width="175px" />
-            <FileSingle actions={true} title="Bank Copy" height="220px" width="175px" /><FileSingle actions={true} title="Bank Copy" height="220px" width="175px" />
+            <FileSingle actions={true} title="School Certificate" height="220px" width="175px" />
+            <FileSingle actions={true} title="Passport" height="220px" width="175px" />
 
         </Box>
     )

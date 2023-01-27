@@ -146,7 +146,7 @@ function LetterLibrary() {
             />
             <Table
                 autoHeight={true}
-                title="Documents"
+                title="LetterLibrary"
                 onSelectionModelChange={(selected) =>
                     setSelectedDocuments(selected)
                 }
