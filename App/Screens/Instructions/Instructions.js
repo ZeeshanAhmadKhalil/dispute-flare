@@ -1,13 +1,9 @@
 import DefaultCell from '@Components/DefaultCell/DefaultCell';
-import IOSSwitch from '@Components/IOSSwitch/IOSSwitch';
+import SwitchCell from '@Components/Table/Components/SwitchCell/SwitchCell';
 import Table from '@Components/Table/Table';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
 import TopTabs from '@Components/TopTabs/TopTabs';
-import {
-    FormControlLabel,
-    FormGroup
-} from '@mui/material';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import AddInstructionDialog from './Components/AddInstruction/AddInstructionDialog';
 import InstructionActions from './Components/InstructionActions';
 
@@ -79,14 +75,7 @@ const columns = [
         headerClassName: 'separator-header',
         hidable: true,
         hide: false,
-        renderCell: () => (
-            <FormGroup>
-                <FormControlLabel
-                    control={<IOSSwitch sx={{ m: 1 }} defaultChecked />}
-                    label="active"
-                />
-            </FormGroup>
-        ),
+        renderCell: SwitchCell,
     },
     {
         field: 'addedBy',

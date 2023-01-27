@@ -22,6 +22,10 @@ const themeObj = {
     },
     palette: {
         mode: 'dark',
+        toggleSwitch: {
+            borderInactive: '#9CA1A5',
+            borderActive: '#fff'
+        },
         event: {
             high: "#FDDBD7",
             medium: "#A8E9D2",

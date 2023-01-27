@@ -1,13 +1,8 @@
 import DefaultCell from '@Components/DefaultCell/DefaultCell'
-import IOSSwitch from '@Components/IOSSwitch/IOSSwitch'
-import LinkCell from '@Components/Table/Components/LinkCell/LinkCell'
+import SwitchCell from '@Components/Table/Components/SwitchCell/SwitchCell'
 import Table from '@Components/Table/Table'
 import TitleHeader from '@Components/TitleHeader/TitleHeader'
 import TopTabs from '@Components/TopTabs/TopTabs'
-import {
-    FormControlLabel,
-    FormGroup
-} from '@mui/material'
 import { useState } from 'react'
 import AddInstructionDialog from './Components/AddAffiliate/AddAffililateDialog'
 import AffiliatesActions from './Components/AffiliatesActions'
@@ -36,12 +31,7 @@ function Affiliates() {
             headerName: 'name',
             width: 200,
             headerClassName: 'separator-header',
-            renderCell: (props) => (
-                <LinkCell
-                    {...props}
-                    navigateTo="affiliate-dashboard"
-                />
-            ),
+            renderCell: SwitchCell,
             hidable: true,
             hide: false,
         },
@@ -90,12 +80,7 @@ function Affiliates() {
             headerClassName: 'separator-header',
             hidable: true,
             hide: false,
-            renderCell: ({ value }) => <FormGroup>
-                <FormControlLabel
-                    control={<IOSSwitch sx={{ m: 1 }} defaultChecked />}
-                    label="active"
-                />
-            </FormGroup>,
+            renderCell: SwitchCell,
         },
 
 
