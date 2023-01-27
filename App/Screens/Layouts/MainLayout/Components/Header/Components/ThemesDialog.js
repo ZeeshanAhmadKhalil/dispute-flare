@@ -183,7 +183,7 @@ function ThemesDialog(props) {
                     }}
                 >
                     <Button
-                        onClick={() => dispatch(setSelectedTheme(1))}
+                        onClick={() => dispatch(setSelectedTheme(0))}
                         startIcon={
                             <Default
                                 height={14}

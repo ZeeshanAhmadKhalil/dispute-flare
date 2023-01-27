@@ -40,8 +40,8 @@ function AddInstructionForm(props) {
 
 
     let status = [
-        { label: 'active', value: "active" }, { label: 'inactive', value: "inactive" },
-
+        { label: 'active', value: "active" },
+        { label: 'inactive', value: "inactive" },
     ]
 
     const {
