@@ -1,29 +1,17 @@
-import TopTabs from '@Components/TopTabs/TopTabs';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
+import TopTabs from '@Components/TopTabs/TopTabs';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import ProfileDialog from '@Screens/Profile/Components/Profile/ProfileDialog';
 
-function Company(props) {
-
-    const dispatch = useDispatch()
+function CompanyDashboard() {
 
     const tabs = [
-        { label: "Dashboard", value: "client-dashboard" },
+        { label: "Dashboard", value: "company-dashboard" },
         { label: "Company Profile", value: "company-profile" },
         { label: "Team", value: "team" },
         { label: "Flare Mail", value: "flare-mail" },
         { label: "Billing", value: "billing" },
     ]
-    const {
-        columns,
-        clients,
-    } = useSelector(state => state.clients)
-
-    const [selectedClients, setSelectedClients] = useState([])
-
-    useEffect(() => {
-    }, [])
 
     return (
         <>
@@ -32,10 +20,8 @@ function Company(props) {
                 title="Dashboard"
                 actionButtons={null}
             />
-
-
         </>
     )
 }
 
-export default Company
+export default CompanyDashboard

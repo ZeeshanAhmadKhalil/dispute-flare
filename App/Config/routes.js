@@ -84,7 +84,7 @@ const sidebarRoutes = [
             />
         ),
         collapsable: false,
-        path: '/company'
+        path: '/company-dashboard'
     },
 
     {

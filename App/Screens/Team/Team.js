@@ -18,7 +18,7 @@ import Value from './Components/Value';
 function Team() {
 
     const tabs = [
-        { label: "Dashboard", value: "client-dashboard" },
+        { label: "Dashboard", value: "company-dashboard" },
         { label: "Company Profile", value: "company-profile" },
         { label: "Team", value: "team" },
         { label: "Flare Mail", value: "flare-mail" },
