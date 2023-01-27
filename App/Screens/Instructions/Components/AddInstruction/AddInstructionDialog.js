@@ -2,20 +2,16 @@ import RightDialogLayout from '@Layouts/RightDialogLayout/RightDialogLayout';
 import {
     Box,
     Divider,
-    styled,
-    Typography,
-    useTheme
+    styled, useTheme
 } from '@mui/material';
-import { setAddInstructionsDialog } from '@Screens/Instructions/Store/instructionsSlice'
+import { setAddInstructionsDialog } from '@Screens/Instructions/Store/instructionsSlice';
+import { useForm } from 'react-hook-form';
 import {
     useDispatch,
     useSelector
 } from 'react-redux';
-import cls from 'classnames'
-import styles from './AddInstructionDialog.module.scss'
-import { useForm } from 'react-hook-form';
-import AddInstructionActions from './AddInstructionActions';
 import AddInstructionForm from './AddInstruction/AddInstructionForm';
+import AddInstructionActions from './AddInstructionActions';
 
 const Container = styled(Box)(({ theme }) => {
 
@@ -105,15 +101,6 @@ function AddInstructionDialog(props) {
             title={"Add Instruction"}
         >
             <Container>
-                <Typography
-                    color="text.xxGrey"
-                    variant='subtitle2'
-                    className={cls(
-                        styles.formDesc
-                    )}
-                >
-                    {"Add a new Instruction"}
-                </Typography>
                 <Divider
                     sx={{
                         backgroundColor: tableSeparator?.light

@@ -2,20 +2,16 @@ import RightDialogLayout from '@Layouts/RightDialogLayout/RightDialogLayout';
 import {
     Box,
     Divider,
-    styled,
-    Typography,
-    useTheme
+    styled, useTheme
 } from '@mui/material';
 import { setAddLetterTemplateDialog } from '@Screens/Templates/Store/templatesSlice';
+import { useForm } from 'react-hook-form';
 import {
     useDispatch,
     useSelector
 } from 'react-redux';
-import cls from 'classnames'
-import styles from './AddTemplateDialog.module.scss'
-import { useForm } from 'react-hook-form';
-import AddTemplateAction from './AddTemplateAction';
 import AddTemplateForm from './AddLetterTemplate/AddTemplateForm';
+import AddTemplateAction from './AddTemplateAction';
 
 const Container = styled(Box)(({ theme }) => {
 
@@ -32,7 +28,7 @@ const Container = styled(Box)(({ theme }) => {
     }
 })
 
-function AddLetterTemplateDialog(props) {
+function AddLetterTemplateDialog() {
 
     const defaultValues = {
         firstName: null,
@@ -105,15 +101,6 @@ function AddLetterTemplateDialog(props) {
             title={"Add Letter Template"}
         >
             <Container>
-                <Typography
-                    color="text.xxGrey"
-                    variant='subtitle2'
-                    className={cls(
-                        styles.formDesc
-                    )}
-                >
-                    {"Create your new letter template"}
-                </Typography>
                 <Divider
                     sx={{
                         backgroundColor: tableSeparator?.light
