@@ -64,70 +64,80 @@ const documentsSlice = createSlice({
                 expirationDate: new Date(2022, 1, 1),
                 status: "Repaired",
 
-            }, {
+            },
+            {
                 id: 1,
                 dateAdded: new Date(2022, 1, 1),
                 title: "Razor",
                 expirationDate: new Date(2022, 1, 1),
                 status: "Repaired",
 
-            }, {
+            },
+            {
                 id: 1,
                 dateAdded: new Date(2022, 1, 1),
                 title: "Razor",
                 expirationDate: new Date(2022, 1, 1),
                 status: "Repaired",
 
-            }, {
+            },
+            {
                 id: 1,
                 dateAdded: new Date(2022, 1, 1),
                 title: "Razor",
                 expirationDate: new Date(2022, 1, 1),
                 status: "Repaired",
 
-            }, {
+            },
+            {
                 id: 1,
                 dateAdded: new Date(2022, 1, 1),
                 title: "Razor",
                 expirationDate: new Date(2022, 1, 1),
                 status: "Repaired",
 
-            }, {
+            },
+            {
                 id: 1,
                 dateAdded: new Date(2022, 1, 1),
                 title: "Razor",
                 expirationDate: new Date(2022, 1, 1),
                 status: "Repaired",
 
-            }, {
+            },
+            {
                 id: 1,
                 dateAdded: new Date(2022, 1, 1),
                 title: "Razor",
                 expirationDate: new Date(2022, 1, 1),
                 status: "Repaired",
 
-            }, {
+            },
+            {
                 id: 1,
                 dateAdded: new Date(2022, 1, 1),
                 title: "Razor",
                 expirationDate: new Date(2022, 1, 1),
                 status: "Repaired",
 
-            }, {
+            },
+            {
                 id: 1,
                 dateAdded: new Date(2022, 1, 1),
                 title: "Razor",
                 expirationDate: new Date(2022, 1, 1),
                 status: "Repaired",
 
-            }, {
+            },
+            {
                 id: 1,
                 dateAdded: new Date(2022, 1, 1),
                 title: "Razor",
                 expirationDate: new Date(2022, 1, 1),
                 status: "Repaired",
 
-            }, {
+            },
+            {
                 id: 1,
                 dateAdded: new Date(2022, 1, 1),
                 title: "Razor",

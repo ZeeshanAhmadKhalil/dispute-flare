@@ -1,77 +1,28 @@
-import TopTabs from '@Components/TopTabs/TopTabs';
-import Table from '@Components/Table/Table';
-import TitleHeader from '@Components/TitleHeader/TitleHeader';
-import DefaultCell from '@Components/DefaultCell/DefaultCell';
-import { Divider, FormControlLabel, FormGroup, useTheme, styled } from '@mui/material';
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import React from 'react';
+import DefaultCell from '@Components/DefaultCell/DefaultCell'
+import IOSSwitch from '@Components/IOSSwitch/IOSSwitch'
+import LinkCell from '@Components/Table/Components/LinkCell/LinkCell'
+import Table from '@Components/Table/Table'
+import TitleHeader from '@Components/TitleHeader/TitleHeader'
+import TopTabs from '@Components/TopTabs/TopTabs'
+import {
+    FormControlLabel,
+    FormGroup
+} from '@mui/material'
+import { useState } from 'react'
+import AddInstructionDialog from './Components/AddAffiliate/AddAffililateDialog'
+import AffiliatesActions from './Components/AffiliatesActions'
 import {
     setAllColumnsVisibility,
-    setColumnVisibility,
-} from './Store/affiliatesSlice';
-import AddInstructionDialog from './Components/AddAffiliate/AddAffililateDialog';
-import IOSSwitch from '@Components/IOSSwitch/IOSSwitch';
-import AffiliatesActions from './Components/AffiliatesActions';
-import LinkCell from '@Components/Table/Components/LinkCell/LinkCell';
-const affiliates = [
-    {
-        id: 1,
-        name: "Imran Hashmi",
-        company: "SB-BC",
-        email: "email@gmail.kaam",
-        totalCommission: "$5300",
-        clientReferred: "Gen Bajwa",
-        status: "active"
-    }, {
-        id: 2,
-        name: "Imran Hashmi",
-        company: "SB-BC",
-        email: "email@gmail.kaam",
-        totalCommission: "$5300",
-        clientReferred: "Gen Bajwa",
-        status: "active"
-    }, {
-        id: 3,
-        name: "Imran Hashmi",
-        company: "SB-BC",
-        email: "email@gmail.kaam",
-        totalCommission: "$5300",
-        clientReferred: "Gen Bajwa",
-        status: "active"
-    }, {
-        id: 4,
-        name: "Imran Hashmi",
-        company: "SB-BC",
-        email: "email@gmail.kaam",
-        totalCommission: "$5300",
-        clientReferred: "Gen Bajwa",
-        status: "active"
-    }, {
-        id: 5,
-        name: "Imran Hashmi",
-        company: "SB-BC",
-        email: "email@gmail.kaam",
-        totalCommission: "$5300",
-        clientReferred: "Gen Bajwa",
-        status: "active"
-    },]
+    setColumnVisibility
+} from './Store/affiliatesSlice'
 
+function Affiliates() {
 
-function Affiliates(props) {
-
-    const [checked, setChecked] = React.useState(true);
-    const [selectedInstructions, setSelectedInstructions] = useState([])
-
-    const handleChange = (event) => {
-        setChecked(event.target.checked);
-    };
     const tabs = [
         { label: "Dashboard", value: "creditor-dashboard" },
         { label: "Affiliates", value: "affiliates" },
         { label: "Commission", value: "commission" },
     ]
-
     const columns = [
         {
             field: 'id',
@@ -149,17 +100,55 @@ function Affiliates(props) {
 
 
     ]
-    const {
-        palette
-    } = useTheme()
-    const {
-        selectedInstructionsId
-    } = useSelector(state => state.shared)
+    const affiliates = [
+        {
+            id: 1,
+            name: "Imran Hashmi",
+            company: "SB-BC",
+            email: "email@gmail.kaam",
+            totalCommission: "$5300",
+            clientReferred: "Gen Bajwa",
+            status: "active"
+        },
+        {
+            id: 2,
+            name: "Imran Hashmi",
+            company: "SB-BC",
+            email: "email@gmail.kaam",
+            totalCommission: "$5300",
+            clientReferred: "Gen Bajwa",
+            status: "active"
+        },
+        {
+            id: 3,
+            name: "Imran Hashmi",
+            company: "SB-BC",
+            email: "email@gmail.kaam",
+            totalCommission: "$5300",
+            clientReferred: "Gen Bajwa",
+            status: "active"
+        },
+        {
+            id: 4,
+            name: "Imran Hashmi",
+            company: "SB-BC",
+            email: "email@gmail.kaam",
+            totalCommission: "$5300",
+            clientReferred: "Gen Bajwa",
+            status: "active"
+        },
+        {
+            id: 5,
+            name: "Imran Hashmi",
+            company: "SB-BC",
+            email: "email@gmail.kaam",
+            totalCommission: "$5300",
+            clientReferred: "Gen Bajwa",
+            status: "active"
+        },
+    ]
 
-
-
-    useEffect(() => {
-    }, [])
+    const [selectedInstructions, setSelectedInstructions] = useState([])
 
     return (
         <>
@@ -172,13 +161,6 @@ function Affiliates(props) {
                     />
                 }
             />
-
-            <Divider
-                sx={{
-                    borderWidth: 0.5,
-                    borderColor: 'borders.main',
-                    backgroundColor: 'borders.main',
-                }} />
             <Table
                 autoHeight={true}
                 title="instructions"
@@ -191,8 +173,6 @@ function Affiliates(props) {
                 setColumnVisibility={setColumnVisibility}
                 setAllColumnsVisibility={setAllColumnsVisibility}
             />
-
-
             <AddInstructionDialog />
         </>
     )

@@ -7,8 +7,6 @@ import {
     Typography,
     useTheme
 } from '@mui/material';
-import Button from '@Components/Button/Button';
-import { palette } from '@mui/system';
 import cls from 'classnames';
 
 const Label = styled(Typography)(({ theme }) => {
@@ -35,15 +33,14 @@ const Elements = styled(Typography)(({ theme }) => {
     }
 })
 
-
 function AddReasonForm(props) {
 
 
     let status = [
-        { label: 'active', value: "active" }, { label: 'inactive', value: "inactive" },
-
+        { label: 'active', value: "active" },
+        { label: 'inactive', value: "inactive" },
     ]
-
+    
     const {
         register,
         control,
@@ -52,14 +49,18 @@ function AddReasonForm(props) {
     } = props || {}
 
     const {
-        palette
+        palette: {
+            tableSeparator
+        }
     } = useTheme()
-
-
 
     return (
 
-        <Grid sx={{ backgroundColor: palette.tableSeparator.light, marginTop: "0", padding: "1rem 1rem 2rem 1rem" }}
+        <Grid
+            sx={{
+                backgroundColor: tableSeparator.light, marginTop: "0",
+                padding: "1rem 1rem 2rem 1rem"
+            }}
             container
             rowSpacing={3}
             className={cls(
@@ -91,7 +92,7 @@ function AddReasonForm(props) {
             </Grid>
             <Divider
                 sx={{
-                    backgroundColor: palette.tableSeparator.dark
+                    backgroundColor: tableSeparator.dark
                 }}
                 color="pink"
             />
