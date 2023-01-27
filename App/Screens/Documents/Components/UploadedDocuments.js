@@ -16,16 +16,24 @@ const Container = styled(Box)(({ theme }) => {
 })
 function UploadedDocuments() {
 
+    const {
+        palette
+    } = useTheme()
+
     return (
         <Box sx={{ display: "flex", flexDirection: "row", columnGap: "1rem", marginTop: "1rem" }}>
 
             <Container>
-                _____  Uploaded Documents _____
+                <Typography color={palette.text.lightSilver}>
+                    <span style={{ left: "5px", position: "relative" }}> _____ </span>
+                    Uploaded Documents
+                    <span style={{ right: "-5px", position: "relative" }}> _____ </span>
 
+                </Typography>
             </Container>
-            <FileSingle actions={true} title="Bank Copy" height="240px" width="190px" />
-            <FileSingle actions={true} title="Bank Copy" height="240px" width="190px" />
-            <FileSingle actions={true} title="Bank Copy" height="240px" width="190px" />
+            <FileSingle actions={true} title="Bank Copy" height="220px" width="175px" />
+            <FileSingle actions={true} title="School Certificate" height="220px" width="175px" />
+            <FileSingle actions={true} title="Passport" height="220px" width="175px" />
 
         </Box>
     )
