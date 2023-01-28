@@ -48,7 +48,7 @@ function CompanyProfile() {
         control,
         handleSubmit,
         reset,
-        watch,
+        watch, 
         formState: { errors },
     } = useForm({
         mode: 'onChange',
