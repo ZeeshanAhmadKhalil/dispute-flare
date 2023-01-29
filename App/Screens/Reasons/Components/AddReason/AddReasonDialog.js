@@ -105,15 +105,6 @@ function AddReasonDialog(props) {
             title={"Add a Reason"}
         >
             <Container>
-                <Typography
-                    color="text.xxGrey"
-                    variant='subtitle2'
-                    className={cls(
-                        styles.formDesc
-                    )}
-                >
-                    {"Add a new Reason"}
-                </Typography>
                 <Divider
                     sx={{
                         backgroundColor: tableSeparator?.light

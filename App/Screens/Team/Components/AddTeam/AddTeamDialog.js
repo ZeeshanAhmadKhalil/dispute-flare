@@ -2,20 +2,16 @@ import RightDialogLayout from '@Layouts/RightDialogLayout/RightDialogLayout';
 import {
     Box,
     Divider,
-    styled,
-    Typography,
-    useTheme
+    styled, useTheme
 } from '@mui/material';
 import { setAddTeamDialog } from '@Screens/Team/Store/teamsSlice';
+import { useForm } from 'react-hook-form';
 import {
     useDispatch,
     useSelector
 } from 'react-redux';
-import cls from 'classnames'
-import styles from './AddFlowDialog.module.scss'
-import { useForm } from 'react-hook-form';
-import AddTeamForm from './AddTeamForm/AddTeamForm';
 import AddTeamActions from './AddTeamActions';
+import AddTeamForm from './AddTeamForm/AddTeamForm';
 const Container = styled(Box)(({ theme }) => {
 
     const {
@@ -104,15 +100,6 @@ function AddTeamDialog(props) {
             title={"Add Team"}
         >
             <Container>
-                <Typography
-                    color="text.xxGrey"
-                    variant='subtitle2'
-                    className={cls(
-                        styles.formDesc
-                    )}
-                >
-                    {"Create your new team"}
-                </Typography>
                 <Divider
                     sx={{
                         backgroundColor: tableSeparator?.light

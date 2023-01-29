@@ -1,3 +1,4 @@
+import ScrollContainer from '@Components/ScrollContainer/ScrollContainer';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
 import TopTabs from '@Components/TopTabs/TopTabs';
 import { useForm } from 'react-hook-form';
@@ -6,7 +7,7 @@ import CompanyProfileForm from './Components/CompanyProfileForm';
 function CompanyProfile() {
 
     const tabs = [
-        { label: "Dashboard", value: "client-dashboard" },
+        { label: "Dashboard", value: "company-dashboard" },
         { label: "Company Profile", value: "company-profile" },
         { label: "Team", value: "team" },
         { label: "Flare Mail", value: "flare-mail" },
@@ -47,7 +48,7 @@ function CompanyProfile() {
         control,
         handleSubmit,
         reset,
-        watch,
+        watch, 
         formState: { errors },
     } = useForm({
         mode: 'onChange',
@@ -57,17 +58,19 @@ function CompanyProfile() {
     return (
         <>
             <TopTabs tabs={tabs} />
-            <TitleHeader
-                title="Company Profile"
-                actionButtons={
-                    null
-                }
-            />
-            <CompanyProfileForm watch={watch}
-                register={register}
-                control={control}
-                errors={errors}
-            />
+            <ScrollContainer>
+                <TitleHeader
+                    title="Company Profile"
+                    actionButtons={
+                        null
+                    }
+                />
+                <CompanyProfileForm watch={watch}
+                    register={register}
+                    control={control}
+                    errors={errors}
+                />
+            </ScrollContainer>
         </>
     )
 }
