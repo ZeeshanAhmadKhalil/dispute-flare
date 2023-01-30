@@ -225,40 +225,42 @@ function AddFlowForm(props) {
                         border: '0px solid red',
                     }}
                 >
-                    <Box
-                        display="flex"
-                        justifyContent="start"
-                        sx={{
-                            border: '0px solid red'
-                        }}
-                    >
+                    {bureauFlows > 0 &&
                         <Box
+                            display="flex"
+                            justifyContent="start"
                             sx={{
-                                border: '0px solid red',
-                                display: 'flex',
-                                flexDirection: 'column'
+                                border: '0px solid red'
                             }}
                         >
-                            {renderBureauFlow}
+                            <Box
+                                sx={{
+                                    border: '0px solid red',
+                                    display: 'flex',
+                                    flexDirection: 'column'
+                                }}
+                            >
+                                {renderBureauFlow}
+                            </Box>
+                            <Box
+                                onClick={() => setBureauFlows(
+                                    prev => prev - 1
+                                )}
+                                className={cls(
+                                    'cursor-pointer'
+                                )}
+                                sx={{
+                                    ml: 1,
+                                    mt: 1.5,
+                                }}
+                            >
+                                <Cross
+                                    height={10}
+                                    width={10}
+                                />
+                            </Box>
                         </Box>
-                        <Box
-                            onClick={() => setBureauFlows(
-                                prev => prev - 1
-                            )}
-                            className={cls(
-                                'cursor-pointer'
-                            )}
-                            sx={{
-                                ml: 1,
-                                mt: 1.5,
-                            }}
-                        >
-                            <Cross
-                                height={10}
-                                width={10}
-                            />
-                        </Box>
-                    </Box>
+                    }
                     <Box
                         onClick={() => setBureauFlows(
                             prev => prev + 1
@@ -287,7 +289,7 @@ function AddFlowForm(props) {
                                 marginLeft: "2px",
                             }}
                         >
-                            AddLetter
+                            Add Letter
                         </Typography>
                     </Box>
                 </Grid>
@@ -303,7 +305,7 @@ function AddFlowForm(props) {
                     <Label
                         variant="subtitle1"
                     >
-                        Bureau Flow
+                        Furnish Flow
                     </Label>
                 </Grid>
                 <Grid
@@ -315,40 +317,42 @@ function AddFlowForm(props) {
                         border: '0px solid red',
                     }}
                 >
-                    <Box
-                        display="flex"
-                        justifyContent="start"
-                        sx={{
-                            border: '0px solid red'
-                        }}
-                    >
+                    {furnishFlows > 0 &&
                         <Box
+                            display="flex"
+                            justifyContent="start"
                             sx={{
-                                border: '0px solid red',
-                                display: 'flex',
-                                flexDirection: 'column'
+                                border: '0px solid red'
                             }}
                         >
-                            {renderFurnishFlow}
+                            <Box
+                                sx={{
+                                    border: '0px solid red',
+                                    display: 'flex',
+                                    flexDirection: 'column'
+                                }}
+                            >
+                                {renderFurnishFlow}
+                            </Box>
+                            <Box
+                                onClick={() => setFurnishFlows(
+                                    prev => prev - 1
+                                )}
+                                className={cls(
+                                    'cursor-pointer'
+                                )}
+                                sx={{
+                                    ml: 1,
+                                    mt: 1.5,
+                                }}
+                            >
+                                <Cross
+                                    height={10}
+                                    width={10}
+                                />
+                            </Box>
                         </Box>
-                        <Box
-                            onClick={() => setFurnishFlows(
-                                prev => prev - 1
-                            )}
-                            className={cls(
-                                'cursor-pointer'
-                            )}
-                            sx={{
-                                ml: 1,
-                                mt: 1.5,
-                            }}
-                        >
-                            <Cross
-                                height={10}
-                                width={10}
-                            />
-                        </Box>
-                    </Box>
+                    }
                     <Box
                         onClick={() => setFurnishFlows(
                             prev => prev + 1
@@ -377,7 +381,7 @@ function AddFlowForm(props) {
                                 marginLeft: "2px",
                             }}
                         >
-                            AddLetter
+                            Add Letter
                         </Typography>
                     </Box>
                 </Grid>
