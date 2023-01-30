@@ -2,17 +2,19 @@
 import Button from '@Components/Button/Button';
 import CollapsableForm from '@Components/CollapsableForm/CollapsableForm';
 import DropDown from '@Components/DropDown/DropDown';
-import Tags from '@Components/Tags/Tags';
+import { FormDivider } from '@Components/StyledComponents/StyledComponents';
+import Tag from '@Components/Tag/Tag';
 import TextEditor from '@Components/TextEditor/TextEditor';
 import TextInput from '@Components/TextInput/TextInput';
 import {
-    Divider,
+    Box,
     Grid,
     styled,
     Typography,
     useTheme
 } from '@mui/material';
 import cls from 'classnames';
+import { useState } from 'react';
 
 const Label = styled(Typography)(({ theme }) => {
 
@@ -26,16 +28,27 @@ const Label = styled(Typography)(({ theme }) => {
     }
 })
 
-function AddTemplateForm(props) {
+function AddLetterTemplate({
+    register,
+    errors,
+    watch,
+    setValue,
+}) {
 
-    let providers = [
-        { label: 'Zeeshan Ahmad', value: 1 },
-        { label: 'Rafay', value: 2 },
-        { label: 'Ali', value: 3 },
-        { label: 'Usman', value: 4 },
-        { label: 'Mudasir', value: 5 },
+    let categoryList = [
+        { label: 'Category 1', value: 1 },
+        { label: 'Category 2', value: 2 },
+        { label: 'Category 3', value: 3 },
+        { label: 'Category 4', value: 4 },
+        { label: 'Category 5', value: 5 },
     ]
-
+    let typeList = [
+        { label: 'Type 1', value: 1 },
+        { label: 'Type 2', value: 2 },
+        { label: 'Type 3', value: 3 },
+        { label: 'Type 4', value: 4 },
+        { label: 'Type 5', value: 5 },
+    ]
     const buttons = [
         { label: "CLIENT FULL NAME" },
         { label: "CLIENT ADDRESS" },
@@ -50,31 +63,95 @@ function AddTemplateForm(props) {
         { label: "ACCOUNT INFO LIST" },
         { label: "DATE" },
     ]
+    const keys = [
+        {
+            id: 1,
+            name: 'Client'
+        },
+        {
+            id: 2,
+            name: 'Bureau'
+        },
+        {
+            id: 3,
+            name: 'Dispute'
+        },
+        {
+            id: 4,
+            name: 'Business Agency'
+        },
+        {
+            id: 5,
+            name: 'Contractor'
+        },
+    ]
+
+    let watchKeys = watch('keys')
 
     const {
-        register,
-        errors,
-        watch,
-    } = props || {}
-
-    const {
-        palette
+        palette: {
+            lead,
+            tags,
+        }
     } = useTheme()
+
+    const [showAll, setShowAll] = useState(false)
+
+    const handleTagClick = (id) => {
+
+        if (watchKeys.includes(id))
+            setValue(
+                'keys',
+                watchKeys.filter(
+                    obj => obj != id
+                )
+            )
+        else
+            setValue(
+                'keys',
+                [...watchKeys, id]
+            )
+    }
 
     const renderButtons
         = buttons.map((item) =>
             <Button
-                color={"tags"}
+                size="small"
+                color={"leadLight1"}
                 style={{
                     borderRadius: 3,
                     marginRight: 10,
                     marginBottom: 10
-
                 }}
             >
                 {item.label}
             </Button>
         )
+
+    const renderKeys
+        = keys.map((item, key) => {
+
+            const {
+                id,
+                name,
+            } = item
+
+            if (!showAll && key > 3)
+                return
+
+            return (
+                <Tag
+                    onClick={() => handleTagClick(id)}
+                    key={key}
+                    color={watchKeys.includes(id) ?
+                        tags.active
+                        :
+                        tags.inactive
+                    }
+                    name={name}
+                />
+            )
+        })
 
     return (
         <CollapsableForm
@@ -101,23 +178,20 @@ function AddTemplateForm(props) {
                 </Grid>
                 <Grid item xl="10" md="12" xs="12">
                     <TextInput
-                        register={register("Title", {
+                        register={register("title", {
                             required: true,
                         })}
-                        name="Title"
+                        name="title"
                         error={errors.letterFlowName}
-                        width="85%"
-                        fullWidth
+                        containerStyle={{
+                            width: '100%'
+                        }}
+                        width='85%'
                     />
                 </Grid>
-                <Divider
-                    sx={{
-                        backgroundColor: palette.tableSeparator.dark
-                    }}
-                    color="pink"
-                />
+                <FormDivider />
                 <Grid item xl="2" md="6" xs="12" padding="0px" >
-                    <Label sx={{ margin: "0px", padding: "0px" }}
+                    <Label
                         variant="subtitle1"
                     >
                         Category
@@ -129,8 +203,8 @@ function AddTemplateForm(props) {
                         <DropDown
                             watch={watch}
                             register={register("category")}
-                            list={providers}
-                            name="Category"
+                            list={categoryList}
+                            name="category"
                             error={errors.furnishFlow}
                         />
                     </Grid>
@@ -147,17 +221,18 @@ function AddTemplateForm(props) {
                         <DropDown
                             watch={watch}
                             register={register("type")}
-                            list={providers}
+                            list={typeList}
                             name="type"
-                            error={errors.furnishFlow}
+                            error={errors.type}
                         />
                     </Grid>
                 </Grid>
+                <FormDivider />
                 <Grid item xl="2" md="6" xs="12">
                     <Label
                         variant="subtitle1"
                     >
-                        keys
+                        Keys
                     </Label>
                 </Grid>
                 <Grid
@@ -168,17 +243,26 @@ function AddTemplateForm(props) {
                     display="flex"
                     flexDirection="row"
                 >
-                    <Tags />
-                    <Tags />
-                    <Tags />
-                    <Tags />
-                    <Typography
-                        color={palette.lead.main}
-                        sx={{ textDecoration: "underline" }}
+                    {renderKeys}
+                    <Box
+                        onClick={() =>
+                            setShowAll(prev => !prev)
+                        }
                     >
-                        Show All
-                    </Typography>
-
+                        <Typography
+                            color={lead.main}
+                            sx={{
+                                textDecoration: "underline",
+                                cursor: 'pointer'
+                            }}
+                        >
+                            {showAll ?
+                                "Show Less"
+                                :
+                                "Show All"
+                            }
+                        </Typography>
+                    </Box>
                 </Grid>
                 <Grid
                     item
@@ -189,7 +273,9 @@ function AddTemplateForm(props) {
                     flexDirection="row"
                     flexWrap="wrap"
                 >
-                    {buttons && renderButtons}
+                    {buttons &&
+                        renderButtons
+                    }
                 </Grid>
                 <Grid
                     item
@@ -199,6 +285,9 @@ function AddTemplateForm(props) {
                     display="flex"
                     flexDirection="row"
                     flexWrap="wrap"
+                    sx={{
+                        border: '0px solid red'
+                    }}
                 >
                     <TextEditor />
                 </Grid>
@@ -207,4 +296,4 @@ function AddTemplateForm(props) {
     )
 }
 
-export default AddTemplateForm
+export default AddLetterTemplate

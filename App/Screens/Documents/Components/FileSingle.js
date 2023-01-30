@@ -42,7 +42,8 @@ const ActionsWrapper = styled(Box)(({ theme }) => {
         display: "flex",
         flexDirection: "row",
         gap: "7px",
-        marginTop: "1rem"
+        marginTop: "1rem",
+        alignItems: "center"
     }
 })
 const TitleWrapper = styled(Box)(({ theme }) => {
@@ -168,7 +169,11 @@ function FileSingle(props) {
 
             {
                 actions && <ActionsWrapper>
-                    <AddCircleIcon color="secondary" sx={{ width: "42px", height: "42px", margin: "0px" }} />
+                    <AddCircleIcon color="secondary" sx={{
+                        width: "41px",
+                        height: "41px",
+                        margin: "0px"
+                    }} />
                     <Sendicon width="35px" height="35px" />
                 </ActionsWrapper>
             }
