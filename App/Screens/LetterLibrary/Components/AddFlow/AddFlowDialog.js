@@ -27,35 +27,14 @@ const Container = styled(Box)(({ theme }) => {
     }
 })
 
-function AddFlowDialog(props) {
+function AddFlowDialog() {
 
     const defaultValues = {
-        firstName: null,
-        lastName: null,
-        ssnNumber: null,
-        emailId: null,
-        mobileNo: null,
-        phoneNo: null,
-        website: null,
-        address: null,
-        city: null,
-        state: null,
-        country: null,
-        zipCode: null,
-        hasPreviousAddress: null,
-        previousAddress: null,
-        previousCity: null,
-        previousState: null,
-        previousCountry: null,
-        previousZipCode: null,
-        provider: null,
-        username: null,
-        password: null,
-        ssn: null,
-        hasAttachmentAgreement: null,
-        attachmentAgreement: null,
-        requiredDocuments: [],
-        otherRequiredDocument: null
+        letterFlowName: null,
+        itemType: null,
+        reason: null,
+        bureauFlow: [],
+        furnishFlow: [],
     }
 
     const dispatch = useDispatch()

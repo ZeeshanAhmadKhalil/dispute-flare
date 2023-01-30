@@ -21,7 +21,6 @@ function Button(props) {
     } = props || {}
 
     const matches = useWidth(`${match} <`)
-    console.log("imawidth", matches)
 
     return (
         <Stack direction="row" spacing={2}>

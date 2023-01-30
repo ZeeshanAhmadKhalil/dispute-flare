@@ -3,7 +3,6 @@ import CollapsableForm from '@Components/CollapsableForm/CollapsableForm';
 import DropDown from '@Components/DropDown/DropDown';
 import TextInput from '@Components/TextInput/TextInput';
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
-import CloseSharpIcon from '@mui/icons-material/CloseSharp';
 import {
     Box,
     Divider as MuiDivider,
@@ -13,8 +12,8 @@ import {
     useTheme
 } from '@mui/material';
 import cls from 'classnames';
-import Cross from 'public/Assets/Svgs/cross.svg'
-import PlusCircle from 'public/Assets/Svgs/plus-circle.svg'
+import Cross from 'public/Assets/Svgs/cross.svg';
+import { useState } from 'react';
 
 const Label = styled(Typography)(({ theme }) => {
 
@@ -69,18 +68,50 @@ function AddFlowForm(props) {
 
     const {
         register,
-        control,
         errors,
         watch,
     } = props || {}
 
     const {
         palette: {
-            tableSeparator,
-            cancelled,
             lead,
         }
     } = useTheme()
+
+    const [bureauFlows, setBureauFlows] = useState(1)
+    const [furnishFlows, setFurnishFlows] = useState(1)
+
+    const renderBureauFlow =
+        [...Array(bureauFlows)].map((item, key) => (
+            <DropDown
+                key={key}
+                watch={watch}
+                register={register(`bureauFlow[${key}]`)}
+                list={flowList}
+                name={`bureauFlow[${key}]`}
+                error={errors.furnishFlow}
+                styles={{
+                    marginBottom: 1,
+                }}
+            />
+
+        ))
+    const renderFurnishFlow =
+        [...Array(furnishFlows)].map((item, key) => (
+            <DropDown
+                key={key}
+                watch={watch}
+                register={register(`furnishFlow[${key}]`)}
+                list={flowList}
+                name={`furnishFlow[${key}]`}
+                error={errors.furnishFlow}
+                styles={{
+                    marginBottom: 1,
+                }}
+            />
+
+        ))
+
 
     return (
         <CollapsableForm
@@ -196,22 +227,31 @@ function AddFlowForm(props) {
                 >
                     <Box
                         display="flex"
-                        alignItems="center"
+                        justifyContent="start"
+                        sx={{
+                            border: '0px solid red'
+                        }}
                     >
-                        <DropDown
-                            watch={watch}
-                            register={register("bureauFlow")}
-                            list={flowList}
-                            name="Furnish Flow"
-                            error={errors.furnishFlow}
-                            styles={{
-                                marginRight: 1,
-                            }}
-                        />
                         <Box
+                            sx={{
+                                border: '0px solid red',
+                                display: 'flex',
+                                flexDirection: 'column'
+                            }}
+                        >
+                            {renderBureauFlow}
+                        </Box>
+                        <Box
+                            onClick={() => setBureauFlows(
+                                prev => prev - 1
+                            )}
                             className={cls(
                                 'cursor-pointer'
                             )}
+                            sx={{
+                                ml: 1,
+                                mt: 1.5,
+                            }}
                         >
                             <Cross
                                 height={10}
@@ -220,6 +260,9 @@ function AddFlowForm(props) {
                         </Box>
                     </Box>
                     <Box
+                        onClick={() => setBureauFlows(
+                            prev => prev + 1
+                        )}
                         className={cls(
                             'cursor-pointer'
                         )}
@@ -229,7 +272,6 @@ function AddFlowForm(props) {
                         sx={{
                             border: '0px solid red',
                             width: 275,
-                            mt: 1,
                         }}
                     >
                         <AddCircleOutlineOutlinedIcon
@@ -261,7 +303,7 @@ function AddFlowForm(props) {
                     <Label
                         variant="subtitle1"
                     >
-                        Furnisher Flow
+                        Bureau Flow
                     </Label>
                 </Grid>
                 <Grid
@@ -275,22 +317,31 @@ function AddFlowForm(props) {
                 >
                     <Box
                         display="flex"
-                        alignItems="center"
+                        justifyContent="start"
+                        sx={{
+                            border: '0px solid red'
+                        }}
                     >
-                        <DropDown
-                            watch={watch}
-                            register={register("furnishFlow")}
-                            list={flowList}
-                            name="Furnish Flow"
-                            error={errors.furnishFlow}
-                            styles={{
-                                marginRight: 1,
-                            }}
-                        />
                         <Box
+                            sx={{
+                                border: '0px solid red',
+                                display: 'flex',
+                                flexDirection: 'column'
+                            }}
+                        >
+                            {renderFurnishFlow}
+                        </Box>
+                        <Box
+                            onClick={() => setFurnishFlows(
+                                prev => prev - 1
+                            )}
                             className={cls(
                                 'cursor-pointer'
                             )}
+                            sx={{
+                                ml: 1,
+                                mt: 1.5,
+                            }}
                         >
                             <Cross
                                 height={10}
@@ -299,6 +350,9 @@ function AddFlowForm(props) {
                         </Box>
                     </Box>
                     <Box
+                        onClick={() => setFurnishFlows(
+                            prev => prev + 1
+                        )}
                         className={cls(
                             'cursor-pointer'
                         )}
@@ -308,7 +362,6 @@ function AddFlowForm(props) {
                         sx={{
                             border: '0px solid red',
                             width: 275,
-                            mt: 1,
                         }}
                     >
                         <AddCircleOutlineOutlinedIcon
