@@ -26,7 +26,7 @@ function Dispute(props) {
         { label: "Dashboard", value: "client-dashboard" },
         { label: "Dispute", value: "dispute" },
         { label: "Documents", value: "documents" },
-        { label: "Internal Notes", value: "internal-notes" },
+        { label: "Internal Notes", value: "internal-note" },
     ]
     const dispatch = useDispatch()
 

@@ -1,11 +1,10 @@
-import TopTabs from '@Components/TopTabs/TopTabs';
 import ScrollContainer from '@Components/ScrollContainer/ScrollContainer';
+import DropDownCell from '@Components/Table/Components/DropDownCell/DropDownCell';
 import Table from '@Components/Table/Table';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
-import DropDownCell from '@Components/Table/Components/DropDownCell/DropDownCell';
+import TopTabs from '@Components/TopTabs/TopTabs';
 import DateAdded from './Components/DateAdded';
 import Title from './Components/Title';
-
 import {
     Divider,
     Tab,
@@ -14,18 +13,14 @@ import {
     useTheme
 } from '@mui/material';
 import { Box } from '@mui/system';
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import DocumentsActions from "./Components/DocumentsActions";
 import TilesView from './Components/TilesView';
 import UploadedDocuments from './Components/UploadedDocuments';
 import UploadingDocuments from './Components/UploadingFiles';
-import {
-    setAllColumnsVisibility,
-    setColumnVisibility
-} from './Store/documentsSlice';
-function Documents(props) {
 
+function Documents(props) {
 
     const columns = [
         {
@@ -171,6 +166,7 @@ function Documents(props) {
     const {
         selectedClientId
     } = useSelector(state => state.shared)
+
     const [value, setValue] = useState(0);
     const [selectedDocuments, setSelectedDocuments] = useState([])
 
@@ -183,7 +179,6 @@ function Documents(props) {
             'aria-controls': `simple-tabpanel-${index}`,
         };
     }
-
     function TabPanel(props) {
         const { children, value, index, ...other } = props;
 
@@ -203,7 +198,6 @@ function Documents(props) {
             </div>
         );
     }
-
 
     return (
         <>
@@ -260,10 +254,6 @@ function Documents(props) {
                         title="Documents"
                         onSelectionModelChange={(selected) =>
                             setSelectedDocuments(selected)
-                        }
-                        hasCreditMonitoringInfo={
-                            selectedClientId == 1 ||
-                            selectedClientId == 2
                         }
                         columns={columns}
                         rows={documents}
