@@ -1,11 +1,11 @@
 
 import CollapsableForm from '@Components/CollapsableForm/CollapsableForm';
 import DropDown from '@Components/DropDown/DropDown';
+import { FormDivider } from '@Components/StyledComponents/StyledComponents';
 import TextInput from '@Components/TextInput/TextInput';
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
 import {
     Box,
-    Divider as MuiDivider,
     Grid,
     styled,
     Typography,
@@ -24,18 +24,6 @@ const Label = styled(Typography)(({ theme }) => {
     return {
         color: xxxGrey,
         fontWeight: 500,
-    }
-})
-
-const Divider = styled(MuiDivider)(({ theme: {
-    palette: {
-        tableSeparator,
-    }
-} }) => {
-    return {
-        backgroundColor: tableSeparator.dark,
-        width: '100%',
-        marginTop: 20,
     }
 })
 
@@ -143,7 +131,7 @@ function AddFlowForm(props) {
                         register={register("letterFlowName", {
                             required: true,
                         })}
-                        name="Flow Name"
+                        name="letterFlowName"
                         error={errors.letterFlowName}
                         containerStyle={{
                             width: '100%'
@@ -151,7 +139,7 @@ function AddFlowForm(props) {
                         width='85%'
                     />
                 </Grid>
-                <Divider />
+                <FormDivider />
                 <Grid item xl="12" md="12" xs="12">
                     <Typography
                         color="text.xxGrey"
@@ -172,7 +160,7 @@ function AddFlowForm(props) {
                         watch={watch}
                         register={register("itemType")}
                         list={itemTypeList}
-                        name="Item Type"
+                        name="itemType"
                         error={errors.itemType}
                     />
                 </Grid>
@@ -192,7 +180,7 @@ function AddFlowForm(props) {
                         error={errors.reason}
                     />
                 </Grid>
-                <Divider />
+                <FormDivider />
                 <Grid item xl="12" md="12" xs="12">
                     <Typography
                         color="text.xxGrey"

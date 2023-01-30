@@ -10,7 +10,7 @@ import {
     useDispatch,
     useSelector
 } from 'react-redux';
-import AddTemplateForm from './AddLetterTemplate/AddTemplateForm';
+import AddLetterTemplate from './AddLetterTemplate';
 import AddTemplateAction from './AddTemplateAction';
 
 const Container = styled(Box)(({ theme }) => {
@@ -106,7 +106,7 @@ function AddLetterTemplateDialog() {
                         backgroundColor: tableSeparator?.light
                     }}
                 />
-                <AddTemplateForm
+                <AddLetterTemplate
                     watch={watch}
                     register={register}
                     control={control}

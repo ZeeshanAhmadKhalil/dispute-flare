@@ -2,6 +2,7 @@
 import Button from '@Components/Button/Button';
 import CollapsableForm from '@Components/CollapsableForm/CollapsableForm';
 import DropDown from '@Components/DropDown/DropDown';
+import { FormDivider } from '@Components/StyledComponents/StyledComponents';
 import Tags from '@Components/Tags/Tags';
 import TextEditor from '@Components/TextEditor/TextEditor';
 import TextInput from '@Components/TextInput/TextInput';
@@ -26,14 +27,21 @@ const Label = styled(Typography)(({ theme }) => {
     }
 })
 
-function AddTemplateForm(props) {
+function AddLetterTemplate(props) {
 
-    let providers = [
-        { label: 'Zeeshan Ahmad', value: 1 },
-        { label: 'Rafay', value: 2 },
-        { label: 'Ali', value: 3 },
-        { label: 'Usman', value: 4 },
-        { label: 'Mudasir', value: 5 },
+    let categoryList = [
+        { label: 'Category 1', value: 1 },
+        { label: 'Category 2', value: 2 },
+        { label: 'Category 3', value: 3 },
+        { label: 'Category 4', value: 4 },
+        { label: 'Category 5', value: 5 },
+    ]
+    let typeList = [
+        { label: 'Type 1', value: 1 },
+        { label: 'Type 2', value: 2 },
+        { label: 'Type 3', value: 3 },
+        { label: 'Type 4', value: 4 },
+        { label: 'Type 5', value: 5 },
     ]
 
     const buttons = [
@@ -104,20 +112,17 @@ function AddTemplateForm(props) {
                         register={register("Title", {
                             required: true,
                         })}
-                        name="Title"
+                        name="title"
                         error={errors.letterFlowName}
-                        width="85%"
-                        fullWidth
+                        containerStyle={{
+                            width: '100%'
+                        }}
+                        width='85%'
                     />
                 </Grid>
-                <Divider
-                    sx={{
-                        backgroundColor: palette.tableSeparator.dark
-                    }}
-                    color="pink"
-                />
+                <FormDivider />
                 <Grid item xl="2" md="6" xs="12" padding="0px" >
-                    <Label sx={{ margin: "0px", padding: "0px" }}
+                    <Label
                         variant="subtitle1"
                     >
                         Category
@@ -129,8 +134,8 @@ function AddTemplateForm(props) {
                         <DropDown
                             watch={watch}
                             register={register("category")}
-                            list={providers}
-                            name="Category"
+                            list={categoryList}
+                            name="category"
                             error={errors.furnishFlow}
                         />
                     </Grid>
@@ -147,12 +152,13 @@ function AddTemplateForm(props) {
                         <DropDown
                             watch={watch}
                             register={register("type")}
-                            list={providers}
+                            list={typeList}
                             name="type"
-                            error={errors.furnishFlow}
+                            error={errors.type}
                         />
                     </Grid>
                 </Grid>
+                <FormDivider />
                 <Grid item xl="2" md="6" xs="12">
                     <Label
                         variant="subtitle1"
@@ -207,4 +213,4 @@ function AddTemplateForm(props) {
     )
 }
 
-export default AddTemplateForm
+export default AddLetterTemplate
