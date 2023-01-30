@@ -50,7 +50,9 @@ const themeObj = {
             main: "#29D652"
         },
         tags: {
-            main: "#6193CB"
+            main: "#6193CB",
+            active: "#296BB4",
+            inactive: "#8D8D8D",
         },
         inactive: {
             main: "#EBA51C"
@@ -60,6 +62,9 @@ const themeObj = {
         },
         leadLight: {
             main: "#06AEEE"
+        },
+        leadLight1: {
+            main: "#84ABD5"
         },
         cancelled: {
             main: "#D33C41"

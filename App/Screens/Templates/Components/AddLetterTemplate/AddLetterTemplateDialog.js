@@ -31,32 +31,10 @@ const Container = styled(Box)(({ theme }) => {
 function AddLetterTemplateDialog() {
 
     const defaultValues = {
-        firstName: null,
-        lastName: null,
-        ssnNumber: null,
-        emailId: null,
-        mobileNo: null,
-        phoneNo: null,
-        website: null,
-        address: null,
-        city: null,
-        state: null,
-        country: null,
-        zipCode: null,
-        hasPreviousAddress: null,
-        previousAddress: null,
-        previousCity: null,
-        previousState: null,
-        previousCountry: null,
-        previousZipCode: null,
-        provider: null,
-        username: null,
-        password: null,
-        ssn: null,
-        hasAttachmentAgreement: null,
-        attachmentAgreement: null,
-        requiredDocuments: [],
-        otherRequiredDocument: null
+        title: null,
+        category: null,
+        type: null,
+        keys: [],
     }
 
     const dispatch = useDispatch()
@@ -80,6 +58,7 @@ function AddLetterTemplateDialog() {
         reset,
         watch,
         formState: { errors },
+        setValue,
     } = useForm({
         mode: 'onChange',
         defaultValues,
@@ -111,6 +90,7 @@ function AddLetterTemplateDialog() {
                     register={register}
                     control={control}
                     errors={errors}
+                    setValue={setValue}
                 />
 
             </Container>

@@ -3,17 +3,18 @@ import Button from '@Components/Button/Button';
 import CollapsableForm from '@Components/CollapsableForm/CollapsableForm';
 import DropDown from '@Components/DropDown/DropDown';
 import { FormDivider } from '@Components/StyledComponents/StyledComponents';
-import Tags from '@Components/Tags/Tags';
+import Tag from '@Components/Tag/Tag';
 import TextEditor from '@Components/TextEditor/TextEditor';
 import TextInput from '@Components/TextInput/TextInput';
 import {
-    Divider,
+    Box,
     Grid,
     styled,
     Typography,
     useTheme
 } from '@mui/material';
 import cls from 'classnames';
+import { useState } from 'react';
 
 const Label = styled(Typography)(({ theme }) => {
 
@@ -27,7 +28,12 @@ const Label = styled(Typography)(({ theme }) => {
     }
 })
 
-function AddLetterTemplate(props) {
+function AddLetterTemplate({
+    register,
+    errors,
+    watch,
+    setValue,
+}) {
 
     let categoryList = [
         { label: 'Category 1', value: 1 },
@@ -43,7 +49,6 @@ function AddLetterTemplate(props) {
         { label: 'Type 4', value: 4 },
         { label: 'Type 5', value: 5 },
     ]
-
     const buttons = [
         { label: "CLIENT FULL NAME" },
         { label: "CLIENT ADDRESS" },
@@ -58,31 +63,95 @@ function AddLetterTemplate(props) {
         { label: "ACCOUNT INFO LIST" },
         { label: "DATE" },
     ]
+    const keys = [
+        {
+            id: 1,
+            name: 'Client'
+        },
+        {
+            id: 2,
+            name: 'Bureau'
+        },
+        {
+            id: 3,
+            name: 'Dispute'
+        },
+        {
+            id: 4,
+            name: 'Business Agency'
+        },
+        {
+            id: 5,
+            name: 'Contractor'
+        },
+    ]
+
+    let watchKeys = watch('keys')
 
     const {
-        register,
-        errors,
-        watch,
-    } = props || {}
-
-    const {
-        palette
+        palette: {
+            lead,
+            tags,
+        }
     } = useTheme()
+
+    const [showAll, setShowAll] = useState(false)
+
+    const handleTagClick = (id) => {
+
+        if (watchKeys.includes(id))
+            setValue(
+                'keys',
+                watchKeys.filter(
+                    obj => obj != id
+                )
+            )
+        else
+            setValue(
+                'keys',
+                [...watchKeys, id]
+            )
+    }
 
     const renderButtons
         = buttons.map((item) =>
             <Button
-                color={"tags"}
+                size="small"
+                color={"leadLight1"}
                 style={{
                     borderRadius: 3,
                     marginRight: 10,
                     marginBottom: 10
-
                 }}
             >
                 {item.label}
             </Button>
         )
+
+    const renderKeys
+        = keys.map((item, key) => {
+
+            const {
+                id,
+                name,
+            } = item
+
+            if (!showAll && key > 3)
+                return
+
+            return (
+                <Tag
+                    onClick={() => handleTagClick(id)}
+                    key={key}
+                    color={watchKeys.includes(id) ?
+                        tags.active
+                        :
+                        tags.inactive
+                    }
+                    name={name}
+                />
+            )
+        })
 
     return (
         <CollapsableForm
@@ -109,7 +178,7 @@ function AddLetterTemplate(props) {
                 </Grid>
                 <Grid item xl="10" md="12" xs="12">
                     <TextInput
-                        register={register("Title", {
+                        register={register("title", {
                             required: true,
                         })}
                         name="title"
@@ -163,7 +232,7 @@ function AddLetterTemplate(props) {
                     <Label
                         variant="subtitle1"
                     >
-                        keys
+                        Keys
                     </Label>
                 </Grid>
                 <Grid
@@ -174,17 +243,26 @@ function AddLetterTemplate(props) {
                     display="flex"
                     flexDirection="row"
                 >
-                    <Tags />
-                    <Tags />
-                    <Tags />
-                    <Tags />
-                    <Typography
-                        color={palette.lead.main}
-                        sx={{ textDecoration: "underline" }}
+                    {renderKeys}
+                    <Box
+                        onClick={() =>
+                            setShowAll(prev => !prev)
+                        }
                     >
-                        Show All
-                    </Typography>
-
+                        <Typography
+                            color={lead.main}
+                            sx={{
+                                textDecoration: "underline",
+                                cursor: 'pointer'
+                            }}
+                        >
+                            {showAll ?
+                                "Show Less"
+                                :
+                                "Show All"
+                            }
+                        </Typography>
+                    </Box>
                 </Grid>
                 <Grid
                     item
@@ -195,7 +273,9 @@ function AddLetterTemplate(props) {
                     flexDirection="row"
                     flexWrap="wrap"
                 >
-                    {buttons && renderButtons}
+                    {buttons &&
+                        renderButtons
+                    }
                 </Grid>
                 <Grid
                     item
@@ -205,6 +285,9 @@ function AddLetterTemplate(props) {
                     display="flex"
                     flexDirection="row"
                     flexWrap="wrap"
+                    sx={{
+                        border: '0px solid red'
+                    }}
                 >
                     <TextEditor />
                 </Grid>

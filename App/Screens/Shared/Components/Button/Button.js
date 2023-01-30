@@ -8,16 +8,17 @@ function Button(props) {
 
 
     const {
-        startIcon,
-        endIcon,
         color,
         style,
-        variant = "contained",
-        children,
-        iconOnSmall,
-        disableElevation,
         onClick,
+        endIcon,
+        children,
+        startIcon,
+        iconOnSmall,
         match = "md1",
+        size = 'medium',
+        disableElevation,
+        variant = "contained",
     } = props || {}
 
     const matches = useWidth(`${match} <`)
@@ -48,6 +49,7 @@ function Button(props) {
                 </IconButton>
                 :
                 <MuiButton
+                    size={size}
                     variant={variant}
                     onClick={onClick}
                     disableElevation={disableElevation}
