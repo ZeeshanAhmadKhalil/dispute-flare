@@ -97,7 +97,7 @@ function AddFlowDialog(props) {
             }
             open={addFlowDialog}
             closeBtnText="Flow"
-            title={"Add Flow"}
+            title={"Add a Letter Flow"}
         >
             <Container>
                 <Divider

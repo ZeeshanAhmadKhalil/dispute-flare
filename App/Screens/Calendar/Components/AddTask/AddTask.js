@@ -108,7 +108,7 @@ function AddTask(props) {
                         containerStyle={{
                             width: '100%'
                         }}
-                        width='100%'
+                        width='85%'
                     />
                 </Grid>
                 <Grid
