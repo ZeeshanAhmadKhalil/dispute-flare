@@ -28,7 +28,7 @@ function UploadingDocuments() {
             <Container>
                 <Typography color={palette.text.lightSilver}>
                     <span style={{ left: "5px", position: "relative" }}> _____ </span>
-                    Uploading Documents
+                    Still Uploading
                     <span style={{ right: "-5px", position: "relative" }}> _____ </span>
 
                 </Typography>

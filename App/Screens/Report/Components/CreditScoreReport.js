@@ -535,8 +535,6 @@ function CreditScoreReport() {
                     checkboxSelection={false}
                     columns={columns}
                     rows={energyMarketing}
-                    setColumnVisibility={true}
-                    setAllColumnsVisibility={true}
                     height={400}
                     hidePagination={true}
                 />
@@ -564,8 +562,6 @@ function CreditScoreReport() {
                     checkboxSelection={false}
                     columns={columns}
                     rows={energyLa}
-                    setColumnVisibility={true}
-                    setAllColumnsVisibility={true}
                     height={400}
                     hidePagination={true}
                 />
@@ -593,8 +589,6 @@ function CreditScoreReport() {
                     checkboxSelection={false}
                     columns={columns}
                     rows={rows}
-                    setColumnVisibility={true}
-                    setAllColumnsVisibility={true}
                     height={400}
                     hidePagination={true}
                 />

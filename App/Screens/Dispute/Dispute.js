@@ -20,7 +20,7 @@ import {
     setDisputeDialog
 } from './Store/disputeSlice';
 
-function Dispute(props) {
+function Dispute() {
 
     const tabs = [
         { label: "Dashboard", value: "client-dashboard" },

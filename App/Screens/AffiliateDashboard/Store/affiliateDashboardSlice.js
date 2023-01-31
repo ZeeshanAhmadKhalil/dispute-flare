@@ -9,7 +9,7 @@ const affiliateDashboardSlice = createSlice({
         selectedPaymentId: 0,
     },
     reducers: {
-        setrecordPaymentDialogDialog: (state, action) => {
+        setRecordPaymentDialog: (state, action) => {
             state.recordPaymentDialog = action.payload
         },
         setSelectedAffiliatesId: (state, action) => {
@@ -70,7 +70,7 @@ export const {
     setColumnVisibility,
     setAllColumnsVisibility,
     setDefaultColumnsVisibility,
-    setrecordPaymentDialogDialog,
+    setRecordPaymentDialog,
     setSelectedAffiliatesId
 } = affiliateDashboardSlice.actions;
 

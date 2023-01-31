@@ -35,6 +35,7 @@ function AddLetterTemplateDialog() {
         category: null,
         type: null,
         keys: [],
+        details: null,
     }
 
     const dispatch = useDispatch()
@@ -92,7 +93,6 @@ function AddLetterTemplateDialog() {
                     errors={errors}
                     setValue={setValue}
                 />
-
             </Container>
         </RightDialogLayout >
     );

@@ -43,7 +43,8 @@ const ActionsWrapper = styled(Box)(({ theme }) => {
         flexDirection: "row",
         gap: "7px",
         marginTop: "1rem",
-        alignItems: "center"
+        alignItems: "center",
+        // backgroundColor: "red"
     }
 })
 const TitleWrapper = styled(Box)(({ theme }) => {

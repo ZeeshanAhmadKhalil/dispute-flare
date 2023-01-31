@@ -17,7 +17,7 @@ function DocumentsActions(props) {
         <>
             <Button
                 iconOnSmall={<FileUploadIcon />}
-                color={"primary"}
+                color={"lightPink"}
                 startIcon={null}
                 style={{
                     borderRadius: 3,
@@ -30,7 +30,7 @@ function DocumentsActions(props) {
                 <>
                     <Button
                         iconOnSmall={<AddIcon />}
-                        color={"lightPink"}
+                        color={"checkbox"}
                         startIcon={null}
                         style={{
                             borderRadius: 3,
