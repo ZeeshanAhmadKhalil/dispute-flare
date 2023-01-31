@@ -29,9 +29,10 @@ const Label = styled(Typography)(({ theme }) => {
 })
 
 function AddLetterTemplate({
-    register,
-    errors,
     watch,
+    errors,
+    control,
+    register,
     setValue,
 }) {
 
@@ -289,7 +290,10 @@ function AddLetterTemplate({
                         border: '0px solid red'
                     }}
                 >
-                    <TextEditor />
+                    <TextEditor
+                        control={control}
+                        name="details"
+                    />
                 </Grid>
             </Grid>
         </CollapsableForm>
