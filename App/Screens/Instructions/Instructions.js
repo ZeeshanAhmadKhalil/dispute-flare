@@ -11,7 +11,7 @@ import InstructionActions from './Components/InstructionActions';
 import { setAddInstructionsDialog } from './Store/instructionsSlice';
 
 const tabs = [
-    { label: "Letter Flow", value: "letterlibrary" },
+    { label: "Letter Flow", value: "letter-library" },
     { label: "Templates", value: "templates" },
     { label: "Reasons", value: "reasons" },
     { label: "Instructions", value: "instructions" }

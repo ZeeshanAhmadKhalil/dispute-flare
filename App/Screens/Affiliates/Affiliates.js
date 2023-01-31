@@ -5,6 +5,7 @@ import TitleHeader from '@Components/TitleHeader/TitleHeader'
 import TopTabs from '@Components/TopTabs/TopTabs'
 import { getId } from '@Config/helper'
 import { useState } from 'react'
+import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux'
 import AddAffililateDialog from './Components/AddAffiliate/AddAffililateDialog'
 import AffiliatesActions from './Components/AffiliatesActions'
@@ -183,6 +184,7 @@ function Affiliates() {
 
     const [selectedAffiliates, setSelectedAffiliates] = useState([])
 
+    const router = useRouter()
     return (
         <>
             <TopTabs
@@ -202,6 +204,9 @@ function Affiliates() {
                     setSelectedAffiliates(selected)
                 }
                 columns={columns}
+                onRowClick={() =>
+                    router.push('affiliate-dashboard')
+                }
                 rows={affiliates}
                 noRowsAction={() =>
                     dispatch(setAddAffiliatesDialog(true))

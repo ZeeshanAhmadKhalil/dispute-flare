@@ -24,3 +24,10 @@
 .rbc-event {
     background-color: unset !important;
 }
+.MuiTab-textColorSecondary{
+
+    padding: 0px;
+}
+.h-full{
+    background-image: url("/public/Assets/Images/default.jpeg");
+}
