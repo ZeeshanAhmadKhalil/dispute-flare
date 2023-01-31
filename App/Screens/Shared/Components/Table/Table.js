@@ -2,7 +2,11 @@ import BaseCheckbox from '@Components/Table/Components/CheckBox/CheckBox';
 import SortIcons from '@Components/Table/Components/SortIcons/SortIcons';
 import { lightTheme } from '@Config/theme';
 import { styled } from '@mui/material/styles';
-import { Box, ThemeProvider, useTheme } from '@mui/system';
+import {
+    Box,
+    ThemeProvider,
+    useTheme
+} from '@mui/system';
 import {
     DataGrid as MuiDataGrid
 } from '@mui/x-data-grid';
@@ -202,6 +206,16 @@ function Table(props) {
         rowSeparatorColor = tableSeparator?.main,
     } = props || {}
 
+    let columnsToPass = columns
+    if (!(
+        rows?.length > 0
+        && (title != "Dispute" || hasCreditMonitoringInfo)
+        && columns.some(obj => obj?.field == 'settings')
+    ))
+        columnsToPass = columns.filter(
+            obj => obj?.field != 'settings'
+        )
+
     const dispatch = useDispatch()
 
     const handleClick = () => {
@@ -238,7 +252,7 @@ function Table(props) {
                     loading={false}
                     rows={rows}
                     autoHeight={autoHeight}
-                    columns={columns}
+                    columns={columnsToPass}
                     rowsPerPageOptions={[5, 25, 50, 100]}
                     disableSelectionOnClick
                     disableColumnMenu
@@ -301,13 +315,19 @@ function Table(props) {
                             <SortIcons />,
                     }}
                 />
-                <Toolbar
-                    title={title}
-                    columns={columns}
-                    setColumnVisibility={setColumnVisibility}
-                    setAllColumnsVisibility={setAllColumnsVisibility}
-                    setDefaultColumnsVisibility={setDefaultColumnsVisibility}
-                />
+                {(
+                    rows?.length > 0
+                    && (title != "Dispute" || hasCreditMonitoringInfo)
+                    && columns.some(obj => obj?.field == 'settings')
+                ) &&
+                    <Toolbar
+                        title={title}
+                        columns={columns}
+                        setColumnVisibility={setColumnVisibility}
+                        setAllColumnsVisibility={setAllColumnsVisibility}
+                        setDefaultColumnsVisibility={setDefaultColumnsVisibility}
+                    />
+                }
             </div >
         </ThemeProvider>
     );

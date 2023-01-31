@@ -17,7 +17,7 @@ import {
     setDefaultColumnsVisibility
 } from './Store/clientsSlice';
 
-function Client(props) {
+function Client() {
 
     const dispatch = useDispatch()
 

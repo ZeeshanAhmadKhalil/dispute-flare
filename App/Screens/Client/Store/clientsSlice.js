@@ -100,7 +100,7 @@ const clientsSlice = createSlice({
         ],
         clients: [
             {
-                id: getId(),
+                id: 1,
                 clientName: 'Zeeshan Ahmad',
                 email: 'zak@gmail.com',
                 mobile: '(000) 000 - 0000',
@@ -111,7 +111,7 @@ const clientsSlice = createSlice({
                 status: 'Lead',
             },
             {
-                id: getId(),
+                id: 2,
                 clientName: 'Rafay',
                 email: 'John@gmail.com',
                 mobile: '(000) 000 - 0000',
