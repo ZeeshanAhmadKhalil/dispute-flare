@@ -17,6 +17,270 @@ import TeamAction from './Components/TeamActions';
 import Value from './Components/Value';
 import { setAddTeamDialog } from './Store/teamsSlice';
 
+const columns = [
+    {
+        field: 'id',
+        headerName: 'Id',
+        width: 150,
+        hide: true,
+        hidable: true,
+    },
+    {
+        field: 'fullname',
+        headerName: 'Full Name',
+        width: 200,
+        headerClassName: 'separator-header',
+        hidable: true,
+        hide: false,
+        renderCell: ({ value }) => (
+            <Grid>
+                <LinkCell value={value} />
+                <Box>
+                    <CircleIcon
+                        sx={{
+                            width: "10px",
+                            height: "10px",
+                            color: "green",
+                            marginRight: "2px"
+                        }}
+                    />
+                    <span>Online</span>
+                </Box>
+            </Grid>
+        )
+    },
+    {
+        field: 'contact',
+        headerName: 'Contact',
+        width: 200,
+        headerClassName: 'separator-header',
+        hidable: true,
+        hide: false,
+
+        renderCell: Value,
+    },
+    {
+        field: 'email',
+        headerName: 'Email',
+        width: 200,
+        headerClassName: 'separator-header',
+        hidable: true,
+        hide: false,
+
+        renderCell: LinkCell,
+    },
+    {
+        field: 'department',
+        headerName: 'Department',
+        width: 200,
+        headerClassName: 'separator-header',
+        hidable: true,
+        hide: false,
+
+        renderCell: Value,
+    },
+    {
+        field: 'position',
+        headerName: 'Position',
+        width: 200,
+        headerClassName: 'separator-header',
+        hidable: true,
+        hide: false,
+
+        renderCell: Value,
+    },
+    {
+        field: 'address',
+        headerName: 'Address',
+        width: 200,
+        headerClassName: 'separator-header',
+        hidable: true,
+        hide: false,
+
+        renderCell: Value,
+    },
+
+
+]
+const departmentColumns = [
+    {
+        field: 'id',
+        headerName: 'Id',
+        hide: true,
+        hidable: true,
+    },
+    {
+        field: 'title',
+        headerName: 'Title',
+        width: 150,
+        headerClassName: 'separator-header',
+        hidable: true,
+        hide: false,
+        renderCell: ({ value }) => (
+            <Grid>
+                <Value value={value} />
+            </Grid>
+        )
+    },
+    {
+        field: 'status',
+        headerName: 'Satus',
+        width: 190,
+        headerClassName: 'separator-header',
+        hidable: true,
+        hide: false,
+
+        renderCell: ({ value }) => <Value value={value} />,
+    },
+
+
+
+]
+const teams = [
+    {
+        id: getId(),
+        fullname: "John Wick",
+        contact: "(000) 000-000",
+        email: "Johanathn@gmail.com",
+        department: "Administration",
+        position: "Editor",
+        address: "21 Ducie St, W1 6JD, CA"
+    },
+    {
+        id: getId(),
+        fullname: "John Wick",
+        contact: "(000) 000-000",
+        email: "Johanathn@gmail.com",
+        department: "Administration",
+        position: "Editor",
+        address: "21 Ducie St, W1 6JD, CA"
+    },
+    {
+        id: getId(),
+        fullname: "John Wick",
+        contact: "(000) 000-000",
+        email: "Johanathn@gmail.com",
+        department: "Administration",
+        position: "Editor",
+        address: "21 Ducie St, W1 6JD, CA"
+    },
+    {
+        id: getId(),
+        fullname: "John Wick",
+        contact: "(000) 000-000",
+        email: "Johanathn@gmail.com",
+        department: "Administration",
+        position: "Editor",
+        address: "21 Ducie St, W1 6JD, CA"
+    },
+    {
+        id: getId(),
+        fullname: "John Wick",
+        contact: "(000) 000-000",
+        email: "Johanathn@gmail.com",
+        department: "Administration",
+        position: "Editor",
+        address: "21 Ducie St, W1 6JD, CA"
+    },
+    {
+        id: getId(),
+        fullname: "John Wick",
+        contact: "(000) 000-000",
+        email: "Johanathn@gmail.com",
+        department: "Administration",
+        position: "Editor",
+        address: "21 Ducie St, W1 6JD, CA"
+    },
+    {
+        id: getId(),
+        fullname: "John Wick",
+        contact: "(000) 000-000",
+        email: "Johanathn@gmail.com",
+        department: "Administration",
+        position: "Editor",
+        address: "21 Ducie St, W1 6JD, CA"
+    },
+    {
+        id: getId(),
+        fullname: "John Wick",
+        contact: "(000) 000-000",
+        email: "Johanathn@gmail.com",
+        department: "Administration",
+        position: "Editor",
+        address: "21 Ducie St, W1 6JD, CA"
+    },
+    {
+        id: getId(),
+        fullname: "John Wick",
+        contact: "(000) 000-000",
+        email: "Johanathn@gmail.com",
+        department: "Administration",
+        position: "Editor",
+        address: "21 Ducie St, W1 6JD, CA"
+    },
+    {
+        id: getId(),
+        fullname: "John Wick",
+        contact: "(000) 000-000",
+        email: "Johanathn@gmail.com",
+        department: "Administration",
+        position: "Editor",
+        address: "21 Ducie St, W1 6JD, CA"
+    },
+]
+const departments = [
+    {
+        id: getId(),
+        title: "Lorem ipsum is a",
+        status: "active"
+    },
+    {
+        id: getId(),
+        title: "Lorem ipsum is a",
+        status: "active"
+    },
+    {
+        id: getId(),
+        title: "Lorem ipsum is a",
+        status: "active"
+    },
+    {
+        id: getId(),
+        title: "Lorem ipsum is a",
+        status: "active"
+    },
+    {
+        id: getId(),
+        title: "Lorem ipsum is a",
+        status: "active"
+    },
+    {
+        id: getId(),
+        title: "Lorem ipsum is a",
+        status: "active"
+    },
+    {
+        id: getId(),
+        title: "Lorem ipsum is a",
+        status: "active"
+    },
+    {
+        id: getId(),
+        title: "Lorem ipsum is a",
+        status: "active"
+    },
+    {
+        id: getId(),
+        title: "Lorem ipsum is a",
+        status: "active"
+    },
+    {
+        id: getId(),
+        title: "Lorem ipsum is a",
+        status: "active"
+    },
+]
+
 function Team() {
 
     const tabs = [
@@ -25,269 +289,6 @@ function Team() {
         { label: "Team", value: "team" },
         { label: "Flare Mail", value: "flare-mail" },
         { label: "Billing", value: "billing" },
-    ]
-    const columns = [
-        {
-            field: 'id',
-            headerName: 'Id',
-            width: 150,
-            hide: true,
-            hidable: true,
-        },
-        {
-            field: 'fullname',
-            headerName: 'Full Name',
-            width: 200,
-            headerClassName: 'separator-header',
-            hidable: true,
-            hide: false,
-            renderCell: ({ value }) => (
-                <Grid>
-                    <LinkCell value={value} />
-                    <Box>
-                        <CircleIcon
-                            sx={{
-                                width: "10px",
-                                height: "10px",
-                                color: "green",
-                                marginRight: "2px"
-                            }}
-                        />
-                        <span>Online</span>
-                    </Box>
-                </Grid>
-            )
-        },
-        {
-            field: 'contact',
-            headerName: 'Contact',
-            width: 200,
-            headerClassName: 'separator-header',
-            hidable: true,
-            hide: false,
-
-            renderCell: Value,
-        },
-        {
-            field: 'email',
-            headerName: 'Email',
-            width: 200,
-            headerClassName: 'separator-header',
-            hidable: true,
-            hide: false,
-
-            renderCell: LinkCell,
-        },
-        {
-            field: 'department',
-            headerName: 'Department',
-            width: 200,
-            headerClassName: 'separator-header',
-            hidable: true,
-            hide: false,
-
-            renderCell: Value,
-        },
-        {
-            field: 'position',
-            headerName: 'Position',
-            width: 200,
-            headerClassName: 'separator-header',
-            hidable: true,
-            hide: false,
-
-            renderCell: Value,
-        },
-        {
-            field: 'address',
-            headerName: 'Address',
-            width: 200,
-            headerClassName: 'separator-header',
-            hidable: true,
-            hide: false,
-
-            renderCell: Value,
-        },
-
-
-    ]
-    const departmentColumns = [
-        {
-            field: 'id',
-            headerName: 'Id',
-            hide: true,
-            hidable: true,
-        },
-        {
-            field: 'title',
-            headerName: 'Title',
-            width: 150,
-            headerClassName: 'separator-header',
-            hidable: true,
-            hide: false,
-            renderCell: ({ value }) => (
-                <Grid>
-                    <Value value={value} />
-                </Grid>
-            )
-        },
-        {
-            field: 'status',
-            headerName: 'Satus',
-            width: 190,
-            headerClassName: 'separator-header',
-            hidable: true,
-            hide: false,
-
-            renderCell: ({ value }) => <Value value={value} />,
-        },
-
-
-
-    ]
-    const teams = [
-        {
-            id: getId(),
-            fullname: "John Wick",
-            contact: "(000) 000-000",
-            email: "Johanathn@gmail.com",
-            department: "Administration",
-            position: "Editor",
-            address: "21 Ducie St, W1 6JD, CA"
-        },
-        {
-            id: getId(),
-            fullname: "John Wick",
-            contact: "(000) 000-000",
-            email: "Johanathn@gmail.com",
-            department: "Administration",
-            position: "Editor",
-            address: "21 Ducie St, W1 6JD, CA"
-        },
-        {
-            id: getId(),
-            fullname: "John Wick",
-            contact: "(000) 000-000",
-            email: "Johanathn@gmail.com",
-            department: "Administration",
-            position: "Editor",
-            address: "21 Ducie St, W1 6JD, CA"
-        },
-        {
-            id: getId(),
-            fullname: "John Wick",
-            contact: "(000) 000-000",
-            email: "Johanathn@gmail.com",
-            department: "Administration",
-            position: "Editor",
-            address: "21 Ducie St, W1 6JD, CA"
-        },
-        {
-            id: getId(),
-            fullname: "John Wick",
-            contact: "(000) 000-000",
-            email: "Johanathn@gmail.com",
-            department: "Administration",
-            position: "Editor",
-            address: "21 Ducie St, W1 6JD, CA"
-        },
-        {
-            id: getId(),
-            fullname: "John Wick",
-            contact: "(000) 000-000",
-            email: "Johanathn@gmail.com",
-            department: "Administration",
-            position: "Editor",
-            address: "21 Ducie St, W1 6JD, CA"
-        },
-        {
-            id: getId(),
-            fullname: "John Wick",
-            contact: "(000) 000-000",
-            email: "Johanathn@gmail.com",
-            department: "Administration",
-            position: "Editor",
-            address: "21 Ducie St, W1 6JD, CA"
-        },
-        {
-            id: getId(),
-            fullname: "John Wick",
-            contact: "(000) 000-000",
-            email: "Johanathn@gmail.com",
-            department: "Administration",
-            position: "Editor",
-            address: "21 Ducie St, W1 6JD, CA"
-        },
-        {
-            id: getId(),
-            fullname: "John Wick",
-            contact: "(000) 000-000",
-            email: "Johanathn@gmail.com",
-            department: "Administration",
-            position: "Editor",
-            address: "21 Ducie St, W1 6JD, CA"
-        },
-        {
-            id: getId(),
-            fullname: "John Wick",
-            contact: "(000) 000-000",
-            email: "Johanathn@gmail.com",
-            department: "Administration",
-            position: "Editor",
-            address: "21 Ducie St, W1 6JD, CA"
-        },
-    ]
-    const departments = [
-        {
-            id: getId(),
-            title: "Lorem ipsum is a",
-            status: "active"
-        },
-        {
-            id: getId(),
-            title: "Lorem ipsum is a",
-            status: "active"
-        },
-        {
-            id: getId(),
-            title: "Lorem ipsum is a",
-            status: "active"
-        },
-        {
-            id: getId(),
-            title: "Lorem ipsum is a",
-            status: "active"
-        },
-        {
-            id: getId(),
-            title: "Lorem ipsum is a",
-            status: "active"
-        },
-        {
-            id: getId(),
-            title: "Lorem ipsum is a",
-            status: "active"
-        },
-        {
-            id: getId(),
-            title: "Lorem ipsum is a",
-            status: "active"
-        },
-        {
-            id: getId(),
-            title: "Lorem ipsum is a",
-            status: "active"
-        },
-        {
-            id: getId(),
-            title: "Lorem ipsum is a",
-            status: "active"
-        },
-        {
-            id: getId(),
-            title: "Lorem ipsum is a",
-            status: "active"
-        },
     ]
 
     const {

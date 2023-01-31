@@ -11,6 +11,119 @@ import ReasonsAction from './Components/ReasonActions';
 import Title from './Components/Title';
 import { setAddReasonDialog } from './Store/reasonsSlice';
 
+const columns = [
+    {
+        field: 'id',
+        headerName: 'Id',
+        width: 150,
+        hide: true,
+        hidable: true,
+    },
+    {
+        field: 'title',
+        headerName: 'Title',
+        width: 200,
+        headerClassName: 'separator-header',
+        hidable: true,
+        hide: false,
+        renderCell: Title,
+    },
+    {
+        field: 'status',
+        headerName: 'Status',
+        width: 200,
+        headerClassName: 'separator-header',
+        hidable: true,
+        hide: false,
+        renderCell: SwitchCell,
+    },
+    {
+        field: 'addedBy',
+        headerName: 'Added By',
+        width: 200,
+        headerClassName: 'separator-header',
+        hidable: true,
+        hide: false,
+        renderCell: ({ value }) => <DefaultCell value={value} />,
+    },
+
+
+]
+const reasons = [
+    {
+        id: getId(),
+        title: "credit card",
+        status: "active",
+        addedBy: "James Bond"
+    },
+    {
+        id: getId(),
+        title: "credit card",
+        status: "active",
+        addedBy: "James Bond"
+    },
+    {
+        id: getId(),
+        title: "credit card",
+        status: "active",
+        addedBy: "James Bond"
+    },
+    {
+        id: getId(),
+        title: "credit card",
+        status: "active",
+        addedBy: "James Bond"
+    },
+    {
+        id: getId(),
+        title: "credit card",
+        status: "active",
+        addedBy: "James Bond"
+    },
+    {
+        id: getId(),
+        title: "credit card",
+        status: "active",
+        addedBy: "James Bond"
+    },
+    {
+        id: getId(),
+        title: "credit card",
+        status: "active",
+        addedBy: "James Bond"
+    },
+    {
+        id: getId(),
+        title: "credit card",
+        status: "active",
+        addedBy: "James Bond"
+    },
+    {
+        id: getId(),
+        title: "credit card",
+        status: "active",
+        addedBy: "James Bond"
+    },
+    {
+        id: getId(),
+        title: "credit card",
+        status: "active",
+        addedBy: "James Bond"
+    },
+    {
+        id: getId(),
+        title: "credit card",
+        status: "active",
+        addedBy: "James Bond"
+    },
+    {
+        id: getId(),
+        title: "credit card",
+        status: "active",
+        addedBy: "James Bond"
+    },
+]
+
 function Reasons() {
 
     const tabs = [
@@ -18,118 +131,6 @@ function Reasons() {
         { label: "Templates", value: "templates" },
         { label: "Reasons", value: "reasons" },
         { label: "Instructions", value: "instructions" }
-    ]
-    const columns = [
-        {
-            field: 'id',
-            headerName: 'Id',
-            width: 150,
-            hide: true,
-            hidable: true,
-        },
-        {
-            field: 'title',
-            headerName: 'Title',
-            width: 200,
-            headerClassName: 'separator-header',
-            hidable: true,
-            hide: false,
-            renderCell: Title,
-        },
-        {
-            field: 'status',
-            headerName: 'Status',
-            width: 200,
-            headerClassName: 'separator-header',
-            hidable: true,
-            hide: false,
-            renderCell: SwitchCell,
-        },
-        {
-            field: 'addedBy',
-            headerName: 'Added By',
-            width: 200,
-            headerClassName: 'separator-header',
-            hidable: true,
-            hide: false,
-            renderCell: ({ value }) => <DefaultCell value={value} />,
-        },
-
-
-    ]
-    const reasons = [
-        {
-            id: getId(),
-            title: "credit card",
-            status: "active",
-            addedBy: "James Bond"
-        },
-        {
-            id: getId(),
-            title: "credit card",
-            status: "active",
-            addedBy: "James Bond"
-        },
-        {
-            id: getId(),
-            title: "credit card",
-            status: "active",
-            addedBy: "James Bond"
-        },
-        {
-            id: getId(),
-            title: "credit card",
-            status: "active",
-            addedBy: "James Bond"
-        },
-        {
-            id: getId(),
-            title: "credit card",
-            status: "active",
-            addedBy: "James Bond"
-        },
-        {
-            id: getId(),
-            title: "credit card",
-            status: "active",
-            addedBy: "James Bond"
-        },
-        {
-            id: getId(),
-            title: "credit card",
-            status: "active",
-            addedBy: "James Bond"
-        },
-        {
-            id: getId(),
-            title: "credit card",
-            status: "active",
-            addedBy: "James Bond"
-        },
-        {
-            id: getId(),
-            title: "credit card",
-            status: "active",
-            addedBy: "James Bond"
-        },
-        {
-            id: getId(),
-            title: "credit card",
-            status: "active",
-            addedBy: "James Bond"
-        },
-        {
-            id: getId(),
-            title: "credit card",
-            status: "active",
-            addedBy: "James Bond"
-        },
-        {
-            id: getId(),
-            title: "credit card",
-            status: "active",
-            addedBy: "James Bond"
-        },
     ]
 
     const dispatch = useDispatch()

@@ -18,133 +18,134 @@ import CommissionActions from './Components/CommissionActions';
 import SetStandardRateDialog from './Components/SetStandardRate/SetStandardRateDialog';
 import { setStandardRateDialog } from './Store/commissionSlice';
 
+const columns = [
+    {
+        field: 'id',
+        headerName: 'Id',
+        width: 50,
+        hide: true,
+        hidable: true,
+    },
+    {
+        field: 'affiliateName',
+        headerName: 'Affiliate Name',
+        width: 350,
+        headerClassName: 'separator-header',
+        renderCell: (props) => (
+            <LinkCell
+                {...props}
+                navigateTo="creditor-dashboard"
+            />
+        ),
+        hidable: true,
+        hide: false,
+    },
+    {
+        field: 'company',
+        headerName: 'Company',
+        width: 350,
+        hide: false,
+        hidable: true,
+    },
+    {
+        field: 'totalCommission',
+        headerName: 'Total Commission',
+        width: 350,
+        hide: false,
+        hidable: true,
+    },
+    {
+        field: 'status',
+        headerName: 'Status',
+        width: 350,
+        hidable: true,
+        editable: true,
+        type: 'singleSelect',
+        valueOptions: ['Paid', 'To be paid'],
+        renderCell: ({ value }) => (
+            <DropDownCell value={value} />
+        ),
+    },
+]
+const comissions = [
+    {
+        id: 1,
+        affiliateName: "Steve Rogers",
+        company: 'Marvel',
+        totalCommission: "$110",
+        status: "Paid",
+    },
+    {
+        id: 2,
+        affiliateName: "Hela",
+        company: 'Marvel',
+        totalCommission: "$110",
+        status: "Paid",
+    },
+    {
+        id: 3,
+        affiliateName: "Doctor Strange",
+        company: 'Marvel',
+        totalCommission: "$110",
+        status: "Paid",
+    },
+    {
+        id: 4,
+        affiliateName: "Thor",
+        company: 'Marvel',
+        totalCommission: "$110",
+        status: "Paid",
+    },
+    {
+        id: 5,
+        affiliateName: "Captain Marvel",
+        company: 'Marvel',
+        totalCommission: "$110",
+        status: "Paid",
+    },
+    {
+        id: 6,
+        affiliateName: "Scarlet Witch",
+        company: 'Marvel',
+        totalCommission: "$110",
+        status: "Paid",
+    },
+    {
+        id: 7,
+        affiliateName: "Thanos",
+        company: 'Marvel',
+        totalCommission: "$110",
+        status: "Paid",
+    },
+    {
+        id: 8,
+        affiliateName: "Dormammu",
+        company: 'Marvel',
+        totalCommission: "$110",
+        status: "Paid",
+    },
+    {
+        id: 9,
+        affiliateName: "Eternity",
+        company: 'Marvel',
+        totalCommission: "$110",
+        status: "Paid",
+    },
+    {
+        id: 10,
+        affiliateName: "Arishem",
+        company: 'Marvel',
+        totalCommission: "$110",
+        status: "Paid",
+    },
+]
+
 function Commission(props) {
 
     const tabs = [
         { label: "Dashboard", value: "creditor-dashboard" },
         { label: "Affiliates", value: "affiliates" },
         { label: "Commission", value: "commission" },
-    ]
-    const columns = [
-        {
-            field: 'id',
-            headerName: 'Id',
-            width: 50,
-            hide: true,
-            hidable: true,
-        },
-        {
-            field: 'affiliateName',
-            headerName: 'Affiliate Name',
-            width: 350,
-            headerClassName: 'separator-header',
-            renderCell: (props) => (
-                <LinkCell
-                    {...props}
-                    navigateTo="creditor-dashboard"
-                />
-            ),
-            hidable: true,
-            hide: false,
-        },
-        {
-            field: 'company',
-            headerName: 'Company',
-            width: 350,
-            hide: false,
-            hidable: true,
-        },
-        {
-            field: 'totalCommission',
-            headerName: 'Total Commission',
-            width: 350,
-            hide: false,
-            hidable: true,
-        },
-        {
-            field: 'status',
-            headerName: 'Status',
-            width: 350,
-            hidable: true,
-            editable: true,
-            type: 'singleSelect',
-            valueOptions: ['Paid', 'To be paid'],
-            renderCell: ({ value }) => (
-                <DropDownCell value={value} />
-            ),
-        },
-    ]
-    const comissions = [
-        {
-            id: 1,
-            affiliateName: "Steve Rogers",
-            company: 'Marvel',
-            totalCommission: "$110",
-            status: "Paid",
-        },
-        {
-            id: 2,
-            affiliateName: "Hela",
-            company: 'Marvel',
-            totalCommission: "$110",
-            status: "Paid",
-        },
-        {
-            id: 3,
-            affiliateName: "Doctor Strange",
-            company: 'Marvel',
-            totalCommission: "$110",
-            status: "Paid",
-        },
-        {
-            id: 4,
-            affiliateName: "Thor",
-            company: 'Marvel',
-            totalCommission: "$110",
-            status: "Paid",
-        },
-        {
-            id: 5,
-            affiliateName: "Captain Marvel",
-            company: 'Marvel',
-            totalCommission: "$110",
-            status: "Paid",
-        },
-        {
-            id: 6,
-            affiliateName: "Scarlet Witch",
-            company: 'Marvel',
-            totalCommission: "$110",
-            status: "Paid",
-        },
-        {
-            id: 7,
-            affiliateName: "Thanos",
-            company: 'Marvel',
-            totalCommission: "$110",
-            status: "Paid",
-        },
-        {
-            id: 8,
-            affiliateName: "Dormammu",
-            company: 'Marvel',
-            totalCommission: "$110",
-            status: "Paid",
-        },
-        {
-            id: 9,
-            affiliateName: "Eternity",
-            company: 'Marvel',
-            totalCommission: "$110",
-            status: "Paid",
-        },
-        {
-            id: 10,
-            affiliateName: "Arishem",
-            company: 'Marvel',
-            totalCommission: "$110",
-            status: "Paid",
-        },
     ]
 
     const {

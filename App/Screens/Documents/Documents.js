@@ -3,8 +3,7 @@ import DropDownCell from '@Components/Table/Components/DropDownCell/DropDownCell
 import Table from '@Components/Table/Table';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
 import TopTabs from '@Components/TopTabs/TopTabs';
-import DateAdded from './Components/DateAdded';
-import Title from './Components/Title';
+import { getId } from '@Config/helper';
 import {
     Divider,
     Tab,
@@ -14,145 +13,174 @@ import {
 } from '@mui/material';
 import { Box } from '@mui/system';
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import DateAdded from './Components/DateAdded';
 import DocumentsActions from "./Components/DocumentsActions";
 import TilesView from './Components/TilesView';
+import Title from './Components/Title';
 import UploadedDocuments from './Components/UploadedDocuments';
 import UploadingDocuments from './Components/UploadingFiles';
 
-function Documents(props) {
-
-    const columns = [
-        {
-            field: 'id',
-            headerName: 'Id',
-            width: 150,
-            hide: true,
-            hidable: true,
-        },
-        {
-            field: 'dateAdded',
-            headerName: 'Date Added',
-            width: 200,
-            headerClassName: 'separator-header',
-            hidable: true,
-            hide: false,
-            renderCell: DateAdded,
-        },
-        {
-            field: 'title',
-            headerName: 'Title',
-            width: 200,
-            headerClassName: 'separator-header',
-            hidable: true,
-            hide: false,
-            renderCell: Title,
-        },
-        {
-            field: 'expirationDate',
-            headerName: 'Expiration Date',
-            width: 200,
-            headerClassName: 'separator-header',
-            hidable: true,
-            hide: false,
-            renderCell: DateAdded,
-        },
-        {
-            field: 'status',
-            headerName: 'Status',
-            width: 200,
-            hidable: true,
-            editable: true,
-            type: 'singleSelect',
-            valueOptions: ['Repaired', 'Verified', 'Negative', 'Delete'],
-            renderCell: ({ value }) => <DropDownCell value={value} />,
-        },
+const columns = [
+    {
+        field: 'id',
+        headerName: 'Id',
+        width: 150,
+        hide: true,
+        hidable: true,
+    },
+    {
+        field: 'dateAdded',
+        headerName: 'Date Added',
+        width: 200,
+        headerClassName: 'separator-header',
+        hidable: true,
+        hide: false,
+        renderCell: DateAdded,
+    },
+    {
+        field: 'title',
+        headerName: 'Title',
+        width: 200,
+        headerClassName: 'separator-header',
+        hidable: true,
+        hide: false,
+        renderCell: Title,
+    },
+    {
+        field: 'expirationDate',
+        headerName: 'Expiration Date',
+        width: 200,
+        headerClassName: 'separator-header',
+        hidable: true,
+        hide: false,
+        renderCell: DateAdded,
+    },
+    {
+        field: 'status',
+        headerName: 'Status',
+        width: 200,
+        hidable: true,
+        editable: true,
+        type: 'singleSelect',
+        valueOptions: ['Repaired', 'Verified', 'Negative', 'Delete'],
+        renderCell: ({ value }) => <DropDownCell value={value} />,
+    },
 
 
-    ]
-    const documents = [
+]
+const documents = [
 
-        {
-            id: 1,
-            dateAdded: new Date(2022, 1, 1),
-            title: "Bank Letter",
-            expirationDate: new Date(2022, 1, 1),
-            status: "Repaired",
+    {
+        id: getId(),
+        dateAdded: new Date(2022, 1, 1),
+        title: "Bank Letter",
+        expirationDate: new Date(2022, 1, 1),
+        status: "Repaired",
 
-        },
-        {
-            id: 2,
-            dateAdded: new Date(2022, 1, 1),
-            title: "Bank Letter",
-            expirationDate: new Date(2022, 1, 1),
-            status: "Repaired",
+    },
+    {
+        id: getId(),
+        dateAdded: new Date(2022, 1, 1),
+        title: "Bank Letter",
+        expirationDate: new Date(2022, 1, 1),
+        status: "Repaired",
 
-        },
-        {
-            id: 3,
-            dateAdded: new Date(2022, 1, 1),
-            title: "Bank Letter",
-            expirationDate: new Date(2022, 1, 1),
-            status: "Repaired",
+    },
+    {
+        id: getId(),
+        dateAdded: new Date(2022, 1, 1),
+        title: "Bank Letter",
+        expirationDate: new Date(2022, 1, 1),
+        status: "Repaired",
 
-        },
-        {
-            id: 4,
-            dateAdded: new Date(2022, 1, 1),
-            title: "Bank Letter",
-            expirationDate: new Date(2022, 1, 1),
-            status: "Repaired",
+    },
+    {
+        id: getId(),
+        dateAdded: new Date(2022, 1, 1),
+        title: "Bank Letter",
+        expirationDate: new Date(2022, 1, 1),
+        status: "Repaired",
 
-        },
-        {
-            id: 5,
-            dateAdded: new Date(2022, 1, 1),
-            title: "Bank Letter",
-            expirationDate: new Date(2022, 1, 1),
-            status: "Repaired",
+    },
+    {
+        id: getId(),
+        dateAdded: new Date(2022, 1, 1),
+        title: "Bank Letter",
+        expirationDate: new Date(2022, 1, 1),
+        status: "Repaired",
 
-        },
-        {
-            id: 6,
-            dateAdded: new Date(2022, 1, 1),
-            title: "Bank Letter",
-            expirationDate: new Date(2022, 1, 1),
-            status: "Repaired",
+    },
+    {
+        id: getId(),
+        dateAdded: new Date(2022, 1, 1),
+        title: "Bank Letter",
+        expirationDate: new Date(2022, 1, 1),
+        status: "Repaired",
 
-        },
-        {
-            id: 7,
-            dateAdded: new Date(2022, 1, 1),
-            title: "Razor",
-            expirationDate: new Date(2022, 1, 1),
-            status: "Repaired",
+    },
+    {
+        id: getId(),
+        dateAdded: new Date(2022, 1, 1),
+        title: "Razor",
+        expirationDate: new Date(2022, 1, 1),
+        status: "Repaired",
 
-        },
-        {
-            id: 8,
-            dateAdded: new Date(2022, 1, 1),
-            title: "Bank Letter",
-            expirationDate: new Date(2022, 1, 1),
-            status: "Repaired",
-        },
-        {
-            id: 9,
-            dateAdded: new Date(2022, 1, 1),
-            title: "Bank Letter",
-            expirationDate: new Date(2022, 1, 1),
-            status: "Repaired",
+    },
+    {
+        id: getId(),
+        dateAdded: new Date(2022, 1, 1),
+        title: "Bank Letter",
+        expirationDate: new Date(2022, 1, 1),
+        status: "Repaired",
+    },
+    {
+        id: getId(),
+        dateAdded: new Date(2022, 1, 1),
+        title: "Bank Letter",
+        expirationDate: new Date(2022, 1, 1),
+        status: "Repaired",
 
-        },
-        {
-            id: 10,
-            dateAdded: new Date(2022, 1, 1),
-            title: "Bank Letter",
-            expirationDate: new Date(2022, 1, 1),
-            status: "Repaired",
+    },
+    {
+        id: getId(),
+        dateAdded: new Date(2022, 1, 1),
+        title: "Bank Letter",
+        expirationDate: new Date(2022, 1, 1),
+        status: "Repaired",
 
-        }
+    }
 
-    ]
+]
+
+function a11yProps(index) {
+    return {
+        id: `simple-tab-${index}`,
+        'aria-controls': `simple-tabpanel-${index}`,
+    };
+}
+function TabPanel(props) {
+    const { children, value, index, ...other } = props;
+
+    return (
+        <div
+            role="tabpanel"
+            hidden={value !== index}
+            id={`simple-tabpanel-${index}`}
+            aria-labelledby={`simple-tab-${index}`}
+            {...other}
+        >
+            {value === index && (
+                <Box sx={{ p: 3 }}>
+                    <Typography>{children}</Typography>
+                </Box>
+            )}
+        </div>
+    );
+}
+
+function Documents() {
+
     const tabs = [
         { label: "Dashboard", value: "client-dashboard" },
         { label: "Dispute", value: "dispute" },
@@ -163,7 +191,6 @@ function Documents(props) {
     const {
         palette
     } = useTheme()
-    const dispatch = useDispatch()
 
     const {
         selectedClientId
@@ -174,31 +201,6 @@ function Documents(props) {
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
-    };
-    function a11yProps(index) {
-        return {
-            id: `simple-tab-${index}`,
-            'aria-controls': `simple-tabpanel-${index}`,
-        };
-    }
-    function TabPanel(props) {
-        const { children, value, index, ...other } = props;
-
-        return (
-            <div
-                role="tabpanel"
-                hidden={value !== index}
-                id={`simple-tabpanel-${index}`}
-                aria-labelledby={`simple-tab-${index}`}
-                {...other}
-            >
-                {value === index && (
-                    <Box sx={{ p: 3 }}>
-                        <Typography>{children}</Typography>
-                    </Box>
-                )}
-            </div>
-        );
     }
 
     return (

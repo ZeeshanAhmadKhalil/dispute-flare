@@ -12,171 +12,171 @@ import {
     setAddAffiliatesDialog
 } from './Store/affiliatesSlice'
 
+const columns = [
+    {
+        field: 'id',
+        headerName: 'Id',
+        width: 150,
+        hide: true,
+        hidable: true,
+    },
+    {
+        field: 'name',
+        headerName: 'Name',
+        width: 200,
+        headerClassName: 'separator-header',
+        renderCell: SwitchCell,
+        hidable: true,
+        hide: false,
+    },
+    {
+        field: 'company',
+        headerName: 'Company',
+        width: 200,
+        headerClassName: 'separator-header',
+        hidable: true,
+        hide: false,
+        renderCell: ({ value }) => <DefaultCell value={value} />,
+    },
+
+    {
+        field: 'email',
+        headerName: 'Email',
+        width: 200,
+        headerClassName: 'separator-header',
+        hidable: true,
+        hide: false,
+        renderCell: ({ value }) => <DefaultCell value={value} />,
+    },
+    {
+        field: 'totalCommission',
+        headerName: 'Total Commission',
+        width: 200,
+        headerClassName: 'separator-header',
+        hidable: true,
+        hide: false,
+        renderCell: ({ value }) => <DefaultCell value={value} />,
+    },
+    {
+        field: 'clientReferred',
+        headerName: 'Client Referred',
+        width: 200,
+        headerClassName: 'separator-header',
+        hidable: true,
+        hide: false,
+        renderCell: ({ value }) => <DefaultCell value={value} />,
+    },
+    {
+        field: 'status',
+        headerName: 'Status',
+        width: 200,
+        headerClassName: 'separator-header',
+        hidable: true,
+        hide: false,
+        renderCell: SwitchCell,
+    },
+
+
+]
+const affiliates = [
+    {
+        id: getId(),
+        name: "Imran Hashmi",
+        company: "SB-BC",
+        email: "email@gmail.kaam",
+        totalCommission: "$5300",
+        clientReferred: "Gen Bajwa",
+        status: "active"
+    },
+    {
+        id: getId(),
+        name: "Imran Hashmi",
+        company: "SB-BC",
+        email: "email@gmail.kaam",
+        totalCommission: "$5300",
+        clientReferred: "Gen Bajwa",
+        status: "active"
+    },
+    {
+        id: getId(),
+        name: "Imran Hashmi",
+        company: "SB-BC",
+        email: "email@gmail.kaam",
+        totalCommission: "$5300",
+        clientReferred: "Gen Bajwa",
+        status: "active"
+    },
+    {
+        id: getId(),
+        name: "Imran Hashmi",
+        company: "SB-BC",
+        email: "email@gmail.kaam",
+        totalCommission: "$5300",
+        clientReferred: "Gen Bajwa",
+        status: "active"
+    },
+    {
+        id: getId(),
+        name: "Imran Hashmi",
+        company: "SB-BC",
+        email: "email@gmail.kaam",
+        totalCommission: "$5300",
+        clientReferred: "Gen Bajwa",
+        status: "active"
+    },
+    {
+        id: getId(),
+        name: "Imran Hashmi",
+        company: "SB-BC",
+        email: "email@gmail.kaam",
+        totalCommission: "$5300",
+        clientReferred: "Gen Bajwa",
+        status: "active"
+    },
+    {
+        id: getId(),
+        name: "Imran Hashmi",
+        company: "SB-BC",
+        email: "email@gmail.kaam",
+        totalCommission: "$5300",
+        clientReferred: "Gen Bajwa",
+        status: "active"
+    },
+    {
+        id: getId(),
+        name: "Imran Hashmi",
+        company: "SB-BC",
+        email: "email@gmail.kaam",
+        totalCommission: "$5300",
+        clientReferred: "Gen Bajwa",
+        status: "active"
+    },
+    {
+        id: getId(),
+        name: "Imran Hashmi",
+        company: "SB-BC",
+        email: "email@gmail.kaam",
+        totalCommission: "$5300",
+        clientReferred: "Gen Bajwa",
+        status: "active"
+    },
+    {
+        id: getId(),
+        name: "Imran Hashmi",
+        company: "SB-BC",
+        email: "email@gmail.kaam",
+        totalCommission: "$5300",
+        clientReferred: "Gen Bajwa",
+        status: "active"
+    },
+]
+
 function Affiliates() {
 
     const tabs = [
         { label: "Dashboard", value: "creditor-dashboard" },
         { label: "Affiliates", value: "affiliates" },
         { label: "Commission", value: "commission" },
-    ]
-    const columns = [
-        {
-            field: 'id',
-            headerName: 'Id',
-            width: 150,
-            hide: true,
-            hidable: true,
-        },
-        {
-            field: 'name',
-            headerName: 'Name',
-            width: 200,
-            headerClassName: 'separator-header',
-            renderCell: SwitchCell,
-            hidable: true,
-            hide: false,
-        },
-        {
-            field: 'company',
-            headerName: 'Company',
-            width: 200,
-            headerClassName: 'separator-header',
-            hidable: true,
-            hide: false,
-            renderCell: ({ value }) => <DefaultCell value={value} />,
-        },
-
-        {
-            field: 'email',
-            headerName: 'Email',
-            width: 200,
-            headerClassName: 'separator-header',
-            hidable: true,
-            hide: false,
-            renderCell: ({ value }) => <DefaultCell value={value} />,
-        },
-        {
-            field: 'totalCommission',
-            headerName: 'Total Commission',
-            width: 200,
-            headerClassName: 'separator-header',
-            hidable: true,
-            hide: false,
-            renderCell: ({ value }) => <DefaultCell value={value} />,
-        },
-        {
-            field: 'clientReferred',
-            headerName: 'Client Referred',
-            width: 200,
-            headerClassName: 'separator-header',
-            hidable: true,
-            hide: false,
-            renderCell: ({ value }) => <DefaultCell value={value} />,
-        },
-
-        {
-            field: 'status',
-            headerName: 'Status',
-            width: 200,
-            headerClassName: 'separator-header',
-            hidable: true,
-            hide: false,
-            renderCell: SwitchCell,
-        },
-
-
-    ]
-    const affiliates = [
-        {
-            id: getId(),
-            name: "Imran Hashmi",
-            company: "SB-BC",
-            email: "email@gmail.kaam",
-            totalCommission: "$5300",
-            clientReferred: "Gen Bajwa",
-            status: "active"
-        },
-        {
-            id: getId(),
-            name: "Imran Hashmi",
-            company: "SB-BC",
-            email: "email@gmail.kaam",
-            totalCommission: "$5300",
-            clientReferred: "Gen Bajwa",
-            status: "active"
-        },
-        {
-            id: getId(),
-            name: "Imran Hashmi",
-            company: "SB-BC",
-            email: "email@gmail.kaam",
-            totalCommission: "$5300",
-            clientReferred: "Gen Bajwa",
-            status: "active"
-        },
-        {
-            id: getId(),
-            name: "Imran Hashmi",
-            company: "SB-BC",
-            email: "email@gmail.kaam",
-            totalCommission: "$5300",
-            clientReferred: "Gen Bajwa",
-            status: "active"
-        },
-        {
-            id: getId(),
-            name: "Imran Hashmi",
-            company: "SB-BC",
-            email: "email@gmail.kaam",
-            totalCommission: "$5300",
-            clientReferred: "Gen Bajwa",
-            status: "active"
-        },
-        {
-            id: getId(),
-            name: "Imran Hashmi",
-            company: "SB-BC",
-            email: "email@gmail.kaam",
-            totalCommission: "$5300",
-            clientReferred: "Gen Bajwa",
-            status: "active"
-        },
-        {
-            id: getId(),
-            name: "Imran Hashmi",
-            company: "SB-BC",
-            email: "email@gmail.kaam",
-            totalCommission: "$5300",
-            clientReferred: "Gen Bajwa",
-            status: "active"
-        },
-        {
-            id: getId(),
-            name: "Imran Hashmi",
-            company: "SB-BC",
-            email: "email@gmail.kaam",
-            totalCommission: "$5300",
-            clientReferred: "Gen Bajwa",
-            status: "active"
-        },
-        {
-            id: getId(),
-            name: "Imran Hashmi",
-            company: "SB-BC",
-            email: "email@gmail.kaam",
-            totalCommission: "$5300",
-            clientReferred: "Gen Bajwa",
-            status: "active"
-        },
-        {
-            id: getId(),
-            name: "Imran Hashmi",
-            company: "SB-BC",
-            email: "email@gmail.kaam",
-            totalCommission: "$5300",
-            clientReferred: "Gen Bajwa",
-            status: "active"
-        },
     ]
 
     const dispatch = useDispatch()
@@ -202,7 +202,7 @@ function Affiliates() {
                     setSelectedAffiliates(selected)
                 }
                 columns={columns}
-                rows={[]}
+                rows={affiliates}
                 noRowsAction={() =>
                     dispatch(setAddAffiliatesDialog(true))
                 }

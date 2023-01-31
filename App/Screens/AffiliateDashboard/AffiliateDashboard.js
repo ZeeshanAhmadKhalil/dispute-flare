@@ -1,68 +1,24 @@
 
-import StatsTile from '@Components/StatsTile/StatsTile';
-import {
-    Box,
-    Grid,
-
-} from '@mui/material';
-import cls from 'classnames';
-import TotalCommission from 'public/Assets/Svgs/total-commission.svg';
-import ComissionPaid from 'public/Assets/Svgs/comission-paid.svg';
-import ReferredClients from 'public/Assets/Svgs/referred-clients.svg';
+import DefaultCell from '@Components/DefaultCell/DefaultCell';
 import ScrollContainer from '@Components/ScrollContainer/ScrollContainer';
+import StatsTile from '@Components/StatsTile/StatsTile';
 import Table from '@Components/Table/Table';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
-import DefaultCell from '@Components/DefaultCell/DefaultCell';
-import { useTheme, } from '@mui/material';
-import React from 'react';
-import { useEffect, useState } from 'react';
-import AffiliateDashboardActions from './Components/AffiliateDashboardActions';
-import RecordPaymentDialog from './Components/AddAffiliate/RecordPaymentDialog';
 import TopTabs from '@Components/TopTabs/TopTabs';
-
-const affiliates = [
-    {
-        id: 1,
-        dateReferred: "14 Feb 2023",
-        client: "John Ripper",
-        email: "email@gmail.kaam",
-        commission: "$5300",
-        status: "active"
-    },
-    {
-        id: 2,
-        dateReferred: "14 Feb 2023",
-        client: "John Ripper",
-        email: "email@gmail.kaam",
-        commission: "$5300",
-        status: "active"
-    },
-    {
-        id: 3,
-        dateReferred: "14 Feb 2023",
-        client: "John Ripper",
-        email: "email@gmail.kaam",
-        commission: "$5300",
-        status: "active"
-    },
-    {
-        id: 4,
-        dateReferred: "14 Feb 2023",
-        client: "John Ripper",
-        email: "email@gmail.kaam",
-        commission: "$5300",
-        status: "active"
-    },
-    {
-        id: 5,
-        dateReferred: "14 Feb 2023",
-        client: "John Ripper",
-        email: "email@gmail.kaam",
-        commission: "$5300",
-        status: "active"
-    },
-]
-
+import { getId } from '@Config/helper';
+import {
+    Box,
+    Grid, useTheme
+} from '@mui/material';
+import cls from 'classnames';
+import ComissionPaid from 'public/Assets/Svgs/comission-paid.svg';
+import ReferredClients from 'public/Assets/Svgs/referred-clients.svg';
+import TotalCommission from 'public/Assets/Svgs/total-commission.svg';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import RecordPaymentDialog from './Components/AddAffiliate/RecordPaymentDialog';
+import AffiliateDashboardActions from './Components/AffiliateDashboardActions';
+import { setRecordPaymentDialog } from './Store/affiliateDashboardSlice';
 
 const columns = [
     {
@@ -111,8 +67,90 @@ const columns = [
     },
 
 ]
+const payments = [
+    {
+        id: getId(),
+        dateReferred: "14 Feb 2023",
+        client: "John Ripper",
+        email: "email@gmail.kaam",
+        commission: "$5300",
+        status: "active"
+    },
+    {
+        id: getId(),
+        dateReferred: "14 Feb 2023",
+        client: "John Ripper",
+        email: "email@gmail.kaam",
+        commission: "$5300",
+        status: "active"
+    },
+    {
+        id: getId(),
+        dateReferred: "14 Feb 2023",
+        client: "John Ripper",
+        email: "email@gmail.kaam",
+        commission: "$5300",
+        status: "active"
+    },
+    {
+        id: getId(),
+        dateReferred: "14 Feb 2023",
+        client: "John Ripper",
+        email: "email@gmail.kaam",
+        commission: "$5300",
+        status: "active"
+    },
+    {
+        id: getId(),
+        dateReferred: "14 Feb 2023",
+        client: "John Ripper",
+        email: "email@gmail.kaam",
+        commission: "$5300",
+        status: "active"
+    },
+    {
+        id: getId(),
+        dateReferred: "14 Feb 2023",
+        client: "John Ripper",
+        email: "email@gmail.kaam",
+        commission: "$5300",
+        status: "active"
+    },
+    {
+        id: getId(),
+        dateReferred: "14 Feb 2023",
+        client: "John Ripper",
+        email: "email@gmail.kaam",
+        commission: "$5300",
+        status: "active"
+    },
+    {
+        id: getId(),
+        dateReferred: "14 Feb 2023",
+        client: "John Ripper",
+        email: "email@gmail.kaam",
+        commission: "$5300",
+        status: "active"
+    },
+    {
+        id: getId(),
+        dateReferred: "14 Feb 2023",
+        client: "John Ripper",
+        email: "email@gmail.kaam",
+        commission: "$5300",
+        status: "active"
+    },
+    {
+        id: getId(),
+        dateReferred: "14 Feb 2023",
+        client: "John Ripper",
+        email: "email@gmail.kaam",
+        commission: "$5300",
+        status: "active"
+    },
+]
 
-function AffiliateDashboard(props) {
+function AffiliateDashboard() {
 
 
     const [selectedClients, setSelectedClients] = useState([])
@@ -139,6 +177,8 @@ function AffiliateDashboard(props) {
             }
         }
     } = useTheme()
+
+    const dispatch = useDispatch()
 
     return (
         <>
@@ -344,14 +384,15 @@ function AffiliateDashboard(props) {
                 >
                     <Grid item xl="12" xs="12">
                         <Table
-                            autoHeight={true}
-                            title="instructions"
+                            title="Payment"
                             onSelectionModelChange={(selected) =>
                                 setSelectedClients(selected)
                             }
-
+                            noRowsAction={() =>
+                                dispatch(setRecordPaymentDialog(true))
+                            }
                             columns={columns}
-                            rows={affiliates}
+                            rows={payments}
                         />
                     </Grid>
                 </Grid>
