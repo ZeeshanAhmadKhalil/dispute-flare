@@ -3,12 +3,13 @@ import SwitchCell from '@Components/Table/Components/SwitchCell/SwitchCell'
 import Table from '@Components/Table/Table'
 import TitleHeader from '@Components/TitleHeader/TitleHeader'
 import TopTabs from '@Components/TopTabs/TopTabs'
+import { getId } from '@Config/helper'
 import { useState } from 'react'
-import AddInstructionDialog from './Components/AddAffiliate/AddAffililateDialog'
+import { useDispatch } from 'react-redux'
+import AddAffililateDialog from './Components/AddAffiliate/AddAffililateDialog'
 import AffiliatesActions from './Components/AffiliatesActions'
 import {
-    setAllColumnsVisibility,
-    setColumnVisibility
+    setAddAffiliatesDialog
 } from './Store/affiliatesSlice'
 
 function Affiliates() {
@@ -28,7 +29,7 @@ function Affiliates() {
         },
         {
             field: 'name',
-            headerName: 'name',
+            headerName: 'Name',
             width: 200,
             headerClassName: 'separator-header',
             renderCell: SwitchCell,
@@ -37,7 +38,7 @@ function Affiliates() {
         },
         {
             field: 'company',
-            headerName: 'company',
+            headerName: 'Company',
             width: 200,
             headerClassName: 'separator-header',
             hidable: true,
@@ -47,7 +48,7 @@ function Affiliates() {
 
         {
             field: 'email',
-            headerName: 'email',
+            headerName: 'Email',
             width: 200,
             headerClassName: 'separator-header',
             hidable: true,
@@ -87,7 +88,7 @@ function Affiliates() {
     ]
     const affiliates = [
         {
-            id: 1,
+            id: getId(),
             name: "Imran Hashmi",
             company: "SB-BC",
             email: "email@gmail.kaam",
@@ -96,7 +97,7 @@ function Affiliates() {
             status: "active"
         },
         {
-            id: 2,
+            id: getId(),
             name: "Imran Hashmi",
             company: "SB-BC",
             email: "email@gmail.kaam",
@@ -105,7 +106,7 @@ function Affiliates() {
             status: "active"
         },
         {
-            id: 3,
+            id: getId(),
             name: "Imran Hashmi",
             company: "SB-BC",
             email: "email@gmail.kaam",
@@ -114,7 +115,7 @@ function Affiliates() {
             status: "active"
         },
         {
-            id: 4,
+            id: getId(),
             name: "Imran Hashmi",
             company: "SB-BC",
             email: "email@gmail.kaam",
@@ -123,7 +124,52 @@ function Affiliates() {
             status: "active"
         },
         {
-            id: 5,
+            id: getId(),
+            name: "Imran Hashmi",
+            company: "SB-BC",
+            email: "email@gmail.kaam",
+            totalCommission: "$5300",
+            clientReferred: "Gen Bajwa",
+            status: "active"
+        },
+        {
+            id: getId(),
+            name: "Imran Hashmi",
+            company: "SB-BC",
+            email: "email@gmail.kaam",
+            totalCommission: "$5300",
+            clientReferred: "Gen Bajwa",
+            status: "active"
+        },
+        {
+            id: getId(),
+            name: "Imran Hashmi",
+            company: "SB-BC",
+            email: "email@gmail.kaam",
+            totalCommission: "$5300",
+            clientReferred: "Gen Bajwa",
+            status: "active"
+        },
+        {
+            id: getId(),
+            name: "Imran Hashmi",
+            company: "SB-BC",
+            email: "email@gmail.kaam",
+            totalCommission: "$5300",
+            clientReferred: "Gen Bajwa",
+            status: "active"
+        },
+        {
+            id: getId(),
+            name: "Imran Hashmi",
+            company: "SB-BC",
+            email: "email@gmail.kaam",
+            totalCommission: "$5300",
+            clientReferred: "Gen Bajwa",
+            status: "active"
+        },
+        {
+            id: getId(),
             name: "Imran Hashmi",
             company: "SB-BC",
             email: "email@gmail.kaam",
@@ -133,32 +179,35 @@ function Affiliates() {
         },
     ]
 
-    const [selectedInstructions, setSelectedInstructions] = useState([])
+    const dispatch = useDispatch()
+
+    const [selectedAffiliates, setSelectedAffiliates] = useState([])
 
     return (
         <>
-            <TopTabs tabs={tabs} />
+            <TopTabs
+                tabs={tabs}
+            />
             <TitleHeader
                 title="Affiliates"
                 actionButtons={
                     <AffiliatesActions
-                        selectedInstructions={selectedInstructions}
+                        selectedInstructions={selectedAffiliates}
                     />
                 }
             />
             <Table
-                autoHeight={true}
-                title="instructions"
+                title="Affiliates"
                 onSelectionModelChange={(selected) =>
-                    setSelectedInstructions(selected)
+                    setSelectedAffiliates(selected)
                 }
-
                 columns={columns}
-                rows={affiliates}
-                setColumnVisibility={setColumnVisibility}
-                setAllColumnsVisibility={setAllColumnsVisibility}
+                rows={[]}
+                noRowsAction={() =>
+                    dispatch(setAddAffiliatesDialog(true))
+                }
             />
-            <AddInstructionDialog />
+            <AddAffililateDialog />
         </>
     )
 }

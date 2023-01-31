@@ -1,14 +1,16 @@
-import TopTabs from '@Components/TopTabs/TopTabs';
-import ScrollContainer from '@Components/ScrollContainer/ScrollContainer';
-import AvatarNameCell from '@Components/Table/Components/AvatarNameCell/AvatarNameCell';
-import DateCell from '@Components/Table/Components/DateCell/DateCell';
-import LinkCell from '@Components/Table/Components/LinkCell/LinkCell';
-import Table from '@Components/Table/Table';
-import TitleHeader from '@Components/TitleHeader/TitleHeader';
-import { useRouter } from 'next/router';
-import { useState } from 'react';
-import AddInternalNoteDialog from './Components/AddInternalNoteDialog';
-import InternalNoteActions from './Components/InternalNoteActions';
+import TopTabs from '@Components/TopTabs/TopTabs'
+import ScrollContainer from '@Components/ScrollContainer/ScrollContainer'
+import AvatarNameCell from '@Components/Table/Components/AvatarNameCell/AvatarNameCell'
+import DateCell from '@Components/Table/Components/DateCell/DateCell'
+import LinkCell from '@Components/Table/Components/LinkCell/LinkCell'
+import Table from '@Components/Table/Table'
+import TitleHeader from '@Components/TitleHeader/TitleHeader'
+import { useRouter } from 'next/router'
+import { useState } from 'react'
+import AddInternalNoteDialog from './Components/AddInternalNoteDialog'
+import InternalNoteActions from './Components/InternalNoteActions'
+import { useDispatch } from 'react-redux'
+import { setAddInternalNoteDialog } from './Store/internalNoteSlice'
 
 function InternalNote() {
 
@@ -48,7 +50,7 @@ function InternalNote() {
             hide: false,
         },
     ]
-    let clients = [
+    let notes = [
         {
             id: 1,
             date: new Date(2022, 1, 1),
@@ -128,12 +130,15 @@ function InternalNote() {
     ]
 
     const router = useRouter()
+    const dispatch = useDispatch()
 
     const [selectedNotes, setSelectedNotes] = useState([])
 
     return (
         <>
-            <TopTabs tabs={tabs} />
+            <TopTabs
+                tabs={tabs}
+            />
             <TitleHeader
                 title="Internal Notes"
                 actionButtons={
@@ -151,8 +156,11 @@ function InternalNote() {
                     onRowClick={() =>
                         router.push('report')
                     }
+                    noRowsAction={() =>
+                        dispatch(setAddInternalNoteDialog(true))
+                    }
                     columns={columns}
-                    rows={clients}
+                    rows={notes}
                 />
             </ScrollContainer>
             <AddInternalNoteDialog />

@@ -3,11 +3,13 @@ import SwitchCell from '@Components/Table/Components/SwitchCell/SwitchCell';
 import Table from '@Components/Table/Table';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
 import TopTabs from '@Components/TopTabs/TopTabs';
+import { getId } from '@Config/helper';
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import AddReasonDialog from './Components/AddReason/AddReasonDialog';
 import ReasonsAction from './Components/ReasonActions';
 import Title from './Components/Title';
+import { setAddReasonDialog } from './Store/reasonsSlice';
 
 function Reasons() {
 
@@ -57,46 +59,80 @@ function Reasons() {
     ]
     const reasons = [
         {
-            id: 1,
+            id: getId(),
             title: "credit card",
             status: "active",
             addedBy: "James Bond"
         },
         {
-            id: 2,
+            id: getId(),
             title: "credit card",
             status: "active",
             addedBy: "James Bond"
         },
         {
-            id: 3,
+            id: getId(),
             title: "credit card",
             status: "active",
             addedBy: "James Bond"
         },
         {
-            id: 4,
+            id: getId(),
             title: "credit card",
             status: "active",
             addedBy: "James Bond"
         },
         {
-            id: 5,
+            id: getId(),
             title: "credit card",
             status: "active",
             addedBy: "James Bond"
         },
         {
-            id: 6,
+            id: getId(),
+            title: "credit card",
+            status: "active",
+            addedBy: "James Bond"
+        },
+        {
+            id: getId(),
+            title: "credit card",
+            status: "active",
+            addedBy: "James Bond"
+        },
+        {
+            id: getId(),
+            title: "credit card",
+            status: "active",
+            addedBy: "James Bond"
+        },
+        {
+            id: getId(),
+            title: "credit card",
+            status: "active",
+            addedBy: "James Bond"
+        },
+        {
+            id: getId(),
+            title: "credit card",
+            status: "active",
+            addedBy: "James Bond"
+        },
+        {
+            id: getId(),
+            title: "credit card",
+            status: "active",
+            addedBy: "James Bond"
+        },
+        {
+            id: getId(),
             title: "credit card",
             status: "active",
             addedBy: "James Bond"
         },
     ]
 
-    const {
-        selectedClientId
-    } = useSelector(state => state.shared)
+    const dispatch = useDispatch()
 
     const [selectedReasons, setSelectedReasons] = useState([])
 
@@ -115,20 +151,16 @@ function Reasons() {
                 }
             />
             <Table
-                autoHeight={true}
                 title="reasons"
                 onSelectionModelChange={(selected) =>
                     setSelectedReasons(selected)
                 }
-                hasCreditMonitoringInfo={
-                    selectedClientId == 1 ||
-                    selectedClientId == 2
+                noRowsAction={() =>
+                    dispatch(setAddReasonDialog(true))
                 }
                 columns={columns}
                 rows={reasons}
             />
-
-
             <AddReasonDialog />
         </>
     )

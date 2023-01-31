@@ -4,18 +4,22 @@ import {
     useState
 } from 'react';
 import {
+    useDispatch,
     useSelector
 } from 'react-redux';
 import AddClientDialog from './Components/AddClient/AddClientDialog';
 import ClientActions from './Components/ClientActions';
 import ImportClientsDialog from './Components/ImportClients/ImportClientsDialog';
 import {
+    setAddClientDialog,
     setAllColumnsVisibility,
     setColumnVisibility,
     setDefaultColumnsVisibility
 } from './Store/clientsSlice';
 
 function Client(props) {
+
+    const dispatch = useDispatch()
 
     const {
         columns,
@@ -38,6 +42,9 @@ function Client(props) {
                 title="Clients"
                 onSelectionModelChange={(selected) =>
                     setSelectedClients(selected)
+                }
+                noRowsAction={() =>
+                    dispatch(setAddClientDialog(true))
                 }
                 columns={columns}
                 rows={clients}

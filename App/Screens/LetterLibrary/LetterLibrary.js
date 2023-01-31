@@ -1,11 +1,13 @@
 import Table from '@Components/Table/Table';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
 import TopTabs from '@Components/TopTabs/TopTabs';
+import { getId } from '@Config/helper';
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import AddFlowDialog from './Components/AddFlow/AddFlowDialog';
 import LetterLibraryActions from "./Components/LetterLibraryActions";
 import Value from './Components/Value';
+import { setAddFlowDialog } from './Store/letterlibrarySlice';
 
 function LetterLibrary() {
 
@@ -73,9 +75,9 @@ function LetterLibrary() {
             renderCell: Value,
         },
     ]
-    const letters = [
+    const lettersFlows = [
         {
-            id: 1,
+            id: getId(),
             title: "credit card",
             type: "type A",
             reason: "IDK",
@@ -83,7 +85,7 @@ function LetterLibrary() {
             addedBy: "James Bond"
         },
         {
-            id: 7,
+            id: getId(),
             title: "credit card",
             type: "type A",
             reason: "IDK",
@@ -91,7 +93,7 @@ function LetterLibrary() {
             addedBy: "James Bond"
         },
         {
-            id: 2,
+            id: getId(),
             title: "credit card",
             type: "type A",
             reason: "IDK",
@@ -99,7 +101,7 @@ function LetterLibrary() {
             addedBy: "James Bond"
         },
         {
-            id: 3,
+            id: getId(),
             title: "credit card",
             type: "type A",
             reason: "IDK",
@@ -107,7 +109,7 @@ function LetterLibrary() {
             addedBy: "James Bond"
         },
         {
-            id: 4,
+            id: getId(),
             title: "credit card",
             type: "type A",
             reason: "IDK",
@@ -115,7 +117,55 @@ function LetterLibrary() {
             addedBy: "James Bond"
         },
         {
-            id: 5,
+            id: getId(),
+            title: "credit card",
+            type: "type A",
+            reason: "IDK",
+            rounds: "6",
+            addedBy: "James Bond"
+        },
+        {
+            id: getId(),
+            title: "credit card",
+            type: "type A",
+            reason: "IDK",
+            rounds: "6",
+            addedBy: "James Bond"
+        },
+        {
+            id: getId(),
+            title: "credit card",
+            type: "type A",
+            reason: "IDK",
+            rounds: "6",
+            addedBy: "James Bond"
+        },
+        {
+            id: getId(),
+            title: "credit card",
+            type: "type A",
+            reason: "IDK",
+            rounds: "6",
+            addedBy: "James Bond"
+        },
+        {
+            id: getId(),
+            title: "credit card",
+            type: "type A",
+            reason: "IDK",
+            rounds: "6",
+            addedBy: "James Bond"
+        },
+        {
+            id: getId(),
+            title: "credit card",
+            type: "type A",
+            reason: "IDK",
+            rounds: "6",
+            addedBy: "James Bond"
+        },
+        {
+            id: getId(),
             title: "credit card",
             type: "type A",
             reason: "IDK",
@@ -123,6 +173,8 @@ function LetterLibrary() {
             addedBy: "James Bond"
         }
     ]
+
+    const dispatch = useDispatch()
 
     const {
         selectedClientId
@@ -137,7 +189,7 @@ function LetterLibrary() {
                 tabs={tabs}
             />
             <TitleHeader
-                title="Letter Library"
+                title="Letter Flow"
                 actionButtons={
                     <LetterLibraryActions
                         selectedDocuments={selectedDocuments}
@@ -145,19 +197,16 @@ function LetterLibrary() {
                 }
             />
             <Table
-                autoHeight={true}
-                title="LetterLibrary"
+                title="Letter Flow"
                 onSelectionModelChange={(selected) =>
                     setSelectedDocuments(selected)
                 }
-                hasCreditMonitoringInfo={
-                    selectedClientId == 1 ||
-                    selectedClientId == 2
+                noRowsAction={() =>
+                    dispatch(setAddFlowDialog(true))
                 }
                 columns={columns}
-                rows={letters}
+                rows={lettersFlows}
             />
-
             <AddFlowDialog />
         </>
     )

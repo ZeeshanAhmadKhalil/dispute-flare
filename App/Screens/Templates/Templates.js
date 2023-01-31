@@ -3,16 +3,17 @@ import SwitchCell from '@Components/Table/Components/SwitchCell/SwitchCell';
 import Table from '@Components/Table/Table';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
 import TopTabs from '@Components/TopTabs/TopTabs';
+import { getId } from '@Config/helper';
 import {
     useState
 } from 'react';
+import { useDispatch } from 'react-redux';
 import AddLetterTemplateDialog from './Components/AddLetterTemplate/AddLetterTemplateDialog';
 import TemplatesActions from "./Components/TemplatesActions";
 import Title from './Components/Title';
+import { setAddLetterTemplateDialog } from './Store/templatesSlice';
 
 function Templates() {
-
-    const [selectedDocuments, setSelectedDocuments] = useState([])
 
     const tabs = [
         { label: "Letter Flow", value: "letterlibrary" },
@@ -79,9 +80,9 @@ function Templates() {
 
 
     ]
-    const letters = [
+    const templates = [
         {
-            id: 1,
+            id: getId(),
             title: "credit card",
             category: "CAT A",
             status: "active",
@@ -89,7 +90,7 @@ function Templates() {
             addedBy: "James Bond"
         },
         {
-            id: 2,
+            id: getId(),
             title: "credit card",
             category: "CAT A",
             status: "inactive",
@@ -97,7 +98,7 @@ function Templates() {
             addedBy: "James Bond"
         },
         {
-            id: 3,
+            id: getId(),
             title: "credit card",
             category: "CAT A",
             status: "active",
@@ -105,7 +106,103 @@ function Templates() {
             addedBy: "James Bond"
         },
         {
-            id: 4,
+            id: getId(),
+            title: "credit card",
+            category: "CAT A",
+            status: "active",
+            type: "A",
+            addedBy: "James Bond"
+        },
+        {
+            id: getId(),
+            title: "credit card",
+            category: "CAT A",
+            status: "active",
+            type: "A",
+            addedBy: "James Bond"
+        },
+        {
+            id: getId(),
+            title: "credit card",
+            category: "CAT A",
+            status: "inactive",
+            type: "A",
+            addedBy: "James Bond"
+        },
+        {
+            id: getId(),
+            title: "credit card",
+            category: "CAT A",
+            status: "active",
+            type: "A",
+            addedBy: "James Bond"
+        },
+        {
+            id: getId(),
+            title: "credit card",
+            category: "CAT A",
+            status: "active",
+            type: "A",
+            addedBy: "James Bond"
+        },
+        {
+            id: getId(),
+            title: "credit card",
+            category: "CAT A",
+            status: "active",
+            type: "A",
+            addedBy: "James Bond"
+        },
+        {
+            id: getId(),
+            title: "credit card",
+            category: "CAT A",
+            status: "inactive",
+            type: "A",
+            addedBy: "James Bond"
+        },
+        {
+            id: getId(),
+            title: "credit card",
+            category: "CAT A",
+            status: "active",
+            type: "A",
+            addedBy: "James Bond"
+        },
+        {
+            id: getId(),
+            title: "credit card",
+            category: "CAT A",
+            status: "active",
+            type: "A",
+            addedBy: "James Bond"
+        },
+        {
+            id: getId(),
+            title: "credit card",
+            category: "CAT A",
+            status: "active",
+            type: "A",
+            addedBy: "James Bond"
+        },
+        {
+            id: getId(),
+            title: "credit card",
+            category: "CAT A",
+            status: "inactive",
+            type: "A",
+            addedBy: "James Bond"
+        },
+        {
+            id: getId(),
+            title: "credit card",
+            category: "CAT A",
+            status: "active",
+            type: "A",
+            addedBy: "James Bond"
+        },
+        {
+            id: getId(),
             title: "credit card",
             category: "CAT A",
             status: "active",
@@ -113,6 +210,10 @@ function Templates() {
             addedBy: "James Bond"
         },
     ]
+
+    const dispatch = useDispatch()
+
+    const [selectedDocuments, setSelectedDocuments] = useState([])
 
     return (
         <>
@@ -129,13 +230,15 @@ function Templates() {
                 }
             />
             <Table
-                autoHeight={true}
                 title="templates"
                 onSelectionModelChange={(selected) =>
                     setSelectedDocuments(selected)
                 }
+                noRowsAction={() =>
+                    dispatch(setAddLetterTemplateDialog(true))
+                }
                 columns={columns}
-                rows={letters}
+                rows={templates}
             />
             <AddLetterTemplateDialog />
         </>

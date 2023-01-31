@@ -1,10 +1,10 @@
-import TopTabs from '@Components/TopTabs/TopTabs';
 import ScrollContainer from '@Components/ScrollContainer/ScrollContainer';
 import StatsTile from '@Components/StatsTile/StatsTile';
 import DropDownCell from '@Components/Table/Components/DropDownCell/DropDownCell';
 import LinkCell from '@Components/Table/Components/LinkCell/LinkCell';
 import Table from '@Components/Table/Table';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
+import TopTabs from '@Components/TopTabs/TopTabs';
 import {
     Box,
     useTheme
@@ -13,9 +13,10 @@ import cls from 'classnames';
 import TotalCommission from 'public/Assets/Svgs/total-commission.svg';
 import User from 'public/Assets/Svgs/user.svg';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import CommissionActions from './Components/CommissionActions';
 import SetStandardRateDialog from './Components/SetStandardRate/SetStandardRateDialog';
-import { setComissionDialog } from './Store/commissionSlice';
+import { setStandardRateDialog } from './Store/commissionSlice';
 
 function Commission(props) {
 
@@ -24,7 +25,6 @@ function Commission(props) {
         { label: "Affiliates", value: "affiliates" },
         { label: "Commission", value: "commission" },
     ]
-
     const columns = [
         {
             field: 'id',
@@ -74,7 +74,7 @@ function Commission(props) {
             ),
         },
     ]
-    const creditors = [
+    const comissions = [
         {
             id: 1,
             affiliateName: "Steve Rogers",
@@ -154,6 +154,8 @@ function Commission(props) {
             borders
         }
     } = useTheme()
+
+    const dispatch = useDispatch()
 
     const [selectedComission, setSelectedComission] = useState([])
 
@@ -247,11 +249,11 @@ function Commission(props) {
                     onSelectionModelChange={(selected) =>
                         setSelectedComission(selected)
                     }
-                    noRowsAction={() => {
-                        dispatch(setComissionDialog(true))
-                    }}
+                    noRowsAction={() =>
+                        dispatch(setStandardRateDialog(true))
+                    }
                     columns={columns}
-                    rows={creditors}
+                    rows={comissions}
                 />
             </ScrollContainer>
             <SetStandardRateDialog />

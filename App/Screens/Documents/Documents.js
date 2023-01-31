@@ -14,7 +14,7 @@ import {
 } from '@mui/material';
 import { Box } from '@mui/system';
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import DocumentsActions from "./Components/DocumentsActions";
 import TilesView from './Components/TilesView';
 import UploadedDocuments from './Components/UploadedDocuments';
@@ -159,9 +159,11 @@ function Documents(props) {
         { label: "Documents", value: "documents" },
         { label: "Internal Notes", value: "internal-note" },
     ]
+
     const {
         palette
     } = useTheme()
+    const dispatch = useDispatch()
 
     const {
         selectedClientId
@@ -250,7 +252,6 @@ function Documents(props) {
                 </Tabs>
                 <TabPanel value={value} index={0}>
                     <Table
-                        autoHeight={true}
                         title="Documents"
                         onSelectionModelChange={(selected) =>
                             setSelectedDocuments(selected)

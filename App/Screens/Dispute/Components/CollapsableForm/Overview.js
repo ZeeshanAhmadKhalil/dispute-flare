@@ -154,7 +154,6 @@ function Overview(props) {
                     }
                 })
 
-                console.log("rows===>", rows)
 
                 return (
                     <CollapsableForm

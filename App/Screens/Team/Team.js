@@ -2,6 +2,7 @@ import LinkCell from '@Components/Table/Components/LinkCell/LinkCell';
 import Table from '@Components/Table/Table';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
 import TopTabs from '@Components/TopTabs/TopTabs';
+import { getId } from '@Config/helper';
 import CircleIcon from '@mui/icons-material/Circle';
 import {
     Divider,
@@ -10,10 +11,11 @@ import {
 } from '@mui/material';
 import { Box } from '@mui/system';
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import AddTeamDialog from './Components/AddTeam/AddTeamDialog';
 import TeamAction from './Components/TeamActions';
 import Value from './Components/Value';
+import { setAddTeamDialog } from './Store/teamsSlice';
 
 function Team() {
 
@@ -145,7 +147,7 @@ function Team() {
     ]
     const teams = [
         {
-            id: 1,
+            id: getId(),
             fullname: "John Wick",
             contact: "(000) 000-000",
             email: "Johanathn@gmail.com",
@@ -154,7 +156,7 @@ function Team() {
             address: "21 Ducie St, W1 6JD, CA"
         },
         {
-            id: 1,
+            id: getId(),
             fullname: "John Wick",
             contact: "(000) 000-000",
             email: "Johanathn@gmail.com",
@@ -163,7 +165,7 @@ function Team() {
             address: "21 Ducie St, W1 6JD, CA"
         },
         {
-            id: 1,
+            id: getId(),
             fullname: "John Wick",
             contact: "(000) 000-000",
             email: "Johanathn@gmail.com",
@@ -172,7 +174,7 @@ function Team() {
             address: "21 Ducie St, W1 6JD, CA"
         },
         {
-            id: 1,
+            id: getId(),
             fullname: "John Wick",
             contact: "(000) 000-000",
             email: "Johanathn@gmail.com",
@@ -181,7 +183,52 @@ function Team() {
             address: "21 Ducie St, W1 6JD, CA"
         },
         {
-            id: 1,
+            id: getId(),
+            fullname: "John Wick",
+            contact: "(000) 000-000",
+            email: "Johanathn@gmail.com",
+            department: "Administration",
+            position: "Editor",
+            address: "21 Ducie St, W1 6JD, CA"
+        },
+        {
+            id: getId(),
+            fullname: "John Wick",
+            contact: "(000) 000-000",
+            email: "Johanathn@gmail.com",
+            department: "Administration",
+            position: "Editor",
+            address: "21 Ducie St, W1 6JD, CA"
+        },
+        {
+            id: getId(),
+            fullname: "John Wick",
+            contact: "(000) 000-000",
+            email: "Johanathn@gmail.com",
+            department: "Administration",
+            position: "Editor",
+            address: "21 Ducie St, W1 6JD, CA"
+        },
+        {
+            id: getId(),
+            fullname: "John Wick",
+            contact: "(000) 000-000",
+            email: "Johanathn@gmail.com",
+            department: "Administration",
+            position: "Editor",
+            address: "21 Ducie St, W1 6JD, CA"
+        },
+        {
+            id: getId(),
+            fullname: "John Wick",
+            contact: "(000) 000-000",
+            email: "Johanathn@gmail.com",
+            department: "Administration",
+            position: "Editor",
+            address: "21 Ducie St, W1 6JD, CA"
+        },
+        {
+            id: getId(),
             fullname: "John Wick",
             contact: "(000) 000-000",
             email: "Johanathn@gmail.com",
@@ -192,27 +239,52 @@ function Team() {
     ]
     const departments = [
         {
-            id: 1,
+            id: getId(),
             title: "Lorem ipsum is a",
             status: "active"
         },
         {
-            id: 1,
+            id: getId(),
             title: "Lorem ipsum is a",
             status: "active"
         },
         {
-            id: 1,
+            id: getId(),
             title: "Lorem ipsum is a",
             status: "active"
         },
         {
-            id: 1,
+            id: getId(),
             title: "Lorem ipsum is a",
             status: "active"
         },
         {
-            id: 1,
+            id: getId(),
+            title: "Lorem ipsum is a",
+            status: "active"
+        },
+        {
+            id: getId(),
+            title: "Lorem ipsum is a",
+            status: "active"
+        },
+        {
+            id: getId(),
+            title: "Lorem ipsum is a",
+            status: "active"
+        },
+        {
+            id: getId(),
+            title: "Lorem ipsum is a",
+            status: "active"
+        },
+        {
+            id: getId(),
+            title: "Lorem ipsum is a",
+            status: "active"
+        },
+        {
+            id: getId(),
             title: "Lorem ipsum is a",
             status: "active"
         },
@@ -221,6 +293,8 @@ function Team() {
     const {
         palette
     } = useTheme()
+
+    const dispatch = useDispatch()
 
     const {
         selectedClientId
@@ -250,14 +324,12 @@ function Team() {
             <Grid container columnGap="1rem">
                 <Grid item xl="8" md="8" xs="12">
                     <Table
-                        autoHeight={true}
-                        title="Teams"
+                        title="Team"
                         onSelectionModelChange={(selected) =>
                             setSelectedDocuments(selected)
                         }
-                        hasCreditMonitoringInfo={
-                            selectedClientId == 1 ||
-                            selectedClientId == 2
+                        noRowsAction={() =>
+                            dispatch(setAddTeamDialog(true))
                         }
                         columns={columns}
                         rows={teams}
@@ -265,16 +337,12 @@ function Team() {
                 </Grid>
                 <Grid item xl="3" md="3" xs="12">
                     <Table
-                        autoHeight={true}
-                        title="Teams"
+                        title="Department"
                         columns={departmentColumns}
                         rows={departments}
                     />
                 </Grid>
-
-
             </Grid>
-
             <AddTeamDialog />
         </>
     )

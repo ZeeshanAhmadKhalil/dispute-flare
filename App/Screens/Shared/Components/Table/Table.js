@@ -128,6 +128,7 @@ const NoCreditMonitoringInfo = ({
 const NoRows = ({
     title,
     xGrey3,
+    noRowsAction,
 }) => (
     <Box
         className={cls(
@@ -147,21 +148,25 @@ const NoRows = ({
                 fontSize: 40,
                 fontWeight: 'bold',
                 mt: 3,
-                color: xGrey3
+                color: xGrey3,
+                textAlign: 'center'
             }}
         >
             {`You have no ${title}!`}
         </Box>
-        <Box
-            sx={{
-                fontSize: 20,
-                fontWeight: 'bold',
-                mt: 1,
-                color: xGrey3
-            }}
-        >
-            {`Click to create your first ${title}`}
-        </Box>
+        {noRowsAction &&
+            <Box
+                sx={{
+                    fontSize: 20,
+                    fontWeight: 'bold',
+                    mt: 1,
+                    color: xGrey3,
+                    textAlign: 'center'
+                }}
+            >
+                {`Click to create your first ${title}`}
+            </Box>
+        }
     </Box>
 )
 
@@ -206,7 +211,7 @@ function Table(props) {
                 setAddCreditMonitoringInfoDialog(true)
             )
         else if (rows?.length == 0)
-            noRowsAction()
+            noRowsAction?.()
     }
 
     return (
@@ -250,6 +255,7 @@ function Table(props) {
                         noRowsLabel:
                             hasCreditMonitoringInfo ?
                                 <NoRows
+                                    noRowsAction={noRowsAction}
                                     xGrey3={xGrey3}
                                     title={title}
                                 />
