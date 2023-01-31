@@ -4,6 +4,7 @@ import Table from '@Components/Table/Table'
 import TitleHeader from '@Components/TitleHeader/TitleHeader'
 import TopTabs from '@Components/TopTabs/TopTabs'
 import { useState } from 'react'
+import { useRouter } from 'next/router';
 import AddInstructionDialog from './Components/AddAffiliate/AddAffililateDialog'
 import AffiliatesActions from './Components/AffiliatesActions'
 import {
@@ -135,6 +136,7 @@ function Affiliates() {
 
     const [selectedInstructions, setSelectedInstructions] = useState([])
 
+    const router = useRouter()
     return (
         <>
             <TopTabs tabs={tabs} />
@@ -152,8 +154,10 @@ function Affiliates() {
                 onSelectionModelChange={(selected) =>
                     setSelectedInstructions(selected)
                 }
-
                 columns={columns}
+                onRowClick={() =>
+                    router.push('affiliate-dashboard')
+                }
                 rows={affiliates}
                 setColumnVisibility={setColumnVisibility}
                 setAllColumnsVisibility={setAllColumnsVisibility}

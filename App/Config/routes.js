@@ -47,7 +47,7 @@ const sidebarRoutes = [
                 height={22}
             />
         ),
-        path: '/letterlibrary'
+        path: '/letter-library'
     },
     {
         type: "menu-item",
