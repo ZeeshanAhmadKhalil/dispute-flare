@@ -147,7 +147,7 @@ function ProfileDialog(props) {
                 <TabPanel value={value} index={0} >
                     <Grid container columnSpacing="10px">
                         <Grid xl="4" >
-                            <Grid padding="1rem 22px 2rem 0px" backgroundColor="red">
+                            <Grid padding="1rem 22px 2rem 0px">
                                 <Grid display="flex" justifyContent="space-between" alignItems="flex-start" >
                                     <div  >
 
@@ -183,7 +183,7 @@ function ProfileDialog(props) {
                                 </Grid>
 
                             </Grid>
-                            <Grid sx={{ padding: "10px 1rem 20px 16px", marginTop: "1rem" }} backgroundColor="red" >
+                            <Grid sx={{ padding: "10px 1rem 20px 16px", marginTop: "1rem" }}  >
                                 <Typography variant='h6'   >
                                     Appreciation
                                 </Typography>
@@ -200,7 +200,7 @@ function ProfileDialog(props) {
                             </Grid>
 
                         </Grid>
-                        <Grid xl="7" sx={{ padding: "1rem 2rem 1rem 1rem", marginLeft: "5px", }} backgroundColor="red">
+                        <Grid xl="7" sx={{ padding: "1rem 2rem 1rem 1rem", marginLeft: "5px", }} >
 
                             <Grid display="flex" justifyContent="space-between">
 

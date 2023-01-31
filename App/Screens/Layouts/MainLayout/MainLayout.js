@@ -79,8 +79,10 @@ function MainLayout(props) {
                 )}
             >
                 {children}
+
                 <Footer />
             </ContentBox>
+
             <ProfileDialog />
         </MuiBox>
     )
