@@ -158,8 +158,6 @@ function SelectAnAccount(props) {
                 checkboxSelection={false}
                 columns={columns}
                 rows={rows}
-                setColumnVisibility={true}
-                setAllColumnsVisibility={true}
                 height={280}
                 borderColor={borders?.gray}
                 hidePagination={true}
