@@ -7,7 +7,7 @@ import {
     Typography,
     useTheme
 } from '@mui/material';
-import { setrecordPaymentDialogDialog } from '@Screens/AffiliateDashboard/Store/affiliateDashboardSlice'
+import { setRecordPaymentDialog } from '@Screens/AffiliateDashboard/Store/affiliateDashboardSlice'
 import {
     useDispatch,
     useSelector
@@ -85,12 +85,12 @@ function RecordPaymentDialog(props) {
 
     return (
         <RightDialogLayout
-            onClose={() => dispatch(setrecordPaymentDialogDialog(false))}
+            onClose={() => dispatch(setRecordPaymentDialog(false))}
             actionButtons={
                 <RecordPaymentActions
                     handleSubmit={handleSubmit}
                     onClose={() =>
-                        dispatch(setrecordPaymentDialogDialog(false))
+                        dispatch(setRecordPaymentDialog(false))
                     }
                 />
             }

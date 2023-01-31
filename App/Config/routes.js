@@ -14,7 +14,7 @@ import HelpLine from 'public/Assets/Svgs/help-line.svg'
 import PlayOnTv from 'public/Assets/Svgs/play-on-tv.svg'
 import Stack from 'public/Assets/Svgs/stack.svg'
 import Question from 'public/Assets/Svgs/question.svg'
-import User from 'public/Assets/Svgs/user.svg'
+import BusinessIcon from '@mui/icons-material/Business';
 const sidebarRoutes = [
     {
         type: "menu-item",
@@ -78,9 +78,8 @@ const sidebarRoutes = [
         type: "menu-item",
         displayName: "My Company",
         icon: (
-            <User
-                width={25}
-                height={25}
+            <BusinessIcon
+                fontSize="medium"
             />
         ),
         collapsable: false,

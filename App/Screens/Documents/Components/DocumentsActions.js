@@ -16,7 +16,6 @@ function DocumentsActions(props) {
     return (
         <>
             <Button
-                //   onClick={() => dispatch(setImportClientsDialog(true))}
                 iconOnSmall={<FileUploadIcon />}
                 color={"lightPink"}
                 startIcon={null}
@@ -29,9 +28,7 @@ function DocumentsActions(props) {
             </Button>
             {selectedDocuments?.length > 0 &&
                 <>
-
                     <Button
-                        //    onClick={() => dispatch(setAddClientDialog(true))}
                         iconOnSmall={<AddIcon />}
                         color={"checkbox"}
                         startIcon={null}

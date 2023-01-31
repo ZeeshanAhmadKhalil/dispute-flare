@@ -1,11 +1,170 @@
 import Table from '@Components/Table/Table';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
 import TopTabs from '@Components/TopTabs/TopTabs';
+import { getId } from '@Config/helper';
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import AddFlowDialog from './Components/AddFlow/AddFlowDialog';
 import LetterLibraryActions from "./Components/LetterLibraryActions";
 import Value from './Components/Value';
+import { setAddFlowDialog } from './Store/letterlibrarySlice';
+
+const columns = [
+    {
+        field: 'id',
+        headerName: 'Id',
+        width: 150,
+        hide: true,
+        hidable: true,
+    },
+    {
+        field: 'title',
+        headerName: 'Title',
+        width: 200,
+        headerClassName: 'separator-header',
+        hidable: true,
+        hide: false,
+        renderCell: Value,
+    },
+    {
+        field: 'type',
+        headerName: 'Type',
+        width: 200,
+        headerClassName: 'separator-header',
+        hidable: true,
+        hide: false,
+
+        renderCell: Value,
+    },
+    {
+        field: 'reason',
+        headerName: 'Reason',
+        width: 200,
+        headerClassName: 'separator-header',
+        hidable: true,
+        hide: false,
+
+        renderCell: Value,
+    },
+    {
+        field: 'rounds',
+        headerName: 'Rounds',
+        width: 200,
+        headerClassName: 'separator-header',
+        hidable: true,
+        hide: false,
+
+        renderCell: Value,
+    },
+    {
+        field: 'addedBy',
+        headerName: 'Added By',
+        width: 200,
+        headerClassName: 'separator-header',
+        hidable: true,
+        hide: false,
+
+        renderCell: Value,
+    },
+]
+const lettersFlows = [
+    {
+        id: getId(),
+        title: "credit card",
+        type: "type A",
+        reason: "IDK",
+        rounds: "6",
+        addedBy: "James Bond"
+    },
+    {
+        id: getId(),
+        title: "credit card",
+        type: "type A",
+        reason: "IDK",
+        rounds: "6",
+        addedBy: "James Bond"
+    },
+    {
+        id: getId(),
+        title: "credit card",
+        type: "type A",
+        reason: "IDK",
+        rounds: "6",
+        addedBy: "James Bond"
+    },
+    {
+        id: getId(),
+        title: "credit card",
+        type: "type A",
+        reason: "IDK",
+        rounds: "6",
+        addedBy: "James Bond"
+    },
+    {
+        id: getId(),
+        title: "credit card",
+        type: "type A",
+        reason: "IDK",
+        rounds: "6",
+        addedBy: "James Bond"
+    },
+    {
+        id: getId(),
+        title: "credit card",
+        type: "type A",
+        reason: "IDK",
+        rounds: "6",
+        addedBy: "James Bond"
+    },
+    {
+        id: getId(),
+        title: "credit card",
+        type: "type A",
+        reason: "IDK",
+        rounds: "6",
+        addedBy: "James Bond"
+    },
+    {
+        id: getId(),
+        title: "credit card",
+        type: "type A",
+        reason: "IDK",
+        rounds: "6",
+        addedBy: "James Bond"
+    },
+    {
+        id: getId(),
+        title: "credit card",
+        type: "type A",
+        reason: "IDK",
+        rounds: "6",
+        addedBy: "James Bond"
+    },
+    {
+        id: getId(),
+        title: "credit card",
+        type: "type A",
+        reason: "IDK",
+        rounds: "6",
+        addedBy: "James Bond"
+    },
+    {
+        id: getId(),
+        title: "credit card",
+        type: "type A",
+        reason: "IDK",
+        rounds: "6",
+        addedBy: "James Bond"
+    },
+    {
+        id: getId(),
+        title: "credit card",
+        type: "type A",
+        reason: "IDK",
+        rounds: "6",
+        addedBy: "James Bond"
+    }
+]
 
 function LetterLibrary() {
 
@@ -15,120 +174,15 @@ function LetterLibrary() {
         { label: "Reasons", value: "reasons" },
         { label: "Instructions", value: "instructions" }
     ]
-    const columns = [
-        {
-            field: 'id',
-            headerName: 'Id',
-            width: 150,
-            hide: true,
-            hidable: true,
-        },
-        {
-            field: 'title',
-            headerName: 'Title',
-            width: 200,
-            headerClassName: 'separator-header',
-            hidable: true,
-            hide: false,
-            renderCell: Value,
-        },
-        {
-            field: 'type',
-            headerName: 'Type',
-            width: 200,
-            headerClassName: 'separator-header',
-            hidable: true,
-            hide: false,
 
-            renderCell: Value,
-        },
-        {
-            field: 'reason',
-            headerName: 'Reason',
-            width: 200,
-            headerClassName: 'separator-header',
-            hidable: true,
-            hide: false,
 
-            renderCell: Value,
-        },
-        {
-            field: 'rounds',
-            headerName: 'Rounds',
-            width: 200,
-            headerClassName: 'separator-header',
-            hidable: true,
-            hide: false,
-
-            renderCell: Value,
-        },
-        {
-            field: 'addedBy',
-            headerName: 'Added By',
-            width: 200,
-            headerClassName: 'separator-header',
-            hidable: true,
-            hide: false,
-
-            renderCell: Value,
-        },
-    ]
-    const letters = [
-        {
-            id: 1,
-            title: "credit card",
-            type: "type A",
-            reason: "IDK",
-            rounds: "6",
-            addedBy: "James Bond"
-        },
-        {
-            id: 7,
-            title: "credit card",
-            type: "type A",
-            reason: "IDK",
-            rounds: "6",
-            addedBy: "James Bond"
-        },
-        {
-            id: 2,
-            title: "credit card",
-            type: "type A",
-            reason: "IDK",
-            rounds: "6",
-            addedBy: "James Bond"
-        },
-        {
-            id: 3,
-            title: "credit card",
-            type: "type A",
-            reason: "IDK",
-            rounds: "6",
-            addedBy: "James Bond"
-        },
-        {
-            id: 4,
-            title: "credit card",
-            type: "type A",
-            reason: "IDK",
-            rounds: "6",
-            addedBy: "James Bond"
-        },
-        {
-            id: 5,
-            title: "credit card",
-            type: "type A",
-            reason: "IDK",
-            rounds: "6",
-            addedBy: "James Bond"
-        }
-    ]
+    const dispatch = useDispatch()
 
     const {
         selectedClientId
     } = useSelector(state => state.shared)
 
-    const [selectedDocuments, setSelectedDocuments] = useState([])
+    const [selectedLetterFlows, setSelectedLetterFlows] = useState([])
 
     return (
         <>
@@ -137,27 +191,24 @@ function LetterLibrary() {
                 tabs={tabs}
             />
             <TitleHeader
-                title="Letter Library"
+                title="Letter Flow"
                 actionButtons={
                     <LetterLibraryActions
-                        selectedDocuments={selectedDocuments}
+                        selectedDocuments={selectedLetterFlows}
                     />
                 }
             />
             <Table
-                autoHeight={true}
-                title="LetterLibrary"
+                title="Letter Flow"
                 onSelectionModelChange={(selected) =>
-                    setSelectedDocuments(selected)
+                    setSelectedLetterFlows(selected)
                 }
-                hasCreditMonitoringInfo={
-                    selectedClientId == 1 ||
-                    selectedClientId == 2
+                noRowsAction={() =>
+                    dispatch(setAddFlowDialog(true))
                 }
                 columns={columns}
-                rows={letters}
+                rows={lettersFlows}
             />
-
             <AddFlowDialog />
         </>
     )

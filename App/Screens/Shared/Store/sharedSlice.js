@@ -20,9 +20,6 @@ const sharedSlice = createSlice({
             state.loader = action.payload
         },
         setSelectedClientId: (state, action) => {
-
-            console.log("action.payload===>", action.payload)
-
             state.selectedClientId = action.payload
         },
 

@@ -1,10 +1,10 @@
-import TopTabs from '@Components/TopTabs/TopTabs';
 import ScrollContainer from '@Components/ScrollContainer/ScrollContainer';
 import StatsTile from '@Components/StatsTile/StatsTile';
 import DropDownCell from '@Components/Table/Components/DropDownCell/DropDownCell';
 import LinkCell from '@Components/Table/Components/LinkCell/LinkCell';
 import Table from '@Components/Table/Table';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
+import TopTabs from '@Components/TopTabs/TopTabs';
 import {
     Box,
     useTheme
@@ -13,9 +13,132 @@ import cls from 'classnames';
 import TotalCommission from 'public/Assets/Svgs/total-commission.svg';
 import User from 'public/Assets/Svgs/user.svg';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import CommissionActions from './Components/CommissionActions';
 import SetStandardRateDialog from './Components/SetStandardRate/SetStandardRateDialog';
-import { setComissionDialog } from './Store/commissionSlice';
+import { setStandardRateDialog } from './Store/commissionSlice';
+
+const columns = [
+    {
+        field: 'id',
+        headerName: 'Id',
+        width: 50,
+        hide: true,
+        hidable: true,
+    },
+    {
+        field: 'affiliateName',
+        headerName: 'Affiliate Name',
+        width: 350,
+        headerClassName: 'separator-header',
+        renderCell: (props) => (
+            <LinkCell
+                {...props}
+                navigateTo="creditor-dashboard"
+            />
+        ),
+        hidable: true,
+        hide: false,
+    },
+    {
+        field: 'company',
+        headerName: 'Company',
+        width: 350,
+        hide: false,
+        hidable: true,
+    },
+    {
+        field: 'totalCommission',
+        headerName: 'Total Commission',
+        width: 350,
+        hide: false,
+        hidable: true,
+    },
+    {
+        field: 'status',
+        headerName: 'Status',
+        width: 350,
+        hidable: true,
+        editable: true,
+        type: 'singleSelect',
+        valueOptions: ['Paid', 'To be paid'],
+        renderCell: ({ value }) => (
+            <DropDownCell value={value} />
+        ),
+    },
+]
+const comissions = [
+    {
+        id: 1,
+        affiliateName: "Steve Rogers",
+        company: 'Marvel',
+        totalCommission: "$110",
+        status: "Paid",
+    },
+    {
+        id: 2,
+        affiliateName: "Hela",
+        company: 'Marvel',
+        totalCommission: "$110",
+        status: "Paid",
+    },
+    {
+        id: 3,
+        affiliateName: "Doctor Strange",
+        company: 'Marvel',
+        totalCommission: "$110",
+        status: "Paid",
+    },
+    {
+        id: 4,
+        affiliateName: "Thor",
+        company: 'Marvel',
+        totalCommission: "$110",
+        status: "Paid",
+    },
+    {
+        id: 5,
+        affiliateName: "Captain Marvel",
+        company: 'Marvel',
+        totalCommission: "$110",
+        status: "Paid",
+    },
+    {
+        id: 6,
+        affiliateName: "Scarlet Witch",
+        company: 'Marvel',
+        totalCommission: "$110",
+        status: "Paid",
+    },
+    {
+        id: 7,
+        affiliateName: "Thanos",
+        company: 'Marvel',
+        totalCommission: "$110",
+        status: "Paid",
+    },
+    {
+        id: 8,
+        affiliateName: "Dormammu",
+        company: 'Marvel',
+        totalCommission: "$110",
+        status: "Paid",
+    },
+    {
+        id: 9,
+        affiliateName: "Eternity",
+        company: 'Marvel',
+        totalCommission: "$110",
+        status: "Paid",
+    },
+    {
+        id: 10,
+        affiliateName: "Arishem",
+        company: 'Marvel',
+        totalCommission: "$110",
+        status: "Paid",
+    },
+]
 
 function Commission(props) {
 
@@ -25,128 +148,6 @@ function Commission(props) {
         { label: "Commission", value: "commission" },
     ]
 
-    const columns = [
-        {
-            field: 'id',
-            headerName: 'Id',
-            width: 50,
-            hide: true,
-            hidable: true,
-        },
-        {
-            field: 'affiliateName',
-            headerName: 'Affiliate Name',
-            width: 350,
-            headerClassName: 'separator-header',
-            renderCell: (props) => (
-                <LinkCell
-                    {...props}
-                    navigateTo="creditor-dashboard"
-                />
-            ),
-            hidable: true,
-            hide: false,
-        },
-        {
-            field: 'company',
-            headerName: 'Company',
-            width: 350,
-            hide: false,
-            hidable: true,
-        },
-        {
-            field: 'totalCommission',
-            headerName: 'Total Commission',
-            width: 350,
-            hide: false,
-            hidable: true,
-        },
-        {
-            field: 'status',
-            headerName: 'Status',
-            width: 350,
-            hidable: true,
-            editable: true,
-            type: 'singleSelect',
-            valueOptions: ['Paid', 'To be paid'],
-            renderCell: ({ value }) => (
-                <DropDownCell value={value} />
-            ),
-        },
-    ]
-    const creditors = [
-        {
-            id: 1,
-            affiliateName: "Steve Rogers",
-            company: 'Marvel',
-            totalCommission: "$110",
-            status: "Paid",
-        },
-        {
-            id: 2,
-            affiliateName: "Hela",
-            company: 'Marvel',
-            totalCommission: "$110",
-            status: "Paid",
-        },
-        {
-            id: 3,
-            affiliateName: "Doctor Strange",
-            company: 'Marvel',
-            totalCommission: "$110",
-            status: "Paid",
-        },
-        {
-            id: 4,
-            affiliateName: "Thor",
-            company: 'Marvel',
-            totalCommission: "$110",
-            status: "Paid",
-        },
-        {
-            id: 5,
-            affiliateName: "Captain Marvel",
-            company: 'Marvel',
-            totalCommission: "$110",
-            status: "Paid",
-        },
-        {
-            id: 6,
-            affiliateName: "Scarlet Witch",
-            company: 'Marvel',
-            totalCommission: "$110",
-            status: "Paid",
-        },
-        {
-            id: 7,
-            affiliateName: "Thanos",
-            company: 'Marvel',
-            totalCommission: "$110",
-            status: "Paid",
-        },
-        {
-            id: 8,
-            affiliateName: "Dormammu",
-            company: 'Marvel',
-            totalCommission: "$110",
-            status: "Paid",
-        },
-        {
-            id: 9,
-            affiliateName: "Eternity",
-            company: 'Marvel',
-            totalCommission: "$110",
-            status: "Paid",
-        },
-        {
-            id: 10,
-            affiliateName: "Arishem",
-            company: 'Marvel',
-            totalCommission: "$110",
-            status: "Paid",
-        },
-    ]
-
     const {
         palette: {
             icon,
@@ -154,6 +155,8 @@ function Commission(props) {
             borders
         }
     } = useTheme()
+
+    const dispatch = useDispatch()
 
     const [selectedComission, setSelectedComission] = useState([])
 
@@ -247,11 +250,11 @@ function Commission(props) {
                     onSelectionModelChange={(selected) =>
                         setSelectedComission(selected)
                     }
-                    noRowsAction={() => {
-                        dispatch(setComissionDialog(true))
-                    }}
+                    noRowsAction={() =>
+                        dispatch(setStandardRateDialog(true))
+                    }
                     columns={columns}
-                    rows={creditors}
+                    rows={comissions}
                 />
             </ScrollContainer>
             <SetStandardRateDialog />
