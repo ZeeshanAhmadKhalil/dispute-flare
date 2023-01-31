@@ -20,10 +20,7 @@ import {
     useDispatch,
     useSelector
 } from 'react-redux';
-import cls from 'classnames'
-import styles from './AddFlowDialog.module.scss'
 import { useForm } from 'react-hook-form';
-import TopTabs from '@Components/TopTabs/TopTabs';
 import Avatar from '@Components/Avatar/Avatar';
 const Container = styled(Box)(({ theme }) => {
 
@@ -34,9 +31,13 @@ const Container = styled(Box)(({ theme }) => {
     } = theme.palette || {}
 
     return {
-        backgroundColor: main,
+        //   backgroundColor: "pink",
         padding: 20,
         marginTop: 10,
+        opacity: "1",
+        backgroundImage: 'url("/public/Assets/Images/default.jpeg")'
+
+
     }
 })
 function TabPanel(props) {
@@ -134,6 +135,7 @@ function ProfileDialog(props) {
             open={profileDialogMain}
             closeBtnText="Profile"
             title={"John H. Doe"}
+
         >
             <Container>
                 <Tabs value={value} indicatorColor="secondary" onChange={handleChange} aria-label="basic tabs example" textColor={palette.text.main} >
@@ -145,7 +147,7 @@ function ProfileDialog(props) {
                 <TabPanel value={value} index={0} >
                     <Grid container columnSpacing="10px">
                         <Grid xl="4" >
-                            <Grid padding="1rem 22px 2rem 0px">
+                            <Grid padding="1rem 22px 2rem 0px" backgroundColor="red">
                                 <Grid display="flex" justifyContent="space-between" alignItems="flex-start" >
                                     <div  >
 
@@ -181,7 +183,7 @@ function ProfileDialog(props) {
                                 </Grid>
 
                             </Grid>
-                            <Grid sx={{ padding: "10px 1rem 20px 16px", marginTop: "1rem" }} >
+                            <Grid sx={{ padding: "10px 1rem 20px 16px", marginTop: "1rem" }} backgroundColor="red" >
                                 <Typography variant='h6'   >
                                     Appreciation
                                 </Typography>
@@ -198,7 +200,7 @@ function ProfileDialog(props) {
                             </Grid>
 
                         </Grid>
-                        <Grid xl="7" sx={{ padding: "1rem 2rem 1rem 1rem", marginLeft: "5px", }} >
+                        <Grid xl="7" sx={{ padding: "1rem 2rem 1rem 1rem", marginLeft: "5px", }} backgroundColor="red">
 
                             <Grid display="flex" justifyContent="space-between">
 

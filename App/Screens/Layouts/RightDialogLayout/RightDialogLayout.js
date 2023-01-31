@@ -11,6 +11,7 @@ import MuiDialog from '@mui/material/Dialog';
 import Slide from '@mui/material/Slide';
 import cls from 'classnames';
 import { forwardRef } from 'react';
+import backgroundImage from "./../../../../public/Assets/Images/beach.jpg"
 
 const Transition = forwardRef(function Transition(props, ref) {
     return <Slide direction="left" ref={ref} {...props} />;
@@ -92,6 +93,7 @@ function RightDialogLayout(props) {
         closeBtnText,
         title,
         actionButtons,
+
     } = props || {}
 
     const {
@@ -109,6 +111,8 @@ function RightDialogLayout(props) {
             onClose={onClose}
             open={open}
             fullScreen={true}
+
+
         >
             <Title
                 id="customized-dialog-title"
@@ -116,7 +120,13 @@ function RightDialogLayout(props) {
             >
                 {title}
             </Title>
-            <DialogContent>
+            <DialogContent className={cls(
+                'h-full'
+            )}
+
+
+            >
+                {console.log("bg is ", backgroundImage)}
                 {children}
             </DialogContent >
             <DialogActions

@@ -246,11 +246,12 @@ function Documents(props) {
                         borderRadius: "2rem",
                         marginTop: "1rem",
                         color: palette.icon.inactive,
-                        padding: "0 1rem 2px 1rem"
+                        padding: "0 1rem 1px 1rem",
+
                     }}
                 >
 
-                    <Tab label="List"  {...a11yProps(0)} />
+                    <Tab label="List"  {...a11yProps(0)} sx={{ padding: "0px", margin: "0px" }} />
                     <Tab label="Tiles" {...a11yProps(1)} />
 
                 </Tabs>

@@ -10,6 +10,7 @@ import ProfileDialog from '@Screens/Profile/Components/Profile/ProfileDialog';
 import cls from 'classnames';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import Footer from './Components/Footer';
 import Header from './Components/Header/Header';
 import RightBar from './Components/RightBar/RightBar';
 import HoverSidebar from './Components/Sidebar/HoverSidebar';
@@ -78,6 +79,7 @@ function MainLayout(props) {
                 )}
             >
                 {children}
+                <Footer />
             </ContentBox>
             <ProfileDialog />
         </MuiBox>
