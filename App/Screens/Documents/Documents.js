@@ -208,72 +208,72 @@ function Documents(props) {
     return (
         <>
             <TopTabs tabs={tabs} />
-            <ScrollContainer>
-                <TitleHeader
-                    title="Documents"
-                    actionButtons={
-                        <DocumentsActions
-                            selectedDocuments={selectedDocuments}
-                        />
-                    }
-                />
-                <Box sx={{ display: "flex", padding: "1rem" }}>
-                    <UploadedDocuments />
-                    <UploadingDocuments />
-                </Box>
-                <Divider
-                    sx={{
-                        borderWidth: 0.5,
-                        borderColor: 'borders.main',
-                        backgroundColor: 'borders.main',
-                    }} />
 
-                <Tabs
-                    value={value}
-                    //    ref={() => console.log("iammounted ")}
-                    onChange={handleChange}
-                    aria-label="basic tabs example"
-                    textColor='secondary'
-                    indicatorColor='secondary'
-                    variant='srollable'
-
-
-
-                    sx={{
-                        backgroundColor: palette.transWhite.main,
-
-                        width: "15%",
-                        borderRadius: "2rem",
-                        marginTop: "1rem",
-                        color: palette.icon.inactive,
-                        padding: "0 1rem 1px 1rem",
-
-                    }}
-                >
-
-                    <Tab label="List"  {...a11yProps(0)} sx={{ padding: "0px", margin: "0px" }} />
-                    <Tab label="Tiles" {...a11yProps(1)} />
-
-                </Tabs>
-                <TabPanel value={value} index={0}>
-                    <Table
-                        autoHeight={true}
-                        title="Documents"
-                        onSelectionModelChange={(selected) =>
-                            setSelectedDocuments(selected)
-                        }
-                        hasCreditMonitoringInfo={
-                            selectedClientId == 1 ||
-                            selectedClientId == 2
-                        }
-                        columns={columns}
-                        rows={documents}
+            <TitleHeader
+                title="Documents"
+                actionButtons={
+                    <DocumentsActions
+                        selectedDocuments={selectedDocuments}
                     />
-                </TabPanel>
-                <TabPanel value={value} index={1}>
-                    <TilesView />
-                </TabPanel>
-            </ScrollContainer>
+                }
+            />
+            <Box sx={{ display: "flex", padding: "1rem" }}>
+                <UploadedDocuments />
+                <UploadingDocuments />
+            </Box>
+            <Divider
+                sx={{
+                    borderWidth: 0.5,
+                    borderColor: 'borders.main',
+                    backgroundColor: 'borders.main',
+                }} />
+
+            <Tabs
+                value={value}
+                //    ref={() => console.log("iammounted ")}
+                onChange={handleChange}
+                aria-label="basic tabs example"
+                textColor='secondary'
+                indicatorColor='secondary'
+                variant='srollable'
+
+
+
+                sx={{
+                    backgroundColor: palette.transWhite.main,
+
+                    width: "15%",
+                    borderRadius: "2rem",
+                    marginTop: "1rem",
+                    color: palette.icon.inactive,
+                    padding: "0 1rem 1px 1rem",
+
+                }}
+            >
+
+                <Tab label="List"  {...a11yProps(0)} sx={{ padding: "0px", margin: "0px" }} />
+                <Tab label="Tiles" {...a11yProps(1)} />
+
+            </Tabs>
+            <TabPanel value={value} index={0}>
+                <Table
+                    autoHeight={true}
+                    title="Documents"
+                    onSelectionModelChange={(selected) =>
+                        setSelectedDocuments(selected)
+                    }
+                    hasCreditMonitoringInfo={
+                        selectedClientId == 1 ||
+                        selectedClientId == 2
+                    }
+                    columns={columns}
+                    rows={documents}
+                />
+            </TabPanel>
+            <TabPanel value={value} index={1}>
+                <TilesView />
+            </TabPanel>
+
         </>
     )
 }

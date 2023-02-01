@@ -9,6 +9,18 @@ import {
     setFollowUpDialog
 } from '../Store/disputeSlice';
 
+import { Page, Text, View, Document, StyleSheet, PDFDownloadLink } from '@react-pdf/renderer';
+
+const MyDoc = () => {
+
+    <Document>
+        <Page>
+
+            hello
+        </Page>
+    </Document>
+}
+
 function AddDisputeActions(props) {
 
     const {
@@ -166,6 +178,11 @@ function AddDisputeActions(props) {
                     >
                         DOWNLOAD AS PDF
                     </Button>
+                    <PDFDownloadLink document={<MyDoc />} fileName="somename.pdf">
+                        {({ blob, url, loading, error }) =>
+                            loading ? 'Loading document...' : 'Download now!'
+                        }
+                    </PDFDownloadLink>
                 </Box>
             }
         </Box>

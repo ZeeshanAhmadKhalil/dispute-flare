@@ -142,19 +142,19 @@ function InternalNote() {
                     />
                 }
             />
-            <ScrollContainer>
-                <Table
-                    title="Internal Notes"
-                    onSelectionModelChange={(selected) =>
-                        setSelectedNotes(selected)
-                    }
-                    onRowClick={() =>
-                        router.push('report')
-                    }
-                    columns={columns}
-                    rows={clients}
-                />
-            </ScrollContainer>
+
+            <Table
+                title="Internal Notes"
+                onSelectionModelChange={(selected) =>
+                    setSelectedNotes(selected)
+                }
+                onRowClick={() =>
+                    router.push('report')
+                }
+                columns={columns}
+                rows={clients}
+            />
+
             <AddInternalNoteDialog />
         </>
     )

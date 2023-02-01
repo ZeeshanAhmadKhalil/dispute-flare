@@ -21,12 +21,12 @@ function Report(props) {
     return (
         <>
             <TopTabs tabs={tabs} />
-            <ScrollContainer>
-                <TitleHeader
-                    title="REPORT"
-                />
-                <CreditScoreReport />
-            </ScrollContainer>
+
+            <TitleHeader
+                title="REPORT"
+            />
+            <CreditScoreReport />
+
         </>
     )
 }
