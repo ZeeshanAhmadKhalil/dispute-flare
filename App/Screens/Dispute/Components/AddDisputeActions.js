@@ -2,26 +2,40 @@ import Button from '@Components/Button/Button';
 import {
     Box, useTheme
 } from '@mui/material';
+import { useRef } from 'react';
 import cls from 'classnames';
+import jsPDF from 'jspdf';
 import { useDispatch } from 'react-redux';
+import { useReactToPrint } from "react-to-print";
 import {
     setDisputeDialog,
     setFollowUpDialog
 } from '../Store/disputeSlice';
-
-import { Page, Text, View, Document, StyleSheet, PDFDownloadLink } from '@react-pdf/renderer';
-
-const MyDoc = () => {
-
-    <Document>
-        <Page>
-
-            hello
-        </Page>
-    </Document>
-}
+import Overview from './CollapsableForm/Overview';
 
 function AddDisputeActions(props) {
+
+    const componentRef = useRef(null);
+    const OverviewRef = useRef(null);
+    const handleGeneratePdf = async () => {
+        const doc = new jsPDF({
+            format: 'a4',
+            unit: 'px',
+        });
+
+        // Adding the fonts.
+        doc.setFont('Inter-Regular', 'normal');
+
+        await doc.html(OverviewRef.current, {
+            async callback(doc) {
+                await doc.save('document');
+            },
+        });
+    };
+
+    const handlePrint = useReactToPrint({
+        content: () => componentRef.current,
+    });
 
     const {
         onClose,
@@ -29,6 +43,8 @@ function AddDisputeActions(props) {
         currentStep,
         setCurrentStep,
         totalSteps,
+        watchSteps,
+        bureauList
     } = props || {}
 
     const {
@@ -168,7 +184,7 @@ function AddDisputeActions(props) {
                     <Button
                         variant="outlined"
                         color={"outlinedBtn"}
-                        onClick={null}
+                        onClick={() => handlePrint()}
                         disableElevation
                         style={{
                             color: grey,
@@ -178,13 +194,25 @@ function AddDisputeActions(props) {
                     >
                         DOWNLOAD AS PDF
                     </Button>
-                    <PDFDownloadLink document={<MyDoc />} fileName="somename.pdf">
-                        {({ blob, url, loading, error }) =>
-                            loading ? 'Loading document...' : 'Download now!'
-                        }
-                    </PDFDownloadLink>
+
                 </Box>
             }
+
+
+            <div>
+                <button className="button" onClick={handleGeneratePdf}>
+                    Generate PDF
+                </button>
+                <div style={{ display: "none" }}>
+                    <div ref={OverviewRef}>
+                        <Overview
+                            watchSteps={watchSteps}
+                            bureauList={bureauList}
+                        />
+                    </div>
+                </div>
+            </div>
+
         </Box>
     )
 }
