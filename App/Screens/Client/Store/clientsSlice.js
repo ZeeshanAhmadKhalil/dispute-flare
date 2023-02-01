@@ -1,6 +1,7 @@
 import AvatarNameCell from '@Components/Table/Components/AvatarNameCell/AvatarNameCell';
 import BadgeNameCell from '@Components/Table/Components/BadgeNameCell/BadgeNameCell';
 import DropDownCell from '@Components/Table/Components/DropDownCell/DropDownCell';
+import { getId } from '@Config/helper';
 import { createSlice } from '@reduxjs/toolkit';
 import Gear from 'public/Assets/Svgs/gear.svg';
 
@@ -121,7 +122,7 @@ const clientsSlice = createSlice({
                 status: 'Active',
             },
             {
-                id: 3,
+                id: getId(),
                 clientName: 'Ali',
                 email: 'John@gmail.com',
                 mobile: '(000) 000 - 0000',
@@ -132,7 +133,7 @@ const clientsSlice = createSlice({
                 status: 'Inactive',
             },
             {
-                id: 4,
+                id: getId(),
                 clientName: 'Usman',
                 email: 'John@gmail.com',
                 mobile: '(000) 000 - 0000',
@@ -143,7 +144,7 @@ const clientsSlice = createSlice({
                 status: 'Cancelled',
             },
             {
-                id: 5,
+                id: getId(),
                 clientName: 'Mudasir',
                 email: 'John@gmail.com',
                 mobile: '(000) 000 - 0000',
@@ -154,7 +155,7 @@ const clientsSlice = createSlice({
                 status: 'Inactive',
             },
             {
-                id: 6,
+                id: getId(),
                 clientName: 'Qammar Jamshaid',
                 email: 'John@gmail.com',
                 mobile: '(000) 000 - 0000',
@@ -165,7 +166,7 @@ const clientsSlice = createSlice({
                 status: 'Active',
             },
             {
-                id: 7,
+                id: getId(),
                 clientName: 'Usama',
                 email: 'John@gmail.com',
                 mobile: '(000) 000 - 0000',
@@ -176,7 +177,7 @@ const clientsSlice = createSlice({
                 status: 'Active',
             },
             {
-                id: 8,
+                id: getId(),
                 clientName: 'Haris',
                 email: 'John@gmail.com',
                 mobile: '(000) 000 - 0000',
@@ -187,7 +188,7 @@ const clientsSlice = createSlice({
                 status: 'Cancelled',
             },
             {
-                id: 9,
+                id: getId(),
                 clientName: 'Showkat',
                 email: 'John@gmail.com',
                 mobile: '(000) 000 - 0000',
@@ -198,7 +199,7 @@ const clientsSlice = createSlice({
                 status: 'Cancelled',
             },
             {
-                id: 10,
+                id: getId(),
                 clientName: 'Awais',
                 email: 'John@gmail.com',
                 mobile: '(000) 000 - 0000',

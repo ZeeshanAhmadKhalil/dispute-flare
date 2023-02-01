@@ -3,9 +3,12 @@ import SwitchCell from '@Components/Table/Components/SwitchCell/SwitchCell';
 import Table from '@Components/Table/Table';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
 import TopTabs from '@Components/TopTabs/TopTabs';
+import { getId } from '@Config/helper';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import AddInstructionDialog from './Components/AddInstruction/AddInstructionDialog';
 import InstructionActions from './Components/InstructionActions';
+import { setAddInstructionsDialog } from './Store/instructionsSlice';
 
 const tabs = [
     { label: "Letter Flow", value: "letter-library" },
@@ -15,37 +18,73 @@ const tabs = [
 ]
 const instructions = [
     {
-        id: 1,
+        id: getId(),
         instruction: "Collection Validation",
         status: "active",
         addedBy: "James Bond"
     },
     {
-        id: 2,
+        id: getId(),
         instruction: "Collection Validation",
         status: "active",
         addedBy: "James Bond"
     },
     {
-        id: 3,
+        id: getId(),
         instruction: "Collection Validation",
         status: "active",
         addedBy: "James Bond"
     },
     {
-        id: 4,
+        id: getId(),
         instruction: "Collection Validation",
         status: "active",
         addedBy: "James Bond"
     },
     {
-        id: 5,
+        id: getId(),
         instruction: "Collection Validation",
         status: "active",
         addedBy: "James Bond"
     },
     {
-        id: 6,
+        id: getId(),
+        instruction: "Collection Validation",
+        status: "active",
+        addedBy: "James Bond"
+    },
+    {
+        id: getId(),
+        instruction: "Collection Validation",
+        status: "active",
+        addedBy: "James Bond"
+    },
+    {
+        id: getId(),
+        instruction: "Collection Validation",
+        status: "active",
+        addedBy: "James Bond"
+    },
+    {
+        id: getId(),
+        instruction: "Collection Validation",
+        status: "active",
+        addedBy: "James Bond"
+    },
+    {
+        id: getId(),
+        instruction: "Collection Validation",
+        status: "active",
+        addedBy: "James Bond"
+    },
+    {
+        id: getId(),
+        instruction: "Collection Validation",
+        status: "active",
+        addedBy: "James Bond"
+    },
+    {
+        id: getId(),
         instruction: "Collection Validation",
         status: "active",
         addedBy: "James Bond"
@@ -86,11 +125,11 @@ const columns = [
         hide: false,
         renderCell: DefaultCell,
     },
-
-
 ]
 
 function Instructions() {
+
+    const dispatch = useDispatch()
 
     const [selectedInstructions, setSelectedInstructions] = useState([])
 
@@ -109,12 +148,13 @@ function Instructions() {
                 }
             />
             <Table
-                autoHeight={true}
                 title="instructions"
                 onSelectionModelChange={(selected) =>
                     setSelectedInstructions(selected)
                 }
-
+                noRowsAction={() =>
+                    dispatch(setAddInstructionsDialog(true))
+                }
                 columns={columns}
                 rows={instructions}
             />

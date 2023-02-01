@@ -2,7 +2,11 @@ import BaseCheckbox from '@Components/Table/Components/CheckBox/CheckBox';
 import SortIcons from '@Components/Table/Components/SortIcons/SortIcons';
 import { lightTheme } from '@Config/theme';
 import { styled } from '@mui/material/styles';
-import { Box, ThemeProvider, useTheme } from '@mui/system';
+import {
+    Box,
+    ThemeProvider,
+    useTheme
+} from '@mui/system';
 import {
     DataGrid as MuiDataGrid
 } from '@mui/x-data-grid';
@@ -128,6 +132,7 @@ const NoCreditMonitoringInfo = ({
 const NoRows = ({
     title,
     xGrey3,
+    noRowsAction,
 }) => (
     <Box
         className={cls(
@@ -147,21 +152,25 @@ const NoRows = ({
                 fontSize: 40,
                 fontWeight: 'bold',
                 mt: 3,
-                color: xGrey3
+                color: xGrey3,
+                textAlign: 'center'
             }}
         >
             {`You have no ${title}!`}
         </Box>
-        <Box
-            sx={{
-                fontSize: 20,
-                fontWeight: 'bold',
-                mt: 1,
-                color: xGrey3
-            }}
-        >
-            {`Click to create your first ${title}`}
-        </Box>
+        {noRowsAction &&
+            <Box
+                sx={{
+                    fontSize: 20,
+                    fontWeight: 'bold',
+                    mt: 1,
+                    color: xGrey3,
+                    textAlign: 'center'
+                }}
+            >
+                {`Click to create your first ${title}`}
+            </Box>
+        }
     </Box>
 )
 
@@ -197,6 +206,16 @@ function Table(props) {
         rowSeparatorColor = tableSeparator?.main,
     } = props || {}
 
+    let columnsToPass = columns
+    if (!(
+        rows?.length > 0
+        && (title != "Dispute" || hasCreditMonitoringInfo)
+        && columns.some(obj => obj?.field == 'settings')
+    ))
+        columnsToPass = columns.filter(
+            obj => obj?.field != 'settings'
+        )
+
     const dispatch = useDispatch()
 
     const handleClick = () => {
@@ -206,7 +225,7 @@ function Table(props) {
                 setAddCreditMonitoringInfoDialog(true)
             )
         else if (rows?.length == 0)
-            noRowsAction()
+            noRowsAction?.()
     }
 
     return (
@@ -233,7 +252,7 @@ function Table(props) {
                     loading={false}
                     rows={rows}
                     autoHeight={autoHeight}
-                    columns={columns}
+                    columns={columnsToPass}
                     rowsPerPageOptions={[5, 25, 50, 100]}
                     disableSelectionOnClick
                     disableColumnMenu
@@ -250,6 +269,7 @@ function Table(props) {
                         noRowsLabel:
                             hasCreditMonitoringInfo ?
                                 <NoRows
+                                    noRowsAction={noRowsAction}
                                     xGrey3={xGrey3}
                                     title={title}
                                 />
@@ -295,13 +315,19 @@ function Table(props) {
                             <SortIcons />,
                     }}
                 />
-                <Toolbar
-                    title={title}
-                    columns={columns}
-                    setColumnVisibility={setColumnVisibility}
-                    setAllColumnsVisibility={setAllColumnsVisibility}
-                    setDefaultColumnsVisibility={setDefaultColumnsVisibility}
-                />
+                {(
+                    rows?.length > 0
+                    && (title != "Dispute" || hasCreditMonitoringInfo)
+                    && columns.some(obj => obj?.field == 'settings')
+                ) &&
+                    <Toolbar
+                        title={title}
+                        columns={columns}
+                        setColumnVisibility={setColumnVisibility}
+                        setAllColumnsVisibility={setAllColumnsVisibility}
+                        setDefaultColumnsVisibility={setDefaultColumnsVisibility}
+                    />
+                }
             </div >
         </ThemeProvider>
     );

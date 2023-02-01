@@ -3,14 +3,174 @@ import SwitchCell from '@Components/Table/Components/SwitchCell/SwitchCell'
 import Table from '@Components/Table/Table'
 import TitleHeader from '@Components/TitleHeader/TitleHeader'
 import TopTabs from '@Components/TopTabs/TopTabs'
+import { getId } from '@Config/helper'
 import { useState } from 'react'
 import { useRouter } from 'next/router';
-import AddInstructionDialog from './Components/AddAffiliate/AddAffililateDialog'
+import { useDispatch } from 'react-redux'
+import AddAffililateDialog from './Components/AddAffiliate/AddAffililateDialog'
 import AffiliatesActions from './Components/AffiliatesActions'
 import {
-    setAllColumnsVisibility,
-    setColumnVisibility
+    setAddAffiliatesDialog
 } from './Store/affiliatesSlice'
+
+const columns = [
+    {
+        field: 'id',
+        headerName: 'Id',
+        width: 150,
+        hide: true,
+        hidable: true,
+    },
+    {
+        field: 'name',
+        headerName: 'Name',
+        width: 200,
+        headerClassName: 'separator-header',
+        renderCell: SwitchCell,
+        hidable: true,
+        hide: false,
+    },
+    {
+        field: 'company',
+        headerName: 'Company',
+        width: 200,
+        headerClassName: 'separator-header',
+        hidable: true,
+        hide: false,
+        renderCell: ({ value }) => <DefaultCell value={value} />,
+    },
+
+    {
+        field: 'email',
+        headerName: 'Email',
+        width: 200,
+        headerClassName: 'separator-header',
+        hidable: true,
+        hide: false,
+        renderCell: ({ value }) => <DefaultCell value={value} />,
+    },
+    {
+        field: 'totalCommission',
+        headerName: 'Total Commission',
+        width: 200,
+        headerClassName: 'separator-header',
+        hidable: true,
+        hide: false,
+        renderCell: ({ value }) => <DefaultCell value={value} />,
+    },
+    {
+        field: 'clientReferred',
+        headerName: 'Client Referred',
+        width: 200,
+        headerClassName: 'separator-header',
+        hidable: true,
+        hide: false,
+        renderCell: ({ value }) => <DefaultCell value={value} />,
+    },
+    {
+        field: 'status',
+        headerName: 'Status',
+        width: 200,
+        headerClassName: 'separator-header',
+        hidable: true,
+        hide: false,
+        renderCell: SwitchCell,
+    },
+
+
+]
+const affiliates = [
+    {
+        id: getId(),
+        name: "Imran Hashmi",
+        company: "SB-BC",
+        email: "email@gmail.kaam",
+        totalCommission: "$5300",
+        clientReferred: "Gen Bajwa",
+        status: "active"
+    },
+    {
+        id: getId(),
+        name: "Imran Hashmi",
+        company: "SB-BC",
+        email: "email@gmail.kaam",
+        totalCommission: "$5300",
+        clientReferred: "Gen Bajwa",
+        status: "active"
+    },
+    {
+        id: getId(),
+        name: "Imran Hashmi",
+        company: "SB-BC",
+        email: "email@gmail.kaam",
+        totalCommission: "$5300",
+        clientReferred: "Gen Bajwa",
+        status: "active"
+    },
+    {
+        id: getId(),
+        name: "Imran Hashmi",
+        company: "SB-BC",
+        email: "email@gmail.kaam",
+        totalCommission: "$5300",
+        clientReferred: "Gen Bajwa",
+        status: "active"
+    },
+    {
+        id: getId(),
+        name: "Imran Hashmi",
+        company: "SB-BC",
+        email: "email@gmail.kaam",
+        totalCommission: "$5300",
+        clientReferred: "Gen Bajwa",
+        status: "active"
+    },
+    {
+        id: getId(),
+        name: "Imran Hashmi",
+        company: "SB-BC",
+        email: "email@gmail.kaam",
+        totalCommission: "$5300",
+        clientReferred: "Gen Bajwa",
+        status: "active"
+    },
+    {
+        id: getId(),
+        name: "Imran Hashmi",
+        company: "SB-BC",
+        email: "email@gmail.kaam",
+        totalCommission: "$5300",
+        clientReferred: "Gen Bajwa",
+        status: "active"
+    },
+    {
+        id: getId(),
+        name: "Imran Hashmi",
+        company: "SB-BC",
+        email: "email@gmail.kaam",
+        totalCommission: "$5300",
+        clientReferred: "Gen Bajwa",
+        status: "active"
+    },
+    {
+        id: getId(),
+        name: "Imran Hashmi",
+        company: "SB-BC",
+        email: "email@gmail.kaam",
+        totalCommission: "$5300",
+        clientReferred: "Gen Bajwa",
+        status: "active"
+    },
+    {
+        id: getId(),
+        name: "Imran Hashmi",
+        company: "SB-BC",
+        email: "email@gmail.kaam",
+        totalCommission: "$5300",
+        clientReferred: "Gen Bajwa",
+        status: "active"
+    },
+]
 
 function Affiliates() {
 
@@ -19,150 +179,40 @@ function Affiliates() {
         { label: "Affiliates", value: "affiliates" },
         { label: "Commission", value: "commission" },
     ]
-    const columns = [
-        {
-            field: 'id',
-            headerName: 'Id',
-            width: 150,
-            hide: true,
-            hidable: true,
-        },
-        {
-            field: 'name',
-            headerName: 'name',
-            width: 200,
-            headerClassName: 'separator-header',
-            renderCell: SwitchCell,
-            hidable: true,
-            hide: false,
-        },
-        {
-            field: 'company',
-            headerName: 'company',
-            width: 200,
-            headerClassName: 'separator-header',
-            hidable: true,
-            hide: false,
-            renderCell: ({ value }) => <DefaultCell value={value} />,
-        },
 
-        {
-            field: 'email',
-            headerName: 'email',
-            width: 200,
-            headerClassName: 'separator-header',
-            hidable: true,
-            hide: false,
-            renderCell: ({ value }) => <DefaultCell value={value} />,
-        },
-        {
-            field: 'totalCommission',
-            headerName: 'Total Commission',
-            width: 200,
-            headerClassName: 'separator-header',
-            hidable: true,
-            hide: false,
-            renderCell: ({ value }) => <DefaultCell value={value} />,
-        },
-        {
-            field: 'clientReferred',
-            headerName: 'Client Referred',
-            width: 200,
-            headerClassName: 'separator-header',
-            hidable: true,
-            hide: false,
-            renderCell: ({ value }) => <DefaultCell value={value} />,
-        },
+    const dispatch = useDispatch()
 
-        {
-            field: 'status',
-            headerName: 'Status',
-            width: 200,
-            headerClassName: 'separator-header',
-            hidable: true,
-            hide: false,
-            renderCell: SwitchCell,
-        },
-
-
-    ]
-    const affiliates = [
-        {
-            id: 1,
-            name: "Imran Hashmi",
-            company: "SB-BC",
-            email: "email@gmail.kaam",
-            totalCommission: "$5300",
-            clientReferred: "Gen Bajwa",
-            status: "active"
-        },
-        {
-            id: 2,
-            name: "Imran Hashmi",
-            company: "SB-BC",
-            email: "email@gmail.kaam",
-            totalCommission: "$5300",
-            clientReferred: "Gen Bajwa",
-            status: "active"
-        },
-        {
-            id: 3,
-            name: "Imran Hashmi",
-            company: "SB-BC",
-            email: "email@gmail.kaam",
-            totalCommission: "$5300",
-            clientReferred: "Gen Bajwa",
-            status: "active"
-        },
-        {
-            id: 4,
-            name: "Imran Hashmi",
-            company: "SB-BC",
-            email: "email@gmail.kaam",
-            totalCommission: "$5300",
-            clientReferred: "Gen Bajwa",
-            status: "active"
-        },
-        {
-            id: 5,
-            name: "Imran Hashmi",
-            company: "SB-BC",
-            email: "email@gmail.kaam",
-            totalCommission: "$5300",
-            clientReferred: "Gen Bajwa",
-            status: "active"
-        },
-    ]
-
-    const [selectedInstructions, setSelectedInstructions] = useState([])
+    const [selectedAffiliates, setSelectedAffiliates] = useState([])
 
     const router = useRouter()
     return (
         <>
-            <TopTabs tabs={tabs} />
+            <TopTabs
+                tabs={tabs}
+            />
             <TitleHeader
                 title="Affiliates"
                 actionButtons={
                     <AffiliatesActions
-                        selectedInstructions={selectedInstructions}
+                        selectedInstructions={selectedAffiliates}
                     />
                 }
             />
             <Table
-                autoHeight={true}
-                title="instructions"
+                title="Affiliates"
                 onSelectionModelChange={(selected) =>
-                    setSelectedInstructions(selected)
+                    setSelectedAffiliates(selected)
                 }
                 columns={columns}
                 onRowClick={() =>
                     router.push('affiliate-dashboard')
                 }
                 rows={affiliates}
-                setColumnVisibility={setColumnVisibility}
-                setAllColumnsVisibility={setAllColumnsVisibility}
+                noRowsAction={() =>
+                    dispatch(setAddAffiliatesDialog(true))
+                }
             />
-            <AddInstructionDialog />
+            <AddAffililateDialog />
         </>
     )
 }

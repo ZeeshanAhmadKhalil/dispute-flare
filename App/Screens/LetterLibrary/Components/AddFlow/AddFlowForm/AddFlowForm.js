@@ -1,18 +1,19 @@
 
 import CollapsableForm from '@Components/CollapsableForm/CollapsableForm';
 import DropDown from '@Components/DropDown/DropDown';
+import { FormDivider } from '@Components/StyledComponents/StyledComponents';
 import TextInput from '@Components/TextInput/TextInput';
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
-import CloseSharpIcon from '@mui/icons-material/CloseSharp';
 import {
-    Divider,
+    Box,
     Grid,
     styled,
     Typography,
     useTheme
 } from '@mui/material';
 import cls from 'classnames';
-import styles from './AddFlowForm.module.scss';
+import Cross from 'public/Assets/Svgs/cross.svg';
+import { useState } from 'react';
 
 const Label = styled(Typography)(({ theme }) => {
 
@@ -28,53 +29,88 @@ const Label = styled(Typography)(({ theme }) => {
 
 function AddFlowForm(props) {
 
-    let providers = [
-        { label: 'Zeeshan Ahmad', value: 1 },
-        { label: 'Rafay', value: 2 },
-        { label: 'Ali', value: 3 },
-        { label: 'Usman', value: 4 },
-        { label: 'Mudasir', value: 5 },
+    let itemTypeList = [
+        { label: 'Item Type 1', value: 1 },
+        { label: 'Item Type 2', value: 2 },
+        { label: 'Item Type 3', value: 3 },
+        { label: 'Item Type 4', value: 4 },
+        { label: 'Item Type 5', value: 5 },
+    ]
+
+    let reasonList = [
+        { label: 'Reason 1', value: 1 },
+        { label: 'Reason 2', value: 2 },
+        { label: 'Reason 3', value: 3 },
+        { label: 'Reason 4', value: 4 },
+        { label: 'Reason 5', value: 5 },
+    ]
+
+    let flowList = [
+        { label: 'Flow 1', value: 1 },
+        { label: 'Flow 2', value: 2 },
+        { label: 'Flow 3', value: 3 },
+        { label: 'Flow 4', value: 4 },
+        { label: 'Flow 5', value: 5 },
+        { label: 'Flow 6', value: 6 },
     ]
 
     const {
         register,
-        control,
         errors,
         watch,
     } = props || {}
 
     const {
         palette: {
-            tableSeparator,
-            cancelled,
             lead,
         }
     } = useTheme()
 
+    const [bureauFlows, setBureauFlows] = useState(1)
+    const [furnishFlows, setFurnishFlows] = useState(1)
+
+    const renderBureauFlow =
+        [...Array(bureauFlows)].map((item, key) => (
+            <DropDown
+                key={key}
+                watch={watch}
+                register={register(`bureauFlow[${key}]`)}
+                list={flowList}
+                name={`bureauFlow[${key}]`}
+                error={errors.furnishFlow}
+                styles={{
+                    marginBottom: 1,
+                }}
+            />
+
+        ))
+    const renderFurnishFlow =
+        [...Array(furnishFlows)].map((item, key) => (
+            <DropDown
+                key={key}
+                watch={watch}
+                register={register(`furnishFlow[${key}]`)}
+                list={flowList}
+                name={`furnishFlow[${key}]`}
+                error={errors.furnishFlow}
+                styles={{
+                    marginBottom: 1,
+                }}
+            />
+
+        ))
+
+
     return (
         <CollapsableForm
-            title="Add Flow"
+            title="Create your new letter flow"
             defaultOpen={true}
         >
             <Grid
                 container
                 rowSpacing={3}
-                className={cls(
-                    'border-red-700', 'border-0',
-                    'flex',
-                    'items-center',
-                )}
+
             >
-                <Grid item xs="12">
-                    <Typography
-                        variant="subtitle2"
-                        className={cls(
-                            styles.groupTitle
-                        )}
-                    >
-                        Personal Information
-                    </Typography>
-                </Grid>
                 <Grid item xl="2" md="12" xs="12">
                     <Label
                         variant="subtitle1"
@@ -82,29 +118,32 @@ function AddFlowForm(props) {
                         Letter Flow Name
                     </Label>
                 </Grid>
-                <Grid item xl="10" md="12" xs="12">
+                <Grid
+                    item
+                    xl="10"
+                    md="12"
+                    xs="12"
+                    sx={{
+                        border: '0px solid red'
+                    }}
+                >
                     <TextInput
                         register={register("letterFlowName", {
                             required: true,
                         })}
-                        name="Flow Name"
+                        name="letterFlowName"
                         error={errors.letterFlowName}
-                        width="85%"
-                        fullWidth
+                        containerStyle={{
+                            width: '100%'
+                        }}
+                        width='85%'
                     />
                 </Grid>
-                <Divider
-                    sx={{
-                        backgroundColor: tableSeparator.dark
-                    }}
-                />
+                <FormDivider />
                 <Grid item xl="12" md="12" xs="12">
                     <Typography
                         color="text.xxGrey"
                         variant='subtitle2'
-                        className={cls(
-                            styles.formDesc
-                        )}
                     >
                         When a new dispute is created, if the following match:
                     </Typography>
@@ -120,8 +159,8 @@ function AddFlowForm(props) {
                     <DropDown
                         watch={watch}
                         register={register("itemType")}
-                        list={providers}
-                        name="Item Type"
+                        list={itemTypeList}
+                        name="itemType"
                         error={errors.itemType}
                     />
                 </Grid>
@@ -136,112 +175,206 @@ function AddFlowForm(props) {
                     <DropDown
                         watch={watch}
                         register={register("reason")}
-                        list={providers}
+                        list={reasonList}
                         name="reason"
                         error={errors.reason}
                     />
                 </Grid>
+                <FormDivider />
                 <Grid item xl="12" md="12" xs="12">
                     <Typography
                         color="text.xxGrey"
                         variant='subtitle2'
-                        className={cls(
-                            styles.formDesc
-                        )}
                     >
                         Then the following sequences if letter will begin:
                     </Typography>
                 </Grid>
-                <Grid item xl="2" md="6" xs="12" padding="0px" >
-                    <Label sx={{ margin: "0px", padding: "0px" }}
+                <Grid
+                    item
+                    xl="2"
+                    md="6"
+                    xs="12"
+                    sx={{
+                        border: '0px solid red'
+                    }}
+                >
+                    <Label
                         variant="subtitle1"
-                    >Bureau Flow
+                    >
+                        Bureau Flow
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12" alignItems="center"
-                    justifyContent="center" >
-                    <Grid item xl="12" md="12" xs="12" alignItems="center">
-                        <DropDown
-                            watch={watch}
-                            register={register("furnishFlow")}
-                            list={providers}
-                            name="Furnish Flow"
-                            error={errors.furnishFlow}
-                        />
-                        <CloseSharpIcon sx={{ color: cancelled.main }} />
-                    </Grid>
-                    <Grid
+                <Grid
+                    item
+                    xl="4"
+                    md="6"
+                    xs="12"
+                    sx={{
+                        border: '0px solid red',
+                    }}
+                >
+                    {bureauFlows > 0 &&
+                        <Box
+                            display="flex"
+                            justifyContent="start"
+                            sx={{
+                                border: '0px solid red'
+                            }}
+                        >
+                            <Box
+                                sx={{
+                                    border: '0px solid red',
+                                    display: 'flex',
+                                    flexDirection: 'column'
+                                }}
+                            >
+                                {renderBureauFlow}
+                            </Box>
+                            <Box
+                                onClick={() => setBureauFlows(
+                                    prev => prev - 1
+                                )}
+                                className={cls(
+                                    'cursor-pointer'
+                                )}
+                                sx={{
+                                    ml: 1,
+                                    mt: 1.5,
+                                }}
+                            >
+                                <Cross
+                                    height={10}
+                                    width={10}
+                                />
+                            </Box>
+                        </Box>
+                    }
+                    <Box
+                        onClick={() => setBureauFlows(
+                            prev => prev + 1
+                        )}
+                        className={cls(
+                            'cursor-pointer'
+                        )}
                         display="flex"
+                        alignItems="center"
                         justifyContent="end"
-                        xl="9"
-                        md="12"
-                        xs="12"
-                        paddingRight="1rem"
+                        sx={{
+                            border: '0px solid red',
+                            width: 275,
+                        }}
                     >
-
                         <AddCircleOutlineOutlinedIcon
                             sx={{
-                                color: lead.main
+                                color: lead.main,
+                                fontSize: 20,
                             }}
                         />
                         <Typography
                             color={lead.main}
                             sx={{
-                                textDecoration: "underline"
+                                textDecoration: "underline",
+                                marginLeft: "2px",
                             }}
                         >
                             Add Letter
                         </Typography>
-                    </Grid>
+                    </Box>
                 </Grid>
-                <Grid item xl="2" md="6" xs="12">
+                <Grid
+                    item
+                    xl="2"
+                    md="6"
+                    xs="12"
+                    sx={{
+                        border: '0px solid red'
+                    }}
+                >
                     <Label
                         variant="subtitle1"
                     >
-                        Furnisher Flow
+                        Furnish Flow
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
-                    <Grid item xl="12" md="12" xs="12">
-                        <DropDown
-                            watch={watch}
-                            register={register("furnishFlow")}
-                            list={providers}
-                            name="Furnish Flow"
-                            error={errors.furnishFlow}
-                        />
-                        <CloseSharpIcon
+                <Grid
+                    item
+                    xl="4"
+                    md="6"
+                    xs="12"
+                    sx={{
+                        border: '0px solid red',
+                    }}
+                >
+                    {furnishFlows > 0 &&
+                        <Box
+                            display="flex"
+                            justifyContent="start"
                             sx={{
-                                color: cancelled.main
+                                border: '0px solid red'
                             }}
-                        />
-                    </Grid>
-                    <Grid
+                        >
+                            <Box
+                                sx={{
+                                    border: '0px solid red',
+                                    display: 'flex',
+                                    flexDirection: 'column'
+                                }}
+                            >
+                                {renderFurnishFlow}
+                            </Box>
+                            <Box
+                                onClick={() => setFurnishFlows(
+                                    prev => prev - 1
+                                )}
+                                className={cls(
+                                    'cursor-pointer'
+                                )}
+                                sx={{
+                                    ml: 1,
+                                    mt: 1.5,
+                                }}
+                            >
+                                <Cross
+                                    height={10}
+                                    width={10}
+                                />
+                            </Box>
+                        </Box>
+                    }
+                    <Box
+                        onClick={() => setFurnishFlows(
+                            prev => prev + 1
+                        )}
+                        className={cls(
+                            'cursor-pointer'
+                        )}
                         display="flex"
+                        alignItems="center"
                         justifyContent="end"
-                        xl="9"
-                        md="12"
-                        xs="12"
-                        paddingRight="1rem"
+                        sx={{
+                            border: '0px solid red',
+                            width: 275,
+                        }}
                     >
                         <AddCircleOutlineOutlinedIcon
                             sx={{
-                                color: lead.main
+                                color: lead.main,
+                                fontSize: 20,
                             }}
                         />
                         <Typography
                             color={lead.main}
                             sx={{
-                                textDecoration: "underline"
+                                textDecoration: "underline",
+                                marginLeft: "2px",
                             }}
                         >
-                            AddLetter
+                            Add Letter
                         </Typography>
-                    </Grid>
-
+                    </Box>
                 </Grid>
             </Grid>
-        </CollapsableForm>
+        </CollapsableForm >
     )
 }
 

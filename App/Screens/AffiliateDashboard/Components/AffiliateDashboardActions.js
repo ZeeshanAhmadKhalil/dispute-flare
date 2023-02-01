@@ -2,7 +2,7 @@ import Button from '@Components/Button/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import FileUploadIcon from '@mui/icons-material/FileUpload';
 import { useDispatch } from 'react-redux';
-import { setrecordPaymentDialogDialog } from '../Store/affiliateDashboardSlice';
+import { setRecordPaymentDialog } from '../Store/affiliateDashboardSlice';
 function AffiliateDashboardActions(props) {
 
     const dispatch = useDispatch()
@@ -27,7 +27,7 @@ function AffiliateDashboardActions(props) {
                 UPDATE COMMISSION RATE
             </Button>
             <Button
-                onClick={() => dispatch(setrecordPaymentDialogDialog(true))}
+                onClick={() => dispatch(setRecordPaymentDialog(true))}
                 iconOnSmall={<FileUploadIcon />}
                 color={"warning"}
                 startIcon={null}
