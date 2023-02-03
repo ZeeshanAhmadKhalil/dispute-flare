@@ -108,6 +108,11 @@ const themeObj = {
             unchecked: "#A4A7AB",
             checkBg: "#d2edf7",
         },
+        white: {
+            main: '#fff',
+            contrastText: "#fff",
+            hovered: "#fff0"
+        },
         primary: {
             main: '#B2E323',
             contrastText: "#fff",

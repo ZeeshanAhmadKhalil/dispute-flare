@@ -7,7 +7,6 @@ import {
     alpha,
     Box,
     InputBase,
-    InputLabel,
     styled,
     ThemeProvider,
     Typography
@@ -15,7 +14,7 @@ import {
 import FormControl from '@mui/material/FormControl';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const TextField = styled(InputBase)(({ theme }) => ({
     'label + &': {

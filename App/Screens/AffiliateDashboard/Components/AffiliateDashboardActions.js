@@ -15,7 +15,6 @@ function AffiliateDashboardActions(props) {
     return (
         <>
             <Button
-                //          onClick={() => dispatch(recordPaymentDialog(true))}
                 iconOnSmall={<FileUploadIcon />}
                 color={"primary"}
                 startIcon={null}
