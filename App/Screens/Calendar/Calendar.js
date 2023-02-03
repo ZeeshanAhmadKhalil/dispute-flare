@@ -51,17 +51,17 @@ function Calendar() {
             <TopTabs
                 tabs={tabs}
             />
-            <ScrollContainer>
-                <TitleHeader
-                    title="Calendar"
-                    actionButtons={
-                        <CalendarActions />
-                    }
-                />
-                <BigCalendar
-                    events={events}
-                />
-            </ScrollContainer>
+
+            <TitleHeader
+                title="Calendar"
+                actionButtons={
+                    <CalendarActions />
+                }
+            />
+            <BigCalendar
+                events={events}
+            />
+
             <AddTaskDialog />
         </>
     )

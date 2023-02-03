@@ -275,6 +275,7 @@ function AddDisputeDialog(props) {
                         />
                     </>
                 }
+
             </Container>
         </RightDialogLayout >
     );

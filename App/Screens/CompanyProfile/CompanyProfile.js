@@ -48,7 +48,7 @@ function CompanyProfile() {
         control,
         handleSubmit,
         reset,
-        watch, 
+        watch,
         formState: { errors },
     } = useForm({
         mode: 'onChange',
@@ -58,19 +58,19 @@ function CompanyProfile() {
     return (
         <>
             <TopTabs tabs={tabs} />
-            <ScrollContainer>
-                <TitleHeader
-                    title="Company Profile"
-                    actionButtons={
-                        null
-                    }
-                />
-                <CompanyProfileForm watch={watch}
-                    register={register}
-                    control={control}
-                    errors={errors}
-                />
-            </ScrollContainer>
+
+            <TitleHeader
+                title="Company Profile"
+                actionButtons={
+                    null
+                }
+            />
+            <CompanyProfileForm watch={watch}
+                register={register}
+                control={control}
+                errors={errors}
+            />
+
         </>
     )
 }
