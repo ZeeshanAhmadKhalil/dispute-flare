@@ -1,5 +1,5 @@
 
-import { appBarHeight, drawerClosedWidth, drawerWidth, rightBarWidth, topTabsHeight } from "@Config/constants";
+import { appBarHeight, drawerClosedWidth, drawerWidth, rightBarWidth, topTabsHeight, footerHeight } from "@Config/constants";
 import useWindowDimensions from "@Hooks/useWindowDimensions";
 import { useSelector } from "react-redux";
 import SimpleBarReact from "simplebar-react";
@@ -19,11 +19,14 @@ function ScrollContainer({
 
     return (
         <SimpleBarReact
+            color="green"
             style={{
+                //   color: "red",
                 maxHeight: height
-                    - topTabsHeight
-                    - appBarHeight,
+                    - appBarHeight
+                ,
                 border: '0px solid red',
+                // backgroundColor: "red",
                 width: width
                     - (
                         sidebar ?

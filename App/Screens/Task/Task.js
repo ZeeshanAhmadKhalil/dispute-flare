@@ -247,26 +247,26 @@ function Task() {
             <TopTabs
                 tabs={tabs}
             />
-            <ScrollContainer>
-                <TitleHeader
-                    title="Task"
-                    actionButtons={
-                        <TaskActions
-                            priority={priority}
-                            setPriority={setPriority}
-                            priorityList={priorityList}
-                        />
-                    }
-                />
-                <Table
-                    title="Task"
-                    noRowsAction={() => {
-                        dispatch(setAddTaskDialog(true))
-                    }}
-                    columns={columns}
-                    rows={tasks}
-                />
-            </ScrollContainer>
+
+            <TitleHeader
+                title="Task"
+                actionButtons={
+                    <TaskActions
+                        priority={priority}
+                        setPriority={setPriority}
+                        priorityList={priorityList}
+                    />
+                }
+            />
+            <Table
+                title="Task"
+                noRowsAction={() => {
+                    dispatch(setAddTaskDialog(true))
+                }}
+                columns={columns}
+                rows={tasks}
+            />
+
             <AddTaskDialog />
         </>
     )

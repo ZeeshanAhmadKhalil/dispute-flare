@@ -82,20 +82,23 @@ function AddReasonForm(props) {
                 </Grid>
                 <Grid item xl="10" md="12" xs="12">
                     <TextInput
-                        register={register("Title", {
+                        register={register("title", {
                             required: true,
                         })}
-                        name="Title"
-                        error={errors.title}
-                        width="85%"
-                        fullWidth
+                        name="title"
+                        error={errors.letterFlowName}
+                        containerStyle={{
+                            width: '100%'
+                        }}
+                        width='85%'
                     />
                 </Grid>
                 <Divider
                     sx={{
-                        backgroundColor: palette.tableSeparator.dark
+                        backgroundColor: "red",
+                        color: "red"
                     }}
-                    color="pink"
+
                 />
                 <Grid item xl="2" md="6" xs="12" padding="0px" >
                     <Label

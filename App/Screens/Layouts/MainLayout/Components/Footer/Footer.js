@@ -21,7 +21,7 @@ function Footer() {
         setAge(event.target.value);
     };
     return (
-        <Grid sx={{ position: "absolute", bottom: "10px", marginBottom: "10px" }} display="flex" flexDirection="row" alignItems="center">
+        <Grid sx={{ marginBottom: "10px", marginTop: "10px" }} display="flex" flexDirection="row" alignItems="center">
 
             <Button
                 //    onClick={handleFlowClient}
