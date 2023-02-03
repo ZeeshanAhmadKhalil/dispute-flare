@@ -224,7 +224,8 @@ function Documents() {
                         borderWidth: 0.5,
                         borderColor: 'borders.main',
                         backgroundColor: 'borders.main',
-                    }} />
+                    }}
+                />
 
                 <Tabs
                     value={value}
