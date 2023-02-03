@@ -10,7 +10,7 @@ import layout from '@Screens/Layouts/Store/layoutSlice'
 import theme from '@Screens/Layouts/Store/themeSlice'
 import dispute from '@Screens/Dispute/Store/disputeSlice'
 import documents from '@Screens/Documents/Store/documentsSlice'
-import letterlibrary from '@Screens/LetterLibrary/Store/letterlibrarySlice'
+import letterLibrary from '@Screens/LetterLibrary/Store/letterlibrarySlice'
 import internalNote from '@Screens/InternalNote/Store/internalNoteSlice'
 import templates from '@Screens/Templates/Store/templatesSlice'
 import reasons from '@Screens/Reasons/Store/reasonsSlice'
@@ -36,7 +36,7 @@ const reducers = combineReducers({
     instructions,
     internalNote,
     layout,
-    letterlibrary,
+    letterLibrary,
     profile,
     reasons,
     shared,

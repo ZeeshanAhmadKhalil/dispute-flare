@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 
 const letterlibrarySlice = createSlice({
-    name: 'letterlibrary',
+    name: 'letter-library',
     initialState: {
         addFlowDialog: false,
     },

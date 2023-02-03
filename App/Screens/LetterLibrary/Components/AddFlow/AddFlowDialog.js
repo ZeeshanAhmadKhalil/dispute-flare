@@ -49,7 +49,7 @@ function AddFlowDialog() {
     } = useSelector(state => state.shared)
     const {
         addFlowDialog
-    } = useSelector(state => state.letterlibrary)
+    } = useSelector(state => state.letterLibrary)
 
     const {
         register,
