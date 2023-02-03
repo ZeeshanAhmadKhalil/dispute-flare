@@ -120,13 +120,11 @@ function RightDialogLayout(props) {
             >
                 {title}
             </Title>
-            <DialogContent className={cls(
-                'h-full'
-            )}
-
-
+            <DialogContent
+                className={cls(
+                    'h-full'
+                )}
             >
-                {console.log("bg is ", backgroundImage)}
                 {children}
             </DialogContent >
             <DialogActions

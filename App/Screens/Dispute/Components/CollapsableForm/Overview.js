@@ -1,7 +1,9 @@
 import CollapsableForm from '@Components/CollapsableForm/CollapsableForm';
+import DefaultCell from '@Components/DefaultCell/DefaultCell';
 import SecretCell from '@Components/Table/Components/SecretCell/SecretCell';
 import Table from '@Components/Table/Table';
 import {
+    Box,
     useTheme
 } from '@mui/material';
 import _ from 'lodash'
@@ -26,6 +28,7 @@ function Overview(props) {
             headerName: 'Creditor',
             width: 210,
             headerClassName: 'separator-header',
+            renderCell: DefaultCell,
             hidable: true,
         },
         {
@@ -41,6 +44,7 @@ function Overview(props) {
             headerName: 'Type',
             width: 120,
             headerClassName: 'separator-header',
+            renderCell: DefaultCell,
             hidable: true,
         },
         {
@@ -48,6 +52,7 @@ function Overview(props) {
             headerName: 'Dispute',
             width: 180,
             headerClassName: 'separator-header',
+            renderCell: DefaultCell,
             hidable: true,
         },
         {
@@ -55,6 +60,7 @@ function Overview(props) {
             headerName: 'Reason',
             width: 180,
             headerClassName: 'separator-header',
+            renderCell: DefaultCell,
             hidable: true,
         },
         {
@@ -62,6 +68,7 @@ function Overview(props) {
             headerName: 'Instruction',
             width: 200,
             headerClassName: 'separator-header',
+            renderCell: DefaultCell,
             hidable: true,
         },
         {
@@ -69,6 +76,7 @@ function Overview(props) {
             headerName: 'Bureaus',
             width: 180,
             headerClassName: 'separator-header',
+            renderCell: DefaultCell,
             hidable: true,
         },
     ]
@@ -176,9 +184,11 @@ function Overview(props) {
 
 
     return (
-        <>
+        <Box
+            id="overview-wrapper"
+        >
             {renderCollapses}
-        </>
+        </Box>
     )
 }
 
