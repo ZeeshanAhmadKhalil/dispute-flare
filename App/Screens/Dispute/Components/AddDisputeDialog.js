@@ -219,7 +219,10 @@ function AddDisputeDialog(props) {
                     }
                     currentStep={currentStep}
                     setCurrentStep={setCurrentStep}
+
                     totalSteps={steps.length}
+                    watchSteps={watchSteps}
+                    bureauList={bureauList}
                 />
             }
             open={addDisputeDialog}
@@ -275,7 +278,6 @@ function AddDisputeDialog(props) {
                         />
                     </>
                 }
-
             </Container>
         </RightDialogLayout >
     );
