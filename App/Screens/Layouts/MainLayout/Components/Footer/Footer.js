@@ -28,10 +28,11 @@ function Footer() {
     const [language, setLanguage] = useState(1)
 
     return (
-        <Grid
+
+        <Box
             sx={{
-                marginBottom: "10px",
-                marginTop: "10px"
+                border: '0px solid red',
+                marginTop: 1,
             }}
             display="flex"
             flexDirection="row"
@@ -81,7 +82,7 @@ function Footer() {
             >
                 Themes
             </Box>
-        </Grid>
+        </Box>
     )
 }
 

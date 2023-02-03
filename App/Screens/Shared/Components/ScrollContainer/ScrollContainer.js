@@ -21,12 +21,8 @@ function ScrollContainer({
         <SimpleBarReact
             color="green"
             style={{
-                //   color: "red",
-                maxHeight: height
-                    - appBarHeight
-                ,
-                border: '0px solid red',
-                // backgroundColor: "red",
+                height: height
+                    - appBarHeight,
                 width: width
                     - (
                         sidebar ?
@@ -37,6 +33,7 @@ function ScrollContainer({
                     - rightBarWidth
                     - 16 * 2,
                 paddingRight: 15,
+                border: '0px solid red',
             }}
         >
             {children}
