@@ -1,12 +1,16 @@
 import ScrollContainer from '@Components/ScrollContainer/ScrollContainer';
 import {
+    appBarHeight,
     drawerClosedWidth,
     drawerWidth,
+    footerHeight,
     headerHeight
 } from '@Config/constants';
 import styled from '@emotion/styled';
+import useWindowDimensions from '@Hooks/useWindowDimensions';
 import { CssBaseline } from '@mui/material';
 import MuiBox from '@mui/material/Box';
+import { Box } from '@mui/system';
 import ProfileDialog from '@Screens/Profile/Components/Profile/ProfileDialog';
 import cls from 'classnames';
 import { useEffect } from 'react';
@@ -31,6 +35,11 @@ let ContentBox = styled(MuiBox, {
 }))
 
 function MainLayout(props) {
+
+    const {
+        height,
+        width,
+    } = useWindowDimensions()
 
     const {
         children
@@ -80,12 +89,19 @@ function MainLayout(props) {
                 )}
             >
                 <ScrollContainer>
-                    {children}
+                    <Box
+                        sx={{
+                            border: '0px solid red',
+                            minHeight: height
+                                - appBarHeight
+                                - footerHeight
+                        }}
+                    >
+                        {children}
+                    </Box>
                     <Footer />
                 </ScrollContainer>
-
             </ContentBox>
-
             <ProfileDialog />
         </MuiBox>
     )

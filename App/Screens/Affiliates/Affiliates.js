@@ -12,7 +12,7 @@ import AffiliatesActions from './Components/AffiliatesActions'
 import {
     setAddAffiliatesDialog
 } from './Store/affiliatesSlice'
-
+ 
 const columns = [
     {
         field: 'id',

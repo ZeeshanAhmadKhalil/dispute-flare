@@ -2,40 +2,16 @@ import Button from '@Components/Button/Button';
 import {
     Box, useTheme
 } from '@mui/material';
-import { useRef } from 'react';
 import cls from 'classnames';
+import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import { useDispatch } from 'react-redux';
-import { useReactToPrint } from "react-to-print";
 import {
     setDisputeDialog,
     setFollowUpDialog
 } from '../Store/disputeSlice';
-import Overview from './CollapsableForm/Overview';
 
 function AddDisputeActions(props) {
-
-    const componentRef = useRef(null);
-    const OverviewRef = useRef(null);
-    const handleGeneratePdf = async () => {
-        const doc = new jsPDF({
-            format: 'a4',
-            unit: 'px',
-        });
-
-        // Adding the fonts.
-        doc.setFont('Inter-Regular', 'normal');
-
-        await doc.html(OverviewRef.current, {
-            async callback(doc) {
-                await doc.save('document');
-            },
-        });
-    };
-
-    const handlePrint = useReactToPrint({
-        content: () => componentRef.current,
-    });
 
     const {
         onClose,
@@ -78,6 +54,30 @@ function AddDisputeActions(props) {
             if (prev == 0)
                 return prev
             return prev - 1
+        })
+    }
+    const handlePrint = () => {
+
+        let overviewWrapper = document.querySelector("#overview-wrapper")
+
+        console.log("overviewWrapper===>", overviewWrapper)
+        console.log("overviewWrapper.scrollWidth===>", overviewWrapper.scrollWidth)
+        console.log("overviewWrapper.scrollHeight===>", overviewWrapper.scrollHeight)
+
+        html2canvas(overviewWrapper, {
+            windowWidth: overviewWrapper.scrollWidth + 550,
+            windowHeight: overviewWrapper.scrollHeight
+        }).then(canvas => {
+
+            console.log("canvas===>", canvas)
+
+            const imgData = canvas.toDataURL('image/png');
+
+            console.log("imgData===>", imgData)
+
+            const pdf = new jsPDF();
+            pdf.addImage(imgData, 'JPEG', 0, 0);
+            pdf.save("download.pdf");
         })
     }
 
@@ -194,25 +194,8 @@ function AddDisputeActions(props) {
                     >
                         DOWNLOAD AS PDF
                     </Button>
-
                 </Box>
             }
-
-
-            <div>
-                <button className="button" onClick={handleGeneratePdf}>
-                    Generate PDF
-                </button>
-                <div style={{ display: "none" }}>
-                    <div ref={OverviewRef}>
-                        <Overview
-                            watchSteps={watchSteps}
-                            bureauList={bureauList}
-                        />
-                    </div>
-                </div>
-            </div>
-
         </Box>
     )
 }
