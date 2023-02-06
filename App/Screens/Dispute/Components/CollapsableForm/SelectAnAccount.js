@@ -7,6 +7,49 @@ import {
 } from '@mui/material';
 import { Box } from '@mui/system';
 
+let rows = [
+    {
+        id: 1,
+        creditor: "HDEKE (Original Creditor: 09)",
+        accountNumber: "743462***",
+        type: "Collection",
+        dispute: "Lorem ipsum",
+        reason: "Unverified account",
+        instruction: "Lorem ipsum is a",
+        bureaus: "bureaus",
+    },
+    {
+        id: 2,
+        creditor: "EISD (Original Creditor: 10A)",
+        accountNumber: "743462***",
+        type: "Collection",
+        dispute: "Lorem ipsum",
+        reason: "Unverified account",
+        instruction: "Lorem ipsum is a",
+        bureaus: "bureaus",
+    },
+    {
+        id: 3,
+        creditor: "EWISD (Original Creditor: 11)",
+        accountNumber: "743462***",
+        type: "Collection",
+        dispute: "Lorem ipsum",
+        reason: "Unverified account",
+        instruction: "Lorem ipsum is a",
+        bureaus: "bureaus",
+    },
+    {
+        id: 4,
+        creditor: "JEW (Original Creditor: 12 AT T)",
+        accountNumber: "743462***",
+        type: "Collection",
+        dispute: "Lorem ipsum",
+        reason: "Unverified account",
+        instruction: "Lorem ipsum is a",
+        bureaus: "bureaus",
+    },
+]
+
 function SelectAnAccount(props) {
 
     const {
@@ -15,7 +58,9 @@ function SelectAnAccount(props) {
         errors,
         control,
         register,
+        setValue,
         bureauList,
+        watchSteps,
         currentStep,
     } = props || {}
 
@@ -63,7 +108,16 @@ function SelectAnAccount(props) {
             editable: true,
             type: 'singleSelect',
             valueOptions: ['Unverified account', 'Verified account'],
-            renderCell: ({ value }) => <DropDownCell value={value} />,
+            renderCell: DropDownCell,
+            valueGetter: ({
+                row: { id },
+                api: { getRowIndex },
+            }) => {
+                let index
+                    = getRowIndex(id)
+
+                return watchSteps[currentStep].creditors[index].reason
+            }
         },
         {
             field: 'instruction',
@@ -83,56 +137,16 @@ function SelectAnAccount(props) {
                 let index
                     = props.api.getRowIndex(props.row.id)
 
-                return <CheckBoxesCell
-                    name={`steps[${currentStep}].creditors[${index}].bureaus`}
-                    errors={errors}
-                    control={control}
-                    watch={watch}
-                    list={bureauList}
-                />
+                return (
+                    <CheckBoxesCell
+                        name={`steps[${currentStep}].creditors[${index}].bureaus`}
+                        errors={errors}
+                        control={control}
+                        watch={watch}
+                        list={bureauList}
+                    />
+                )
             }
-        },
-    ]
-    let rows = [
-        {
-            id: 1,
-            creditor: "HDEKE (Original Creditor: 09)",
-            accountNumber: "743462***",
-            type: "Collection",
-            dispute: "Lorem ipsum",
-            reason: "Unverified account",
-            instruction: "Lorem ipsum is a",
-            bureaus: "bureaus",
-        },
-        {
-            id: 2,
-            creditor: "EISD (Original Creditor: 10A)",
-            accountNumber: "743462***",
-            type: "Collection",
-            dispute: "Lorem ipsum",
-            reason: "Unverified account",
-            instruction: "Lorem ipsum is a",
-            bureaus: "bureaus",
-        },
-        {
-            id: 3,
-            creditor: "EWISD (Original Creditor: 11)",
-            accountNumber: "743462***",
-            type: "Collection",
-            dispute: "Lorem ipsum",
-            reason: "Unverified account",
-            instruction: "Lorem ipsum is a",
-            bureaus: "bureaus",
-        },
-        {
-            id: 4,
-            creditor: "JEW (Original Creditor: 12 AT T)",
-            accountNumber: "743462***",
-            type: "Collection",
-            dispute: "Lorem ipsum",
-            reason: "Unverified account",
-            instruction: "Lorem ipsum is a",
-            bureaus: "bureaus",
         },
     ]
 
@@ -141,6 +155,22 @@ function SelectAnAccount(props) {
             borders,
         }
     } = useTheme()
+
+    const handleProcessRowUpdate = (newRow) => {
+
+        const {
+            id,
+            reason,
+        } = newRow
+
+        let index = rows.findIndex(obj => obj.id == id)
+
+        setValue(
+            `steps[${currentStep}].creditors[${index}].reason`,
+            reason,
+        )
+        return newRow
+    }
 
     return (
 
@@ -154,6 +184,7 @@ function SelectAnAccount(props) {
                 steps={steps}
             />
             <Table
+                processRowUpdate={handleProcessRowUpdate}
                 title="Creditors"
                 checkboxSelection={false}
                 columns={columns}

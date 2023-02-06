@@ -1,5 +1,5 @@
 
-import DefaultCell from '@Components/DefaultCell/DefaultCell';
+import DefaultCell from '@Components/Table/Components/DefaultCell/DefaultCell';
 import ScrollContainer from '@Components/ScrollContainer/ScrollContainer';
 import StatsTile from '@Components/StatsTile/StatsTile';
 import Table from '@Components/Table/Table';
@@ -33,7 +33,7 @@ const columns = [
         headerName: 'Date Reffered',
         width: 200,
         headerClassName: 'separator-header',
-        renderCell: ({ value }) => <DefaultCell value={value} />,
+        renderCell: DefaultCell,
         hidable: true,
         hide: false,
     },
@@ -44,7 +44,7 @@ const columns = [
         headerClassName: 'separator-header',
         hidable: true,
         hide: false,
-        renderCell: ({ value }) => <DefaultCell value={value} />,
+        renderCell: DefaultCell,
     },
 
     {
@@ -54,7 +54,7 @@ const columns = [
         headerClassName: 'separator-header',
         hidable: true,
         hide: false,
-        renderCell: ({ value }) => <DefaultCell value={value} />,
+        renderCell: DefaultCell,
     },
     {
         field: 'status',
@@ -63,7 +63,7 @@ const columns = [
         headerClassName: 'separator-header',
         hidable: true,
         hide: false,
-        renderCell: ({ value }) => <DefaultCell value={value} />,
+        renderCell: DefaultCell,
     },
 
 ]

@@ -2,9 +2,8 @@ import Button from '@Components/Button/Button';
 import {
     Box, useTheme
 } from '@mui/material';
+import { setPrintDialog } from '@Screens/Shared/Store/sharedSlice';
 import cls from 'classnames';
-import html2canvas from 'html2canvas';
-import jsPDF from 'jspdf';
 import { useDispatch } from 'react-redux';
 import {
     setDisputeDialog,
@@ -54,30 +53,6 @@ function AddDisputeActions(props) {
             if (prev == 0)
                 return prev
             return prev - 1
-        })
-    }
-    const handlePrint = () => {
-
-        let overviewWrapper = document.querySelector("#overview-wrapper")
-
-        console.log("overviewWrapper===>", overviewWrapper)
-        console.log("overviewWrapper.scrollWidth===>", overviewWrapper.scrollWidth)
-        console.log("overviewWrapper.scrollHeight===>", overviewWrapper.scrollHeight)
-
-        html2canvas(overviewWrapper, {
-            windowWidth: overviewWrapper.scrollWidth + 550,
-            windowHeight: overviewWrapper.scrollHeight
-        }).then(canvas => {
-
-            console.log("canvas===>", canvas)
-
-            const imgData = canvas.toDataURL('image/png');
-
-            console.log("imgData===>", imgData)
-
-            const pdf = new jsPDF();
-            pdf.addImage(imgData, 'JPEG', 0, 0);
-            pdf.save("download.pdf");
         })
     }
 
@@ -184,7 +159,7 @@ function AddDisputeActions(props) {
                     <Button
                         variant="outlined"
                         color={"outlinedBtn"}
-                        onClick={() => handlePrint()}
+                        onClick={() => dispatch(setPrintDialog(true))}
                         disableElevation
                         style={{
                             color: grey,

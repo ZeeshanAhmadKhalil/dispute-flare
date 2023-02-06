@@ -1,4 +1,4 @@
-import DefaultCell from '@Components/DefaultCell/DefaultCell'
+import DefaultCell from '@Components/Table/Components/DefaultCell/DefaultCell'
 import SwitchCell from '@Components/Table/Components/SwitchCell/SwitchCell'
 import Table from '@Components/Table/Table'
 import TitleHeader from '@Components/TitleHeader/TitleHeader'
@@ -12,7 +12,7 @@ import AffiliatesActions from './Components/AffiliatesActions'
 import {
     setAddAffiliatesDialog
 } from './Store/affiliatesSlice'
- 
+
 const columns = [
     {
         field: 'id',
@@ -37,7 +37,7 @@ const columns = [
         headerClassName: 'separator-header',
         hidable: true,
         hide: false,
-        renderCell: ({ value }) => <DefaultCell value={value} />,
+        renderCell: DefaultCell,
     },
 
     {
@@ -47,7 +47,7 @@ const columns = [
         headerClassName: 'separator-header',
         hidable: true,
         hide: false,
-        renderCell: ({ value }) => <DefaultCell value={value} />,
+        renderCell: DefaultCell,
     },
     {
         field: 'totalCommission',
@@ -56,7 +56,7 @@ const columns = [
         headerClassName: 'separator-header',
         hidable: true,
         hide: false,
-        renderCell: ({ value }) => <DefaultCell value={value} />,
+        renderCell: DefaultCell,
     },
     {
         field: 'clientReferred',
@@ -65,7 +65,7 @@ const columns = [
         headerClassName: 'separator-header',
         hidable: true,
         hide: false,
-        renderCell: ({ value }) => <DefaultCell value={value} />,
+        renderCell: DefaultCell,
     },
     {
         field: 'status',
@@ -76,8 +76,6 @@ const columns = [
         hide: false,
         renderCell: SwitchCell,
     },
-
-
 ]
 const affiliates = [
     {
