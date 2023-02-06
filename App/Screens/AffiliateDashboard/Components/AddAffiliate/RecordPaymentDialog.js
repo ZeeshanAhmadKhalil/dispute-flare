@@ -65,7 +65,10 @@ function RecordPaymentDialog(props) {
 
     const dispatch = useDispatch()
     const {
-        palette
+        palette: {
+            tableSeparator,
+            dialog,
+        }
     } = useTheme()
     const {
         recordPaymentDialog
@@ -95,7 +98,7 @@ function RecordPaymentDialog(props) {
                 />
             }
             open={recordPaymentDialog}
-            closeBtnText="Dashboard"
+            closeBtnText="PAYMENTf"
             title={"Record a Payment"}
         >
             <Container>
@@ -112,13 +115,13 @@ function RecordPaymentDialog(props) {
                 </Typography>
                 <Divider
                     sx={{
-                        backgroundColor: palette.tableSeparator?.light
+                        backgroundColor: tableSeparator?.light
                     }}
                 />
                 <Grid
                     container
                     rowSpacing={3}
-                    sx={{ backgroundColor: palette.dialog.xxxxOff, marginTop: "10px" }}
+                    sx={{ backgroundColor: dialog.xxxxOff, marginTop: "10px" }}
                     className={cls(
                         'border-red-700',
                         'border-0',

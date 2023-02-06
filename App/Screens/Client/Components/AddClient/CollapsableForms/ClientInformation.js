@@ -50,6 +50,7 @@ function ClientInformation(props) {
     return (
         <CollapsableForm
             title="Client Information"
+            defaultOpen={true}
         >
             <Grid
                 container
