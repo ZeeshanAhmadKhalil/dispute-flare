@@ -1,4 +1,3 @@
-import ScrollContainer from '@Components/ScrollContainer/ScrollContainer';
 import StatsTile from '@Components/StatsTile/StatsTile';
 import DropDownCell from '@Components/Table/Components/DropDownCell/DropDownCell';
 import LinkCell from '@Components/Table/Components/LinkCell/LinkCell';
@@ -163,7 +162,6 @@ function Commission(props) {
     return (
         <>
             <TopTabs tabs={tabs} />
-            <ScrollContainer>
                 <TitleHeader
                     title="Commission"
                     actionButtons={
@@ -256,7 +254,6 @@ function Commission(props) {
                     columns={columns}
                     rows={comissions}
                 />
-            </ScrollContainer>
             <SetStandardRateDialog />
         </>
     )

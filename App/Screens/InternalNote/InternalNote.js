@@ -1,15 +1,14 @@
-import TopTabs from '@Components/TopTabs/TopTabs'
-import ScrollContainer from '@Components/ScrollContainer/ScrollContainer'
 import AvatarNameCell from '@Components/Table/Components/AvatarNameCell/AvatarNameCell'
 import DateCell from '@Components/Table/Components/DateCell/DateCell'
 import LinkCell from '@Components/Table/Components/LinkCell/LinkCell'
 import Table from '@Components/Table/Table'
 import TitleHeader from '@Components/TitleHeader/TitleHeader'
+import TopTabs from '@Components/TopTabs/TopTabs'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import AddInternalNoteDialog from './Components/AddInternalNoteDialog'
 import InternalNoteActions from './Components/InternalNoteActions'
-import { useDispatch } from 'react-redux'
 import { setAddInternalNoteDialog } from './Store/internalNoteSlice'
 
 function InternalNote() {
@@ -147,22 +146,20 @@ function InternalNote() {
                     />
                 }
             />
-            <ScrollContainer>
-                <Table
-                    title="Internal Notes"
-                    onSelectionModelChange={(selected) =>
-                        setSelectedNotes(selected)
-                    }
-                    onRowClick={() =>
-                        router.push('report')
-                    }
-                    noRowsAction={() =>
-                        dispatch(setAddInternalNoteDialog(true))
-                    }
-                    columns={columns}
-                    rows={notes}
-                />
-            </ScrollContainer>
+            <Table
+                title="Internal Notes"
+                onSelectionModelChange={(selected) =>
+                    setSelectedNotes(selected)
+                }
+                onRowClick={() =>
+                    router.push('report')
+                }
+                noRowsAction={() =>
+                    dispatch(setAddInternalNoteDialog(true))
+                }
+                columns={columns}
+                rows={notes}
+            />
             <AddInternalNoteDialog />
         </>
     )

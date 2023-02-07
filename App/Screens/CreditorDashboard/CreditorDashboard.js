@@ -1,6 +1,8 @@
-import TopTabs from '@Components/TopTabs/TopTabs';
+import Avatar from '@Components/Avatar/Avatar';
+import LineChart from '@Components/LineChart/LineChart';
 import StatsTile from '@Components/StatsTile/StatsTile';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
+import TopTabs from '@Components/TopTabs/TopTabs';
 import {
     Box,
     Grid,
@@ -9,13 +11,10 @@ import {
 } from '@mui/material';
 import cls from 'classnames';
 import Affiliates from 'public/Assets/Svgs/affiliates.svg';
-import TotalCommission from 'public/Assets/Svgs/total-commission.svg';
 import ComissionPaid from 'public/Assets/Svgs/comission-paid.svg';
-import ReferredClients from 'public/Assets/Svgs/referred-clients.svg';
 import FreehandQuestionmark from 'public/Assets/Svgs/freehand-questionmark.svg';
-import Avatar from '@Components/Avatar/Avatar';
-import LineChart from '@Components/LineChart/LineChart';
-import ScrollContainer from '@Components/ScrollContainer/ScrollContainer';
+import ReferredClients from 'public/Assets/Svgs/referred-clients.svg';
+import TotalCommission from 'public/Assets/Svgs/total-commission.svg';
 
 function CreditorDashboard(props) {
 

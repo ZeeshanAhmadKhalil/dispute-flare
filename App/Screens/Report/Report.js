@@ -1,6 +1,5 @@
-import TopTabs from '@Components/TopTabs/TopTabs';
-import ScrollContainer from '@Components/ScrollContainer/ScrollContainer';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
+import TopTabs from '@Components/TopTabs/TopTabs';
 import {
     useEffect
 } from 'react';

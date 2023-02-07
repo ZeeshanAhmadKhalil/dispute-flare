@@ -1,15 +1,14 @@
-import TopTabs from '@Components/TopTabs/TopTabs';
-import ScrollContainer from '@Components/ScrollContainer/ScrollContainer';
-import TitleHeader from '@Components/TitleHeader/TitleHeader';
-import { setAddTaskDialog } from '@Screens/Calendar/Store/calendarSlice';
-import AddTaskDialog from '@Screens/Calendar/Components/AddTask/AddTaskDialog';
-import DateCell from '@Components/Table/Components/DateCell/DateCell';
-import Table from '@Components/Table/Table';
-import DropDownCell from '@Components/Table/Components/DropDownCell/DropDownCell';
 import AvatarNameCell from '@Components/Table/Components/AvatarNameCell/AvatarNameCell';
+import DateCell from '@Components/Table/Components/DateCell/DateCell';
+import DropDownCell from '@Components/Table/Components/DropDownCell/DropDownCell';
+import Table from '@Components/Table/Table';
+import TitleHeader from '@Components/TitleHeader/TitleHeader';
+import TopTabs from '@Components/TopTabs/TopTabs';
+import AddTaskDialog from '@Screens/Calendar/Components/AddTask/AddTaskDialog';
+import { setAddTaskDialog } from '@Screens/Calendar/Store/calendarSlice';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import TaskActions from './Components/TaskActions';
-import { useState } from 'react';
 
 let columns = [
     {

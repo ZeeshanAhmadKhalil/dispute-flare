@@ -109,6 +109,8 @@ function PrintDialog({
 
         let overviewWrapper = document.querySelector("#overview-wrapper")
 
+        console.log("overviewWrapper.scrollHeight===>", overviewWrapper.scrollHeight)
+
         html2canvas(overviewWrapper, {
             windowWidth: overviewWrapper.scrollWidth + 550,
             windowHeight: overviewWrapper.scrollHeight
@@ -116,20 +118,25 @@ function PrintDialog({
 
             const imgData = canvas.toDataURL('image/png')
 
-            console.log("imgData===>", imgData)
-
             const pdf = new jsPDF("p", "mm", "a4")
+
+            const imgProps = pdf.getImageProperties(imgData)
+
+            const pdfWidth = pdf.internal.pageSize.getWidth();
+            const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
 
             var width = pdf.internal.pageSize.getWidth();
             var height = pdf.internal.pageSize.getHeight();
+
+            console.log("height===>", height)
 
             pdf.addImage(
                 imgData,
                 'JPEG',
                 0,
                 0,
-                width,
-                height,
+                pdfWidth,
+                pdfHeight,
             )
             pdf.save("disputes.pdf")
         })
@@ -144,6 +151,7 @@ function PrintDialog({
 
                 return (
                     <Box
+                        key={key}
                         sx={{
                             mt: 2,
                         }}

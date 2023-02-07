@@ -19,7 +19,7 @@ function CompanyProfile() {
         ssnNumber: null,
         emailId: null,
         mobileNo: null,
-        phoneNo: null,
+        phoneNo: null,  
         website: null,
         address: null,
         city: null,

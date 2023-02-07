@@ -1,7 +1,6 @@
-import TopTabs from '@Components/TopTabs/TopTabs';
-import ScrollContainer from '@Components/ScrollContainer/ScrollContainer';
-import TitleHeader from '@Components/TitleHeader/TitleHeader';
 import BigCalendar from '@Components/BigCalendar/BigCalendar';
+import TitleHeader from '@Components/TitleHeader/TitleHeader';
+import TopTabs from '@Components/TopTabs/TopTabs';
 import AddTaskDialog from './Components/AddTask/AddTaskDialog';
 import CalendarActions from './Components/CalendarActions';
 

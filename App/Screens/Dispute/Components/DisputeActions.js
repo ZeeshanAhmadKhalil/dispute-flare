@@ -7,6 +7,7 @@ import { setDisputeDialog } from '../Store/disputeSlice';
 import PrintIcon from '@mui/icons-material/Print';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import DoneAllIcon from '@mui/icons-material/DoneAll';
+import { setPrintDialog } from '@Screens/Shared/Store/sharedSlice';
 
 function DisputeActions(props) {
 
@@ -48,7 +49,7 @@ function DisputeActions(props) {
                     </Button>
                     <Button
                         match="lg"
-                        onClick={null}
+                        onClick={() => dispatch(setPrintDialog(true))}
                         iconOnSmall={<PrintIcon />}
                         color={"leadLight"}
                         startIcon={null}
@@ -104,7 +105,7 @@ function DisputeActions(props) {
                     </Button>
                     <Button
                         match="lg"
-                        onClick={null}
+                        onClick={() => dispatch(setPrintDialog(true))}
                         iconOnSmall={<PrintIcon />}
                         color={"info"}
                         startIcon={null}

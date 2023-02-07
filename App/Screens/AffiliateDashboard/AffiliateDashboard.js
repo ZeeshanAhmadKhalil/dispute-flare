@@ -1,7 +1,6 @@
 
-import DefaultCell from '@Components/Table/Components/DefaultCell/DefaultCell';
-import ScrollContainer from '@Components/ScrollContainer/ScrollContainer';
 import StatsTile from '@Components/StatsTile/StatsTile';
+import DefaultCell from '@Components/Table/Components/DefaultCell/DefaultCell';
 import Table from '@Components/Table/Table';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
 import TopTabs from '@Components/TopTabs/TopTabs';
@@ -183,220 +182,218 @@ function AffiliateDashboard() {
     return (
         <>
             <TopTabs tabs={tabs} />
-            <ScrollContainer>
-                <TitleHeader
-                    title="Terence Lewis"
-                    actionButtons={
-                        <AffiliateDashboardActions
-                            selectedInstructions={selectedClients}
-                        />
+            <TitleHeader
+                title="Terence Lewis"
+                actionButtons={
+                    <AffiliateDashboardActions
+                        selectedInstructions={selectedClients}
+                    />
+                }
+            />
+            <Box
+                className={cls(
+                    'flex',
+                    'flex-wrap',
+                    'mb-5'
+                )}
+            >
+                <StatsTile
+                    name="TOTAL COMISSION "
+                    value={"30.5k"}
+                    valueColor={warning.main}
+                    icon={
+                        <Box
+                            className={cls(
+                                'h-[37px]',
+                                'w-[37px]',
+                                'rounded-full',
+                                'p-[5px]',
+                                'items-center',
+                                'justify-center',
+                                'flex'
+                            )}
+                            sx={{
+                                border: `0.5px solid ${icongreen.light}`
+                            }}
+                        >
+                            <TotalCommission
+                                height={25}
+                                width={25}
+                            />
+                        </Box>
                     }
+                    styles={{
+                        marginRight: 5,
+                    }}
                 />
-                <Box
-                    className={cls(
-                        'flex',
-                        'flex-wrap',
-                        'mb-5'
-                    )}
-                >
-                    <StatsTile
-                        name="TOTAL COMISSION "
-                        value={"30.5k"}
-                        valueColor={warning.main}
-                        icon={
-                            <Box
-                                className={cls(
-                                    'h-[37px]',
-                                    'w-[37px]',
-                                    'rounded-full',
-                                    'p-[5px]',
-                                    'items-center',
-                                    'justify-center',
-                                    'flex'
-                                )}
-                                sx={{
-                                    border: `0.5px solid ${icongreen.light}`
-                                }}
-                            >
-                                <TotalCommission
-                                    height={25}
-                                    width={25}
-                                />
-                            </Box>
-                        }
-                        styles={{
-                            marginRight: 5,
-                        }}
-                    />
-                    <StatsTile
-                        name="COMISSION PAID"
-                        value={"30,999"}
-                        valueColor={primary.main}
-                        icon={
-                            <Box
-                                className={cls(
-                                    'h-[37px]',
-                                    'w-[37px]',
-                                    'rounded-full',
-                                    'p-[5px]',
-                                    'items-center',
-                                    'justify-center',
-                                    'flex'
-                                )}
-                                sx={{
-                                    border: `0.5px solid ${icongreen.light1}`
-                                }}
-                            >
-                                <ComissionPaid
-                                    height={25}
-                                    width={25}
-                                />
-                            </Box>
-                        }
-                        styles={{
-                            marginRight: 5,
-                        }}
-                    />
-                    <StatsTile
-                        name="TO BE PAID"
-                        value={"300"}
-                        valueColor={secondary.main}
-                        icon={
-                            <Box
-                                className={cls(
-                                    'h-[37px]',
-                                    'w-[37px]',
-                                    'rounded-full',
-                                    'p-[5px]',
-                                    'items-center',
-                                    'justify-center',
-                                    'flex'
-                                )}
-                                sx={{
-                                    border: `0.5px solid ${link.light}`
-                                }}
-                            >
-                                <ReferredClients
-                                    height={22}
-                                    width={22}
-                                />
-                            </Box>
-                        }
-                        styles={{
-                            marginRight: 5,
-                        }}
-                    />
-                    <StatsTile
-                        name="LAST PAY DATE"
-                        value={"Aug 20, 2022"}
-                        valueColor={success.main}
-                        icon={
-                            <Box
-                                className={cls(
-                                    'h-[37px]',
-                                    'w-[37px]',
-                                    'rounded-full',
-                                    'p-[5px]',
-                                    'items-center',
-                                    'justify-center',
-                                    'flex'
-                                )}
-                                sx={{
-                                    border: `0.5px solid ${icongreen.light}`
-                                }}
-                            >
-                                <TotalCommission
-                                    height={25}
-                                    width={25}
-                                />
-                            </Box>
-                        }
-                        styles={{
-                            marginRight: 5,
-                        }}
-                    />
-                    <StatsTile
-                        name="LAST AMOUNT PAID"
-                        value={"1000"}
-                        valueColor={secondary.main}
-                        icon={
-                            <Box
-                                className={cls(
-                                    'h-[37px]',
-                                    'w-[37px]',
-                                    'rounded-full',
-                                    'p-[5px]',
-                                    'items-center',
-                                    'justify-center',
-                                    'flex'
-                                )}
-                                sx={{
-                                    border: `0.5px solid ${icongreen.light}`
-                                }}
-                            >
-                                <TotalCommission
-                                    height={25}
-                                    width={25}
-                                />
-                            </Box>
-                        }
-                        styles={{
-                            marginRight: 5,
-                        }}
-                    />       <StatsTile
-                        name="COMMISSION RATE"
-                        value={"1000"}
-                        valueColor={pink.main}
-                        icon={
-                            <Box
-                                className={cls(
-                                    'h-[37px]',
-                                    'w-[37px]',
-                                    'rounded-full',
-                                    'p-[5px]',
-                                    'items-center',
-                                    'justify-center',
-                                    'flex'
-                                )}
-                                sx={{
-                                    border: `0.5px solid ${icongreen.light}`
-                                }}
-                            >
-                                <TotalCommission
-                                    height={25}
-                                    width={25}
-                                />
-                            </Box>
-                        }
-                        styles={{
-                            marginRight: 5,
-                        }}
-                    />
+                <StatsTile
+                    name="COMISSION PAID"
+                    value={"30,999"}
+                    valueColor={primary.main}
+                    icon={
+                        <Box
+                            className={cls(
+                                'h-[37px]',
+                                'w-[37px]',
+                                'rounded-full',
+                                'p-[5px]',
+                                'items-center',
+                                'justify-center',
+                                'flex'
+                            )}
+                            sx={{
+                                border: `0.5px solid ${icongreen.light1}`
+                            }}
+                        >
+                            <ComissionPaid
+                                height={25}
+                                width={25}
+                            />
+                        </Box>
+                    }
+                    styles={{
+                        marginRight: 5,
+                    }}
+                />
+                <StatsTile
+                    name="TO BE PAID"
+                    value={"300"}
+                    valueColor={secondary.main}
+                    icon={
+                        <Box
+                            className={cls(
+                                'h-[37px]',
+                                'w-[37px]',
+                                'rounded-full',
+                                'p-[5px]',
+                                'items-center',
+                                'justify-center',
+                                'flex'
+                            )}
+                            sx={{
+                                border: `0.5px solid ${link.light}`
+                            }}
+                        >
+                            <ReferredClients
+                                height={22}
+                                width={22}
+                            />
+                        </Box>
+                    }
+                    styles={{
+                        marginRight: 5,
+                    }}
+                />
+                <StatsTile
+                    name="LAST PAY DATE"
+                    value={"Aug 20, 2022"}
+                    valueColor={success.main}
+                    icon={
+                        <Box
+                            className={cls(
+                                'h-[37px]',
+                                'w-[37px]',
+                                'rounded-full',
+                                'p-[5px]',
+                                'items-center',
+                                'justify-center',
+                                'flex'
+                            )}
+                            sx={{
+                                border: `0.5px solid ${icongreen.light}`
+                            }}
+                        >
+                            <TotalCommission
+                                height={25}
+                                width={25}
+                            />
+                        </Box>
+                    }
+                    styles={{
+                        marginRight: 5,
+                    }}
+                />
+                <StatsTile
+                    name="LAST AMOUNT PAID"
+                    value={"1000"}
+                    valueColor={secondary.main}
+                    icon={
+                        <Box
+                            className={cls(
+                                'h-[37px]',
+                                'w-[37px]',
+                                'rounded-full',
+                                'p-[5px]',
+                                'items-center',
+                                'justify-center',
+                                'flex'
+                            )}
+                            sx={{
+                                border: `0.5px solid ${icongreen.light}`
+                            }}
+                        >
+                            <TotalCommission
+                                height={25}
+                                width={25}
+                            />
+                        </Box>
+                    }
+                    styles={{
+                        marginRight: 5,
+                    }}
+                />       <StatsTile
+                    name="COMMISSION RATE"
+                    value={"1000"}
+                    valueColor={pink.main}
+                    icon={
+                        <Box
+                            className={cls(
+                                'h-[37px]',
+                                'w-[37px]',
+                                'rounded-full',
+                                'p-[5px]',
+                                'items-center',
+                                'justify-center',
+                                'flex'
+                            )}
+                            sx={{
+                                border: `0.5px solid ${icongreen.light}`
+                            }}
+                        >
+                            <TotalCommission
+                                height={25}
+                                width={25}
+                            />
+                        </Box>
+                    }
+                    styles={{
+                        marginRight: 5,
+                    }}
+                />
 
-                </Box>
-                <Grid
-                    container
-                    columnSpacing={3}
-                    rowSpacing={3}
-                    className={cls(
-                        'border-red-700', 'border-0',
-                    )}
-                >
-                    <Grid item xl="12" xs="12">
-                        <Table
-                            title="Payment"
-                            onSelectionModelChange={(selected) =>
-                                setSelectedClients(selected)
-                            }
-                            noRowsAction={() =>
-                                dispatch(setRecordPaymentDialog(true))
-                            }
-                            columns={columns}
-                            rows={payments}
-                        />
-                    </Grid>
+            </Box>
+            <Grid
+                container
+                columnSpacing={3}
+                rowSpacing={3}
+                className={cls(
+                    'border-red-700', 'border-0',
+                )}
+            >
+                <Grid item xl="12" xs="12">
+                    <Table
+                        title="Payment"
+                        onSelectionModelChange={(selected) =>
+                            setSelectedClients(selected)
+                        }
+                        noRowsAction={() =>
+                            dispatch(setRecordPaymentDialog(true))
+                        }
+                        columns={columns}
+                        rows={payments}
+                    />
                 </Grid>
-            </ScrollContainer>
+            </Grid>
             <RecordPaymentDialog />
         </>
     )

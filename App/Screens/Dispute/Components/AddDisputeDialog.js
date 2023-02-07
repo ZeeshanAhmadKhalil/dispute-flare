@@ -32,7 +32,10 @@ const Container = styled(Box)(({ theme }) => {
     }
 })
 
-function AddDisputeDialog(props) {
+function AddDisputeDialog({
+    columns,
+    rows,
+}) {
 
     const bureauList = [
         { label: "TU", value: 1 },
@@ -177,114 +180,6 @@ function AddDisputeDialog(props) {
             },
         ]
     }
-
-    let columns = [
-        {
-            field: 'id',
-            headerName: 'Id',
-            width: 50,
-            hide: true,
-            hidable: true,
-        },
-        {
-            field: 'creditor',
-            headerName: 'Creditor',
-            width: 210,
-            headerClassName: 'separator-header',
-            renderCell: DefaultCell,
-            hidable: true,
-        },
-        {
-            field: 'accountNumber',
-            headerName: 'Account',
-            width: 120,
-            headerClassName: 'separator-header',
-            hidable: true,
-            renderCell: SecretCell,
-        },
-        {
-            field: 'type',
-            headerName: 'Type',
-            width: 120,
-            headerClassName: 'separator-header',
-            renderCell: DefaultCell,
-            hidable: true,
-        },
-        {
-            field: 'dispute',
-            headerName: 'Dispute',
-            width: 180,
-            headerClassName: 'separator-header',
-            renderCell: DefaultCell,
-            hidable: true,
-        },
-        {
-            field: 'reason',
-            headerName: 'Reason',
-            width: 180,
-            headerClassName: 'separator-header',
-            renderCell: DefaultCell,
-            hidable: true,
-        },
-        {
-            field: 'instruction',
-            headerName: 'Instruction',
-            width: 200,
-            headerClassName: 'separator-header',
-            renderCell: DefaultCell,
-            hidable: true,
-        },
-        {
-            field: 'bureaus',
-            headerName: 'Bureaus',
-            width: 180,
-            headerClassName: 'separator-header',
-            renderCell: DefaultCell,
-            hidable: true,
-        },
-    ]
-    let rows = [
-        {
-            id: 1,
-            creditor: "HDEKE (Original Creditor: 09)",
-            accountNumber: "74346256747565758678456",
-            type: "Collection",
-            dispute: "Lorem ipsum",
-            reason: "Unverified account",
-            instruction: "Lorem ipsum is a",
-            bureaus: null,
-        },
-        {
-            id: 2,
-            creditor: "EISD (Original Creditor: 10A)",
-            accountNumber: "74346256747565758678456",
-            type: "Collection",
-            dispute: "Lorem ipsum",
-            reason: "Unverified account",
-            instruction: "Lorem ipsum is a",
-            bureaus: null,
-        },
-        {
-            id: 3,
-            creditor: "EWISD (Original Creditor: 11)",
-            accountNumber: "74346256747565758678456",
-            type: "Collection",
-            dispute: "Lorem ipsum",
-            reason: "Unverified account",
-            instruction: "Lorem ipsum is a",
-            bureaus: null,
-        },
-        {
-            id: 4,
-            creditor: "JEW (Original Creditor: 12 AT T)",
-            accountNumber: "74346256747565758678456",
-            type: "Collection",
-            dispute: "Lorem ipsum",
-            reason: "Unverified account",
-            instruction: "Lorem ipsum is a",
-            bureaus: null,
-        },
-    ]
 
     const dispatch = useDispatch()
     const {
