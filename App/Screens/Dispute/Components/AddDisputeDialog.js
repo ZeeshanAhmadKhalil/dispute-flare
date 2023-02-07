@@ -1,3 +1,6 @@
+import PrintDialog from '@Components/PrintDialog/PrintDialog';
+import DefaultCell from '@Components/Table/Components/DefaultCell/DefaultCell';
+import SecretCell from '@Components/Table/Components/SecretCell/SecretCell';
 import RightDialogLayout from '@Layouts/RightDialogLayout/RightDialogLayout';
 import {
     Box, Divider,
@@ -52,22 +55,22 @@ function AddDisputeDialog(props) {
                 creditors: [
                     {
                         name: "HDEKE (Original Creditor: 09)",
-                        reason: null,
+                        reason: 'Unverified account',
                         bureaus: [],
                     },
                     {
                         name: "EISD (Original Creditor: 10A)",
-                        reason: null,
+                        reason: 'Unverified account',
                         bureaus: [],
                     },
                     {
                         name: "EWISD (Original Creditor: 11)",
-                        reason: null,
+                        reason: 'Unverified account',
                         bureaus: [],
                     },
                     {
                         name: "JEW (Original Creditor: 12 AT T)",
-                        reason: null,
+                        reason: 'Unverified account',
                         bureaus: [],
                     },
                 ]
@@ -77,22 +80,22 @@ function AddDisputeDialog(props) {
                 creditors: [
                     {
                         name: "HDEKE (Original Creditor: 09)",
-                        reason: null,
+                        reason: 'Unverified account',
                         bureaus: [],
                     },
                     {
                         name: "EISD (Original Creditor: 10A)",
-                        reason: null,
+                        reason: 'Unverified account',
                         bureaus: [],
                     },
                     {
                         name: "EWISD (Original Creditor: 11)",
-                        reason: null,
+                        reason: 'Unverified account',
                         bureaus: [],
                     },
                     {
                         name: "JEW (Original Creditor: 12 AT T)",
-                        reason: null,
+                        reason: 'Unverified account',
                         bureaus: [],
                     },
                 ]
@@ -102,22 +105,22 @@ function AddDisputeDialog(props) {
                 creditors: [
                     {
                         name: "HDEKE (Original Creditor: 09)",
-                        reason: null,
+                        reason: 'Unverified account',
                         bureaus: [],
                     },
                     {
                         name: "EISD (Original Creditor: 10A)",
-                        reason: null,
+                        reason: 'Unverified account',
                         bureaus: [],
                     },
                     {
                         name: "EWISD (Original Creditor: 11)",
-                        reason: null,
+                        reason: 'Unverified account',
                         bureaus: [],
                     },
                     {
                         name: "JEW (Original Creditor: 12 AT T)",
-                        reason: null,
+                        reason: 'Unverified account',
                         bureaus: [],
                     },
                 ]
@@ -127,22 +130,22 @@ function AddDisputeDialog(props) {
                 creditors: [
                     {
                         name: "HDEKE (Original Creditor: 09)",
-                        reason: null,
+                        reason: 'Unverified account',
                         bureaus: [],
                     },
                     {
                         name: "EISD (Original Creditor: 10A)",
-                        reason: null,
+                        reason: 'Unverified account',
                         bureaus: [],
                     },
                     {
                         name: "EWISD (Original Creditor: 11)",
-                        reason: null,
+                        reason: 'Unverified account',
                         bureaus: [],
                     },
                     {
                         name: "JEW (Original Creditor: 12 AT T)",
-                        reason: null,
+                        reason: 'Unverified account',
                         bureaus: [],
                     },
                 ]
@@ -152,28 +155,136 @@ function AddDisputeDialog(props) {
                 creditors: [
                     {
                         name: "HDEKE (Original Creditor: 09)",
-                        reason: null,
+                        reason: 'Unverified account',
                         bureaus: [],
                     },
                     {
                         name: "EISD (Original Creditor: 10A)",
-                        reason: null,
+                        reason: 'Unverified account',
                         bureaus: [],
                     },
                     {
                         name: "EWISD (Original Creditor: 11)",
-                        reason: null,
+                        reason: 'Unverified account',
                         bureaus: [],
                     },
                     {
                         name: "JEW (Original Creditor: 12 AT T)",
-                        reason: null,
+                        reason: 'Unverified account',
                         bureaus: [],
                     },
                 ]
             },
         ]
     }
+
+    let columns = [
+        {
+            field: 'id',
+            headerName: 'Id',
+            width: 50,
+            hide: true,
+            hidable: true,
+        },
+        {
+            field: 'creditor',
+            headerName: 'Creditor',
+            width: 210,
+            headerClassName: 'separator-header',
+            renderCell: DefaultCell,
+            hidable: true,
+        },
+        {
+            field: 'accountNumber',
+            headerName: 'Account',
+            width: 120,
+            headerClassName: 'separator-header',
+            hidable: true,
+            renderCell: SecretCell,
+        },
+        {
+            field: 'type',
+            headerName: 'Type',
+            width: 120,
+            headerClassName: 'separator-header',
+            renderCell: DefaultCell,
+            hidable: true,
+        },
+        {
+            field: 'dispute',
+            headerName: 'Dispute',
+            width: 180,
+            headerClassName: 'separator-header',
+            renderCell: DefaultCell,
+            hidable: true,
+        },
+        {
+            field: 'reason',
+            headerName: 'Reason',
+            width: 180,
+            headerClassName: 'separator-header',
+            renderCell: DefaultCell,
+            hidable: true,
+        },
+        {
+            field: 'instruction',
+            headerName: 'Instruction',
+            width: 200,
+            headerClassName: 'separator-header',
+            renderCell: DefaultCell,
+            hidable: true,
+        },
+        {
+            field: 'bureaus',
+            headerName: 'Bureaus',
+            width: 180,
+            headerClassName: 'separator-header',
+            renderCell: DefaultCell,
+            hidable: true,
+        },
+    ]
+    let rows = [
+        {
+            id: 1,
+            creditor: "HDEKE (Original Creditor: 09)",
+            accountNumber: "74346256747565758678456",
+            type: "Collection",
+            dispute: "Lorem ipsum",
+            reason: "Unverified account",
+            instruction: "Lorem ipsum is a",
+            bureaus: null,
+        },
+        {
+            id: 2,
+            creditor: "EISD (Original Creditor: 10A)",
+            accountNumber: "74346256747565758678456",
+            type: "Collection",
+            dispute: "Lorem ipsum",
+            reason: "Unverified account",
+            instruction: "Lorem ipsum is a",
+            bureaus: null,
+        },
+        {
+            id: 3,
+            creditor: "EWISD (Original Creditor: 11)",
+            accountNumber: "74346256747565758678456",
+            type: "Collection",
+            dispute: "Lorem ipsum",
+            reason: "Unverified account",
+            instruction: "Lorem ipsum is a",
+            bureaus: null,
+        },
+        {
+            id: 4,
+            creditor: "JEW (Original Creditor: 12 AT T)",
+            accountNumber: "74346256747565758678456",
+            type: "Collection",
+            dispute: "Lorem ipsum",
+            reason: "Unverified account",
+            instruction: "Lorem ipsum is a",
+            bureaus: null,
+        },
+    ]
 
     const dispatch = useDispatch()
     const {
@@ -198,12 +309,53 @@ function AddDisputeDialog(props) {
         reset,
         watch,
         formState: { errors },
+        setValue,
     } = useForm({
         mode: 'onChange',
         defaultValues,
     });
 
     let watchSteps = watch('steps')
+
+    const tables = watchSteps.map(
+        (item, key) => {
+
+            const {
+                name,
+                creditors,
+            } = item
+
+            rows = creditors.map((subItem, key) => {
+
+                const {
+                    name,
+                    reason,
+                    bureaus,
+                } = subItem
+
+                let bureausString = []
+
+                bureauList.map(obj => {
+
+                    if (bureaus.includes(obj.value))
+                        bureausString.push(obj.label)
+                })
+
+                bureausString = bureausString.join(", ")
+
+                return {
+                    ...rows[key],
+                    bureaus: bureausString,
+                    reason,
+
+                }
+            })
+
+            return {
+                name,
+                rows,
+            }
+        })
 
     return (
         <RightDialogLayout
@@ -232,6 +384,8 @@ function AddDisputeDialog(props) {
             <Container>
                 {currentStep == steps?.length ?
                     <Overview
+                        columns={columns}
+                        tables={tables}
                         watchSteps={watchSteps}
                         bureauList={bureauList}
                     />
@@ -268,6 +422,8 @@ function AddDisputeDialog(props) {
                             }}
                         />
                         <SelectAnAccount
+                            watchSteps={watchSteps}
+                            setValue={setValue}
                             register={register}
                             control={control}
                             errors={errors}
@@ -279,6 +435,10 @@ function AddDisputeDialog(props) {
                     </>
                 }
             </Container>
+            <PrintDialog
+                columns={columns}
+                tables={tables}
+            />
         </RightDialogLayout >
     );
 }

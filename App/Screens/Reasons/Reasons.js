@@ -1,4 +1,4 @@
-import DefaultCell from '@Components/DefaultCell/DefaultCell';
+import DefaultCell from '@Components/Table/Components/DefaultCell/DefaultCell';
 import SwitchCell from '@Components/Table/Components/SwitchCell/SwitchCell';
 import Table from '@Components/Table/Table';
 import TitleHeader from '@Components/TitleHeader/TitleHeader';
@@ -44,7 +44,7 @@ const columns = [
         headerClassName: 'separator-header',
         hidable: true,
         hide: false,
-        renderCell: ({ value }) => <DefaultCell value={value} />,
+        renderCell: DefaultCell,
     },
 
 

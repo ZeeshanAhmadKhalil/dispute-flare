@@ -188,12 +188,13 @@ function Table(props) {
         rows,
         title,
         columns,
-        onRowClick,
         autoHeight,
+        onRowClick,
         borderColor,
-        height = 650,
         noRowsAction,
+        height = 650,
         hidePagination,
+        processRowUpdate,
         stripedRows = false,
         setColumnVisibility,
         hideSeparator = false,
@@ -243,6 +244,10 @@ function Table(props) {
 
             >
                 <DataGrid
+                    experimentalFeatures={{
+                        newEditingApi: true,
+                    }}
+                    processRowUpdate={processRowUpdate}
                     stripedRows={stripedRows}
                     rowSeparatorColor={rowSeparatorColor}
                     headerColor={headerColor}

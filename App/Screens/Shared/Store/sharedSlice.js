@@ -6,10 +6,14 @@ const sharedSlice = createSlice({
         loader: false,
         toolbar: false,
         profileDialog: false,
+        printDialog: false,
         selectedClientTab: "client-dashboard",
         selectedClientId: 0,
     },
     reducers: {
+        setPrintDialog: (state, action) => {
+            state.printDialog = action.payload
+        },
         setProfileDialog: (state, action) => {
             state.profileDialog = action.payload
         },
@@ -31,6 +35,7 @@ const sharedSlice = createSlice({
 export const {
     setLoader,
     setToolbar,
+    setPrintDialog,
     setProfileDialog,
     setSelectedClientId,
 } = sharedSlice.actions;
