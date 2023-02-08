@@ -23,7 +23,7 @@ const Container = styled(Box)(({ theme }) => {
         dialog: {
             main
         }
-    } = theme.palette || {}
+    }: any = theme.palette || {}
 
     return {
         backgroundColor: main,
@@ -32,7 +32,7 @@ const Container = styled(Box)(({ theme }) => {
     }
 })
 
-function RecordPaymentDialog(props) {
+function RecordPaymentDialog() {
 
     const defaultValues = {
         firstName: null,
@@ -69,10 +69,10 @@ function RecordPaymentDialog(props) {
             tableSeparator,
             dialog,
         }
-    } = useTheme()
+    }: any = useTheme()
     const {
         recordPaymentDialog
-    } = useSelector(state => state.affiliateDashboard)
+    } = useSelector((state: any) => state.affiliateDashboard)
 
     const {
         register,

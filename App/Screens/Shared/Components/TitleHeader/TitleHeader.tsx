@@ -17,7 +17,7 @@ function TitleHeader(props: any) {
         <>
             <Box
                 className={cls(
-                    `border-red-700`, `border-2`,
+                    `border-red-700`, `border-0`,
                     `pl-5 pt-3 pb-6`,
                     `flex`,
                     `items-center`,
