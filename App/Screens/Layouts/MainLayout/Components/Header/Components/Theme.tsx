@@ -1,15 +1,18 @@
+import { setSelectedTheme } from '@Layouts/Store/themeSlice';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { Box, styled, useTheme } from '@mui/material';
 import cls from 'classnames';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './Theme.module.scss';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import { setSelectedTheme } from '@Layouts/Store/themeSlice';
 
 const ThemeName = styled(Box, {
     shouldForwardProp: (prop) => prop !== 'hovered'
-})(({ theme, hovered }) => {
+})(({
+    theme,
+    hovered
+}: any) => {
     const {
     } = theme.palette
 
@@ -28,7 +31,7 @@ const ThemeName = styled(Box, {
     }
 })
 
-function Theme(props) {
+function Theme(props: any) {
 
     const {
         name,
@@ -47,16 +50,13 @@ function Theme(props) {
             },
             background: { xTrans },
         }
-    } = useTheme()
+    }: any = useTheme()
 
     const {
         selectedTheme,
-    } = useSelector(state => state.layout)
+    } = useSelector((state: any) => state.layout)
 
-    const [hovered, setHovered] = useState(null)
-
-    useEffect(() => {
-    }, [])
+    const [hovered, setHovered] = useState<boolean>(false)
 
     return (
         <div
@@ -83,9 +83,12 @@ function Theme(props) {
                 )}
                 layout="fill"
                 src={imagePath}
+                alt={name}
             />
             <ThemeName
-                hovered={hovered}
+                {...{
+                    hovered,
+                }}
                 className={cls(
                     styles.themeName,
                     'w-full',
@@ -101,12 +104,12 @@ function Theme(props) {
             </ThemeName>
             {selectedTheme == id &&
                 <CheckCircleIcon
-                    color="xTrans"
                     fontSize="large"
                     sx={{
                         position: 'absolute',
                         top: '33%',
-                        left: '37%'
+                        left: '37%',
+                        color: xTrans.main
                     }}
                 />
             }

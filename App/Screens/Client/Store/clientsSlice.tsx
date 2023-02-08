@@ -990,16 +990,15 @@ const clientsSlice = createSlice({
             { label: 'Zambia', value: 'ZM' },
             { label: 'Zimbabwe', value: 'ZW' }
         ],
-
     },
     reducers: {
-        setImportClientsDialog: (state, action) => {
+        setImportClientsDialog: (state: any, action) => {
             state.importClientsDialog = action.payload
         },
-        setAddClientDialog: (state, action) => {
+        setAddClientDialog: (state: any, action) => {
             state.addClientDialog = action.payload
         },
-        setColumnVisibility: (state, action) => {
+        setColumnVisibility: (state: any, action) => {
 
             const { field, hide } = action.payload || {}
 
@@ -1013,14 +1012,14 @@ const clientsSlice = createSlice({
 
             state.columns = columns
         },
-        setAllColumnsVisibility: (state, action) => {
+        setAllColumnsVisibility: (state: any, action) => {
 
             const { hide } = action.payload || {}
 
             state.columns
                 = state
                     .columns
-                    .map(obj => ({
+                    .map((obj: any) => ({
                         ...obj,
                         hide:
                             obj.hidable ?

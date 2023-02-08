@@ -23,7 +23,7 @@ const Container = styled(Box)(({ theme }) => {
         dialog: {
             main
         }
-    } = theme.palette || {}
+    }: any = theme.palette || {}
 
     return {
         backgroundColor: main,
@@ -32,7 +32,7 @@ const Container = styled(Box)(({ theme }) => {
     }
 })
 
-function AddAffiliateDialog(props) {
+function AddAffiliateDialog() {
 
     const defaultValues = {
         firstName: null,
@@ -65,11 +65,14 @@ function AddAffiliateDialog(props) {
 
     const dispatch = useDispatch()
     const {
-        palette
-    } = useTheme()
+        palette: {
+            tableSeparator,
+            dialog,
+        }
+    }: any = useTheme()
     const {
         addAffiliatesDialog
-    } = useSelector(state => state.affiliates)
+    } = useSelector((state: any) => state.affiliates)
 
     const {
         register,
@@ -111,11 +114,11 @@ function AddAffiliateDialog(props) {
                 </Typography>
                 <Divider
                     sx={{
-                        backgroundColor: palette.tableSeparator?.light
+                        backgroundColor: tableSeparator?.light
                     }}
                 />
 
-                <Grid item xs="12">
+                <Grid item xs={12}>
                     <Typography
                         variant="subtitle1"
                         className={cls(
@@ -128,7 +131,7 @@ function AddAffiliateDialog(props) {
                 <Grid
                     container
                     rowSpacing={3}
-                    sx={{ backgroundColor: palette.dialog.xxxxOff, marginTop: "10px" }}
+                    sx={{ backgroundColor: dialog.xxxxOff, marginTop: "10px" }}
                     className={cls(
                         'border-red-700',
                         'border-0',

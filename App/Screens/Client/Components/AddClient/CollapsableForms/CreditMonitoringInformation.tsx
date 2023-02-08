@@ -14,7 +14,7 @@ const Label = styled(Typography)(({ theme }) => {
 
     const {
         text: { xxxGrey },
-    } = theme.palette
+    }: any = theme.palette
 
     return {
         color: xxxGrey,
@@ -22,7 +22,7 @@ const Label = styled(Typography)(({ theme }) => {
     }
 })
 
-function CreditMonitoringInformation(props) {
+function CreditMonitoringInformation(props: any) {
 
     const {
         register,
@@ -34,10 +34,10 @@ function CreditMonitoringInformation(props) {
         palette: {
             tableSeparator: { light }
         }
-    } = useTheme()
+    }: any = useTheme()
 
     const {
-    } = useSelector(state => state.clients)
+    } = useSelector((state: any) => state.clients)
 
     let providers = [
         { label: 'Zeeshan Ahmad', value: 1 },
@@ -61,14 +61,14 @@ function CreditMonitoringInformation(props) {
                     'items-center',
                 )}
             >
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         Select Provider
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
                     <DropDown
                         watch={watch}
                         register={register("provider")}
@@ -78,28 +78,28 @@ function CreditMonitoringInformation(props) {
                     />
 
                 </Grid>
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         Username
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
                     <TextInput
                         register={register("username")}
                         name="username"
                         error={errors.username}
                     />
                 </Grid>
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         Password
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
                     <TextInput
                         register={register("password")}
                         name="password"
@@ -107,14 +107,14 @@ function CreditMonitoringInformation(props) {
                         placeholder="****"
                     />
                 </Grid>
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         SSN
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
                     <TextInput
                         register={register("ssn")}
                         name="ssn"

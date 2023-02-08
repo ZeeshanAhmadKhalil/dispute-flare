@@ -3,19 +3,16 @@ import {
     Box,
     Divider,
     styled,
-    Typography,
     useTheme
 } from '@mui/material';
-import { setAddReasonDialog } from '@Screens/Reasons/Store/reasonsSlice'
+import { setAddReasonDialog } from '@Screens/Reasons/Store/reasonsSlice';
+import { useForm } from 'react-hook-form';
 import {
     useDispatch,
     useSelector
 } from 'react-redux';
-import cls from 'classnames'
-import styles from './AddReasonDialog.module.scss'
-import { useForm } from 'react-hook-form';
+import AddReasonForm from './AddReason/AddReasonForm';
 import AddReasonActions from './AddReasonActions';
-import AddReasonForm from './AddReason/AddReasonForm'
 
 const Container = styled(Box)(({ theme }) => {
 
@@ -23,7 +20,7 @@ const Container = styled(Box)(({ theme }) => {
         dialog: {
             main
         }
-    } = theme.palette || {}
+    }: any = theme.palette || {}
 
     return {
         backgroundColor: main,
@@ -32,7 +29,7 @@ const Container = styled(Box)(({ theme }) => {
     }
 })
 
-function AddReasonDialog(props) {
+function AddReasonDialog() {
 
     const defaultValues = {
         firstName: null,
@@ -68,14 +65,14 @@ function AddReasonDialog(props) {
         palette: {
             tableSeparator
         }
-    } = useTheme()
+    }: any = useTheme()
 
     const {
 
-    } = useSelector(state => state.shared)
+    } = useSelector((state: any) => state.shared)
     const {
         addReasonDialog
-    } = useSelector(state => state.reasons)
+    } = useSelector((state: any) => state.reasons)
 
     const {
         register,

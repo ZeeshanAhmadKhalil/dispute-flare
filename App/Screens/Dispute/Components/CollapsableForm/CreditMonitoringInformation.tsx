@@ -15,7 +15,7 @@ const Label = styled(Typography)(({ theme }) => {
 
     const {
         text: { xxxGrey },
-    } = theme.palette
+    }: any = theme.palette
 
     return {
         color: xxxGrey,
@@ -23,7 +23,7 @@ const Label = styled(Typography)(({ theme }) => {
     }
 })
 
-function CreditMonitoringInformation(props) {
+function CreditMonitoringInformation(props: any) {
 
     const {
         register,
@@ -36,11 +36,11 @@ function CreditMonitoringInformation(props) {
         palette: {
             tableSeparator: { light }
         }
-    } = useTheme()
+    }: any = useTheme()
 
     const {
         providers,
-    } = useSelector(state => state.dispute)
+    } = useSelector((state: any) => state.dispute)
 
     return (
         <CollapsableForm
@@ -57,7 +57,7 @@ function CreditMonitoringInformation(props) {
                     'items-center',
                 )}
             >
-                <Grid item xs="12">
+                <Grid item xs={12}>
                     <Typography
                         variant="subtitle2"
                         className={cls(
@@ -67,14 +67,14 @@ function CreditMonitoringInformation(props) {
                         Credit Monitoring Information
                     </Typography>
                 </Grid>
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         Select Provider
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
                     <DropDown
                         watch={watch}
                         register={register("provider", {
@@ -85,14 +85,14 @@ function CreditMonitoringInformation(props) {
                         error={errors.provider}
                     />
                 </Grid>
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         Username
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
                     <TextInput
                         register={register("username", {
                             required: true,
@@ -101,14 +101,14 @@ function CreditMonitoringInformation(props) {
                         error={errors.username}
                     />
                 </Grid>
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         Password
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
                     <TextInput
                         register={register("password", {
                             required: true,
@@ -118,14 +118,14 @@ function CreditMonitoringInformation(props) {
                         placeholder="****"
                     />
                 </Grid>
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         SSN (last 4 digits)
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
                     <TextInput
                         register={register("ssn", {
                             required: true,

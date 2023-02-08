@@ -11,7 +11,7 @@ import { setAddTaskDialog } from '../../Store/calendarSlice';
 import AddTask from './AddTask';
 import AddTaskActions from './AddTaskActions';
 
-function AddTaskDialog(props) {
+function AddTaskDialog() {
 
     const defaultValues = {
         title: null,
@@ -29,7 +29,7 @@ function AddTaskDialog(props) {
 
     const {
         addTaskDialog
-    } = useSelector(state => state.calendar)
+    } = useSelector((state: any) => state.calendar)
 
     const {
         register,

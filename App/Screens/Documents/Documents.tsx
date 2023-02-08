@@ -63,7 +63,7 @@ const columns = [
         editable: true,
         type: 'singleSelect',
         valueOptions: ['Repaired', 'Verified', 'Negative', 'Delete'],
-        renderCell: ({ value }) => <DropDownCell value={value} />,
+        renderCell: DropDownCell,
     },
 
 
@@ -152,13 +152,13 @@ const documents = [
 
 ]
 
-function a11yProps(index) {
+function a11yProps(index: any) {
     return {
         id: `simple-tab-${index}`,
         'aria-controls': `simple-tabpanel-${index}`,
     };
 }
-function TabPanel(props) {
+function TabPanel(props: any) {
     const { children, value, index, ...other } = props;
 
     return (
@@ -188,17 +188,19 @@ function Documents() {
     ]
 
     const {
-        palette
-    } = useTheme()
-
-    const {
-        selectedClientId
-    } = useSelector(state => state.shared)
+        palette: {
+            transWhite,
+            icon,
+        }
+    }: any = useTheme()
 
     const [value, setValue] = useState(0);
     const [selectedDocuments, setSelectedDocuments] = useState([])
 
-    const handleChange = (event, newValue) => {
+    const handleChange = (
+        event: any,
+        newValue: any
+    ) => {
         setValue(newValue);
     }
 
@@ -227,22 +229,17 @@ function Documents() {
 
             <Tabs
                 value={value}
-                //    ref={() => console.log("iammounted ")}
                 onChange={handleChange}
                 aria-label="basic tabs example"
                 textColor='secondary'
                 indicatorColor='secondary'
-                variant='srollable'
-
-
-
                 sx={{
-                    backgroundColor: palette.transWhite.main,
+                    backgroundColor: transWhite.main,
 
                     width: "15%",
                     borderRadius: "2rem",
                     marginTop: "1rem",
-                    color: palette.icon.inactive,
+                    color: icon.inactive,
                     padding: "0 1rem 1px 1rem",
 
                 }}
@@ -255,7 +252,7 @@ function Documents() {
             <TabPanel value={value} index={0}>
                 <Table
                     title="Documents"
-                    onSelectionModelChange={(selected) =>
+                    onSelectionModelChange={(selected: any) =>
                         setSelectedDocuments(selected)
                     }
                     columns={columns}

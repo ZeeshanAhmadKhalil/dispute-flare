@@ -28,7 +28,7 @@ const Container = styled(Box)(({ theme }) => {
         dialog: {
             main
         }
-    } = theme.palette || {}
+    }: any = theme.palette || {}
 
     return {
         backgroundColor: main,
@@ -37,7 +37,7 @@ const Container = styled(Box)(({ theme }) => {
     }
 })
 
-function AddClientDialog(props) {
+function AddClientDialog() {
 
     const defaultValues = {
         firstName: null,
@@ -73,13 +73,13 @@ function AddClientDialog(props) {
         palette: {
             tableSeparator
         }
-    } = useTheme()
+    }: any = useTheme()
 
     const {
-    } = useSelector(state => state.shared)
+    } = useSelector((state: any) => state.shared)
     const {
         addClientDialog
-    } = useSelector(state => state.clients)
+    } = useSelector((state: any) => state.clients)
 
     const {
         register,

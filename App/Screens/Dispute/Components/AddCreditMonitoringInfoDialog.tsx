@@ -18,7 +18,7 @@ const Container = styled(Box)(({ theme }) => {
         dialog: {
             main
         }
-    } = theme.palette || {}
+    }: any = theme.palette || {}
 
     return {
         backgroundColor: main,
@@ -27,7 +27,7 @@ const Container = styled(Box)(({ theme }) => {
     }
 })
 
-function AddCreditMonitoringInfoDialog(props) {
+function AddCreditMonitoringInfoDialog() {
 
     const defaultValues = {
         provider: null,
@@ -41,11 +41,11 @@ function AddCreditMonitoringInfoDialog(props) {
         palette: {
             tableSeparator
         }
-    } = useTheme()
+    }: any = useTheme()
 
     const {
         addCreditMonitoringInfoDialog
-    } = useSelector(state => state.dispute)
+    } = useSelector((state: any) => state.dispute)
 
     const {
         register,

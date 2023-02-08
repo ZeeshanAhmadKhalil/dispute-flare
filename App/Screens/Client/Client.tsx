@@ -24,7 +24,7 @@ function Client() {
     const {
         columns,
         clients,
-    } = useSelector(state => state.clients)
+    } = useSelector((state: any) => state.clients)
 
     const [selectedClients, setSelectedClients] = useState([])
 
@@ -40,7 +40,7 @@ function Client() {
             />
             <Table
                 title="Clients"
-                onSelectionModelChange={(selected) =>
+                onSelectionModelChange={(selected: any) =>
                     setSelectedClients(selected)
                 }
                 noRowsAction={() =>

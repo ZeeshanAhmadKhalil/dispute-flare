@@ -19,7 +19,7 @@ const Container = styled(Box)(({ theme }) => {
         dialog: {
             main
         }
-    } = theme.palette || {}
+    }: any = theme.palette || {}
 
     return {
         backgroundColor: main,
@@ -43,14 +43,14 @@ function AddLetterTemplateDialog() {
         palette: {
             tableSeparator
         }
-    } = useTheme()
+    }: any = useTheme()
 
     const {
 
-    } = useSelector(state => state.shared)
+    } = useSelector((state: any) => state.shared)
     const {
         addLetterTemplateDialog
-    } = useSelector(state => state.templates)
+    } = useSelector((state: any) => state.templates)
 
     const {
         register,

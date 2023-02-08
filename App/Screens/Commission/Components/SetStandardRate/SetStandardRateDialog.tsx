@@ -13,7 +13,7 @@ import {
 import SetStandardRate from './SetStandardRate';
 import SetStandardRateActions from './SetStandardRateActions';
 
-function SetStandardRateDialog(props) {
+function SetStandardRateDialog() {
 
     const defaultValues = {
         creditorName: null,
@@ -30,7 +30,7 @@ function SetStandardRateDialog(props) {
 
     const {
         standardRateDialog
-    } = useSelector(state => state.commission)
+    } = useSelector((state: any) => state.commission)
 
     const {
         register,

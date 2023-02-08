@@ -22,7 +22,7 @@ const Dialog = styled(MuiDialog)(({ theme }) => {
     const {
         text,
         dialog,
-    } = theme.palette
+    }: any = theme.palette
 
     return {
         '& .MuiPaper-root': {
@@ -32,7 +32,7 @@ const Dialog = styled(MuiDialog)(({ theme }) => {
     }
 })
 
-const Title = (props) => {
+const Title = (props: any) => {
     const { children,
         onClose,
         ...other
@@ -40,7 +40,7 @@ const Title = (props) => {
 
     const {
         palette: { text }
-    } = useTheme()
+    }: any = useTheme()
 
     return (
         <DialogTitle
@@ -61,7 +61,7 @@ const Title = (props) => {
                     position: 'absolute',
                     right: 8,
                     top: 8,
-                    color: (theme) => theme.palette.icon.lightActive,
+                    color: (theme: any) => theme.palette.icon.lightActive,
                 }}
             >
                 <CloseIcon />
@@ -70,7 +70,7 @@ const Title = (props) => {
     );
 };
 
-function Toolbar(props) {
+function Toolbar(props: any) {
 
     const {
         title = "",
@@ -87,16 +87,16 @@ function Toolbar(props) {
             text,
             checkbox,
         }
-    } = useTheme()
+    }: any = useTheme()
 
     const {
         toolbar
-    } = useSelector(state => state.shared)
+    } = useSelector((state: any) => state.shared)
 
     function RenderColumns() {
         return columns
-            .filter(obj => obj.hidable)
-            .map((item, key) => {
+            .filter((obj: any) => obj.hidable)
+            .map((item: any, key: any) => {
 
                 const {
                     headerName,
@@ -120,14 +120,13 @@ function Toolbar(props) {
                             props={{
                                 checked: !hide,
                             }}
-                            action={(hide) =>
+                            action={(hide: any) =>
                                 dispatch(setColumnVisibility({ field, hide }))
                             }
 
                         />
                         <Typography
                             variant="subtitle2"
-                            component="subtitle2"
                             sx={{
                                 fontWeight: '600'
                             }}

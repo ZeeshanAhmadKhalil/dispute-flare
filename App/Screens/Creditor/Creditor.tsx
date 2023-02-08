@@ -13,15 +13,14 @@ import {
     setDefaultColumnsVisibility
 } from './Store/creditorSlice';
 
-function Creditor(props) {
+function Creditor() {
 
     const dispatch = useDispatch()
-    const router = useRouter()
 
     const {
         columns,
         creditors,
-    } = useSelector(state => state.creditor)
+    } = useSelector((state: any) => state.creditor)
 
     const [selectedCreditors, setSelectedCreditors] = useState([])
 
@@ -40,7 +39,7 @@ function Creditor(props) {
             />
             <Table
                 title="Creditor"
-                onSelectionModelChange={(selected) =>
+                onSelectionModelChange={(selected: any) =>
                     setSelectedCreditors(selected)
                 }
                 noRowsAction={() => {

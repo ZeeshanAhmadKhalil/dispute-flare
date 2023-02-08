@@ -33,7 +33,7 @@ const Container = styled(Box)(({ theme }) => {
         dialog: {
             main
         }
-    } = theme.palette || {}
+    }: any = theme.palette || {}
 
     return {
         backgroundColor: main,
@@ -55,7 +55,7 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
 }))
 
 
-function ImportClientsDialog(props) {
+function ImportClientsDialog() {
 
     const defaultValues = {
         files: []
@@ -71,7 +71,7 @@ function ImportClientsDialog(props) {
 
     const {
         importClientsDialog
-    } = useSelector(state => state.clients)
+    } = useSelector((state: any) => state.clients)
 
     const {
         register,
@@ -91,7 +91,7 @@ function ImportClientsDialog(props) {
 
     const renderFiles = () => {
 
-        return watchFiles.map(item =>
+        return watchFiles.map((item: any) =>
             <Box
                 sx={{
                     display: "flex",
@@ -161,7 +161,7 @@ function ImportClientsDialog(props) {
                         'items-center',
                     )}
                 >
-                    <Grid item md="7" xs="12">
+                    <Grid item md={7} xs={12}>
                         <Typography
                             sx={{
                                 mb: 0.5,
@@ -185,8 +185,8 @@ function ImportClientsDialog(props) {
                     </Grid>
                     <Grid
                         item
-                        md="5"
-                        xs="12"
+                        md={5}
+                        xs={12}
                     >
                         <Box
                             className={cls(
@@ -217,7 +217,7 @@ function ImportClientsDialog(props) {
                     </Grid>
                     <Grid
                         item
-                        xs="12"
+                        xs={12}
                     >
                         <FileDropPicker
                             setValue={setValue}
@@ -231,10 +231,7 @@ function ImportClientsDialog(props) {
                                 sx={{ marginX: "1rem" }}
                             />
                         </Box>
-
                     </Grid>
-
-
                 </Grid>
             </Container>
         </RightDialogLayout >

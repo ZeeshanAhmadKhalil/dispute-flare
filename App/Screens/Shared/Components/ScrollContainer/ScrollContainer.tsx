@@ -1,12 +1,17 @@
 
-import { appBarHeight, drawerClosedWidth, drawerWidth, rightBarWidth, topTabsHeight, footerHeight } from "@Config/constants";
+import {
+    appBarHeight,
+    drawerClosedWidth,
+    drawerWidth,
+    rightBarWidth
+} from "@Config/constants";
 import useWindowDimensions from "@Hooks/useWindowDimensions";
 import { useSelector } from "react-redux";
 import SimpleBarReact from "simplebar-react";
 
 function ScrollContainer({
     children,
-}) {
+}: any) {
 
     const {
         height,
@@ -15,7 +20,7 @@ function ScrollContainer({
 
     const {
         sidebar,
-    } = useSelector(state => state.layout)
+    } = useSelector((state: any) => state.layout)
 
     return (
         <SimpleBarReact

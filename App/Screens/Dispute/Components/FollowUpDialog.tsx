@@ -15,7 +15,7 @@ import Button from '@Components/Button/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFollowUpDialog } from '../Store/disputeSlice';
 
-function FollowUpDialog(props) {
+function FollowUpDialog() {
 
     const {
         palette: {
@@ -26,13 +26,13 @@ function FollowUpDialog(props) {
                 lighter,
             },
         }
-    } = useTheme()
+    }: any = useTheme()
 
     const dispatch = useDispatch()
 
     const {
         followUpDialog,
-    } = useSelector(state => state.dispute)
+    } = useSelector((state: any) => state.dispute)
 
     const [dontChange, setDontChange] = useState(false)
 

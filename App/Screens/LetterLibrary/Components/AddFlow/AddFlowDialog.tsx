@@ -18,7 +18,7 @@ const Container = styled(Box)(({ theme }) => {
         dialog: {
             main
         }
-    } = theme.palette || {}
+    }: any = theme.palette || {}
 
     return {
         backgroundColor: main,
@@ -42,14 +42,14 @@ function AddFlowDialog() {
         palette: {
             tableSeparator
         }
-    } = useTheme()
+    }: any = useTheme()
 
     const {
 
-    } = useSelector(state => state.shared)
+    } = useSelector((state: any) => state.shared)
     const {
         addFlowDialog
-    } = useSelector(state => state.letterLibrary)
+    } = useSelector((state: any) => state.letterLibrary)
 
     const {
         register,

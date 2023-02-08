@@ -33,7 +33,7 @@ const Container = styled(Box)(({ theme }) => {
         dialog: {
             main
         }
-    } = theme.palette || {}
+    }: any = theme.palette || {}
 
     return {
         backgroundColor: main,
@@ -55,7 +55,7 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
 }))
 
 
-function ImportCreditorsDialog(props) {
+function ImportCreditorsDialog() {
 
     const defaultValues = {
         files: []
@@ -71,7 +71,7 @@ function ImportCreditorsDialog(props) {
 
     const {
         importCreditorsDialog
-    } = useSelector(state => state.creditor)
+    } = useSelector((state: any) => state.creditor)
 
     const {
         register,
@@ -91,7 +91,7 @@ function ImportCreditorsDialog(props) {
 
     const renderFiles = () => {
 
-        return watchFiles.map(item =>
+        return watchFiles.map((item: any) =>
             <Box
                 sx={{
                     display: "flex",
@@ -160,7 +160,7 @@ function ImportCreditorsDialog(props) {
                         'items-center',
                     )}
                 >
-                    <Grid item md="7" xs="12">
+                    <Grid item md={7} xs={12}>
                         <Typography
                             sx={{
                                 mb: 0.5,
@@ -184,8 +184,8 @@ function ImportCreditorsDialog(props) {
                     </Grid>
                     <Grid
                         item
-                        md="5"
-                        xs="12"
+                        md={5}
+                        xs={12}
                     >
                         <Box
                             className={cls(
@@ -216,7 +216,7 @@ function ImportCreditorsDialog(props) {
                     </Grid>
                     <Grid
                         item
-                        xs="12"
+                        xs={12}
                     >
                         <FileDropPicker
                             setValue={setValue}

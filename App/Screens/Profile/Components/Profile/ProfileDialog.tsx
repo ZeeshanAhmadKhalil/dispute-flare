@@ -28,7 +28,7 @@ const Container = styled(Box)(({ theme }) => {
         dialog: {
             main
         }
-    } = theme.palette || {}
+    }: any = theme.palette || {}
 
     return {
         //   backgroundColor: "pink",
@@ -40,7 +40,7 @@ const Container = styled(Box)(({ theme }) => {
 
     }
 })
-function TabPanel(props) {
+function TabPanel(props: any) {
     const { children, value, index, ...other } = props;
 
     return (
@@ -59,7 +59,7 @@ function TabPanel(props) {
         </div>
     );
 }
-function ProfileDialog(props) {
+function ProfileDialog() {
 
     const defaultValues = {
         firstName: null,
@@ -92,11 +92,14 @@ function ProfileDialog(props) {
 
     const dispatch = useDispatch()
     const {
-        palette
-    } = useTheme()
+        palette: {
+            text,
+            secondary,
+        }
+    }: any = useTheme()
     const {
         profileDialogMain
-    } = useSelector(state => state.profile)
+    } = useSelector((state: any) => state.profile)
 
     const {
         register,
@@ -118,10 +121,10 @@ function ProfileDialog(props) {
     ]
     const [value, setValue] = React.useState(0);
 
-    const handleChange = (event, newValue) => {
+    const handleChange = (event: any, newValue: any) => {
         setValue(newValue);
     };
-    function a11yProps(index) {
+    function a11yProps(index: any) {
         return {
             id: `simple-tab-${index}`,
             'aria-controls': `simple-tabpanel-${index}`,
@@ -138,7 +141,7 @@ function ProfileDialog(props) {
 
         >
             <Container>
-                <Tabs value={value} indicatorColor="secondary" onChange={handleChange} aria-label="basic tabs example" textColor={palette.text.main} >
+                <Tabs value={value} indicatorColor="secondary" onChange={handleChange} aria-label="basic tabs example" textColor={text.main} >
                     <Tab label="General" {...a11yProps(0)} />
                     <Tab label="Clients" {...a11yProps(1)} />
                     <Tab label="Tasks" {...a11yProps(2)} /><Tab label="Calender" {...a11yProps(2)} />
@@ -146,12 +149,12 @@ function ProfileDialog(props) {
 
                 <TabPanel value={value} index={0} >
                     <Grid container columnSpacing="10px">
-                        <Grid xl="4" >
+                        <Grid item xl={4} >
                             <Grid padding="1rem 22px 2rem 0px">
                                 <Grid display="flex" justifyContent="space-between" alignItems="flex-start" >
                                     <div  >
 
-                                        <Typography color={palette.text.main} sx={{ position: "relative", top: "25px", left: "5px" }}>
+                                        <Typography color={text.main} sx={{ position: "relative", top: "25px", left: "5px" }}>
                                             ADMINSTRATOR
                                         </Typography>
                                         <HorzontalTag />
@@ -166,11 +169,13 @@ function ProfileDialog(props) {
                                                 color: "green",
                                                 marginRight: "2px"
                                             }} />
-                                            <Typography variant='span' color={palette.text.contrastText1}>
+                                            <Typography
+                                                color={text.contrastText1}
+                                            >
                                                 ONLINE
                                             </Typography>
                                         </Box>
-                                        <Typography color={palette.text.xGrey} >
+                                        <Typography color={text.xGrey} >
                                             Last seen 9 minutes ago
                                         </Typography>
                                     </Box>
@@ -184,12 +189,12 @@ function ProfileDialog(props) {
 
                             </Grid>
                             <Grid sx={{ padding: "10px 1rem 20px 16px", marginTop: "1rem" }}  >
-                                <Typography variant='h6'   >
+                                <Typography variant='h6'>
                                     Appreciation
                                 </Typography>
                                 <Divider
                                     sx={{
-                                        backgroundColor: palette.text.xGrey2
+                                        backgroundColor: text.xGrey2
                                     }}
                                 />
                                 <Grid>
@@ -200,17 +205,17 @@ function ProfileDialog(props) {
                             </Grid>
 
                         </Grid>
-                        <Grid xl="7" sx={{ padding: "1rem 2rem 1rem 1rem", marginLeft: "5px", }} >
+                        <Grid item xl={7} sx={{ padding: "1rem 2rem 1rem 1rem", marginLeft: "5px", }} >
 
                             <Grid display="flex" justifyContent="space-between">
 
 
-                                <Typography variant='h5' color={palette.text.xGrey}  >
+                                <Typography variant='h5' color={text.xGrey}  >
                                     Contact Information
                                 </Typography>
 
 
-                                <Typography color={palette.text.xGrey} >
+                                <Typography color={text.xGrey} >
                                     Edit
                                 </Typography>
 
@@ -218,30 +223,30 @@ function ProfileDialog(props) {
                             </Grid>
                             <Divider
                                 sx={{
-                                    backgroundColor: palette.text.xGrey3,
+                                    backgroundColor: text.xGrey3,
                                     margin: "1rem 0"
                                 }}
                             />
                             <Grid rowGap="10px" display="flex" flexDirection="column">
-                                <Typography color={palette.text.xGrey} >
+                                <Typography color={text.xGrey} >
                                     First Name
                                 </Typography>
                                 <Typography  >
                                     John
                                 </Typography>
-                                <Typography color={palette.text.xGrey} marginTop="1rem">
+                                <Typography color={text.xGrey} marginTop="1rem">
                                     Last Name
                                 </Typography>
                                 <Typography  >
                                     Doe
                                 </Typography>
-                                <Typography color={palette.text.xGrey} marginTop="1rem">
+                                <Typography color={text.xGrey} marginTop="1rem">
                                     Contact Email
                                 </Typography>
-                                <Typography color={palette.secondary.main} >
+                                <Typography color={secondary.main} >
                                     Johandoe@gmail.com
                                 </Typography>
-                                <Typography color={palette.text.xGrey} marginTop="1rem">
+                                <Typography color={text.xGrey} marginTop="1rem">
                                     Mobile Number
                                 </Typography>
                                 <Typography  >

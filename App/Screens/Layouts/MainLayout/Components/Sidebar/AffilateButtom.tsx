@@ -6,7 +6,7 @@ import BecomeAnAffilate from 'public/Assets/Svgs/become-an-affilate.svg';
 import { useSelector } from 'react-redux';
 import styles from './AffilateButton.module.scss';
 
-function AffilateButtom(props) {
+function AffilateButtom(props: any) {
 
     const {
         isHoverSidebar,
@@ -14,7 +14,7 @@ function AffilateButtom(props) {
 
     const {
         sidebar,
-    } = useSelector(state => state.layout)
+    } = useSelector((state: any) => state.layout)
 
     return (
         <Box

@@ -16,7 +16,7 @@ const Label = styled(Typography)(({ theme }) => {
 
     const {
         text: { xxxGrey },
-    } = theme.palette
+    }: any = theme.palette
 
     return {
         color: xxxGrey,
@@ -24,7 +24,7 @@ const Label = styled(Typography)(({ theme }) => {
     }
 })
 
-function SetStandardRate(props) {
+function SetStandardRate(props: any) {
 
     const paidForList = [
         { label: "Steve Rogers", value: 1 },
@@ -50,11 +50,11 @@ function SetStandardRate(props) {
         palette: {
             icon,
         }
-    } = useTheme()
+    }: any = useTheme()
 
     const {
         providers,
-    } = useSelector(state => state.dispute)
+    } = useSelector((state: any) => state.dispute)
 
     return (
         <CollapsableForm
@@ -71,14 +71,14 @@ function SetStandardRate(props) {
                     'items-center',
                 )}
             >
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         Rate
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
                     <TextInput
                         register={register("rate", {
                             required: true,
@@ -94,14 +94,14 @@ function SetStandardRate(props) {
                         }
                     />
                 </Grid>
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         Paid For
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
                     <DropDown
                         watch={watch}
                         register={register("paidFor")}
@@ -110,15 +110,15 @@ function SetStandardRate(props) {
                         error={errors.paidFor}
                     />
                 </Grid>
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         Applicable From
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
-                    <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
+                    <Grid item xl={4} md={6} xs={12}>
                         <DatePicker
                             control={control}
                             name="applicableFrom"

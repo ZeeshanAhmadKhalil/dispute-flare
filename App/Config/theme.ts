@@ -251,15 +251,6 @@ export {
     darkTheme,
 }
 
-declare module "@mui/material/styles/createPalette" {
-    interface Palette {
-        outlinedBtn: PaletteColor;
-    }
-    interface PaletteOptions {
-        outlinedBtn: PaletteColorOptions;
-    }
-}
-
 declare module '@mui/material/IconButton' {
     interface IconButtonPropsColorOverrides {
         text: true;
@@ -276,3 +267,4 @@ declare module '@mui/material/styles' {
         xl2: true;
     }
 }
+

@@ -18,7 +18,7 @@ const Label = styled(Typography)(({ theme }) => {
 
     const {
         text: { xxxGrey },
-    } = theme.palette
+    }: any = theme.palette
 
     return {
         color: xxxGrey,
@@ -26,7 +26,7 @@ const Label = styled(Typography)(({ theme }) => {
     }
 })
 
-function AddAffiliateForm(props) {
+function AddAffiliateForm(props: any) {
 
     const {
         register,
@@ -39,13 +39,13 @@ function AddAffiliateForm(props) {
         palette: {
             tableSeparator: { light }
         }
-    } = useTheme()
+    }: any = useTheme()
 
     const {
         cities,
         states,
         countries,
-    } = useSelector(state => state.clients)
+    } = useSelector((state: any) => state.clients)
 
     return (
 
@@ -59,7 +59,7 @@ function AddAffiliateForm(props) {
                 'items-center',
             )}
         >
-            <Grid item xs="12">
+            <Grid item xs={12}>
                 <Typography
                     variant="subtitle2"
                     className={cls(
@@ -69,14 +69,14 @@ function AddAffiliateForm(props) {
                     Personal Information
                 </Typography>
             </Grid>
-            <Grid item xl="2" md="6" xs="12">
+            <Grid item xl={2} md={6} xs={12}>
                 <Label
                     variant="subtitle1"
                 >
                     First Name
                 </Label>
             </Grid>
-            <Grid item xl="4" md="6" xs="12">
+            <Grid item xl={4} md={6} xs={12}>
                 <TextInput
                     register={register("firstName", {
                         required: true,
@@ -85,14 +85,14 @@ function AddAffiliateForm(props) {
                     error={errors.firstName}
                 />
             </Grid>
-            <Grid item xl="2" md="6" xs="12">
+            <Grid item xl={2} md={6} xs={12}>
                 <Label
                     variant="subtitle1"
                 >
                     Last Name
                 </Label>
             </Grid>
-            <Grid item xl="4" md="6" xs="12">
+            <Grid item xl={4} md={6} xs={12}>
                 <TextInput
                     register={register("lastName", {
                         required: true,
@@ -102,14 +102,14 @@ function AddAffiliateForm(props) {
                 />
             </Grid>
 
-            <Grid item xl="2" md="6" xs="12">
+            <Grid item xl={2} md={6} xs={12}>
                 <Label
                     variant="subtitle1"
                 >
                     Phone
                 </Label>
             </Grid>
-            <Grid item xl="4" md="6" xs="12">
+            <Grid item xl={4} md={6} xs={12}>
                 <TextInput
                     register={register("phoneNumber")}
                     name="phoneNumber"
@@ -117,14 +117,14 @@ function AddAffiliateForm(props) {
                     placeholder="000-000-0000"
                 />
             </Grid>
-            <Grid item xl="2" md="6" xs="12">
+            <Grid item xl={2} md={6} xs={12}>
                 <Label
                     variant="subtitle1"
                 >
                     Mobile
                 </Label>
             </Grid>
-            <Grid item xl="4" md="6" xs="12">
+            <Grid item xl={4} md={6} xs={12}>
                 <TextInput
                     register={register("mobile")}
                     name="mobile"
@@ -132,14 +132,14 @@ function AddAffiliateForm(props) {
                     placeholder="000-000-0000"
                 />
             </Grid>
-            <Grid item xl="2" md="6" xs="12">
+            <Grid item xl={2} md={6} xs={12}>
                 <Label
                     variant="subtitle1"
                 >
                     Email
                 </Label>
             </Grid>
-            <Grid item xl="4" md="6" xs="12">
+            <Grid item xl={4} md={6} xs={12}>
                 <TextInput
                     register={register("email")}
                     name="email"
@@ -148,7 +148,7 @@ function AddAffiliateForm(props) {
                 />
             </Grid>
 
-            <Grid item xs="12">
+            <Grid item xs={12}>
                 <Divider
                     sx={{
                         backgroundColor: light
@@ -156,7 +156,7 @@ function AddAffiliateForm(props) {
                 />
             </Grid>
 
-            <Grid item xs="12">
+            <Grid item xs={12}>
                 <Typography
                     variant="subtitle2"
                     className={cls(
@@ -166,28 +166,28 @@ function AddAffiliateForm(props) {
                     Address Information
                 </Typography>
             </Grid>
-            <Grid item xl="2" md="6" xs="12">
+            <Grid item xl={2} md={6} xs={12}>
                 <Label
                     variant="subtitle1"
                 >
                     Address
                 </Label>
             </Grid>
-            <Grid item xl="4" md="6" xs="12">
+            <Grid item xl={4} md={6} xs={12}>
                 <TextInput
                     register={register("address")}
                     name="address"
                     error={errors.address}
                 />
             </Grid>
-            <Grid item xl="2" md="6" xs="12">
+            <Grid item xl={2} md={6} xs={12}>
                 <Label
                     variant="subtitle1"
                 >
                     City
                 </Label>
             </Grid>
-            <Grid item xl="4" md="6" xs="12">
+            <Grid item xl={4} md={6} xs={12}>
                 <DropDown
                     watch={watch}
                     register={register("city")}
@@ -196,14 +196,14 @@ function AddAffiliateForm(props) {
                     error={errors.city}
                 />
             </Grid>
-            <Grid item xl="2" md="6" xs="12">
+            <Grid item xl={2} md={6} xs={12}>
                 <Label
                     variant="subtitle1"
                 >
                     State
                 </Label>
             </Grid>
-            <Grid item xl="4" md="6" xs="12">
+            <Grid item xl={4} md={6} xs={12}>
                 <DropDown
                     watch={watch}
                     register={register("state")}
@@ -213,14 +213,14 @@ function AddAffiliateForm(props) {
                 />
             </Grid>
 
-            <Grid item xl="2" md="6" xs="12">
+            <Grid item xl={2} md={6} xs={12}>
                 <Label
                     variant="subtitle1"
                 >
                     Zip code
                 </Label>
             </Grid>
-            <Grid item xl="4" md="6" xs="12">
+            <Grid item xl={4} md={6} xs={12}>
                 <TextInput
                     register={register("zipCode")}
                     name="zipCode"
@@ -228,7 +228,7 @@ function AddAffiliateForm(props) {
                     placeholder="00000"
                 />
             </Grid>
-            <Grid item xs="12">
+            <Grid item xs={12}>
                 <Typography
                     variant="subtitle2"
                     className={cls(
@@ -238,14 +238,14 @@ function AddAffiliateForm(props) {
                     Company Information
                 </Typography>
             </Grid>
-            <Grid item xl="2" md="6" xs="12">
+            <Grid item xl={2} md={6} xs={12}>
                 <Label
                     variant="subtitle1"
                 >
                     Company Name
                 </Label>
             </Grid>
-            <Grid item xl="4" md="6" xs="12">
+            <Grid item xl={4} md={6} xs={12}>
                 <TextInput
                     register={register("companyName", {
                         required: true,
@@ -257,14 +257,14 @@ function AddAffiliateForm(props) {
             </Grid>
 
 
-            <Grid item xl="2" md="6" xs="12">
+            <Grid item xl={2} md={6} xs={12}>
                 <Label
                     variant="subtitle1"
                 >
                     Website
                 </Label>
             </Grid>
-            <Grid item xl="4" md="6" xs="12">
+            <Grid item xl={4} md={6} xs={12}>
                 <TextInput
                     register={register("website")}
                     name="website"
@@ -272,14 +272,14 @@ function AddAffiliateForm(props) {
                     placeholder="https://"
                 />
             </Grid>
-            <Grid item xs="12">
+            <Grid item xs={12}>
                 <Divider
                     sx={{
                         backgroundColor: light
                     }}
                 />
             </Grid>
-            <Grid item xs="12">
+            <Grid item xs={12}>
                 <Typography
                     variant="subtitle2"
                     className={cls(
@@ -289,7 +289,7 @@ function AddAffiliateForm(props) {
                     Set rate
                 </Typography>
             </Grid>
-            <Grid item xs="12">
+            <Grid item xs={12}>
                 <Grid
                     container
                     rowSpacing={2}
@@ -300,7 +300,7 @@ function AddAffiliateForm(props) {
                         'items-center',
                     )}>
 
-                    <Grid item xl="4" md="6" xs="12">
+                    <Grid item xl={4} md={6} xs={12}>
                         <RadioBtns
                             control={control}
                             name="hasPreviousAddress"
@@ -313,28 +313,28 @@ function AddAffiliateForm(props) {
                     </Grid>
                 </Grid>
             </Grid>
-            <Grid item xl="2" md="6" xs="12">
+            <Grid item xl={2} md={6} xs={12}>
                 <Label
                     variant="subtitle1"
                 >
                     Rate
                 </Label>
             </Grid>
-            <Grid item xl="4" md="6" xs="12">
+            <Grid item xl={4} md={6} xs={12}>
                 <TextInput
                     register={register("rate")}
                     name="rate"
                     error={errors.rate}
                 />
             </Grid>
-            <Grid item xl="2" md="6" xs="12">
+            <Grid item xl={2} md={6} xs={12}>
                 <Label
                     variant="subtitle1"
                 >
                     Paid For
                 </Label>
             </Grid>
-            <Grid item xl="4" md="6" xs="12">
+            <Grid item xl={4} md={6} xs={12}>
                 <DropDown
                     watch={watch}
                     register={register("paidfor")}
@@ -345,7 +345,7 @@ function AddAffiliateForm(props) {
             </Grid>
 
 
-            <Grid item xs="12">
+            <Grid item xs={12}>
                 <Divider
                     sx={{
                         backgroundColor: light
@@ -353,14 +353,14 @@ function AddAffiliateForm(props) {
                 />
             </Grid>
 
-            <Grid item xl="2" md="6" xs="12">
+            <Grid item xl={2} md={6} xs={12}>
                 <Label
                     variant="subtitle1"
                 >
                     Status
                 </Label>
             </Grid>
-            <Grid item xl="4" md="6" xs="12">
+            <Grid item xl={4} md={6} xs={12}>
                 <DropDown
                     watch={watch}
                     register={register("status")}
@@ -372,7 +372,7 @@ function AddAffiliateForm(props) {
 
 
 
-            <Grid item xs="12">
+            <Grid item xs={12}>
                 <Divider
                     sx={{
                         backgroundColor: light

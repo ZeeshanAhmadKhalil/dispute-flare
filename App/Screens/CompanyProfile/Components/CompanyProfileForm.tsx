@@ -22,7 +22,7 @@ const Label = styled(Typography)(({ theme }) => {
     const {
         text: { xxxGrey },
         cancelled
-    } = theme.palette
+    }: any = theme.palette
 
     return {
         color: xxxGrey,
@@ -32,7 +32,7 @@ const Label = styled(Typography)(({ theme }) => {
 
 
 
-function CompanyProfileForm(props) {
+function CompanyProfileForm(props: any) {
 
     const {
         register,
@@ -46,13 +46,13 @@ function CompanyProfileForm(props) {
             tableSeparator: { light },
             dialog, text
         }
-    } = useTheme()
+    }: any = useTheme()
 
     const {
         cities,
         states,
         countries,
-    } = useSelector(state => state.clients)
+    } = useSelector((state: any) => state.clients)
 
     return (
         <>
@@ -75,7 +75,7 @@ function CompanyProfileForm(props) {
                 )}
             >
 
-                <Grid item xs="12" >
+                <Grid item xs={12} >
                     <Grid sx={{ paddingTop: "0", }}>
 
                         <Typography
@@ -90,14 +90,14 @@ function CompanyProfileForm(props) {
                         />
                     </Grid>
                 </Grid>
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         Company Name <RequiredMark />
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
                     <TextInput
                         register={register("companyName", {
                             required: true,
@@ -107,14 +107,14 @@ function CompanyProfileForm(props) {
 
                     />
                 </Grid>
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         Email <RequiredMark />
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
                     <TextInput
                         register={register("email", {
                             required: true,
@@ -124,14 +124,14 @@ function CompanyProfileForm(props) {
                     />
                 </Grid>
 
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         Website
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
                     <TextInput
                         register={register("website")}
                         name="website"
@@ -139,14 +139,14 @@ function CompanyProfileForm(props) {
                         placeholder=""
                     />
                 </Grid>
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         Time Zone
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
                     <DropDown
                         watch={watch}
                         register={register("timezone")}
@@ -157,7 +157,7 @@ function CompanyProfileForm(props) {
                 </Grid>
 
 
-                <Grid item xs="12">
+                <Grid item xs={12}>
                     <Divider
                         sx={{
                             backgroundColor: light
@@ -165,7 +165,7 @@ function CompanyProfileForm(props) {
                     />
                 </Grid>
 
-                <Grid item xs="12">
+                <Grid item xs={12}>
                     <Typography
                         variant="subtitle2"
                         color={text.contrastText}
@@ -176,28 +176,28 @@ function CompanyProfileForm(props) {
                         Address <RequiredMark />
                     </Typography>
                 </Grid>
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         Mailing Address
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
                     <TextInput
                         register={register("mailingAddress")}
                         name="mailingAddress"
                         error={errors.mailingAddress}
                     />
                 </Grid>
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         City
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
                     <DropDown
                         watch={watch}
                         register={register("city")}
@@ -206,14 +206,14 @@ function CompanyProfileForm(props) {
                         error={errors.city}
                     />
                 </Grid>
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         State
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
                     <DropDown
                         watch={watch}
                         register={register("state")}
@@ -223,14 +223,14 @@ function CompanyProfileForm(props) {
                     />
                 </Grid>
 
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         Zip code
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
                     <TextInput
                         register={register("zipCode")}
                         name="zipCode"
@@ -238,14 +238,14 @@ function CompanyProfileForm(props) {
                         placeholder="00000"
                     />
                 </Grid>
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         Phone
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
                     <TextInput
                         register={register("phone")}
                         name="phone"
@@ -253,14 +253,14 @@ function CompanyProfileForm(props) {
                         placeholder="(000) 000-000"
                     />
                 </Grid>
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         Fax
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
                     <TextInput
                         register={register("fax")}
                         name="fax"
@@ -270,7 +270,7 @@ function CompanyProfileForm(props) {
                 </Grid>
 
 
-                <Grid item xl="4" md="6" xs="12" display="flex">
+                <Grid item xl={4} md={6} xs={12} display="flex">
                     <Button
                         color={"primary"}
                         style={{

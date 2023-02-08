@@ -11,7 +11,7 @@ import { setCreditorDialog } from '../../Store/creditorSlice';
 import AddCreditor from './AddCreditor';
 import AddCreditorActions from './AddCreditorActions';
 
-function AddCreditorDialog(props) {
+function AddCreditorDialog() {
 
     const defaultValues = {
         creditorName: null,
@@ -28,7 +28,7 @@ function AddCreditorDialog(props) {
 
     const {
         creditorDialog
-    } = useSelector(state => state.creditor)
+    } = useSelector((state: any) => state.creditor)
 
     const {
         register,

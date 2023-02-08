@@ -18,7 +18,7 @@ const Container = styled(Box)(({ theme }) => {
         dialog: {
             main
         }
-    } = theme.palette || {}
+    }: any = theme.palette || {}
 
     return {
         backgroundColor: main,
@@ -27,7 +27,7 @@ const Container = styled(Box)(({ theme }) => {
     }
 })
 
-function AddTeamDialog(props) {
+function AddTeamDialog() {
 
     const defaultValues = {
         firstName: null,
@@ -63,14 +63,14 @@ function AddTeamDialog(props) {
         palette: {
             tableSeparator
         }
-    } = useTheme()
+    }: any = useTheme()
 
     const {
 
-    } = useSelector(state => state.shared)
+    } = useSelector((state: any) => state.shared)
     const {
         addTeamDialog
-    } = useSelector(state => state.teams)
+    } = useSelector((state: any) => state.teams)
 
     const {
         register,

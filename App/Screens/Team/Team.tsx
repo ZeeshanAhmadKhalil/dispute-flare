@@ -6,12 +6,11 @@ import { getId } from '@Config/helper';
 import CircleIcon from '@mui/icons-material/Circle';
 import {
     Divider,
-    Grid,
-    useTheme
+    Grid
 } from '@mui/material';
 import { Box } from '@mui/system';
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import AddTeamDialog from './Components/AddTeam/AddTeamDialog';
 import TeamAction from './Components/TeamActions';
 import Value from './Components/Value';
@@ -32,9 +31,11 @@ const columns = [
         headerClassName: 'separator-header',
         hidable: true,
         hide: false,
-        renderCell: ({ value }) => (
+        renderCell: ({ value }: any) => (
             <Grid>
-                <LinkCell value={value} />
+                <LinkCell
+                    value={value}
+                />
                 <Box>
                     <CircleIcon
                         sx={{
@@ -116,11 +117,6 @@ const departmentColumns = [
         headerClassName: 'separator-header',
         hidable: true,
         hide: false,
-        renderCell: ({ value }) => (
-            <Grid>
-                <Value value={value} />
-            </Grid>
-        )
     },
     {
         field: 'status',
@@ -129,8 +125,6 @@ const departmentColumns = [
         headerClassName: 'separator-header',
         hidable: true,
         hide: false,
-
-        renderCell: ({ value }) => <Value value={value} />,
     },
 
 
@@ -291,15 +285,7 @@ function Team() {
         { label: "Billing", value: "billing" },
     ]
 
-    const {
-        palette
-    } = useTheme()
-
     const dispatch = useDispatch()
-
-    const {
-        selectedClientId
-    } = useSelector(state => state.shared)
 
     const [selectedDocuments, setSelectedDocuments] = useState([])
 
@@ -323,10 +309,10 @@ function Team() {
                 }} />
 
             <Grid container columnGap="1rem">
-                <Grid item xl="8" md="8" xs="12">
+                <Grid item xl={8} md={8} xs={12}>
                     <Table
                         title="Team"
-                        onSelectionModelChange={(selected) =>
+                        onSelectionModelChange={(selected: any) =>
                             setSelectedDocuments(selected)
                         }
                         noRowsAction={() =>
@@ -336,7 +322,7 @@ function Team() {
                         rows={teams}
                     />
                 </Grid>
-                <Grid item xl="3" md="3" xs="12">
+                <Grid item xl={3} md={3} xs={12}>
                     <Table
                         title="Department"
                         columns={departmentColumns}

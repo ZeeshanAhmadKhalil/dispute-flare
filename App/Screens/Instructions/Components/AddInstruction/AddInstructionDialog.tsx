@@ -19,7 +19,7 @@ const Container = styled(Box)(({ theme }) => {
         dialog: {
             main
         }
-    } = theme.palette || {}
+    }: any = theme.palette || {}
 
     return {
         backgroundColor: main,
@@ -28,7 +28,7 @@ const Container = styled(Box)(({ theme }) => {
     }
 })
 
-function AddInstructionDialog(props) {
+function AddInstructionDialog() {
 
     const defaultValues = {
         firstName: null,
@@ -64,14 +64,14 @@ function AddInstructionDialog(props) {
         palette: {
             tableSeparator
         }
-    } = useTheme()
+    }: any = useTheme()
 
     const {
 
-    } = useSelector(state => state.shared)
+    } = useSelector((state: any) => state.shared)
     const {
         addInstructionsDialog
-    } = useSelector(state => state.instructions)
+    } = useSelector((state: any) => state.instructions)
 
     const {
         register,

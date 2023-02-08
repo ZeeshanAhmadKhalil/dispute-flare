@@ -3,8 +3,8 @@ import { useRouter } from 'next/router';
 
 function LinkCell({
     value,
-    navigateTo,
-}) {
+    navigateTo = null,
+}: any) {
 
     const {
         palette: {
@@ -12,7 +12,7 @@ function LinkCell({
                 link,
             }
         }
-    } = useTheme()
+    }: any = useTheme()
 
     const router = useRouter()
 

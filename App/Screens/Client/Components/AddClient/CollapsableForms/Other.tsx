@@ -13,7 +13,7 @@ const Label = styled(Typography)(({ theme }) => {
 
     const {
         text: { xxxGrey },
-    } = theme.palette
+    }: any = theme.palette
 
     return {
         color: xxxGrey,
@@ -21,7 +21,7 @@ const Label = styled(Typography)(({ theme }) => {
     }
 })
 
-function Other(props) {
+function Other(props: any) {
 
     const {
         watch,
@@ -34,7 +34,7 @@ function Other(props) {
     } = useTheme()
 
     const {
-    } = useSelector(state => state.clients)
+    } = useSelector((state: any) => state.clients)
 
     let assignedToList = [
         { label: "Option 1", value: 1 },
@@ -71,14 +71,14 @@ function Other(props) {
                     'items-center',
                 )}
             >
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         Assigned To
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
                     <DropDown
                         watch={watch}
                         register={register("assignedTo")}
@@ -87,14 +87,14 @@ function Other(props) {
                         error={errors.assignedTo}
                     />
                 </Grid>
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         Reffered By
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
                     <DropDown
                         watch={watch}
                         register={register("refferedBy")}
@@ -104,14 +104,14 @@ function Other(props) {
                     />
                 </Grid>
 
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         Status
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
                     <DropDown
                         watch={watch}
                         register={register("status")}

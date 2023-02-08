@@ -23,7 +23,7 @@ const Container = styled(Box)(({ theme }) => {
         dialog: {
             main
         }
-    } = theme.palette || {}
+    }: any = theme.palette || {}
 
     return {
         backgroundColor: main,
@@ -35,7 +35,7 @@ const Container = styled(Box)(({ theme }) => {
 function AddDisputeDialog({
     columns,
     rows,
-}) {
+}: any) {
 
     const bureauList = [
         { label: "TU", value: 1 },
@@ -187,13 +187,13 @@ function AddDisputeDialog({
             tableSeparator,
             text,
         }
-    } = useTheme()
+    }: any = useTheme()
 
     const {
-    } = useSelector(state => state.shared)
+    } = useSelector((state: any) => state.shared)
     const {
         addDisputeDialog
-    } = useSelector(state => state.dispute)
+    } = useSelector((state: any) => state.dispute)
 
     const [currentStep, setCurrentStep] = useState(0)
 
@@ -220,7 +220,7 @@ function AddDisputeDialog({
                 creditors,
             } = item
 
-            rows = creditors.map((subItem, key) => {
+            rows = creditors.map((subItem: any, key) => {
 
                 const {
                     name,
@@ -228,9 +228,9 @@ function AddDisputeDialog({
                     bureaus,
                 } = subItem
 
-                let bureausString = []
+                let bureausString: any = []
 
-                bureauList.map(obj => {
+                bureauList.map((obj: any) => {
 
                     if (bureaus.includes(obj.value))
                         bureausString.push(obj.label)

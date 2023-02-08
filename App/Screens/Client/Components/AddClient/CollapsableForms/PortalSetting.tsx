@@ -16,7 +16,7 @@ const Label = styled(Typography)(({ theme }) => {
 
     const {
         text: { xxxGrey },
-    } = theme.palette
+    }: any = theme.palette
 
     return {
         color: xxxGrey,
@@ -24,7 +24,7 @@ const Label = styled(Typography)(({ theme }) => {
     }
 })
 
-function PortalSetting(props) {
+function PortalSetting(props: any) {
 
     const {
         control,
@@ -38,7 +38,7 @@ function PortalSetting(props) {
     } = useTheme()
 
     const {
-    } = useSelector(state => state.clients)
+    } = useSelector((state: any) => state.clients)
 
     let attachmentAgreements = [
         { label: "Option 1", value: 1 },
@@ -68,7 +68,7 @@ function PortalSetting(props) {
                     'items-center',
                 )}
             >
-                <Grid item xs="12">
+                <Grid item xs={12}>
                     <Grid
                         container
                         rowSpacing={2}
@@ -78,14 +78,14 @@ function PortalSetting(props) {
                             'flex',
                             'items-center',
                         )}>
-                        <Grid item md="2" xs="12">
+                        <Grid item md={2} xs={12}>
                             <Label
                                 variant="subtitle1"
                             >
                                 Attachment Agreement
                             </Label>
                         </Grid>
-                        <Grid item md="10" xs="12">
+                        <Grid item md={10} xs={12}>
                             <RadioBtns
                                 control={control}
                                 name="hasAttachmentAgreement"
@@ -99,7 +99,7 @@ function PortalSetting(props) {
                     </Grid>
                 </Grid>
                 {watch("hasAttachmentAgreement") == 1 &&
-                    <Grid item xs="12">
+                    <Grid item xs={12}>
                         <Grid
                             container
                             rowSpacing={2}
@@ -109,9 +109,9 @@ function PortalSetting(props) {
                                 'flex',
                                 'items-center',
                             )}>
-                            <Grid item md="2" xs="12">
+                            <Grid item md={2} xs={12}>
                             </Grid>
-                            <Grid item md="10" xs="12">
+                            <Grid item md={10} xs={12}>
                                 <DropDown
                                     watch={watch}
                                     register={register("attachmentAgreement")}
@@ -123,7 +123,7 @@ function PortalSetting(props) {
                         </Grid>
                     </Grid>
                 }
-                <Grid item xs="12">
+                <Grid item xs={12}>
                     <Grid
                         container
                         rowSpacing={2}
@@ -133,14 +133,14 @@ function PortalSetting(props) {
                             'flex',
                             'items-center',
                         )}>
-                        <Grid item md="2" xs="12">
+                        <Grid item md={2} xs={12}>
                             <Label
                                 variant="subtitle1"
                             >
                                 Required Documents
                             </Label>
                         </Grid>
-                        <Grid item md="10" xs="12">
+                        <Grid item md={10} xs={12}>
                             <CheckBoxes
                                 watch={watch}
                                 control={control}
@@ -152,7 +152,7 @@ function PortalSetting(props) {
                     </Grid>
                 </Grid>
                 {watch("requiredDocuments").includes(5) &&
-                    <Grid item xs="12">
+                    <Grid item xs={12}>
                         <Grid
                             container
                             rowSpacing={2}
@@ -162,9 +162,9 @@ function PortalSetting(props) {
                                 'flex',
                                 'items-center',
                             )}>
-                            <Grid item md="2" xs="12">
+                            <Grid item md={2} xs={12}>
                             </Grid>
-                            <Grid item md="10" xs="12">
+                            <Grid item md={10} xs={12}>
                                 <TextInput
                                     register={register("otherRequiredDocument")}
                                     name="otherRequiredDocument"

@@ -28,7 +28,7 @@ const Dialog = styled(MuiDialog)(({ theme }) => {
     const {
         text,
         dialog,
-    } = theme.palette
+    }: any = theme.palette
 
     return {
         '& .MuiPaper-root': {
@@ -38,7 +38,7 @@ const Dialog = styled(MuiDialog)(({ theme }) => {
     }
 })
 
-function PaperComponent(props) {
+function PaperComponent(props: any) {
     return (
         <Draggable
             handle="#draggable-dialog-title"
@@ -49,7 +49,7 @@ function PaperComponent(props) {
     )
 }
 
-const Title = (props) => {
+const Title = (props: any) => {
     const { children,
         onClose,
         ...other
@@ -57,7 +57,7 @@ const Title = (props) => {
 
     const {
         palette: { text }
-    } = useTheme()
+    }: any = useTheme()
 
     return (
         <DialogTitle
@@ -78,7 +78,9 @@ const Title = (props) => {
                     position: 'absolute',
                     right: 8,
                     top: 8,
-                    color: (theme) => theme.palette.icon.lightActive,
+                    color: ({
+                        palette: { icon }
+                    }: any) => icon.lightActive,
                 }}
             >
                 <CloseIcon />
@@ -90,7 +92,7 @@ const Title = (props) => {
 function PrintDialog({
     columns,
     tables,
-}) {
+}: any) {
 
     const dispatch = useDispatch()
     const {
@@ -99,17 +101,15 @@ function PrintDialog({
             text,
             borders,
         }
-    } = useTheme()
+    }: any = useTheme()
 
     const {
         printDialog,
-    } = useSelector(state => state.shared)
+    } = useSelector((state: any) => state.shared)
 
     const handlePrint = () => {
 
-        let overviewWrapper = document.querySelector("#overview-wrapper")
-
-        console.log("overviewWrapper.scrollHeight===>", overviewWrapper.scrollHeight)
+        let overviewWrapper: any = document.querySelector("#overview-wrapper")
 
         html2canvas(overviewWrapper, {
             windowWidth: overviewWrapper.scrollWidth + 550,
@@ -124,11 +124,6 @@ function PrintDialog({
 
             const pdfWidth = pdf.internal.pageSize.getWidth();
             const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-
-            var width = pdf.internal.pageSize.getWidth();
-            var height = pdf.internal.pageSize.getHeight();
-
-            console.log("height===>", height)
 
             pdf.addImage(
                 imgData,
@@ -147,7 +142,7 @@ function PrintDialog({
             ({
                 name,
                 rows
-            }, key) => {
+            }: any, key: any) => {
 
                 return (
                     <Box
@@ -187,7 +182,6 @@ function PrintDialog({
             open={printDialog}
             fullWidth={true}
             maxWidth="lg"
-            minWidth="lg"
             PaperComponent={PaperComponent}
             aria-labelledby="draggable-dialog-title"
         >

@@ -18,7 +18,7 @@ const Label = styled(Typography)(({ theme }) => {
 
     const {
         text: { xxxGrey },
-    } = theme.palette
+    }: any = theme.palette
 
     return {
         color: xxxGrey,
@@ -26,7 +26,7 @@ const Label = styled(Typography)(({ theme }) => {
     }
 })
 
-function ClientInformation(props) {
+function ClientInformation(props: any) {
 
     const {
         register,
@@ -39,13 +39,13 @@ function ClientInformation(props) {
         palette: {
             tableSeparator: { light }
         }
-    } = useTheme()
+    }: any = useTheme()
 
     const {
         cities,
         states,
         countries,
-    } = useSelector(state => state.clients)
+    } = useSelector((state: any) => state.clients)
 
     return (
         <CollapsableForm
@@ -62,7 +62,7 @@ function ClientInformation(props) {
                     'items-center',
                 )}
             >
-                <Grid item xs="12">
+                <Grid item xs={12}>
                     <Typography
                         variant="subtitle2"
                         className={cls(
@@ -72,14 +72,14 @@ function ClientInformation(props) {
                         Personal Information
                     </Typography>
                 </Grid>
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         First Name
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
                     <TextInput
                         register={register("firstName", {
                             required: true,
@@ -88,14 +88,14 @@ function ClientInformation(props) {
                         error={errors.firstName}
                     />
                 </Grid>
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         Last Name
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
                     <TextInput
                         register={register("lastName", {
                             required: true,
@@ -104,28 +104,28 @@ function ClientInformation(props) {
                         error={errors.lastName}
                     />
                 </Grid>
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         Date of Birth
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
                     <DatePicker
                         control={control}
                         name="dateOfBirth"
                         error={errors.dateOfBirth}
                     />
                 </Grid>
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         SSN Number
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
                     <TextInput
                         register={register("ssnNumber")}
                         name="ssnNumber"
@@ -133,14 +133,14 @@ function ClientInformation(props) {
                         placeholder="000-000-0000"
                     />
                 </Grid>
-                <Grid item xs="12">
+                <Grid item xs={12}>
                     <Divider
                         sx={{
                             backgroundColor: light
                         }}
                     />
                 </Grid>
-                <Grid item xs="12">
+                <Grid item xs={12}>
                     <Typography
                         variant="subtitle2"
                         className={cls(
@@ -150,14 +150,14 @@ function ClientInformation(props) {
                         Contact Information
                     </Typography>
                 </Grid>
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         Email ID
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
                     <TextInput
                         register={register("emailId", {
                             required: true,
@@ -167,14 +167,14 @@ function ClientInformation(props) {
                         placeholder="luffy@onepiece.com"
                     />
                 </Grid>
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         Mobile No.
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
                     <TextInput
                         register={register("mobileNo")}
                         name="mobileNo"
@@ -182,14 +182,14 @@ function ClientInformation(props) {
                         placeholder="(000) 000-0000"
                     />
                 </Grid>
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         Phone No.
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
                     <TextInput
                         register={register("phoneNo")}
                         name="phoneNo"
@@ -197,14 +197,14 @@ function ClientInformation(props) {
                         placeholder="(000) 000-0000"
                     />
                 </Grid>
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         Website
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
                     <TextInput
                         register={register("website")}
                         name="website"
@@ -212,14 +212,14 @@ function ClientInformation(props) {
                         placeholder="https://"
                     />
                 </Grid>
-                <Grid item xs="12">
+                <Grid item xs={12}>
                     <Divider
                         sx={{
                             backgroundColor: light
                         }}
                     />
                 </Grid>
-                <Grid item xs="12">
+                <Grid item xs={12}>
                     <Typography
                         variant="subtitle2"
                         className={cls(
@@ -229,28 +229,28 @@ function ClientInformation(props) {
                         Address Information
                     </Typography>
                 </Grid>
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         Address
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
                     <TextInput
                         register={register("address")}
                         name="address"
                         error={errors.address}
                     />
                 </Grid>
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         City
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
                     <DropDown
                         watch={watch}
                         register={register("city")}
@@ -259,14 +259,14 @@ function ClientInformation(props) {
                         error={errors.city}
                     />
                 </Grid>
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         State
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
                     <DropDown
                         watch={watch}
                         register={register("state")}
@@ -275,14 +275,14 @@ function ClientInformation(props) {
                         error={errors.state}
                     />
                 </Grid>
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         Country
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
                     <DropDown
                         watch={watch}
                         register={register("country")}
@@ -291,14 +291,14 @@ function ClientInformation(props) {
                         error={errors.country}
                     />
                 </Grid>
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         Zip code
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
                     <TextInput
                         register={register("zipCode")}
                         name="zipCode"
@@ -306,7 +306,7 @@ function ClientInformation(props) {
                         placeholder="00000"
                     />
                 </Grid>
-                <Grid item xs="12">
+                <Grid item xs={12}>
                     <Grid
                         container
                         rowSpacing={2}
@@ -316,14 +316,14 @@ function ClientInformation(props) {
                             'flex',
                             'items-center',
                         )}>
-                        <Grid item xl="2" md="6" xs="12">
+                        <Grid item xl={2} md={6} xs={12}>
                             <Label
                                 variant="subtitle1"
                             >
                                 Previous Address
                             </Label>
                         </Grid>
-                        <Grid item xl="4" md="6" xs="12">
+                        <Grid item xl={4} md={6} xs={12}>
                             <RadioBtns
                                 control={control}
                                 name="hasPreviousAddress"
@@ -338,14 +338,14 @@ function ClientInformation(props) {
                 </Grid>
                 {watch("hasPreviousAddress") == 1 &&
                     <>
-                        <Grid item xs="12">
+                        <Grid item xs={12}>
                             <Divider
                                 sx={{
                                     backgroundColor: light
                                 }}
                             />
                         </Grid>
-                        <Grid item xs="12">
+                        <Grid item xs={12}>
                             <Typography
                                 variant="subtitle2"
                                 className={cls(
@@ -355,28 +355,28 @@ function ClientInformation(props) {
                                 Previous Address
                             </Typography>
                         </Grid>
-                        <Grid item xl="2" md="6" xs="12">
+                        <Grid item xl={2} md={6} xs={12}>
                             <Label
                                 variant="subtitle1"
                             >
                                 Address
                             </Label>
                         </Grid>
-                        <Grid item xl="4" md="6" xs="12">
+                        <Grid item xl={4} md={6} xs={12}>
                             <TextInput
                                 register={register("previousAddress")}
                                 name="previousAddress"
                                 error={errors.previousAddress}
                             />
                         </Grid>
-                        <Grid item xl="2" md="6" xs="12">
+                        <Grid item xl={2} md={6} xs={12}>
                             <Label
                                 variant="subtitle1"
                             >
                                 City
                             </Label>
                         </Grid>
-                        <Grid item xl="4" md="6" xs="12">
+                        <Grid item xl={4} md={6} xs={12}>
                             <DropDown
                                 watch={watch}
                                 register={register("previousCity")}
@@ -385,14 +385,14 @@ function ClientInformation(props) {
                                 error={errors.previousCity}
                             />
                         </Grid>
-                        <Grid item xl="2" md="6" xs="12">
+                        <Grid item xl={2} md={6} xs={12}>
                             <Label
                                 variant="subtitle1"
                             >
                                 State
                             </Label>
                         </Grid>
-                        <Grid item xl="4" md="6" xs="12">
+                        <Grid item xl={4} md={6} xs={12}>
                             <DropDown
                                 watch={watch}
                                 register={register("previousState")}
@@ -401,14 +401,14 @@ function ClientInformation(props) {
                                 error={errors.previousState}
                             />
                         </Grid>
-                        <Grid item xl="2" md="6" xs="12">
+                        <Grid item xl={2} md={6} xs={12}>
                             <Label
                                 variant="subtitle1"
                             >
                                 Country
                             </Label>
                         </Grid>
-                        <Grid item xl="4" md="6" xs="12">
+                        <Grid item xl={4} md={6} xs={12}>
                             <DropDown
                                 watch={watch}
                                 register={register("previousCountry")}
@@ -417,14 +417,14 @@ function ClientInformation(props) {
                                 error={errors.previousCountry}
                             />
                         </Grid>
-                        <Grid item xl="2" md="6" xs="12">
+                        <Grid item xl={2} md={6} xs={12}>
                             <Label
                                 variant="subtitle1"
                             >
                                 Zip code
                             </Label>
                         </Grid>
-                        <Grid item xl="4" md="6" xs="12">
+                        <Grid item xl={4} md={6} xs={12}>
                             <TextInput
                                 register={register("previousZipCode")}
                                 name="previousZipCode"
