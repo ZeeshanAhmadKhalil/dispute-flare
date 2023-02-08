@@ -21,29 +21,29 @@
     "baseUrl": ".",
     "paths": {
       "@Assets/*": [
-        "App/Assets/*",
+        "App/Assets/*"
       ],
       "@Config/*": [
-        "App/Config/*",
+        "App/Config/*"
       ],
       "@Hooks/*": [
-        "App/Hooks/*",
+        "App/Hooks/*"
       ],
       "@Components/*": [
-        "App/Screens/Shared/Components/*",
+        "App/Screens/Shared/Components/*"
       ],
       "@Layouts/*": [
-        "App/Screens/Layouts/*",
+        "App/Screens/Layouts/*"
       ],
       "@Screens/*": [
-        "App/Screens/*",
+        "App/Screens/*"
       ],
       "@Store/*": [
-        "App/Store/*",
+        "App/Store/*"
       ],
       "@Styles/*": [
-        "App/Styles/*",
-      ],
+        "App/Styles/*"
+      ]
     }
   },
   "include": [
