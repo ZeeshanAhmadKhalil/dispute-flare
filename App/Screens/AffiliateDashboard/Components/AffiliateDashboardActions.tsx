@@ -3,7 +3,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import FileUploadIcon from '@mui/icons-material/FileUpload';
 import { useDispatch } from 'react-redux';
 import { setRecordPaymentDialog } from '../Store/affiliateDashboardSlice';
-function AffiliateDashboardActions(props) {
+function AffiliateDashboardActions(props: any) {
 
     const dispatch = useDispatch()
 

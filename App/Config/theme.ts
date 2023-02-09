@@ -192,7 +192,7 @@ const themeObj: any = {
             dark: "#000",
         },
         xTrans: {
-            main: "#00000044"
+            main: "#0004"
         },
         textOff: {
             main: '#7A7A7A',

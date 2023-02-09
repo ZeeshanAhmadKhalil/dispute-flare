@@ -1,7 +1,7 @@
-import Button from '@Components/Button/Button';
-import { setThemesDialog } from '@Layouts/Store/layoutSlice';
-import { setSelectedTheme } from '@Layouts/Store/themeSlice';
-import CloseIcon from '@mui/icons-material/Close';
+import Button from '@Components/Button/Button'
+import { setThemesDialog } from '@Layouts/Store/layoutSlice'
+import { setSelectedTheme } from '@Layouts/Store/themeSlice'
+import CloseIcon from '@mui/icons-material/Close'
 import {
     Box,
     DialogActions,
@@ -9,16 +9,16 @@ import {
     Paper,
     styled,
     useTheme
-} from '@mui/material';
-import MuiDialog from '@mui/material/Dialog';
-import DialogTitle from '@mui/material/DialogTitle';
-import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
-import cls from 'classnames';
-import Default from 'public/Assets/Svgs/default.svg';
-import Draggable from 'react-draggable';
-import { useDispatch, useSelector } from 'react-redux';
-import Theme from './Theme';
+} from '@mui/material'
+import MuiDialog from '@mui/material/Dialog'
+import DialogTitle from '@mui/material/DialogTitle'
+import Divider from '@mui/material/Divider'
+import IconButton from '@mui/material/IconButton'
+import cls from 'classnames'
+import Default from 'public/Assets/Svgs/default.svg'
+import Draggable from 'react-draggable'
+import { useDispatch, useSelector } from 'react-redux'
+import Theme from './Theme'
 
 const Dialog = styled(MuiDialog)(({ theme }) => {
 
@@ -44,14 +44,14 @@ function PaperComponent(props: any) {
         >
             <Paper {...props} />
         </Draggable>
-    );
+    )
 }
 
 const Title = (props: any) => {
     const { children,
         onClose,
         ...other
-    } = props;
+    } = props
 
     const {
         palette: { text }
@@ -83,13 +83,10 @@ const Title = (props: any) => {
                 <CloseIcon />
             </IconButton>
         </DialogTitle>
-    );
-};
+    )
+}
 
-function ThemesDialog(props: any) {
-
-    const {
-    } = props || {}
+function ThemesDialog() {
 
     const dispatch = useDispatch()
     const {
@@ -113,7 +110,7 @@ function ThemesDialog(props: any) {
 
         return themes.map((
             item: any,
-            key: any
+            key: number
         ) => {
             const {
                 id,
@@ -123,6 +120,7 @@ function ThemesDialog(props: any) {
 
             return (
                 <Theme
+                    key={key}
                     imagePath={imagePath}
                     name={name}
                     id={id}
@@ -257,7 +255,7 @@ function ThemesDialog(props: any) {
                 </Box>
             </DialogActions>
         </Dialog>
-    );
+    )
 }
 
 export default ThemesDialog

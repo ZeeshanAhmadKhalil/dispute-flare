@@ -3,7 +3,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import FileUploadIcon from '@mui/icons-material/FileUpload';
 import { useDispatch } from 'react-redux';
 import { setAddAffiliatesDialog } from '../Store/affiliatesSlice';
-function AffiliatesActions(props) {
+function AffiliatesActions(props: any) {
 
     const dispatch = useDispatch()
 

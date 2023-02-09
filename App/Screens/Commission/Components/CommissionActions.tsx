@@ -6,7 +6,7 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import { useDispatch } from 'react-redux';
 import { setStandardRateDialog } from '../Store/commissionSlice';
 
-function CommissionActions(props) {
+function CommissionActions(props: any) {
 
     const dispatch = useDispatch()
 

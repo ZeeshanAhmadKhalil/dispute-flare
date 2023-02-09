@@ -6,7 +6,7 @@ import Thunder from 'public/Assets/Svgs/thunder.svg';
 import { useDispatch } from 'react-redux';
 import { setAddClientDialog, setImportClientsDialog } from '../Store/clientsSlice';
 
-function ClientActions(props) {
+function ClientActions(props: any) {
 
     const dispatch = useDispatch()
 

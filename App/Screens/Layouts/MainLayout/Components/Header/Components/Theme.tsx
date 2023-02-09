@@ -54,7 +54,7 @@ function Theme(props: any) {
 
     const {
         selectedTheme,
-    } = useSelector((state: any) => state.layout)
+    } = useSelector((state: any) => state.theme)
 
     const [hovered, setHovered] = useState<boolean>(false)
 
@@ -109,7 +109,7 @@ function Theme(props: any) {
                         position: 'absolute',
                         top: '33%',
                         left: '37%',
-                        color: xTrans.main
+                        color: xTrans
                     }}
                 />
             }
