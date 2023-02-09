@@ -5,7 +5,7 @@ import {
     useTheme
 } from '@mui/material';
 
-function Overview(props) {
+function Overview(props: any) {
 
     const {
         tables,
@@ -17,32 +17,34 @@ function Overview(props) {
         palette: {
             borders,
         }
-    } = useTheme()
+    }: any = useTheme()
 
     const renderCollapses =
-        tables.map(
-            ({
+        tables.map((
+            {
                 name,
                 rows
-            }, key) => {
+            }: any,
+            key: any
+        ) => {
 
-                return (
-                    <CollapsableForm
+            return (
+                <CollapsableForm
+                    title={name}
+                    defaultOpen={!key}
+                >
+                    <Table
                         title={name}
-                        defaultOpen={!key}
-                    >
-                        <Table
-                            title={name}
-                            checkboxSelection={false}
-                            columns={columns}
-                            rows={rows}
-                            height={280}
-                            borderColor={borders?.gray}
-                            hidePagination={true}
-                        />
-                    </CollapsableForm >
-                )
-            })
+                        checkboxSelection={false}
+                        columns={columns}
+                        rows={rows}
+                        height={280}
+                        borderColor={borders?.gray}
+                        hidePagination={true}
+                    />
+                </CollapsableForm >
+            )
+        })
 
     return (
         <Box>

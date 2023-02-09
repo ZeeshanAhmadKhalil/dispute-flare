@@ -19,14 +19,10 @@ const letterlibrarySlice = createSlice({
         ],
     },
     reducers: {
-
-        // setImportClientsDialog: (state, action) => {
-        //     state.importClientsDialog = action.payload
-        // },
-        setAddFlowDialog: (state, action) => {
+        setAddFlowDialog: (state: any, action) => {
             state.addFlowDialog = action.payload
         },
-        setColumnVisibility: (state, action) => {
+        setColumnVisibility: (state: any, action) => {
 
             const { field, hide } = action.payload || {}
 
@@ -39,14 +35,14 @@ const letterlibrarySlice = createSlice({
 
             state.columns = columns
         },
-        setAllColumnsVisibility: (state, action) => {
+        setAllColumnsVisibility: (state: any, action) => {
 
             const { hide } = action.payload || {}
 
             state.columns
                 = state
                     .columns
-                    .map(obj => ({
+                    .map((obj: any) => ({
                         ...obj,
                         hide:
                             obj.hidable ?
@@ -56,11 +52,11 @@ const letterlibrarySlice = createSlice({
                     }))
 
         },
-        setDefaultColumnsVisibility: (state, action) => {
+        setDefaultColumnsVisibility: (state: any, action) => {
             state.columns
                 = state
                     .columns
-                    .map(obj => ({
+                    .map((obj: any) => ({
                         ...obj,
                         hide:
                             state.defaultColumns.includes(obj.field) ?

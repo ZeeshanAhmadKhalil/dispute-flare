@@ -1,15 +1,11 @@
 
 import TextInput from '@Components/TextInput/TextInput';
 import {
-    Divider,
     Grid,
     styled,
-    Typography,
-    useTheme
+    Typography
 } from '@mui/material';
 import cls from 'classnames';
-import { useSelector } from 'react-redux';
-import styles from './ClientInformation.module.scss';
 
 const Label = styled(Typography)(({ theme }) => {
 
@@ -92,10 +88,6 @@ function RecordPaymentForm(props: any) {
                     placeholder="000-000-0000"
                 />
             </Grid>
-
-
-
-
         </Grid>
 
     )

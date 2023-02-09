@@ -2,7 +2,7 @@ import Button from '@Components/Button/Button';
 import { useTheme } from '@mui/material';
 import { useDispatch } from 'react-redux';
 
-function ImportClientActions(props) {
+function ImportClientActions(props: any) {
 
     const {
         onClose,
@@ -14,11 +14,12 @@ function ImportClientActions(props) {
         palette: {
             text: { grey }
         }
-    } = useTheme()
+    }: any = useTheme()
 
-    const handleAddClient = handleSubmit((data) => {
-        console.log("data===>", data)
-    })
+    const handleAddClient
+        = handleSubmit((data: any) => {
+            console.log("data===>", data)
+        })
 
 
     return (

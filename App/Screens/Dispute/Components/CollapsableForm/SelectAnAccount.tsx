@@ -50,7 +50,7 @@ let rows = [
     },
 ]
 
-function SelectAnAccount(props) {
+function SelectAnAccount(props: any) {
 
     const {
         watch,
@@ -112,7 +112,7 @@ function SelectAnAccount(props) {
             valueGetter: ({
                 row: { id },
                 api: { getRowIndex },
-            }) => {
+            }: any) => {
                 let index
                     = getRowIndex(id)
 
@@ -132,7 +132,7 @@ function SelectAnAccount(props) {
             width: 250,
             headerClassName: 'separator-header',
             hidable: true,
-            renderCell: (props) => {
+            renderCell: (props: any) => {
 
                 let index
                     = props.api.getRowIndex(props.row.id)
@@ -154,9 +154,9 @@ function SelectAnAccount(props) {
         palette: {
             borders,
         }
-    } = useTheme()
+    }: any = useTheme()
 
-    const handleProcessRowUpdate = (newRow) => {
+    const handleProcessRowUpdate = (newRow: any) => {
 
         const {
             id,

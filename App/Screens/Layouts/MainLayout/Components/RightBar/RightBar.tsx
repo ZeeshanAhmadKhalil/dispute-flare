@@ -36,8 +36,8 @@ const BottomBtnsBox = styled(MuiBox)(() => ({
 
 function RenderListItems() {
 
-    let buttons = rightbarRoutes.filter(obj => obj.type == "button")
-    buttons = buttons.map((item, key) => {
+    let buttons: any = rightbarRoutes.filter(obj => obj.type == "button")
+    buttons = buttons.map((item: any, key: any) => {
 
         const {
             icon,
@@ -50,8 +50,8 @@ function RenderListItems() {
         )
     })
 
-    let wrappedButtons = rightbarRoutes.filter(obj => obj.type == "wrapped-button")
-    wrappedButtons = wrappedButtons.map((item, key) => {
+    let wrappedButtons: any = rightbarRoutes.filter(obj => obj.type == "wrapped-button")
+    wrappedButtons = wrappedButtons.map((item: any, key: any) => {
 
         const {
             icon,
@@ -69,8 +69,8 @@ function RenderListItems() {
         </WrapperBox>
     )
 
-    let bottomButtons = rightbarRoutes.filter(obj => obj.type == "bottom-button")
-    bottomButtons = bottomButtons.map((item, key) => {
+    let bottomButtons: any = rightbarRoutes.filter(obj => obj.type == "bottom-button")
+    bottomButtons = bottomButtons.map((item: any, key: any) => {
 
         const {
             icon,
@@ -95,7 +95,7 @@ function RenderListItems() {
     return [buttons, wrappedButtons, bottomButtons]
 }
 
-function RightBar(props) {
+function RightBar() {
 
     return (
         <Box

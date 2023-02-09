@@ -15,8 +15,6 @@ import AffilateButtom from './AffilateButtom';
 import styles from './Sidebar.module.scss';
 import SidebarItem from './SidebarItem';
 
-// let closeHoverSidebarTimeout = null
-
 const DrawerHeader = styled('div')(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
@@ -60,16 +58,6 @@ function HoverSidebar() {
         })
     }
 
-    //! closing if cursor is not moving
-    // useEffect(() => {
-    //     clearTimeout(closeHoverSidebarTimeout)
-    //     if (hoverSidebar) {
-    //         closeHoverSidebarTimeout = setTimeout(() => {
-    //             dispatch(setHoverSideBar(false))
-    //         }, 500)
-    //     }
-    // }, [hoverSidebar])
-
     return (
         <div
             className={cls(
@@ -82,15 +70,6 @@ function HoverSidebar() {
                 open={hoverSidebar}
             >
                 <div
-                    //! not working when cursor is not moving
-                    // onMouseOver={() => {
-                    //     console.log("hover sidebar onMouseOver")
-                    //     clearTimeout(closeHoverSidebarTimeout)
-                    // }}
-                    // onMouseEnter={() => {
-                    //     console.log("hover sidebar onMouseEnter")
-                    //     clearTimeout(closeHoverSidebarTimeout)
-                    // }}
                     className={cls(
                         `border-red-700`, `border-0`,
                         `h-full`

@@ -2,7 +2,7 @@ import Button from '@Components/Button/Button';
 import { useTheme } from '@mui/material';
 import { useDispatch } from 'react-redux';
 
-function AddCreditorActions(props) {
+function AddCreditorActions(props: any) {
 
     const {
         onClose,
@@ -14,9 +14,9 @@ function AddCreditorActions(props) {
         palette: {
             text: { grey }
         }
-    } = useTheme()
+    }: any = useTheme()
 
-    const handleAddClient = handleSubmit((data) => {
+    const handleAddClient = handleSubmit((data: any) => {
         console.log("data===>", data)
     })
 

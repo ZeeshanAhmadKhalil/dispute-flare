@@ -1,6 +1,5 @@
 import Button from '@Components/Button/Button';
 import { useTheme } from '@mui/material';
-import { useDispatch } from 'react-redux';
 
 function AddReasonActions(props: any) {
 
@@ -9,7 +8,6 @@ function AddReasonActions(props: any) {
         handleSubmit,
     } = props || {}
 
-    const dispatch = useDispatch()
     const {
         palette: {
             text: { grey }
