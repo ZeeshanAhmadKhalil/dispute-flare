@@ -6,25 +6,28 @@ import React from 'react'
 import FileSingle from './FileSingle';
 
 
-const Container = styled(Box)(({ theme }) => {
+const Container = styled(Box)(() => {
     return {
-        writingMode: "vertical-rl",
         textOrientation: "sideways-right",
         WebkitTransform: "rotate(180deg)",
         textAlign: "center",
+        writingMode: "vertical-rl",
     }
 })
+
 function UploadedDocuments() {
 
     const {
-        palette
-    } = useTheme()
+        palette: {
+            text,
+        }
+    }: any = useTheme()
 
     return (
         <Box sx={{ display: "flex", flexDirection: "row", columnGap: "1rem", marginTop: "1rem" }}>
 
             <Container>
-                <Typography color={palette.text.lightSilver}>
+                <Typography color={text.lightSilver}>
                     <span style={{ left: "5px", position: "relative" }}> _____ </span>
                     Uploaded Documents
                     <span style={{ right: "-5px", position: "relative" }}> _____ </span>

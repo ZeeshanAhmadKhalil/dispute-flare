@@ -1,7 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-
-
 const affiliateDashboardSlice = createSlice({
     name: 'affiliateDashboard',
     initialState: {
@@ -9,16 +7,14 @@ const affiliateDashboardSlice = createSlice({
         selectedPaymentId: 0,
     },
     reducers: {
-        setRecordPaymentDialog: (state, action) => {
+        setRecordPaymentDialog: (state: any, action) => {
             state.recordPaymentDialog = action.payload
         },
-        setSelectedAffiliatesId: (state, action) => {
-
-            console.log("action.payload===>", action.payload)
+        setSelectedAffiliatesId: (state: any, action) => {
 
             state.selectedPaymentId = action.payload
         },
-        setColumnVisibility: (state, action) => {
+        setColumnVisibility: (state: any, action) => {
 
             const { field, hide } = action.payload || {}
 
@@ -31,14 +27,14 @@ const affiliateDashboardSlice = createSlice({
 
             state.columns = columns
         },
-        setAllColumnsVisibility: (state, action) => {
+        setAllColumnsVisibility: (state: any, action) => {
 
             const { hide } = action.payload || {}
 
             state.columns
                 = state
                     .columns
-                    .map(obj => ({
+                    .map((obj: any) => ({
                         ...obj,
                         hide:
                             obj.hidable ?
@@ -48,11 +44,11 @@ const affiliateDashboardSlice = createSlice({
                     }))
 
         },
-        setDefaultColumnsVisibility: (state, action) => {
+        setDefaultColumnsVisibility: (state: any, action) => {
             state.columns
                 = state
                     .columns
-                    .map(obj => ({
+                    .map((obj: any) => ({
                         ...obj,
                         hide:
                             state.defaultColumns.includes(obj.field) ?

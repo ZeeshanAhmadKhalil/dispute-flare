@@ -7,10 +7,10 @@ const affiliatesSlice = createSlice({
         selectedAffiliatesId: 0,
     },
     reducers: {
-        setAddAffiliatesDialog: (state, action) => {
+        setAddAffiliatesDialog: (state: any, action) => {
             state.addAffiliatesDialog = action.payload
         },
-        setSelectedAffiliatesId: (state, action) => {
+        setSelectedAffiliatesId: (state: any, action) => {
             state.selectedinstructionsId = action.payload
         },
     },

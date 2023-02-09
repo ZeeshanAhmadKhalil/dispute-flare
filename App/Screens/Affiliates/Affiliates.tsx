@@ -198,7 +198,7 @@ function Affiliates() {
             />
             <Table
                 title="Affiliates"
-                onSelectionModelChange={(selected) =>
+                onSelectionModelChange={(selected: any) =>
                     setSelectedAffiliates(selected)
                 }
                 columns={columns}
