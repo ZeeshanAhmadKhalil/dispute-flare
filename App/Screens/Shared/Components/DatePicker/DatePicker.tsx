@@ -18,37 +18,48 @@ import cls from 'classnames';
 import Calendar from 'public/Assets/Svgs/calendar.svg';
 import { Controller } from 'react-hook-form';
 
-const TextField = styled(InputBase)(({ theme }) => ({
-    'label + &': {
-        marginTop: theme.spacing(3),
-    },
-    '& .MuiInputBase-input': {
-        position: 'relative',
-        backgroundColor: theme.palette.dialog.main,
-        color: theme.palette.text.contrastText,
-        border: `1px solid ${theme.palette.tableSeparator.dark}`,
-        fontSize: 14,
-        width: 250,
-        height: 10,
-        padding: '10px 12px',
-        transition: theme.transitions.create([
-            'border-color',
-            'background-color',
-            'box-shadow',
-        ]),
-        '&:focus': {
-            boxShadow: `${alpha(theme.palette.primary.main, 0.25)} 0 0 0 0.2rem`,
-            borderColor: theme.palette.primary.main,
-        },
-    },
-}));
+const TextField
+    = styled(InputBase)(({
+        theme: {
+            palette: {
+                dialog,
+                text,
+                tableSeparator,
+                primary,
+            },
+            spacing,
+            transitions,
+        } }: any) => ({
+            'label + &': {
+                marginTop: spacing(3),
+            },
+            '& .MuiInputBase-input': {
+                position: 'relative',
+                backgroundColor: dialog.main,
+                color: text.contrastText,
+                border: `1px solid ${tableSeparator.dark}`,
+                fontSize: 14,
+                width: 250,
+                height: 10,
+                padding: '10px 12px',
+                transition: transitions.create([
+                    'border-color',
+                    'background-color',
+                    'box-shadow',
+                ]),
+                '&:focus': {
+                    boxShadow: `${alpha(primary.main, 0.25)} 0 0 0 0.2rem`,
+                    borderColor: primary.main,
+                },
+            },
+        }));
 
 const IconContainer = styled(Box)(() => ({
     position: 'absolute',
     right: 0,
 }))
 
-function DatePicker(props) {
+function DatePicker(props: any) {
 
     const {
         control,
@@ -62,7 +73,7 @@ function DatePicker(props) {
                 input,
             }
         }
-    } = useTheme()
+    }: any = useTheme()
 
     return (
         <ThemeProvider theme={lightTheme}>
@@ -75,7 +86,6 @@ function DatePicker(props) {
                             label={camelToTitle(name)}
                             value={value}
                             onChange={onChange}
-                            id={camelToBreadcrumbs(name)}
                             components={{
                                 OpenPickerIcon: () => (
                                     <Calendar
@@ -85,7 +95,11 @@ function DatePicker(props) {
                                     />
                                 )
                             }}
-                            renderInput={({ inputRef, inputProps, InputProps }) => (
+                            renderInput={({
+                                inputRef,
+                                inputProps,
+                                InputProps
+                            }: any) => (
                                 <Box
                                     className={cls(
                                         'border-red-700',
@@ -99,10 +113,9 @@ function DatePicker(props) {
                                     }}
                                 >
                                     <TextField
-                                        {...inputProps}
                                         readOnly
                                         ref={inputRef}
-                                        variant="outlined"
+                                        {...inputProps}
                                     />
                                     <IconContainer>
                                         {InputProps?.endAdornment}

@@ -1,6 +1,6 @@
 import { Avatar, Box } from '@mui/material';
 
-function AvatarNameCell(props) {
+function AvatarNameCell(props: any) {
 
     const {
         row: {

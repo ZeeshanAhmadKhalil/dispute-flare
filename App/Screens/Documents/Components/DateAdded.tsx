@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 import moment from 'moment'
 
-function DateAdded(props) {
+function DateAdded(props: any) {
 
     const {
         dateAdded,

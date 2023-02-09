@@ -2,7 +2,7 @@ import { Box, Typography } from '@mui/material';
 import Repaired from 'public/Assets/Svgs/repaired.svg';
 import Negative from 'public/Assets/Svgs/negative.svg';
 
-function ConditionCell(props) {
+function ConditionCell(props: any) {
 
     const {
         value,

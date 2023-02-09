@@ -106,7 +106,7 @@ function Sidebar() {
     } = useSelector((state: any) => state.layout)
 
     function RenderListItems() {
-        return sidebarRoutes.map((item, key) => {
+        return sidebarRoutes.map((item: any, key) => {
 
             const {
                 type,

@@ -3,7 +3,7 @@ import React, { useMemo } from 'react';
 import { useDropzone } from 'react-dropzone';
 import toast from 'react-hot-toast'
 
-function FileDropPicker(props) {
+function FileDropPicker(props: any) {
 
     const {
         setValue,
@@ -60,7 +60,7 @@ function FileDropPicker(props) {
         }
     });
 
-    const style = useMemo(() => ({
+    const style: any = useMemo(() => ({
         ...baseStyle,
         ...(isFocused ? focusedStyle : {}),
         ...(isDragAccept ? acceptStyle : {}),
@@ -78,7 +78,7 @@ function FileDropPicker(props) {
                 style={style}
             >
                 <input
-                    {...getInputProps()} 
+                    {...getInputProps()}
                     accept=".csv"
                 />
                 <Typography>

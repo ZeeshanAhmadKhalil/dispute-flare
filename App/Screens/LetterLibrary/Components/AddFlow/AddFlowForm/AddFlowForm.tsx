@@ -70,7 +70,7 @@ function AddFlowForm(props: any) {
     const [furnishFlows, setFurnishFlows] = useState(1)
 
     const renderBureauFlow =
-        [...Array(bureauFlows)].map((item, key) => (
+        [...Array(bureauFlows)].map((item: any, key) => (
             <DropDown
                 key={key}
                 watch={watch}
@@ -85,7 +85,7 @@ function AddFlowForm(props: any) {
 
         ))
     const renderFurnishFlow =
-        [...Array(furnishFlows)].map((item, key) => (
+        [...Array(furnishFlows)].map((item: any, key) => (
             <DropDown
                 key={key}
                 watch={watch}

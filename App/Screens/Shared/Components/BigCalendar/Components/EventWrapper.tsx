@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 import cls from 'classnames'
 
-function EventWrapper(props) {
+function EventWrapper(props: any) {
 
     const {
         children

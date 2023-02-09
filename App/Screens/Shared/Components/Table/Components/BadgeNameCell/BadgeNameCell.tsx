@@ -6,7 +6,7 @@ import { setSelectedClientId } from '@Screens/Shared/Store/sharedSlice';
 import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
 
-function BadgeNameCell(props) {
+function BadgeNameCell(props: any) {
 
     const {
         row: {

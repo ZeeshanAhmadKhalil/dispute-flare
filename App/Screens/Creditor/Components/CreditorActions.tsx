@@ -4,9 +4,12 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import FileUploadIcon from '@mui/icons-material/FileUpload';
 import { useDispatch } from 'react-redux';
-import { setCreditorDialog, setImportCreditorsDialog } from '../Store/creditorSlice';
+import {
+    setCreditorDialog,
+    setImportCreditorsDialog
+} from '../Store/creditorSlice';
 
-function CreditorActions(props) {
+function CreditorActions(props: any) {
 
     const dispatch = useDispatch()
 

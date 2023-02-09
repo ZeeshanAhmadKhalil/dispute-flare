@@ -1,11 +1,9 @@
-import React from "react";
-import _ from "lodash";
-import { Typography, useTheme } from "@mui/material";
+import { Typography } from "@mui/material";
 
 function Label({
     turns,
     label,
-}) {
+}: any) {
     return (
         <div
             style={{
@@ -28,12 +26,12 @@ function CircuarLabels({
     labels,
     count,
     style,
-}) {
+}: any) {
 
     let labelCount = 0
 
     const turns = 1 / count;
-    return _.range(count).map(index => {
+    return [...Array(count)].map((index: any) => {
 
         if (index <= 3 || index == 9)
             return (
@@ -42,7 +40,7 @@ function CircuarLabels({
                     style={style}
                     label={
                         labels.find(
-                            obj =>
+                            (obj: any) =>
                                 obj.index == index
                         )?.value
                     }

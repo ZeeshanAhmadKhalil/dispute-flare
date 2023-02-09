@@ -1,28 +1,31 @@
-import {
-    Box, Typography,
-} from '@mui/material'
-import * as React from 'react';
-import ClickAwayListener from '@mui/material/ClickAwayListener';
-import Grow from '@mui/material/Grow';
-import Paper from '@mui/material/Paper';
-import Popper from '@mui/material/Popper';
-import MenuItem from '@mui/material/MenuItem';
-import MenuList from '@mui/material/MenuList';
-import Stack from '@mui/material/Stack';
-
-import {
-    styled, useTheme, theme
-} from '@mui/material'
-import FileIcon from 'public/Assets/Svgs/file.svg'
-import Sendicon from 'public/Assets/Svgs/sendicon.svg';
+import { clipPath } from '@Config/constants';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import MenuIcon from '@mui/icons-material/Menu';
+import {
+    Box,
+    styled,
+    Typography,
+    useTheme
+} from '@mui/material';
+import ClickAwayListener from '@mui/material/ClickAwayListener';
+import Grow from '@mui/material/Grow';
+import MenuItem from '@mui/material/MenuItem';
+import MenuList from '@mui/material/MenuList';
+import Paper from '@mui/material/Paper';
+import Popper from '@mui/material/Popper';
+import Stack from '@mui/material/Stack';
+import FileIcon from 'public/Assets/Svgs/file.svg';
+import Sendicon from 'public/Assets/Svgs/sendicon.svg';
+import * as React from 'react';
 
 
-const Container = styled(Box)(({ theme, width, height, dropdown, uploading }) => {
+const Container = styled(Box)(({
+    width,
+    height,
+    uploading = null,
+}: any) => {
     return {
-        clipPath: "polygon( 0 0, calc(100% - 40px) 0, 100% 40px, 100% calc(100% - 20px), calc(100% - 00px) 100%, 20px 100%, 0 calc(100% - 0px), 0 20px)",
-        display: "flex",
+        clipPath,
         width: width,
         height: height,
         marginBottom: '1em',
@@ -60,9 +63,15 @@ const TitleWrapper = styled(Box)(({ theme }) => {
     }
 })
 
-const MenuIconCustom = styled(MenuIcon)(({ theme }) => {
+const MenuIconCustom = styled(MenuIcon)(({
+    theme: {
+        palette: {
+            iconblue
+        }
+    }
+}: any) => {
     return {
-        color: theme.palette.iconblue.input,
+        color: iconblue.input,
         marginLeft: "16px",
         marginTop: "-2rem"
     }
@@ -70,29 +79,34 @@ const MenuIconCustom = styled(MenuIcon)(({ theme }) => {
 
 
 
-function FileSingle(props) {
+function FileSingle(props: any) {
 
     const { actions, title, width, height, dropdown, uploading } = props || {};
     const {
-        palette
-    } = useTheme()
+        palette: {
+            text
+        }
+    }: any = useTheme()
 
     const [open, setOpen] = React.useState(false);
-    const anchorRef = React.useRef(null);
+    const anchorRef: any = React.useRef(null);
 
     const handleToggle = () => {
         setOpen((prevOpen) => !prevOpen);
     };
 
-    const handleClose = (event) => {
-        if (anchorRef.current && anchorRef.current.contains(event.target)) {
+    const handleClose = (event: any) => {
+        if (
+            anchorRef.current
+            && anchorRef.current.contains(event.target)
+        ) {
             return;
         }
 
         setOpen(false);
     };
 
-    function handleListKeyDown(event) {
+    function handleListKeyDown(event: any) {
         if (event.key === 'Tab') {
             event.preventDefault();
             setOpen(false);
@@ -113,58 +127,63 @@ function FileSingle(props) {
 
 
     return (
-        <Container width={width} height={height} dropdown uploading={uploading}>
-            {
-                dropdown && <Box sx={{ width: "100%" }}>
+        <Container
+            {...{
+                width,
+                height,
+                uploading,
+            }}
+        >
+            {dropdown && <Box sx={{ width: "100%" }}>
 
-                    <MenuIconCustom onClick={handleToggle} ref={anchorRef}
-                        id="composition-button"
-                        aria-controls={open ? 'composition-menu' : undefined}
-                        aria-expanded={open ? 'true' : undefined}
-                        aria-haspopup="true" />
-                    <Stack direction="row" spacing={2}>
+                <MenuIconCustom onClick={handleToggle} ref={anchorRef}
+                    id="composition-button"
+                    aria-controls={open ? 'composition-menu' : undefined}
+                    aria-expanded={open ? 'true' : undefined}
+                    aria-haspopup="true" />
+                <Stack direction="row" spacing={2}>
 
-                        <div>
+                    <div>
 
-                            <Popper
-                                open={open}
-                                anchorEl={anchorRef.current}
-                                role={undefined}
-                                placement="bottom-start"
-                                transition
-                                disablePortal
-                            >
-                                {({ TransitionProps, placement }) => (
-                                    <Grow
-                                        {...TransitionProps}
-                                        style={{
-                                            transformOrigin:
-                                                placement === 'bottom-start' ? 'left top' : 'left bottom',
-                                        }}
-                                    >
-                                        <Paper>
-                                            <ClickAwayListener onClickAway={handleClose}>
-                                                <MenuList
-                                                    autoFocusItem={open}
-                                                    id="composition-menu"
-                                                    aria-labelledby="composition-button"
-                                                    onKeyDown={handleListKeyDown}
-                                                    sx={{ backgroundColor: "white", color: palette.text.xxGrey }}
-                                                >
-                                                    <MenuItem onClick={handleClose}>View</MenuItem>
-                                                    <MenuItem onClick={handleClose}>Delete</MenuItem>
-                                                    <MenuItem onClick={handleClose}>Download</MenuItem>
-                                                </MenuList>
-                                            </ClickAwayListener>
-                                        </Paper>
-                                    </Grow>
-                                )}
-                            </Popper>
-                        </div>
-                    </Stack>
+                        <Popper
+                            open={open}
+                            anchorEl={anchorRef.current}
+                            role={undefined}
+                            placement="bottom-start"
+                            transition
+                            disablePortal
+                        >
+                            {({ TransitionProps, placement }) => (
+                                <Grow
+                                    {...TransitionProps}
+                                    style={{
+                                        transformOrigin:
+                                            placement === 'bottom-start' ? 'left top' : 'left bottom',
+                                    }}
+                                >
+                                    <Paper>
+                                        <ClickAwayListener onClickAway={handleClose}>
+                                            <MenuList
+                                                autoFocusItem={open}
+                                                id="composition-menu"
+                                                aria-labelledby="composition-button"
+                                                onKeyDown={handleListKeyDown}
+                                                sx={{ backgroundColor: "white", color: text.xxGrey }}
+                                            >
+                                                <MenuItem onClick={handleClose}>View</MenuItem>
+                                                <MenuItem onClick={handleClose}>Delete</MenuItem>
+                                                <MenuItem onClick={handleClose}>Download</MenuItem>
+                                            </MenuList>
+                                        </ClickAwayListener>
+                                    </Paper>
+                                </Grow>
+                            )}
+                        </Popper>
+                    </div>
+                </Stack>
 
 
-                </Box>
+            </Box>
             }
             <FileIcon width={53} height={73} />
 

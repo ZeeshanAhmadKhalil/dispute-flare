@@ -115,7 +115,7 @@ function AddLetterTemplate({
     }
 
     const renderButtons
-        = buttons.map((item) =>
+        = buttons.map((item: any) =>
             <Button
                 size="small"
                 color={"leadLight1"}
@@ -130,7 +130,7 @@ function AddLetterTemplate({
         )
 
     const renderKeys
-        = keys.map((item, key) => {
+        = keys.map((item: any, key) => {
 
             const {
                 id,

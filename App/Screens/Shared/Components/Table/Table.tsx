@@ -19,7 +19,7 @@ import { useDispatch } from 'react-redux';
 import Toolbar from './Components/Toolbar/Toolbar';
 
 const DataGrid = styled(MuiDataGrid)((
-    props
+    props: any
 ) => {
 
     const {
@@ -34,7 +34,7 @@ const DataGrid = styled(MuiDataGrid)((
         tableBody,
         tableHeader,
         tableRow,
-    } = theme.palette || {}
+    }: any = theme.palette || {}
 
     return {
         '& .MuiDataGrid-columnHeaders': {
@@ -97,7 +97,7 @@ const DataGrid = styled(MuiDataGrid)((
 
 const NoCreditMonitoringInfo = ({
     xGrey3,
-}) => (
+}: any) => (
     <Box
         className={cls(
             'no-credit-monitoring-info'
@@ -133,7 +133,7 @@ const NoRows = ({
     title,
     xGrey3,
     noRowsAction,
-}) => (
+}: any) => (
     <Box
         className={cls(
             'no-credit-monitoring-info'
@@ -174,7 +174,7 @@ const NoRows = ({
     </Box>
 )
 
-function Table(props) {
+function Table(props: any) {
 
     const {
         palette: {
@@ -207,14 +207,28 @@ function Table(props) {
         rowSeparatorColor = tableSeparator?.main,
     } = props || {}
 
+    let localeText: any = {
+        noRowsLabel:
+            hasCreditMonitoringInfo ?
+                <NoRows
+                    noRowsAction={noRowsAction}
+                    xGrey3={xGrey3}
+                    title={title}
+                />
+                :
+                <NoCreditMonitoringInfo
+                    xGrey3={xGrey3}
+                />
+    }
+
     let columnsToPass = columns
     if (!(
         rows?.length > 0
         && (title != "Dispute" || hasCreditMonitoringInfo)
-        && columns.some(obj => obj?.field == 'settings')
+        && columns.some((obj: any) => obj?.field == 'settings')
     ))
         columnsToPass = columns.filter(
-            obj => obj?.field != 'settings'
+            (obj: any) => obj?.field != 'settings'
         )
 
     const dispatch = useDispatch()
@@ -247,10 +261,12 @@ function Table(props) {
                     experimentalFeatures={{
                         newEditingApi: true,
                     }}
+                    {...{
+                        stripedRows,
+                        rowSeparatorColor,
+                        headerColor,
+                    }}
                     processRowUpdate={processRowUpdate}
-                    stripedRows={stripedRows}
-                    rowSeparatorColor={rowSeparatorColor}
-                    headerColor={headerColor}
                     onRowClick={onRowClick}
                     hideFooter={hidePagination}
                     onSelectionModelChange={onSelectionModelChange}
@@ -270,19 +286,7 @@ function Table(props) {
                             :
                             'Mui-odd'
                     }
-                    localeText={{
-                        noRowsLabel:
-                            hasCreditMonitoringInfo ?
-                                <NoRows
-                                    noRowsAction={noRowsAction}
-                                    xGrey3={xGrey3}
-                                    title={title}
-                                />
-                                :
-                                <NoCreditMonitoringInfo
-                                    xGrey3={xGrey3}
-                                />
-                    }}
+                    localeText={localeText}
                     sx={{
                         mt: 2,
                         backgroundColor: 'tableBody.main',
@@ -305,7 +309,7 @@ function Table(props) {
                                     width={5}
                                 />
                         ),
-                        BaseCheckbox: (props) => (
+                        BaseCheckbox: (props: any) => (
                             <BaseCheckbox
                                 props={{
                                     ...props,
@@ -323,7 +327,7 @@ function Table(props) {
                 {(
                     rows?.length > 0
                     && (title != "Dispute" || hasCreditMonitoringInfo)
-                    && columns.some(obj => obj?.field == 'settings')
+                    && columns.some((obj: any) => obj?.field == 'settings')
                 ) &&
                     <Toolbar
                         title={title}

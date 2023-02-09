@@ -2,12 +2,9 @@ import Button from '@Components/Button/Button';
 import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
 import FileUploadIcon from '@mui/icons-material/FileUpload';
-import { useDispatch } from 'react-redux';
-// import { setAddClientDialog, setImportClientsDialog } from '../Store/clientsSlice';
 
-function DocumentsActions(props) {
+function DocumentsActions(props: any) {
 
-    const dispatch = useDispatch()
 
     const {
         selectedDocuments

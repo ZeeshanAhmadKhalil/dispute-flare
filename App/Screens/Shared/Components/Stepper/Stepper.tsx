@@ -31,17 +31,17 @@ const StepLabel = styled(StepLabelMui)(({ theme }) => {
 function Stepper({
     steps,
     currentStep,
-}) {
+}: any) {
 
     const {
         palette: {
             tableSeparator,
             icon
         }
-    } = useTheme()
+    }: any = useTheme()
 
     const renderSteps
-        = steps.map((label, key) => (
+        = steps.map((label: any, key: any) => (
             <StepMui
                 className={cls(
                     styles.customSetp

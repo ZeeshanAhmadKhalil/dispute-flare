@@ -16,35 +16,45 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import { useState } from 'react';
 
-const TextField = styled(InputBase)(({ theme }) => ({
-    'label + &': {
-        marginTop: theme.spacing(3),
-    },
-    '& .MuiInputBase-input': {
-        display: 'flex',
-        alignItems: 'center',
-        borderRadius: 0,
-        backgroundColor: theme.palette.dialog.main,
-        color: theme.palette.text.contrastText,
-        border: `1px solid ${theme.palette.tableSeparator.dark}`,
-        fontSize: 14,
-        width: 250,
-        minHeight: '0px !important',
-        height: '30px !important',
-        padding: '0px !important',
-        paddingLeft: '12px !important',
-        paddingRight: '12px !important',
-        transition: theme.transitions.create([
-            'border-color',
-            'background-color',
-            'box-shadow',
-        ]),
-        '&:focus': {
-            boxShadow: `${alpha(theme.palette.primary.main, 0.25)} 0 0 0 0.2rem`,
-            borderColor: theme.palette.primary.main,
+const TextField
+    = styled(InputBase)(({ theme: {
+        spacing,
+        palette: {
+            dialog,
+            text,
+            tableSeparator,
+            primary,
         },
-    },
-}));
+        transitions,
+    } }: any) => ({
+        'label + &': {
+            marginTop: spacing(3),
+        },
+        '& .MuiInputBase-input': {
+            display: 'flex',
+            alignItems: 'center',
+            borderRadius: 0,
+            backgroundColor: dialog.main,
+            color: text.contrastText,
+            border: `1px solid ${tableSeparator.dark}`,
+            fontSize: 14,
+            width: 250,
+            minHeight: '0px !important',
+            height: '30px !important',
+            padding: '0px !important',
+            paddingLeft: '12px !important',
+            paddingRight: '12px !important',
+            transition: transitions.create([
+                'border-color',
+                'background-color',
+                'box-shadow',
+            ]),
+            '&:focus': {
+                boxShadow: `${alpha(primary.main, 0.25)} 0 0 0 0.2rem`,
+                borderColor: primary.main,
+            },
+        },
+    }));
 
 const Placeholder = styled(Box)(({ theme }) => {
 
@@ -54,7 +64,7 @@ const Placeholder = styled(Box)(({ theme }) => {
                 xGrey1
             }
         }
-    } = theme
+    }: any = theme
 
     return {
         position: 'absolute',
@@ -65,7 +75,7 @@ const Placeholder = styled(Box)(({ theme }) => {
     }
 })
 
-function DropDown(props) {
+function DropDown(props: any) {
 
     const {
         name,
@@ -85,7 +95,7 @@ function DropDown(props) {
     if (customChange)
         customChangeProps = {
             value: customChange.value,
-            onChange: (event) => {
+            onChange: (event: any) => {
                 customChange.onChange(
                     event.target.value
                 )
@@ -93,7 +103,7 @@ function DropDown(props) {
         }
 
     function RenderList() {
-        return list?.map?.((item, key) => {
+        return list?.map?.((item: any, key: any) => {
 
             const { label, value } = item || {}
 

@@ -5,7 +5,7 @@ import FileUploadIcon from '@mui/icons-material/FileUpload';
 import { useDispatch } from 'react-redux';
 import { setAddTeamDialog } from '../Store/teamsSlice';
 
-function TeamAction(props) {
+function TeamAction(props: any) {
 
     const dispatch = useDispatch()
 

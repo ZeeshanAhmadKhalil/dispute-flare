@@ -1,7 +1,6 @@
-import { Avatar, Badge, Box } from '@mui/material';
-import { useEffect } from 'react';
+import { Box } from '@mui/material';
 
-function Title(props) {
+function Title(props: any) {
 
     const {
         title,

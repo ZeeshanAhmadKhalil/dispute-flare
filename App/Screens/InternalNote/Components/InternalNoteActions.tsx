@@ -5,7 +5,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import { useDispatch } from 'react-redux';
 import { setAddInternalNoteDialog } from '../Store/internalNoteSlice';
 
-function InternalNoteActions(props) {
+function InternalNoteActions(props: any) {
 
     const dispatch = useDispatch()
 

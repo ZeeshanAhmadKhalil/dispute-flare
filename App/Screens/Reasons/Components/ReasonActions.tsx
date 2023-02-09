@@ -1,12 +1,10 @@
 import Button from '@Components/Button/Button';
-import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
 import FileUploadIcon from '@mui/icons-material/FileUpload';
-import Thunder from 'public/Assets/Svgs/thunder.svg';
 import { useDispatch } from 'react-redux';
 import { setAddReasonDialog } from '../Store/reasonsSlice';
 
-function ReasonsAction(props) {
+function ReasonsAction(props: any) {
 
     const dispatch = useDispatch()
 

@@ -6,7 +6,7 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import { Controller } from 'react-hook-form';
 
-function RadioBtns(props) {
+function RadioBtns(props: any) {
 
     const {
         control,
@@ -16,7 +16,7 @@ function RadioBtns(props) {
     } = props || {}
 
     function RenderList() {
-        return list?.map?.((item, key) => {
+        return list?.map?.((item: any, key: any) => {
 
             const { label, value } = item
 

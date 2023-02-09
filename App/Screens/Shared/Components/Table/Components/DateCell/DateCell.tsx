@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 import moment from 'moment'
 
-function DateCell(props) {
+function DateCell(props: any) {
 
     const {
         value,

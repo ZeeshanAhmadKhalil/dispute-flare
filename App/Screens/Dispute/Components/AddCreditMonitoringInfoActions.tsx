@@ -2,7 +2,7 @@ import Button from '@Components/Button/Button';
 import { useTheme } from '@mui/material';
 import { useDispatch } from 'react-redux';
 
-function AddCreditMonitoringInfoActions(props) {
+function AddCreditMonitoringInfoActions(props: any) {
 
     const {
         onClose,
@@ -14,9 +14,9 @@ function AddCreditMonitoringInfoActions(props) {
         palette: {
             text: { grey }
         }
-    } = useTheme()
+    }: any = useTheme()
 
-    const handleAddCreditMonitoringInfo = handleSubmit((data) => {
+    const handleAddCreditMonitoringInfo = handleSubmit((data: any) => {
         console.log("data===>", data)
     })
 

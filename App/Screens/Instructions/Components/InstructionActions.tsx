@@ -1,11 +1,10 @@
 import Button from '@Components/Button/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import FileUploadIcon from '@mui/icons-material/FileUpload';
-
 import { useDispatch } from 'react-redux';
 import { setAddInstructionsDialog } from '../Store/instructionsSlice';
 
-function InstructionActions(props) {
+function InstructionActions(props: any) {
 
     const dispatch = useDispatch()
 

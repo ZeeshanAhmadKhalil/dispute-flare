@@ -3,14 +3,9 @@ import cls from 'classnames';
 import CollapseDown from 'public/Assets/Svgs/collapse-down.svg';
 import { useState } from 'react';
 
-const Container = styled(Box)(({ theme }) => {
-    return {
-    }
-})
-
 const ArrowIcon = styled(Box, {
     shouldForwardProp: (prop) => prop !== 'open',
-})(({ theme, open }) => {
+})(({ theme, open }: any) => {
     return {
         borderTopLeftRadius: 10,
         transition: theme.transitions.create(['transform'], {
@@ -29,11 +24,11 @@ const Collapse = styled(Box, {
     theme,
     open,
     collapseBgColor,
-}) => {
+}: any) => {
 
     const {
         dialog: { xxxxOff }
-    } = theme.palette
+    }: any = theme.palette
 
     return {
         backgroundColor: collapseBgColor ?
@@ -55,7 +50,7 @@ const Collapse = styled(Box, {
     }
 })
 
-const Title = (props) => {
+const Title = (props: any) => {
     const {
         children,
         onClick,
@@ -80,7 +75,9 @@ const Title = (props) => {
                 {children}
             </Typography>
             <ArrowIcon
-                open={open}
+                {...{
+                    open: open
+                }}
             >
                 <CollapseDown
                     height={10}
@@ -91,7 +88,7 @@ const Title = (props) => {
     )
 }
 
-function CollapsableForm(props) {
+function CollapsableForm(props: any) {
 
     const {
         children,
@@ -103,7 +100,7 @@ function CollapsableForm(props) {
     const [open, setOpen] = useState(defaultOpen)
 
     return (
-        <Container>
+        <Box>
             <Title
                 onClick={() => setOpen(!open)}
                 open={open}
@@ -111,8 +108,10 @@ function CollapsableForm(props) {
                 {title}
             </Title>
             <Collapse
-                open={open}
-                collapseBgColor={collapseBgColor}
+                {...{
+                    open: open,
+                    collapseBgColor: collapseBgColor
+                }}
             >
                 <div
                     className={cls(
@@ -122,7 +121,7 @@ function CollapsableForm(props) {
                     {children}
                 </div>
             </Collapse>
-        </Container>
+        </Box>
     )
 }
 

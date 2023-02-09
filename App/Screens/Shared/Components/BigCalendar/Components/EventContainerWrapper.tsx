@@ -1,7 +1,7 @@
 import { Box } from "@mui/material"
 import cls from 'classnames'
 
-function EventContainerWrapper(props) {
+function EventContainerWrapper() {
 
     return (
         <Box

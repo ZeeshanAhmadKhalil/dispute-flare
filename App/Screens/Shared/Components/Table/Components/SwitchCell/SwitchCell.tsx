@@ -3,7 +3,7 @@ import { Box } from '@mui/material';
 import cls from 'classnames';
 import { useState } from 'react';
 
-function SwitchCell(props) {
+function SwitchCell() {
 
     const [checked, setChecked] = useState(false)
 

@@ -7,7 +7,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormGroup from '@mui/material/FormGroup';
 import { Controller } from 'react-hook-form';
 
-function CheckBoxes(props) {
+function CheckBoxes(props: any) {
 
     const {
         list,
@@ -19,8 +19,8 @@ function CheckBoxes(props) {
         iconFontSize,
     } = props || {}
 
-    function renderList(onChange) {
-        return list?.map?.((item, key) => {
+    function renderList(onChange: any) {
+        return list?.map?.((item: any, key: any) => {
 
             let value = watch(name)
 
@@ -39,7 +39,7 @@ function CheckBoxes(props) {
                             onChange={() => {
 
                                 if (value?.includes?.(itemValue))
-                                    onChange(value.filter(item => item != itemValue))
+                                    onChange(value.filter((item: any) => item != itemValue))
                                 else
                                     onChange([
                                         ...value,

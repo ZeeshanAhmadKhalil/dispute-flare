@@ -19,27 +19,39 @@ import Clock from 'public/Assets/Svgs/clock.svg';
 import { Controller } from 'react-hook-form';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 
-const TextField = styled(InputBase)(({ theme, width }) => ({
+const TextField = styled(InputBase)(({
+    theme: {
+        spacing,
+        palette: {
+            dialog,
+            text,
+            tableSeparator,
+            primary,
+        },
+        transitions,
+    },
+    width
+}: any) => ({
     'label + &': {
-        marginTop: theme.spacing(3),
+        marginTop: spacing(3),
     },
     '& .MuiInputBase-input': {
         position: 'relative',
-        backgroundColor: theme.palette.dialog.main,
-        color: theme.palette.text.contrastText,
-        border: `1px solid ${theme.palette.tableSeparator.dark}`,
+        backgroundColor: dialog.main,
+        color: text.contrastText,
+        border: `1px solid ${tableSeparator.dark}`,
         fontSize: 14,
         width,
         height: 10,
         padding: '10px 12px',
-        transition: theme.transitions.create([
+        transition: transitions.create([
             'border-color',
             'background-color',
             'box-shadow',
         ]),
         '&:focus': {
-            boxShadow: `${alpha(theme.palette.primary.main, 0.25)} 0 0 0 0.2rem`,
-            borderColor: theme.palette.primary.main,
+            boxShadow: `${alpha(primary.main, 0.25)} 0 0 0 0.2rem`,
+            borderColor: primary.main,
         },
     },
 }));
@@ -49,7 +61,7 @@ const IconContainer = styled(Box)(() => ({
     right: 0,
 }))
 
-function TimePicker(props) {
+function TimePicker(props: any) {
 
     const {
         name,
@@ -65,7 +77,7 @@ function TimePicker(props) {
                 input,
             }
         }
-    } = useTheme()
+    }: any = useTheme()
 
     return (
         <ThemeProvider theme={lightTheme}>
@@ -78,7 +90,6 @@ function TimePicker(props) {
                             label={camelToTitle(name)}
                             value={value}
                             onChange={onChange}
-                            id={camelToBreadcrumbs(name)}
                             components={{
                                 OpenPickerIcon: () => (
                                     <AccessTimeIcon
@@ -89,7 +100,11 @@ function TimePicker(props) {
                                     />
                                 )
                             }}
-                            renderInput={({ inputRef, inputProps, InputProps }) => (
+                            renderInput={({
+                                inputRef,
+                                inputProps,
+                                InputProps
+                            }: any) => (
                                 <Box
                                     className={cls(
                                         'border-red-700', 'border-0',
@@ -106,9 +121,8 @@ function TimePicker(props) {
                                         {...inputProps}
                                         readOnly
                                         placeholder={camelToTitle(name)}
-                                        width={width}
                                         ref={inputRef}
-                                        variant="outlined"
+                                        width={width}
                                     />
                                     <IconContainer>
                                         {InputProps?.endAdornment}

@@ -1,22 +1,20 @@
 import Button from '@Components/Button/Button';
 import { useTheme } from '@mui/material';
-import { useDispatch } from 'react-redux';
 
-function AddTaskActions(props) {
+function AddTaskActions(props: any) {
 
     const {
         onClose,
         handleSubmit,
     } = props || {}
 
-    const dispatch = useDispatch()
     const {
         palette: {
             text: { grey }
         }
-    } = useTheme()
+    }: any = useTheme()
 
-    const handleAddClient = handleSubmit((data) => {
+    const handleAddClient = handleSubmit((data: any) => {
         console.log("data===>", data)
     })
 

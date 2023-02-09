@@ -10,32 +10,45 @@ import {
     useTheme
 } from '@mui/material';
 
-const TextField = styled(InputBase)(({ theme, width }) => ({
-    'label + &': {
-        marginTop: theme.spacing(3),
-    },
-    '& .MuiInputBase-input': {
-        position: 'relative',
-        backgroundColor: theme.palette.dialog.main,
-        color: theme.palette.text.contrastText,
-        border: `1px solid ${theme.palette.tableSeparator.dark}`,
-        fontSize: 14,
-        width: width ? width : 250,
-        height: 10,
-        padding: '10px 12px',
-        transition: theme.transitions.create([
-            'border-color',
-            'background-color',
-            'box-shadow',
-        ]),
-        '&:focus': {
-            boxShadow: `${alpha(theme.palette.primary.main, 0.25)} 0 0 0 0.2rem`,
-            borderColor: theme.palette.primary.main,
+const TextField
+    = styled(InputBase)(({
+        theme: {
+            spacing,
+            palette: {
+                dialog,
+                text,
+                tableSeparator,
+                primary,
+            },
+            transitions,
         },
-    },
-}));
+        width
+    }: any) => ({
+        'label + &': {
+            marginTop: spacing(3),
+        },
+        '& .MuiInputBase-input': {
+            position: 'relative',
+            backgroundColor: dialog.main,
+            color: text.contrastText,
+            border: `1px solid ${tableSeparator.dark}`,
+            fontSize: 14,
+            width: width ? width : 250,
+            height: 10,
+            padding: '10px 12px',
+            transition: transitions.create([
+                'border-color',
+                'background-color',
+                'box-shadow',
+            ]),
+            '&:focus': {
+                boxShadow: `${alpha(primary.main, 0.25)} 0 0 0 0.2rem`,
+                borderColor: primary.main,
+            },
+        },
+    }));
 
-function TextInput(props) {
+function TextInput(props: any) {
 
     const {
         icon,
@@ -53,7 +66,7 @@ function TextInput(props) {
         palette: {
             cancelled,
         }
-    } = useTheme()
+    }: any = useTheme()
 
     return (
         <div

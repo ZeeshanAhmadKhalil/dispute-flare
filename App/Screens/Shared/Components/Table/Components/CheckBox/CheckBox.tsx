@@ -4,7 +4,7 @@ import { useTheme } from '@mui/material/styles';
 export default function CheckBox({
     props,
     action,
-}) {
+}: any) {
     const {
         checked: value,
     } = props || {}
@@ -14,7 +14,7 @@ export default function CheckBox({
         palette: {
             checkbox,
         }
-    } = useTheme()
+    }: any = useTheme()
 
     return (
         <MuiCheckbox

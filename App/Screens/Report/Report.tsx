@@ -5,7 +5,7 @@ import {
 } from 'react';
 import CreditScoreReport from './Components/CreditScoreReport';
 
-function Report(props) {
+function Report() {
 
     const tabs = [
         { label: "Dashboard", value: "client-dashboard" },

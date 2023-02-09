@@ -16,7 +16,7 @@ const Label = styled(Typography)(({ theme }) => {
 
     const {
         text: { xxxGrey },
-    } = theme.palette
+    }: any = theme.palette
 
     return {
         color: xxxGrey,
@@ -24,7 +24,7 @@ const Label = styled(Typography)(({ theme }) => {
     }
 })
 
-function AddTask(props) {
+function AddTask(props: any) {
 
     const categoryList = [
         { label: "Dragon style and White Crane", value: 1 },
@@ -83,9 +83,9 @@ function AddTask(props) {
             >
                 <Grid
                     item
-                    xl="2"
-                    md="6"
-                    xs="12"
+                    xl={2}
+                    md={6}
+                    xs={12}
                 >
                     <Label
                         variant="subtitle1"
@@ -95,9 +95,9 @@ function AddTask(props) {
                 </Grid>
                 <Grid
                     item
-                    xl="10"
-                    md="6"
-                    xs="12"
+                    xl={2}
+                    md={6}
+                    xs={12}
                 >
                     <TextInput
                         register={register("title", {
@@ -113,9 +113,9 @@ function AddTask(props) {
                 </Grid>
                 <Grid
                     item
-                    xl="2"
-                    md="6"
-                    xs="12"
+                    xl={2}
+                    md={6}
+                    xs={12}
                 >
                     <Label
                         variant="subtitle1"
@@ -125,9 +125,9 @@ function AddTask(props) {
                 </Grid>
                 <Grid
                     item
-                    xl="4"
-                    md="6"
-                    xs="12"
+                    xl={4}
+                    md={6}
+                    xs={12}
                 >
                     <DropDown
                         watch={watch}
@@ -139,9 +139,9 @@ function AddTask(props) {
                 </Grid>
                 <Grid
                     item
-                    xl="2"
-                    md="6"
-                    xs="12"
+                    xl={2}
+                    md={6}
+                    xs={12}
                 >
                     <Label
                         variant="subtitle1"
@@ -151,9 +151,9 @@ function AddTask(props) {
                 </Grid>
                 <Grid
                     item
-                    xl="4"
-                    md="6"
-                    xs="12"
+                    xl={4}
+                    md={6}
+                    xs={12}
                 >
                     <DropDown
                         watch={watch}
@@ -165,9 +165,9 @@ function AddTask(props) {
                 </Grid>
                 <Grid
                     item
-                    xl="2"
-                    md="6"
-                    xs="12"
+                    xl={2}
+                    md={6}
+                    xs={12}
                 >
                     <Label
                         variant="subtitle1"
@@ -177,9 +177,9 @@ function AddTask(props) {
                 </Grid>
                 <Grid
                     item
-                    xl="4"
-                    md="6"
-                    xs="12"
+                    xl={4}
+                    md={6}
+                    xs={12}
                 >
                     <DatePicker
                         control={control}
@@ -189,9 +189,9 @@ function AddTask(props) {
                 </Grid>
                 <Grid
                     item
-                    xl="2"
-                    md="6"
-                    xs="12"
+                    xl={2}
+                    md={6}
+                    xs={12}
                 >
                     <Label
                         variant="subtitle1"
@@ -201,9 +201,9 @@ function AddTask(props) {
                 </Grid>
                 <Grid
                     item
-                    xl="4"
-                    md="6"
-                    xs="12"
+                    xl={4}
+                    md={6}
+                    xs={12}
                 >
                     <Grid
                         container
@@ -232,9 +232,9 @@ function AddTask(props) {
                 </Grid>
                 <Grid
                     item
-                    xl="2"
-                    md="6"
-                    xs="12"
+                    xl={2}
+                    md={6}
+                    xs={12}
                 >
                     <Label
                         variant="subtitle1"
@@ -244,9 +244,9 @@ function AddTask(props) {
                 </Grid>
                 <Grid
                     item
-                    xl="4"
-                    md="6"
-                    xs="12"
+                    xl={4}
+                    md={6}
+                    xs={12}
                 >
                     <DropDown
                         watch={watch}
@@ -258,9 +258,9 @@ function AddTask(props) {
                 </Grid>
                 <Grid
                     item
-                    xl="2"
-                    md="6"
-                    xs="12"
+                    xl={2}
+                    md={6}
+                    xs={12}
                 >
                     <Label
                         variant="subtitle1"
@@ -270,9 +270,9 @@ function AddTask(props) {
                 </Grid>
                 <Grid
                     item
-                    xl="4"
-                    md="6"
-                    xs="12"
+                    xl={4}
+                    md={6}
+                    xs={12}
                 >
                     <DropDown
                         watch={watch}
@@ -284,9 +284,9 @@ function AddTask(props) {
                 </Grid>
                 <Grid
                     item
-                    xl="2"
-                    md="6"
-                    xs="12"
+                    xl={2}
+                    md={6}
+                    xs={12}
                 >
                     <Label
                         variant="subtitle1"
@@ -296,9 +296,9 @@ function AddTask(props) {
                 </Grid>
                 <Grid
                     item
-                    xl="4"
-                    md="6"
-                    xs="12"
+                    xl={4}
+                    md={6}
+                    xs={12}
                 >
                     <TextInput
                         register={register("notes", {

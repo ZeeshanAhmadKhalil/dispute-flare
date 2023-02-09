@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 
-function SecretCell(props) {
+function SecretCell(props: any) {
 
     const {
         value,

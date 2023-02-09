@@ -2,7 +2,7 @@ import Button from '@Components/Button/Button';
 import { useTheme } from '@mui/material';
 import { useDispatch } from 'react-redux';
 
-function AddAffiliateActions(props) {
+function AddAffiliateActions(props: any) {
 
     const {
         onClose,
@@ -14,9 +14,9 @@ function AddAffiliateActions(props) {
         palette: {
             text: { grey }
         }
-    } = useTheme()
+    }: any = useTheme()
 
-    const handleFlowClient = handleSubmit((data) => {
+    const handleFlowClient = handleSubmit((data: any) => {
         console.log("data===>", data)
     })
 

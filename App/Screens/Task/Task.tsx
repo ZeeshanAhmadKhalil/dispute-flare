@@ -51,7 +51,7 @@ let columns = [
     {
         field: 'client',
         headerName: 'Client',
-        renderCell: (props) =>
+        renderCell: (props: any) =>
             <AvatarNameCell
                 {...props}
                 isSecond
@@ -84,9 +84,7 @@ let columns = [
         editable: true,
         type: 'singleSelect',
         valueOptions: ['Overdue', 'Upcoming'],
-        renderCell: ({ value }) => (
-            <DropDownCell value={value} />
-        ),
+        renderCell: DropDownCell,
     },
 ]
 let tasks = [

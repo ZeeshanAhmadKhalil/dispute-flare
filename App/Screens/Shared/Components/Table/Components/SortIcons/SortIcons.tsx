@@ -1,9 +1,8 @@
 import { Box, useTheme } from '@mui/material';
 import SortAsc from 'public/Assets/Svgs/SortAsc.svg';
 import SortDes from 'public/Assets/Svgs/SortDes.svg';
-import { useEffect } from 'react';
 
-function SortIcons(props) {
+function SortIcons(props: any) {
 
     const {
         asc,
@@ -17,10 +16,7 @@ function SortIcons(props) {
                 inactive,
             },
         }
-    } = useTheme()
-
-    useEffect(() => {
-    }, [])
+    }: any = useTheme()
 
     return (
         <Box

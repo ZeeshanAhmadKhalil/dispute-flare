@@ -3,9 +3,8 @@ import {
     ListItemButton,
     ListItemIcon
 } from '@mui/material';
-import Image from 'next/image';
 
-function RightBarItem(props) {
+function RightBarItem(props: any) {
 
     const {
         icon

@@ -2,7 +2,7 @@ import TitleHeader from '@Components/TitleHeader/TitleHeader';
 import TopTabs from '@Components/TopTabs/TopTabs';
 import { useDispatch } from 'react-redux';
 
-function ClientDashboard(props) {
+function ClientDashboard() {
 
     const dispatch = useDispatch()
 

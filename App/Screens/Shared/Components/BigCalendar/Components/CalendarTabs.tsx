@@ -1,11 +1,9 @@
 import { styled } from '@mui/material'
 import Box from '@mui/material/Box'
-import MuiTabs from '@mui/material/Tabs'
 import MuiTab from '@mui/material/Tab'
+import MuiTabs from '@mui/material/Tabs'
 import Typography from '@mui/material/Typography'
 import PropTypes from 'prop-types'
-import * as React from 'react'
-
 
 const Tabs = styled(MuiTabs)(({ theme }) => {
 
@@ -13,7 +11,7 @@ const Tabs = styled(MuiTabs)(({ theme }) => {
         text: {
             main,
         },
-    } = theme.palette || {}
+    }: any = theme.palette || {}
 
     return {
         '& .MuiTab-root.Mui-selected': {
@@ -37,7 +35,7 @@ const Tab = styled(MuiTab)(({ theme }) => {
     }
 })
 
-function TabPanel(props) {
+function TabPanel(props: any) {
     const { children, value, index, ...other } = props
 
     return (
@@ -63,19 +61,12 @@ TabPanel.propTypes = {
     value: PropTypes.number.isRequired,
 }
 
-function a11yProps(index) {
-    return {
-        id: `simple-tab-${index}`,
-        'aria-controls': `simple-tabpanel-${index}`,
-    }
-}
-
 function CalendarTabs({
     view,
     setView,
-}) {
+}: any) {
 
-    const handleChange = (event, newValue) => {
+    const handleChange = (event: any, newValue: any) => {
         setView(newValue)
     }
 

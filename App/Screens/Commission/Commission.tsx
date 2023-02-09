@@ -30,7 +30,7 @@ const columns = [
         headerName: 'Affiliate Name',
         width: 350,
         headerClassName: 'separator-header',
-        renderCell: (props) => (
+        renderCell: (props: any) => (
             <LinkCell
                 {...props}
                 navigateTo="creditor-dashboard"
@@ -61,9 +61,7 @@ const columns = [
         editable: true,
         type: 'singleSelect',
         valueOptions: ['Paid', 'To be paid'],
-        renderCell: ({ value }) => (
-            <DropDownCell value={value} />
-        ),
+        renderCell: DropDownCell,
     },
 ]
 const comissions = [
@@ -139,7 +137,7 @@ const comissions = [
     },
 ]
 
-function Commission(props) {
+function Commission() {
 
     const tabs = [
         { label: "Dashboard", value: "creditor-dashboard" },
@@ -153,7 +151,7 @@ function Commission(props) {
             background,
             borders
         }
-    } = useTheme()
+    }: any = useTheme()
 
     const dispatch = useDispatch()
 
@@ -162,98 +160,98 @@ function Commission(props) {
     return (
         <>
             <TopTabs tabs={tabs} />
-                <TitleHeader
-                    title="Commission"
-                    actionButtons={
-                        <CommissionActions
-                            selectedComission={selectedComission}
-                        />
-                    }
-                />
-                <Box
-                    className={cls(
-                        'flex',
-                        'flex-wrap',
-                        'mb-5'
-                    )}
-                >
-                    <StatsTile
-                        name="STANDARD RATE"
-                        nameColor={icon?.dark}
-                        value={"420"}
-                        valueColor={icon?.dark}
-                        icon={
-                            <Box
-                                className={cls(
-                                    'h-[37px]',
-                                    'w-[37px]',
-                                    'rounded-full',
-                                    'p-[5px]',
-                                    'items-center',
-                                    'justify-center',
-                                    'flex'
-                                )}
-                                sx={{
-                                    border: `0.5px solid ${icon?.dark}`
-                                }}
-                            >
-                                <TotalCommission
-                                    color={icon?.dark}
-                                    height={25}
-                                    width={25}
-                                />
-                            </Box>
-                        }
-                        styles={{
-                            marginRight: 5,
-                            background: background?.main + "2",
-                            border: `0.5px solid ${borders.light}`
-                        }}
+            <TitleHeader
+                title="Commission"
+                actionButtons={
+                    <CommissionActions
+                        selectedComission={selectedComission}
                     />
-                    <StatsTile
-                        name="CLIENTS"
-                        nameColor={icon?.dark}
-                        value={"69"}
-                        valueColor={icon?.dark}
-                        icon={
-                            <Box
-                                className={cls(
-                                    'h-[37px]',
-                                    'w-[37px]',
-                                    'rounded-full',
-                                    'p-[5px]',
-                                    'items-center',
-                                    'justify-center',
-                                    'flex'
-                                )}
-                                sx={{
-                                    border: `0.5px solid ${icon?.dark}`
-                                }}
-                            >
-                                <User
-                                    height={22}
-                                    width={22}
-                                />
-                            </Box>
-                        }
-                        styles={{
-                            marginRight: 5,
-                            background: background?.main + "2",
-                            border: `0.5px solid ${borders.light}`
-                        }}
-                    />
-                </Box>
-                <Table
-                    title="Commission"
-                    onSelectionModelChange={(selected) =>
-                        setSelectedComission(selected)
+                }
+            />
+            <Box
+                className={cls(
+                    'flex',
+                    'flex-wrap',
+                    'mb-5'
+                )}
+            >
+                <StatsTile
+                    name="STANDARD RATE"
+                    nameColor={icon?.dark}
+                    value={"420"}
+                    valueColor={icon?.dark}
+                    icon={
+                        <Box
+                            className={cls(
+                                'h-[37px]',
+                                'w-[37px]',
+                                'rounded-full',
+                                'p-[5px]',
+                                'items-center',
+                                'justify-center',
+                                'flex'
+                            )}
+                            sx={{
+                                border: `0.5px solid ${icon?.dark}`
+                            }}
+                        >
+                            <TotalCommission
+                                color={icon?.dark}
+                                height={25}
+                                width={25}
+                            />
+                        </Box>
                     }
-                    noRowsAction={() =>
-                        dispatch(setStandardRateDialog(true))
-                    }
-                    columns={columns}
-                    rows={comissions}
+                    styles={{
+                        marginRight: 5,
+                        background: background?.main + "2",
+                        border: `0.5px solid ${borders.light}`
+                    }}
                 />
+                <StatsTile
+                    name="CLIENTS"
+                    nameColor={icon?.dark}
+                    value={"69"}
+                    valueColor={icon?.dark}
+                    icon={
+                        <Box
+                            className={cls(
+                                'h-[37px]',
+                                'w-[37px]',
+                                'rounded-full',
+                                'p-[5px]',
+                                'items-center',
+                                'justify-center',
+                                'flex'
+                            )}
+                            sx={{
+                                border: `0.5px solid ${icon?.dark}`
+                            }}
+                        >
+                            <User
+                                height={22}
+                                width={22}
+                            />
+                        </Box>
+                    }
+                    styles={{
+                        marginRight: 5,
+                        background: background?.main + "2",
+                        border: `0.5px solid ${borders.light}`
+                    }}
+                />
+            </Box>
+            <Table
+                title="Commission"
+                onSelectionModelChange={(selected: any) =>
+                    setSelectedComission(selected)
+                }
+                noRowsAction={() =>
+                    dispatch(setStandardRateDialog(true))
+                }
+                columns={columns}
+                rows={comissions}
+            />
             <SetStandardRateDialog />
         </>
     )

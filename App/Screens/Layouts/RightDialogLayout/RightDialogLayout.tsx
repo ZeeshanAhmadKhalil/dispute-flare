@@ -11,10 +11,16 @@ import MuiDialog from '@mui/material/Dialog';
 import Slide from '@mui/material/Slide';
 import cls from 'classnames';
 import { forwardRef } from 'react';
-import backgroundImage from "./../../../../public/Assets/Images/beach.jpg"
 
-const Transition = forwardRef(function Transition(props, ref) {
-    return <Slide direction="left" ref={ref} {...props} />;
+const Transition = forwardRef((props, ref) => {
+    return (
+        <Slide
+            direction="left"
+            ref={ref}
+            children={<></>}
+            {...props}
+        />
+    )
 });
 
 const Dialog = styled(MuiDialog)(({ theme }) => {
@@ -23,12 +29,11 @@ const Dialog = styled(MuiDialog)(({ theme }) => {
         text,
         dialog,
         shadow,
-    } = theme.palette
+    }: any = theme.palette
 
     return {
         '& .MuiPaper-root': {
             backgroundColor: dialog.xxxxOff,
-            //  opacity: .4,
             color: text.contrastText,
             borderRadius: 0,
             margin: 0,
@@ -52,7 +57,7 @@ const Dialog = styled(MuiDialog)(({ theme }) => {
     }
 })
 
-const Title = (props) => {
+const Title = (props: any) => {
     const { children,
         onClose,
         ...other
@@ -63,7 +68,7 @@ const Title = (props) => {
             text,
             shadow,
         }
-    } = useTheme()
+    }: any = useTheme()
 
     return (
         <DialogTitle
@@ -84,7 +89,7 @@ const Title = (props) => {
     );
 };
 
-function RightDialogLayout(props) {
+function RightDialogLayout(props: any) {
 
     const {
         children,
@@ -96,23 +101,25 @@ function RightDialogLayout(props) {
 
     } = props || {}
 
+    let dialogProps: any = {
+        TransitionComponent: Transition
+    }
+
     const {
         palette: {
             text: { grey }
         }
-    } = useTheme()
+    }: any = useTheme()
 
     return (
         <Dialog
-            TransitionComponent={Transition}
+            {...dialogProps}
             className={cls(
                 'h-full'
             )}
             onClose={onClose}
             open={open}
             fullScreen={true}
-
-
         >
             <Title
                 id="customized-dialog-title"
@@ -140,7 +147,6 @@ function RightDialogLayout(props) {
                 color={"info"}
                 startIcon={<CloseIcon />}
                 style={{
-                    borderRadius: 3,
                     marginRight: 10,
                     position: 'absolute',
                     top: 20,

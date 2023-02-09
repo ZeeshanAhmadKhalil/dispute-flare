@@ -9,7 +9,7 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import DoneAllIcon from '@mui/icons-material/DoneAll';
 import { setPrintDialog } from '@Screens/Shared/Store/sharedSlice';
 
-function DisputeActions(props) {
+function DisputeActions(props: any) {
 
     const dispatch = useDispatch()
 

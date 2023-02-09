@@ -6,7 +6,7 @@ import Thunder from 'public/Assets/Svgs/thunder.svg';
 import { useDispatch } from 'react-redux';
 import { setAddLetterTemplateDialog } from '../Store/templatesSlice';
 
-function TemplatesAction(props) {
+function TemplatesAction(props: any) {
 
     const dispatch = useDispatch()
 
@@ -46,11 +46,6 @@ function TemplatesAction(props) {
                     </Button>
                 </>
             }
-
-
-
-
-
         </>
     )
 }

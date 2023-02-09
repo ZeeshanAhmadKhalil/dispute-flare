@@ -22,7 +22,7 @@ const AntTabs = styled(Tabs)(({ theme }) => {
         secondary: {
             main
         }
-    } = theme.palette || {}
+    }: any = theme.palette || {}
 
     return {
         borderBottom: '1px solid #e8e8e8',
@@ -37,30 +37,24 @@ const AntTabs = styled(Tabs)(({ theme }) => {
 
     }
 });
-const AntTab = styled(Tab)(({ theme, index }) => {
 
-    const {
-        text: {
-            xxxGrey1,
-            xGrey2,
-        },
-        secondary: {
-            main
-        }
-    } = theme.palette || {}
+const AntTab
+    = styled(Tab)(({ index }: any) => {
 
-    return {
-        marginRight: index == 0 ?
-            "2rem"
-            :
-            null,
-    }
-});
+        if (index == 0)
+            return {
+                marginRight: "2rem"
+            }
+        else
+            return {
+                marginRight: "2rem"
+            }
+    });
 
 function TopTabs({
     tabs,
     left = null
-}) {
+}: any) {
 
     const {
         palette: {
@@ -68,21 +62,23 @@ function TopTabs({
                 xGrey2,
             }
         }
-    } = useTheme()
+    }: any = useTheme()
 
     const router = useRouter()
 
-    const handleTabChange = (event, newValue) => {
+    const handleTabChange = (event: any, newValue: any) => {
         router.push(`/${newValue}`)
     }
 
     const renderTabs =
-        tabs.map((item, key) => {
+        tabs.map((item: any, key: any) => {
 
             return (
                 <AntTab
+                    {...{
+                        index: key
+                    }}
                     key={key}
-                    index={key}
                     label={item.label}
                     value={item.value}
                 />

@@ -1,6 +1,6 @@
 import CheckBoxes from "@Components/CheckBoxes/CheckBoxes"
 
-function CheckBoxesCell(props) {
+function CheckBoxesCell(props: any) {
 
     const {
         name,

@@ -2,7 +2,7 @@ import { Box, Typography, useTheme } from '@mui/material';
 import cls from 'classnames';
 import moment from 'moment';
 
-function DateHeader(props) {
+function DateHeader(props: any) {
 
     const {
         label,
@@ -22,7 +22,7 @@ function DateHeader(props) {
             leadLight,
             text,
         }
-    } = useTheme()
+    }: any = useTheme()
 
     return (
         <Box
