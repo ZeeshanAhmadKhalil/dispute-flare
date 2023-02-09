@@ -20,7 +20,7 @@ const Label = styled(Typography)(({ theme }) => {
 
     const {
         text: { xxxGrey },
-    } = theme.palette
+    }: any = theme.palette
 
     return {
         color: xxxGrey,
@@ -34,7 +34,7 @@ function AddLetterTemplate({
     control,
     register,
     setValue,
-}) {
+}: any) {
 
     let categoryList = [
         { label: 'Category 1', value: 1 },
@@ -94,17 +94,17 @@ function AddLetterTemplate({
             lead,
             tags,
         }
-    } = useTheme()
+    }: any = useTheme()
 
     const [showAll, setShowAll] = useState(false)
 
-    const handleTagClick = (id) => {
+    const handleTagClick = (id: any) => {
 
         if (watchKeys.includes(id))
             setValue(
                 'keys',
                 watchKeys.filter(
-                    obj => obj != id
+                    (obj: any) => obj != id
                 )
             )
         else
@@ -170,14 +170,14 @@ function AddLetterTemplate({
                 )}
             >
 
-                <Grid item xl="2" md="12" xs="12">
+                <Grid item xl={2} md={12} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         Title
                     </Label>
                 </Grid>
-                <Grid item xl="10" md="12" xs="12">
+                <Grid item xl={10} md={12} xs={12}>
                     <TextInput
                         register={register("title", {
                             required: true,
@@ -191,16 +191,16 @@ function AddLetterTemplate({
                     />
                 </Grid>
                 <FormDivider />
-                <Grid item xl="2" md="6" xs="12" padding="0px" >
+                <Grid item xl={2} md={6} xs={12} padding="0px" >
                     <Label
                         variant="subtitle1"
                     >
                         Category
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12" alignItems="center"
+                <Grid item xl={4} md={6} xs={12} alignItems="center"
                     justifyContent="center" >
-                    <Grid item xl="12" md="12" xs="12" alignItems="center">
+                    <Grid item xl={12} md={12} xs={12} alignItems="center">
                         <DropDown
                             watch={watch}
                             register={register("category")}
@@ -210,15 +210,15 @@ function AddLetterTemplate({
                         />
                     </Grid>
                 </Grid>
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         Type
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
-                    <Grid item xl="12" md="12" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
+                    <Grid item xl={12} md={12} xs={12}>
                         <DropDown
                             watch={watch}
                             register={register("type")}
@@ -229,7 +229,7 @@ function AddLetterTemplate({
                     </Grid>
                 </Grid>
                 <FormDivider />
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
@@ -238,9 +238,9 @@ function AddLetterTemplate({
                 </Grid>
                 <Grid
                     item
-                    xl="10"
-                    md="12"
-                    xs="12"
+                    xl={10}
+                    md={12}
+                    xs={12}
                     display="flex"
                     flexDirection="row"
                 >
@@ -267,9 +267,9 @@ function AddLetterTemplate({
                 </Grid>
                 <Grid
                     item
-                    xl="12"
-                    md="12"
-                    xs="12"
+                    xl={12}
+                    md={12}
+                    xs={12}
                     display="flex"
                     flexDirection="row"
                     flexWrap="wrap"
@@ -280,9 +280,9 @@ function AddLetterTemplate({
                 </Grid>
                 <Grid
                     item
-                    xl="12"
-                    md="12"
-                    xs="12"
+                    xl={12}
+                    md={12}
+                    xs={12}
                     display="flex"
                     flexDirection="row"
                     flexWrap="wrap"

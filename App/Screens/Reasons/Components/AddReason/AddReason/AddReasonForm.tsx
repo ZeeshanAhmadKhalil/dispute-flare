@@ -14,7 +14,7 @@ const Label = styled(Typography)(({ theme }) => {
 
     const {
         text: { xxxGrey },
-    } = theme.palette
+    }: any = theme.palette
 
     return {
         color: xxxGrey,
@@ -26,7 +26,7 @@ const Elements = styled(Typography)(({ theme }) => {
 
     const {
         text: { xxxGrey },
-    } = theme.palette
+    }: any = theme.palette
 
     return {
         color: xxxGrey,
@@ -35,7 +35,7 @@ const Elements = styled(Typography)(({ theme }) => {
 })
 
 
-function AddReasonForm(props) {
+function AddReasonForm(props: any) {
 
 
     let status = [
@@ -70,9 +70,9 @@ function AddReasonForm(props) {
             >
                 <Grid
                     item
-                    xl="2"
-                    md="12"
-                    xs="12"
+                    xl={2}
+                    md={12}
+                    xs={12}
                 >
                     <Label
                         variant="subtitle1"
@@ -80,7 +80,7 @@ function AddReasonForm(props) {
                         Title
                     </Label>
                 </Grid>
-                <Grid item xl="10" md="12" xs="12">
+                <Grid item xl={10} md={12} xs={12}>
                     <TextInput
                         register={register("title", {
                             required: true,
@@ -100,7 +100,7 @@ function AddReasonForm(props) {
                     }}
 
                 />
-                <Grid item xl="2" md="6" xs="12" padding="0px" >
+                <Grid item xl={2} md={6} xs={12} padding="0px" >
                     <Label
                         sx={{
                             margin: "0px",
@@ -113,13 +113,13 @@ function AddReasonForm(props) {
                 </Grid>
                 <Grid
                     item
-                    xl="4"
-                    md="6"
-                    xs="12"
+                    xl={4}
+                    md={6}
+                    xs={12}
                     alignItems="center"
                     justifyContent="center"
                 >
-                    <Grid item xl="12" md="12" xs="12" alignItems="center">
+                    <Grid item xl={12} md={12} xs={12} alignItems="center">
                         <DropDown
                             watch={watch}
                             register={register("status")}

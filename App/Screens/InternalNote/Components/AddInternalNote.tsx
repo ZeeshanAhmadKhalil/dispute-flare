@@ -1,5 +1,6 @@
 import CollapsableForm from '@Components/CollapsableForm/CollapsableForm';
 import TextInput from '@Components/TextInput/TextInput';
+import { useTheme } from '@emotion/react';
 import AddIcon from '@mui/icons-material/Add';
 import {
     Box,
@@ -13,7 +14,7 @@ const Label = styled(Typography)(({ theme }) => {
 
     const {
         text: { xxxGrey },
-    } = theme.palette
+    }: any = theme.palette
 
     return {
         color: xxxGrey,
@@ -21,7 +22,7 @@ const Label = styled(Typography)(({ theme }) => {
     }
 })
 
-function AddInternalNote(props) {
+function AddInternalNote(props: any) {
 
     const {
         register,
@@ -29,6 +30,12 @@ function AddInternalNote(props) {
         errors,
         watch,
     } = props || {}
+
+    const {
+        palette: {
+            link
+        }
+    }: any = useTheme()
 
     return (
         <CollapsableForm
@@ -47,9 +54,9 @@ function AddInternalNote(props) {
             >
                 <Grid
                     item
-                    xl="2"
-                    md="6"
-                    xs="12"
+                    xl={2}
+                    md={6}
+                    xs={12}
                 >
                     <Label
                         variant="subtitle1"
@@ -59,9 +66,9 @@ function AddInternalNote(props) {
                 </Grid>
                 <Grid
                     item
-                    xl="4"
-                    md="6"
-                    xs="12"
+                    xl={4}
+                    md={6}
+                    xs={12}
                 >
                     <TextInput
                         register={register("description", {
@@ -73,14 +80,14 @@ function AddInternalNote(props) {
                         rows={8}
                     />
                 </Grid>
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         Attachment
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
                     <Box
                         sx={{
                             display: 'flex',
@@ -89,8 +96,10 @@ function AddInternalNote(props) {
                         }}
                     >
                         <AddIcon
-                            fontSize='10'
-                            color="link"
+                            sx={{
+                                fontSize: '10',
+                                color: link.main,
+                            }}
                         />
                         <Typography
                             className={cls(

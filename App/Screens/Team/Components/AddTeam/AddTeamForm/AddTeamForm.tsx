@@ -13,7 +13,7 @@ const Label = styled(Typography)(({ theme }) => {
 
     const {
         text: { xxxGrey },
-    } = theme.palette
+    }: any = theme.palette
 
     return {
         color: xxxGrey,
@@ -21,7 +21,7 @@ const Label = styled(Typography)(({ theme }) => {
     }
 })
 
-function AddTeamForm(props) {
+function AddTeamForm(props: any) {
 
     const {
         register,
@@ -44,14 +44,14 @@ function AddTeamForm(props) {
                 )}
             >
 
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         First Name <RequiredMark />
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
                     <TextInput
                         register={register("firstName", {
                             required: true,
@@ -62,14 +62,14 @@ function AddTeamForm(props) {
 
                     />
                 </Grid>
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         Last Name <RequiredMark />
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
                     <TextInput
                         register={register("lastName", {
                             required: true,
@@ -79,14 +79,14 @@ function AddTeamForm(props) {
                         error={errors.lastName}
                     />
                 </Grid>
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         Contact
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
                     <TextInput
                         register={register("contact", {
                             required: true,
@@ -96,14 +96,14 @@ function AddTeamForm(props) {
                         placeholder="(000) 000-000"
                     />
                 </Grid>
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         Email <RequiredMark />
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
                     <TextInput
                         register={register("email", {
                             required: true,
@@ -113,14 +113,14 @@ function AddTeamForm(props) {
                         placeholder="Johan@gmail.com"
                     />
                 </Grid>
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         Department
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
                     <TextInput
                         register={register("department", {
                             required: true,
@@ -129,14 +129,14 @@ function AddTeamForm(props) {
                         error={errors.department}
                     />
                 </Grid>
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         Position
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
                     <TextInput
                         register={register("position", {
                             required: true,
@@ -145,14 +145,14 @@ function AddTeamForm(props) {
                         error={errors.position}
                     />
                 </Grid>
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         Address  <RequiredMark />
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
                     <TextInput
                         register={register("address", {
                             required: true,

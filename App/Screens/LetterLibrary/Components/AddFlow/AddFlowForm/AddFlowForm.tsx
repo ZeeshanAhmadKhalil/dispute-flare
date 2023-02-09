@@ -19,7 +19,7 @@ const Label = styled(Typography)(({ theme }) => {
 
     const {
         text: { xxxGrey },
-    } = theme.palette
+    }: any = theme.palette
 
     return {
         color: xxxGrey,
@@ -27,7 +27,7 @@ const Label = styled(Typography)(({ theme }) => {
     }
 })
 
-function AddFlowForm(props) {
+function AddFlowForm(props: any) {
 
     let itemTypeList = [
         { label: 'Item Type 1', value: 1 },
@@ -64,7 +64,7 @@ function AddFlowForm(props) {
         palette: {
             lead,
         }
-    } = useTheme()
+    }: any = useTheme()
 
     const [bureauFlows, setBureauFlows] = useState(1)
     const [furnishFlows, setFurnishFlows] = useState(1)
@@ -111,7 +111,7 @@ function AddFlowForm(props) {
                 rowSpacing={3}
 
             >
-                <Grid item xl="2" md="12" xs="12">
+                <Grid item xl={2} md={12} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
@@ -120,9 +120,9 @@ function AddFlowForm(props) {
                 </Grid>
                 <Grid
                     item
-                    xl="10"
-                    md="12"
-                    xs="12"
+                    xl={10}
+                    md={12}
+                    xs={12}
                     sx={{
                         border: '0px solid red'
                     }}
@@ -140,7 +140,7 @@ function AddFlowForm(props) {
                     />
                 </Grid>
                 <FormDivider />
-                <Grid item xl="12" md="12" xs="12">
+                <Grid item xl={12} md={12} xs={12}>
                     <Typography
                         color="text.xxGrey"
                         variant='subtitle2'
@@ -148,14 +148,14 @@ function AddFlowForm(props) {
                         When a new dispute is created, if the following match:
                     </Typography>
                 </Grid>
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         Item Type
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
                     <DropDown
                         watch={watch}
                         register={register("itemType")}
@@ -164,14 +164,14 @@ function AddFlowForm(props) {
                         error={errors.itemType}
                     />
                 </Grid>
-                <Grid item xl="2" md="6" xs="12">
+                <Grid item xl={2} md={6} xs={12}>
                     <Label
                         variant="subtitle1"
                     >
                         Reason
                     </Label>
                 </Grid>
-                <Grid item xl="4" md="6" xs="12">
+                <Grid item xl={4} md={6} xs={12}>
                     <DropDown
                         watch={watch}
                         register={register("reason")}
@@ -181,7 +181,7 @@ function AddFlowForm(props) {
                     />
                 </Grid>
                 <FormDivider />
-                <Grid item xl="12" md="12" xs="12">
+                <Grid item xl={12} md={12} xs={12}>
                     <Typography
                         color="text.xxGrey"
                         variant='subtitle2'
@@ -191,9 +191,9 @@ function AddFlowForm(props) {
                 </Grid>
                 <Grid
                     item
-                    xl="2"
-                    md="6"
-                    xs="12"
+                    xl={2}
+                    md={6}
+                    xs={12}
                     sx={{
                         border: '0px solid red'
                     }}
@@ -206,9 +206,9 @@ function AddFlowForm(props) {
                 </Grid>
                 <Grid
                     item
-                    xl="4"
-                    md="6"
-                    xs="12"
+                    xl={4}
+                    md={6}
+                    xs={12}
                     sx={{
                         border: '0px solid red',
                     }}
@@ -283,9 +283,9 @@ function AddFlowForm(props) {
                 </Grid>
                 <Grid
                     item
-                    xl="2"
-                    md="6"
-                    xs="12"
+                    xl={2}
+                    md={6}
+                    xs={12}
                     sx={{
                         border: '0px solid red'
                     }}
@@ -298,9 +298,9 @@ function AddFlowForm(props) {
                 </Grid>
                 <Grid
                     item
-                    xl="4"
-                    md="6"
-                    xs="12"
+                    xl={4}
+                    md={6}
+                    xs={12}
                     sx={{
                         border: '0px solid red',
                     }}

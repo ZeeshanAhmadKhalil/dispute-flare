@@ -175,7 +175,7 @@ function AffiliateDashboard() {
                 light1,
             }
         }
-    } = useTheme()
+    }: any = useTheme()
 
     const dispatch = useDispatch()
 
@@ -380,10 +380,10 @@ function AffiliateDashboard() {
                     'border-red-700', 'border-0',
                 )}
             >
-                <Grid item xl="12" xs="12">
+                <Grid item xl={12} xs={12}>
                     <Table
                         title="Payment"
-                        onSelectionModelChange={(selected) =>
+                        onSelectionModelChange={(selected: any) =>
                             setSelectedClients(selected)
                         }
                         noRowsAction={() =>
