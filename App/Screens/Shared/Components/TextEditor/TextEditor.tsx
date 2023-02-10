@@ -5,9 +5,9 @@ import { Controller } from 'react-hook-form';
 function TextEditor({
     control,
     name,
-}) {
+}: any) {
 
-    const editorRef = useRef(null);
+    const editorRef: any = useRef(null);
 
     return (
         <Controller
@@ -26,7 +26,6 @@ function TextEditor({
                         height: 500,
                         width: '100%',
                         menubar: true,
-                        selector: "textarea",
                         plugins: [
                             'autolink',
                             'lists',

@@ -10,7 +10,7 @@ const AddItemContainer = styled(Box)(({ theme }) => {
         dialog: {
             main
         }
-    } = theme.palette || {}
+    }: any = theme.palette || {}
 
     return {
         backgroundColor: main,
@@ -22,7 +22,7 @@ const FormDivider = styled(MuiDivider)(({ theme: {
     palette: {
         tableSeparator,
     }
-} }) => {
+} }: any) => {
     return {
         backgroundColor: tableSeparator.dark,
         width: '100%',

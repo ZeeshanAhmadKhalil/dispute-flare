@@ -37,8 +37,7 @@ const columns = [
         headerClassName: 'separator-header',
         hidable: true,
         hide: false,
-        renderCell: ({ value }) =>
-            <DefaultCell value={value} />,
+        renderCell: DefaultCell,
     },
     {
         field: 'type',
@@ -47,8 +46,7 @@ const columns = [
         headerClassName: 'separator-header',
         hidable: true,
         hide: false,
-        renderCell: ({ value }) =>
-            <DefaultCell value={value} />,
+        renderCell: DefaultCell,
     },
     {
         field: 'status',
@@ -66,8 +64,7 @@ const columns = [
         headerClassName: 'separator-header',
         hidable: true,
         hide: false,
-        renderCell: ({ value }) =>
-            <DefaultCell value={value} />,
+        renderCell: DefaultCell,
     },
 
 
@@ -232,7 +229,7 @@ function Templates() {
             />
             <Table
                 title="templates"
-                onSelectionModelChange={(selected) =>
+                onSelectionModelChange={(selected: any) =>
                     setSelectedDocuments(selected)
                 }
                 noRowsAction={() =>

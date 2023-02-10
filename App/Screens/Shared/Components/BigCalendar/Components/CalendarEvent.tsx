@@ -4,7 +4,7 @@ import High from 'public/Assets/Svgs/high.svg';
 import Medium from 'public/Assets/Svgs/medium.svg';
 import Low from 'public/Assets/Svgs/low.svg';
 
-function CalendarEvent(props) {
+function CalendarEvent(props: any) {
 
     const {
         title,
@@ -19,7 +19,7 @@ function CalendarEvent(props) {
             text,
             event,
         }
-    } = useTheme()
+    }: any = useTheme()
 
 
     let background

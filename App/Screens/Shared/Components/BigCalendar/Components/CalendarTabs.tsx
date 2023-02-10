@@ -4,6 +4,9 @@ import MuiTab from '@mui/material/Tab'
 import MuiTabs from '@mui/material/Tabs'
 import Typography from '@mui/material/Typography'
 import PropTypes from 'prop-types'
+import {
+    Views
+} from 'react-big-calendar'
 
 const Tabs = styled(MuiTabs)(({ theme }) => {
 
@@ -66,9 +69,12 @@ function CalendarTabs({
     setView,
 }: any) {
 
-    const handleChange = (event: any, newValue: any) => {
+    const handleChange = (
+        event: any,
+        newValue: any
+    ) =>
         setView(newValue)
-    }
+
 
     return (
         <Box sx={{ width: '100%' }}>
@@ -79,15 +85,15 @@ function CalendarTabs({
             >
                 <Tab
                     label="Day"
-                    value={"day"}
+                    value={Views.DAY}
                 />
                 <Tab
                     label="Week"
-                    value={"week"}
+                    value={Views.WEEK}
                 />
                 <Tab
                     label="Month"
-                    value={"month"}
+                    value={Views.MONTH}
                 />
             </Tabs>
         </Box>

@@ -10,18 +10,22 @@ import MuiBox from '@mui/material/Box';
 import { useState } from 'react';
 import useWidth from 'App/Hooks/useWidth';
 
-const Box = styled(MuiBox, {
-    shouldForwardProp: (prop) => prop !== 'query',
-})(({ theme, query }) => ({
-    display: 'flex',
-    alignItems: 'center',
-    overflow: 'hidden',
-    transition: theme.transitions.create(['width'], {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.leavingScreen,
-    }),
-    width: query ? 50 : 0,
-}))
+const Box
+    = styled(MuiBox, {
+        shouldForwardProp: (prop) => prop !== 'query',
+    })(({
+        theme,
+        query
+    }: any) => ({
+        display: 'flex',
+        alignItems: 'center',
+        overflow: 'hidden',
+        transition: theme.transitions.create(['width'], {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen,
+        }),
+        width: query ? 50 : 0,
+    }))
 
 function Searcher() {
 
@@ -56,7 +60,9 @@ function Searcher() {
                 <SearchIcon />
             </IconButton>
             <Box
-                query={query}
+                {...{
+                    query: query
+                }}
             >
                 <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
                 <IconButton

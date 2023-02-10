@@ -6,7 +6,7 @@ function TaskActions({
     priority,
     setPriority,
     priorityList,
-}) {
+}: any) {
 
     const dispatch = useDispatch()
 

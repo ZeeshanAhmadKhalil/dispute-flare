@@ -8,7 +8,7 @@ function Tag({
     color,
     name,
     onClick,
-}) {
+}: any) {
 
     const {
         palette

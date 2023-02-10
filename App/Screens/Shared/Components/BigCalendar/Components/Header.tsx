@@ -1,14 +1,14 @@
-import { Box, Typography, useTheme } from "@mui/material"
+import { Typography, useTheme } from "@mui/material"
 
 function Header({
     label
-}) {
+}: any) {
 
     const {
         palette: {
             text,
         }
-    } = useTheme()
+    }: any = useTheme()
 
     return (
         <Typography

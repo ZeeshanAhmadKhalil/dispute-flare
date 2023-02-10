@@ -3,7 +3,7 @@ import { Typography } from '@mui/material';
 function StyledCell({
     value,
     styles,
-}) {
+}: any) {
 
     return (
         <Typography

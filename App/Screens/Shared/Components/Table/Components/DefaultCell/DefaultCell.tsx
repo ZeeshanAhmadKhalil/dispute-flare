@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material"
 
-function DefaultCell({ value }) {
+function DefaultCell({ value }: any) {
     return (
         <Typography
             variant="caption"

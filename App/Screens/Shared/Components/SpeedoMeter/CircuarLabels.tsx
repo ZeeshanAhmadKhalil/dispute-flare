@@ -28,25 +28,32 @@ function CircuarLabels({
     style,
 }: any) {
 
-    let labelCount = 0
-
     const turns = 1 / count;
-    return [...Array(count)].map((index: any) => {
 
-        if (index <= 3 || index == 9)
-            return (
-                <Label
-                    turns={index * turns}
-                    style={style}
-                    label={
-                        labels.find(
-                            (obj: any) =>
-                                obj.index == index
-                        )?.value
-                    }
-                />
-            )
-    })
+    const renderLabels =
+        [...Array(count)].map((index: any) => {
+
+            if (index <= 3 || index == 9)
+                return (
+                    <Label
+                        turns={index * turns}
+                        style={style}
+                        label={
+                            labels.find(
+                                (obj: any) =>
+                                    obj.index == index
+                            )?.value
+                        }
+                    />
+                )
+        })
+
+
+    return (
+        <>
+            {renderLabels}
+        </>
+    )
 }
 
 export default CircuarLabels;

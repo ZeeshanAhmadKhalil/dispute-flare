@@ -14,7 +14,7 @@ function LineChart() {
                 light1,
             }
         }
-    } = useTheme()
+    }: any = useTheme()
 
     const data = [
         [
@@ -31,7 +31,7 @@ function LineChart() {
         [new Date(2014, 1, 2, 8, 0, 0), 350, 350],
     ];
 
-    const options = {
+    const options: any = {
         height: 500,
         backgroundColor: {
             fill: 'transparent'

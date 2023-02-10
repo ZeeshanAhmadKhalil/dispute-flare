@@ -3,15 +3,20 @@ import {
     Typography,
     useTheme
 } from '@mui/material';
+
 export default function RequiredMark() {
 
     const {
         palette: {
             cancelled
         }
-    } = useTheme()
+    }: any = useTheme()
 
-    return <Typography color={cancelled.main} variant='span'>
-        *
-    </Typography>
+    return (
+        <Typography
+            color={cancelled.main}
+        >
+            *
+        </Typography>
+    )
 }
