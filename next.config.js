@@ -18,10 +18,6 @@ const nextConfig = {
     return config;
   },
   reactStrictMode: false,
-  images: {
-    loader: 'akamai',
-    path: '/',
-  },
 }
 
 module.exports = nextConfig
