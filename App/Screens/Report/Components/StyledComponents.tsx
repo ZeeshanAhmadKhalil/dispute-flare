@@ -9,7 +9,7 @@ const Container = styled(Box)(({ theme }) => {
         background: {
             main,
         }
-    } = theme.palette
+    }: any = theme.palette
 
     return {
         backgroundColor: main,
@@ -29,7 +29,7 @@ const ShadowCard = styled(Box)(({ theme }) => {
         shadow: {
             main,
         },
-    } = theme.palette
+    }: any = theme.palette
 
     return {
         boxShadow: `0px 2px 7px -3px ${main}`,

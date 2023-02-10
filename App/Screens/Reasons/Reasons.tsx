@@ -5,7 +5,7 @@ import TitleHeader from '@Components/TitleHeader/TitleHeader';
 import TopTabs from '@Components/TopTabs/TopTabs';
 import { getId } from '@Config/helper';
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import AddReasonDialog from './Components/AddReason/AddReasonDialog';
 import ReasonsAction from './Components/ReasonActions';
 import Title from './Components/Title';
@@ -153,7 +153,7 @@ function Reasons() {
             />
             <Table
                 title="reasons"
-                onSelectionModelChange={(selected) =>
+                onSelectionModelChange={(selected: any) =>
                     setSelectedReasons(selected)
                 }
                 noRowsAction={() =>

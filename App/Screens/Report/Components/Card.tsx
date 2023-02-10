@@ -12,7 +12,7 @@ function Card({
     name,
     value,
     newPoints,
-}) {
+}: any) {
 
     const {
         palette: {
@@ -22,7 +22,7 @@ function Card({
             active,
             cancelled,
         }
-    } = useTheme()
+    }: any = useTheme()
 
     return (
         <ShadowCard

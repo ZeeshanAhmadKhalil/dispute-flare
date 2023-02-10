@@ -11,7 +11,7 @@ function Tile({
     value,
     name,
     nameColor,
-}) {
+}: any) {
 
     const {
         palette: {
@@ -19,7 +19,7 @@ function Tile({
                 xGrey3,
             },
         }
-    } = useTheme()
+    }: any = useTheme()
 
     return (
         <ShadowCard

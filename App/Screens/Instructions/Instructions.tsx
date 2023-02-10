@@ -149,7 +149,7 @@ function Instructions() {
             />
             <Table
                 title="instructions"
-                onSelectionModelChange={(selected) =>
+                onSelectionModelChange={(selected: any) =>
                     setSelectedInstructions(selected)
                 }
                 noRowsAction={() =>

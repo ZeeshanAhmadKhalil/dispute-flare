@@ -37,7 +37,7 @@ function CreditScoreReport() {
             hidable: true,
             renderCell: ({
                 value
-            }) =>
+            }: any) =>
                 <StyledCell
                     value={value}
                     styles={{
@@ -220,7 +220,7 @@ function CreditScoreReport() {
             },
             tableHeader,
         }
-    } = useTheme()
+    }: any = useTheme()
 
     const [transunion, setTransunion] = useState(0)
     const [experian, setExperian] = useState(0)
@@ -328,8 +328,8 @@ function CreditScoreReport() {
             >
                 <Grid
                     item
-                    xs="12"
-                    lg="4"
+                    xs={12}
+                    lg={4}
                     className={cls(
                         'flex',
                         'justify-center',
@@ -344,8 +344,8 @@ function CreditScoreReport() {
                 </Grid>
                 <Grid
                     item
-                    xs="12"
-                    lg="4"
+                    xs={12}
+                    lg={4}
                     className={cls(
                         'flex',
                         'justify-center',
@@ -360,8 +360,8 @@ function CreditScoreReport() {
                 </Grid>
                 <Grid
                     item
-                    xs="12"
-                    lg="4"
+                    xs={12}
+                    lg={4}
                     className={cls(
                         'flex',
                         'justify-center',
@@ -412,9 +412,9 @@ function CreditScoreReport() {
             >
                 <Grid
                     item
-                    xl2="3"
-                    md1="6"
-                    xs="12"
+                    xl2={3}
+                    md1={6}
+                    xs={12}
                     className={cls(
                         'flex',
                         'justify-center',
@@ -429,9 +429,9 @@ function CreditScoreReport() {
                 </Grid>
                 <Grid
                     item
-                    xl2="3"
-                    md1="6"
-                    xs="12"
+                    xl2={3}
+                    md1={6}
+                    xs={12}
                     className={cls(
                         'flex',
                         'justify-center',
@@ -446,9 +446,9 @@ function CreditScoreReport() {
                 </Grid>
                 <Grid
                     item
-                    xl2="3"
-                    md1="6"
-                    xs="12"
+                    xl2={3}
+                    md1={6}
+                    xs={12}
                     className={cls(
                         'flex',
                         'justify-center',
@@ -463,9 +463,9 @@ function CreditScoreReport() {
                 </Grid>
                 <Grid
                     item
-                    xl2="3"
-                    md1="6"
-                    xs="12"
+                    xl2={3}
+                    md1={6}
+                    xs={12}
                     className={cls(
                         'flex',
                         'justify-center',

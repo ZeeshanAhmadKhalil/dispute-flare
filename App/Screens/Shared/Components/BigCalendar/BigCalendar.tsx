@@ -21,14 +21,14 @@ const localizer = momentLocalizer(moment)
 
 const BigCalendar = ({
     events
-}) => {
+}: any) => {
 
     const {
         palette: {
             background,
             text,
         }
-    } = useTheme()
+    }: any = useTheme()
 
     const [view, setView] = useState('month')
 

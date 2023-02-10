@@ -1,14 +1,14 @@
 import {
-    Box, Typography,
-    useTheme, styled
-} from '@mui/material'
-import React from 'react'
+    Box,
+    styled,
+    Typography,
+    useTheme
+} from '@mui/material';
 import FileSingle from './FileSingle';
 
 
 const Container = styled(Box)(() => {
     return {
-        textOrientation: "sideways-right",
         WebkitTransform: "rotate(180deg)",
         textAlign: "center",
         writingMode: "vertical-rl",

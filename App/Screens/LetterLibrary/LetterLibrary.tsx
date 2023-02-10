@@ -178,10 +178,6 @@ function LetterLibrary() {
 
     const dispatch = useDispatch()
 
-    const {
-        selectedClientId
-    } = useSelector(state => state.shared)
-
     const [selectedLetterFlows, setSelectedLetterFlows] = useState([])
 
     return (
@@ -200,7 +196,7 @@ function LetterLibrary() {
             />
             <Table
                 title="Letter Flow"
-                onSelectionModelChange={(selected) =>
+                onSelectionModelChange={(selected: any) =>
                     setSelectedLetterFlows(selected)
                 }
                 noRowsAction={() =>

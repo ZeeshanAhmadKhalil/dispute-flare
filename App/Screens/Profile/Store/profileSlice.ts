@@ -9,10 +9,10 @@ const profileSlice = createSlice({
         importprofileDialog: false,
     },
     reducers: {
-        setProfileDialogMain: (state, action) => {
+        setProfileDialogMain: (state: any, action) => {
             state.profileDialogMain = action.payload
         },
-        setColumnVisibility: (state, action) => {
+        setColumnVisibility: (state: any, action) => {
 
             const { field, hide } = action.payload || {}
 
@@ -25,14 +25,14 @@ const profileSlice = createSlice({
 
             state.columns = columns
         },
-        setAllColumnsVisibility: (state, action) => {
+        setAllColumnsVisibility: (state: any, action) => {
 
             const { hide } = action.payload || {}
 
             state.columns
                 = state
                     .columns
-                    .map(obj => ({
+                    .map((obj: any) => ({
                         ...obj,
                         hide:
                             obj.hidable ?
@@ -42,11 +42,11 @@ const profileSlice = createSlice({
                     }))
 
         },
-        setDefaultColumnsVisibility: (state, action) => {
+        setDefaultColumnsVisibility: (state: any, action) => {
             state.columns
                 = state
                     .columns
-                    .map(obj => ({
+                    .map((obj: any) => ({
                         ...obj,
                         hide:
                             state.defaultColumns.includes(obj.field) ?
